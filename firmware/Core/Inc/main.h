@@ -13,9 +13,9 @@
  *   LED LD2          PA5              вбудований зелений LED
  *   Кнопка B1        PC13             вбудована, активний рівень = 0
  *   I2C1 SCL/SDA     PB8/PB9  D15/D14 MPU-6050 (опційно) + SCCB камери OV7670
- *   SPI2 SCK         PB13             W25Q32 CLK
- *   SPI2 MISO        PB14             W25Q32 DO
- *   SPI2 MOSI        PB15             W25Q32 DI
+ *   SPI2 SCK         PB13             W25Q64 CLK
+ *   SPI2 MISO        PB14             W25Q64 DO
+ *   SPI2 MOSI        PB15             W25Q64 DI
  *   Flash CS         PB12             звичайний GPIO, керуємо вручну
  *   ADC1_IN0 (TL)    PA0      A0      фоторезистор, верхній-лівий квадрант
  *   ADC1_IN1 (TR)    PA1      A1      фоторезистор, верхній-правий квадрант
