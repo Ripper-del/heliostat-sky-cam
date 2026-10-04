@@ -17,8 +17,8 @@ int ov7670_probe(uint8_t *pid, uint8_t *ver);
 /* --- w25q_probe.c --- */
 int w25q_read_jedec(uint8_t id[3]);               /* команда 0x9F */
 
-/* --- photoresistor.c --- */
-uint16_t photoresistor_read_raw(void);            /* 0..4095 */
+/* --- quadrant_photoresistors.c --- */
+void quadrant_read_raw(uint16_t out[4]);          /* [TL, TR, BL, BR], кожен 0..4095 */
 uint32_t photoresistor_raw_to_mv(uint16_t raw);
 
 /* --- selftest.c --- */
