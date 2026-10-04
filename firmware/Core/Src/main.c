@@ -1,12 +1,17 @@
 /**
  * @file    main.c
- * @brief   ЛР1: bring-up STM32 — UART-лог, LED, кнопка, I2C/SPI/ADC + перевірка датчиків.
+ * @brief   ЛР1: bring-up STM32 (проєкт Heliostat) — UART-лог, LED, кнопка,
+ *          I2C/SPI/ADC(x4)/TIM3-PWM + перевірка датчиків.
  *
  * Що робить прошивка:
- *   1. Налаштовує тактування, USART2, GPIO, I2C1, SPI2, ADC1, MCO1 (XCLK для камери).
+ *   1. Налаштовує тактування, USART2, GPIO, I2C1, SPI2, ADC1 (4 канали квадранта),
+ *      TIM3 (PWM 50 Гц для серво азимуту/елевації, лише ініціалізація), MCO1 (XCLK камери).
  *   2. Друкує банер і результат кожної ініціалізації (HAL_OK / помилка).
- *   3. Одноразово перевіряє датчики (self-test): I2C-скан, MPU-6050, OV7670, W25Q, фоторезистор.
- *   4. У нескінченному циклі: блимає LED, щосекунди друкує "tick" + ADC, реагує на кнопку.
+ *   3. Одноразово перевіряє датчики (self-test): I2C-скан, MPU-6050, OV7670, W25Q, квадрант фоторезисторів.
+ *   4. У нескінченному циклі: блимає LED, щосекунди друкує "tick" + 4 канали ADC, реагує на кнопку.
+ *
+ * Серво у ЛР1 лише отримують PWM-сигнал нейтрального положення (SERVO_CENTER_US) —
+ * алгоритм наведення за квадрантом це завдання наступних ЛР (див. docs/PRD.md).
  */
 #include <stdio.h>
 #include "main.h"
@@ -18,8 +23,8 @@ ADC_HandleTypeDef  hadc1;
 
 /* Слабкі (weak) заглушки: ядро збирається саме по собі. Коли додано каталог App/,
  * його справжні реалізації з тими самими іменами переозначають ці заглушки. */
-__attribute__((weak)) void     selftest_run_all(void)        { printf("[app ] no sensor probes linked\r\n"); }
-__attribute__((weak)) uint16_t photoresistor_read_raw(void)  { return 0; }
+__attribute__((weak)) void selftest_run_all(void) { printf("[app ] no sensor probes linked\r\n"); }
+__attribute__((weak)) void quadrant_read_raw(uint16_t out[4]) { out[0] = out[1] = out[2] = out[3] = 0; }
 
 static void SystemClock_Config(void);
 static HAL_StatusTypeDef MX_GPIO_Init(void);
@@ -27,6 +32,7 @@ static HAL_StatusTypeDef MX_USART2_UART_Init(void);
 static HAL_StatusTypeDef MX_I2C1_Init(void);
 static HAL_StatusTypeDef MX_SPI2_Init(void);
 static HAL_StatusTypeDef MX_ADC1_Init(void);
+static HAL_StatusTypeDef MX_TIM3_PWM_Init(void);
 static void MX_MCO1_Init(void);
 
 static void report_init(const char *name, HAL_StatusTypeDef st)
@@ -50,6 +56,8 @@ int main(void)
     report_init("I2C1",   MX_I2C1_Init());
     report_init("SPI2",   MX_SPI2_Init());
     report_init("ADC1",   MX_ADC1_Init());
+    report_init("TIM3",   MX_TIM3_PWM_Init());
+    printf("[init] TIM3    : servo PWM 50 Hz, center=%uus (PA6=AZ, PA7=EL)\r\n", SERVO_CENTER_US);
     MX_MCO1_Init();
     printf("[init] MCO1    : XCLK 16 MHz on PA8\r\n");
 
@@ -71,9 +79,11 @@ int main(void)
         if (HAL_GetTick() - last_tick >= 1000) {
             last_tick = HAL_GetTick();
             seconds++;
-            printf("tick %lu  (uptime %lu s, light ADC=%u)\r\n",
+            uint16_t q[4];
+            quadrant_read_raw(q);
+            printf("tick %lu  (uptime %lu s, TL=%u TR=%u BL=%u BR=%u)\r\n",
                    (unsigned long)HAL_GetTick(), (unsigned long)seconds,
-                   (unsigned)photoresistor_read_raw());
+                   (unsigned)q[0], (unsigned)q[1], (unsigned)q[2], (unsigned)q[3]);
         }
     }
 }
@@ -136,6 +146,15 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
 
     g.Pin = BTN_PIN; g.Mode = GPIO_MODE_INPUT; g.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(BTN_PORT, &g);
+
+    /* Квадрант фоторезисторів: аналогові входи ADC1_IN0/1/4 (PA0/1/4) та IN8 (PB0).
+     * Явно переводимо в Analog, хоч це й режим за замовчуванням після Reset. */
+    g.Mode = GPIO_MODE_ANALOG; g.Pull = GPIO_NOPULL;
+    g.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_4;
+    HAL_GPIO_Init(GPIOA, &g);
+    g.Pin = GPIO_PIN_0;
+    HAL_GPIO_Init(GPIOB, &g);
+
     return HAL_OK;
 }
 
@@ -204,6 +223,53 @@ static HAL_StatusTypeDef MX_ADC1_Init(void)
     ch.Rank         = 1;
     ch.SamplingTime = ADC_SAMPLETIME_84CYCLES;       /* довгий час семплу — високоомне джерело */
     return HAL_ADC_ConfigChannel(&hadc1, &ch);
+}
+
+/* TIM3 CH1/CH2 (PA6/PA7): PWM 50 Гц для серво азимуту та елевації.
+ *
+ * У цьому проєкті зі складу STM32Cube підключені лише потрібні модулі HAL
+ * (stm32f4xx_hal_tim.c відсутній, HAL_TIM_MODULE_ENABLED вимкнено в
+ * stm32f4xx_hal_conf.h) — тому таймер налаштовуємо напряму через регістри
+ * CMSIS (RM0383, розділ «General-purpose timers TIM2 to TIM5»), а не через
+ * HAL_TIM_PWM_*. GPIO як завжди йде через HAL_GPIO_Init.
+ *
+ * ЛР1: лише bring-up — таймер стартує і тримає обидва канали в нейтральному
+ * положенні (SERVO_CENTER_US). Керування кутом за даними квадранта — ЛР2+. */
+static HAL_StatusTypeDef MX_TIM3_PWM_Init(void)
+{
+    GPIO_InitTypeDef g = {0};
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    g.Pin       = GPIO_PIN_6 | GPIO_PIN_7;
+    g.Mode      = GPIO_MODE_AF_PP;
+    g.Pull      = GPIO_NOPULL;
+    g.Speed     = GPIO_SPEED_FREQ_LOW;
+    g.Alternate = GPIO_AF2_TIM3;
+    HAL_GPIO_Init(GPIOA, &g);
+
+    __HAL_RCC_TIM3_CLK_ENABLE();
+
+    /* TIM3CLK = 2*PCLK1 (бо APB1-дільник != 1) = SYSCLK -> ділимо до 1 МГц (1 тік = 1 мкс). */
+#if defined(STM32F446xx)
+    TIM3->PSC = 84 - 1;     /* 84 МГц / 84 = 1 МГц */
+#else
+    TIM3->PSC = 100 - 1;    /* 100 МГц / 100 = 1 МГц */
+#endif
+    TIM3->ARR = 20000 - 1;  /* 20000 тіків по 1 мкс = 20 мс = 50 Гц */
+
+    /* PWM-режим 1 (OCxM = 110) + preload на CH1 (азимут) та CH2 (елевація). */
+    TIM3->CCMR1 = (TIM3->CCMR1 & ~(TIM_CCMR1_OC1M | TIM_CCMR1_OC2M))
+                | (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1) | TIM_CCMR1_OC1PE
+                | (TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2M_1) | TIM_CCMR1_OC2PE;
+
+    TIM3->CCR1 = SERVO_CENTER_US;   /* нейтральне положення азимуту */
+    TIM3->CCR2 = SERVO_CENTER_US;   /* нейтральне положення елевації */
+
+    TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E;
+    TIM3->CR1  |= TIM_CR1_ARPE;
+    TIM3->EGR   = TIM_EGR_UG;       /* застосувати PSC/ARR/CCR до старту */
+    TIM3->CR1  |= TIM_CR1_CEN;
+
+    return HAL_OK;
 }
 
 /* MCO1 на PA8: виводимо 16 МГц (HSI) як XCLK для OV7670. Без цього камера мовчить на I2C. */
