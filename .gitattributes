@@ -1,0 +1,5 @@
+# Всегда LF, иначе на Windows Makefile/.ld/.s ломаются в Docker (символ \r)
+* text=auto eol=lf
+*.bat text eol=crlf
+*.png binary
+*.pdf binary
