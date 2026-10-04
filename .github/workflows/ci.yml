@@ -1,0 +1,22 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t stm32-build docker/
+      - name: Build firmware (F411)
+        run: make build BOARD=F411
+      - name: Build firmware (F446)
+        run: make clean && make build BOARD=F446
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-f446
+          path: firmware/build/firmware.bin
