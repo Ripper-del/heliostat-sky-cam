@@ -62,13 +62,19 @@ void selftest_run_all(void)
         line("W25Q flash (SPI2)", 0, "SPI error");
     }
 
-    /* 5. ADC / фоторезистор */
-    uint16_t raw = photoresistor_read_raw();
-    total++;
-    snprintf(buf, sizeof buf, "raw=%u (%lu mV)", (unsigned)raw, (unsigned long)photoresistor_raw_to_mv(raw));
-    int adc_ok = (raw > 20 && raw < 4075);   /* не "прилипло" до 0 або до максимуму */
-    line("GM5528 photoresistor", adc_ok, buf);
-    if (adc_ok) pass++;
+    /* 5. ADC / квадрант фоторезисторів (TL, TR, BL, BR) */
+    uint16_t q[4];
+    quadrant_read_raw(q);
+    static const char *labels[4] = { "TL (PA0)", "TR (PA1)", "BL (PA4)", "BR (PB0)" };
+    for (int i = 0; i < 4; i++) {
+        total++;
+        snprintf(buf, sizeof buf, "raw=%u (%lu mV)", (unsigned)q[i], (unsigned long)photoresistor_raw_to_mv(q[i]));
+        char name[24];
+        snprintf(name, sizeof name, "GM5528 %s", labels[i]);
+        int adc_ok = (q[i] > 20 && q[i] < 4075);   /* не "прилипло" до 0 або до максимуму */
+        line(name, adc_ok, buf);
+        if (adc_ok) pass++;
+    }
 
     printf("--- RESULT: %d/%d PASS ---\r\n\r\n", pass, total);
 }
