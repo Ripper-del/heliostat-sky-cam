@@ -24,7 +24,7 @@
 
 | Учасник | Роль | Внесок (що саме зроблено) | Артефакти | Коміти / PR |
 |---------|------|----------------------------|-----------|-------------|
-| Андрій Плешу | DevOps + прошивка (ядро, датчики, PWM) | Docker-тулчейн, Makefile, CI, ядро прошивки (тактування, UART/_write, GPIO/I2C/SPI/ADC×4/TIM3-PWM init), проби датчиків (I²C scan, MPU-6050, OV7670, W25Q32, квадрант ADC), PRD, hardware-components.md | `docker/Dockerfile`, `Makefile`, `.github/workflows/ci.yml`, `firmware/Core/*`, `firmware/App/*`, `docs/PRD.md`, `docs/hardware-components.md` | PR [#1](https://github.com/Ripper-del/incident-recorder-lab1/pull/1), [#2](https://github.com/Ripper-del/incident-recorder-lab1/pull/2), [#3](https://github.com/Ripper-del/incident-recorder-lab1/pull/3), [#4](https://github.com/Ripper-del/incident-recorder-lab1/pull/4), [#5](https://github.com/Ripper-del/incident-recorder-lab1/pull/5) |
+| Андрій Плешу | DevOps + прошивка (ядро, датчики, PWM) | Docker-тулчейн, Makefile, CI, ядро прошивки (тактування, UART/_write, GPIO/I2C/SPI/ADC×4/TIM3-PWM init), проби датчиків (I²C scan, MPU-6050, OV7670, W25Q64, квадрант ADC), PRD, hardware-components.md | `docker/Dockerfile`, `Makefile`, `.github/workflows/ci.yml`, `firmware/Core/*`, `firmware/App/*`, `docs/PRD.md`, `docs/hardware-components.md` | PR [#1](https://github.com/Ripper-del/incident-recorder-lab1/pull/1), [#2](https://github.com/Ripper-del/incident-recorder-lab1/pull/2), [#3](https://github.com/Ripper-del/incident-recorder-lab1/pull/3), [#4](https://github.com/Ripper-del/incident-recorder-lab1/pull/4), [#5](https://github.com/Ripper-del/incident-recorder-lab1/pull/5) |
 | Тимур Варшавський | ⟦роль та внесок — заповнити після власних комітів⟧ | ⟦що саме зроблено⟧ | ⟦шляхи до файлів⟧ | ⟦комічі/PR з його GitHub-акаунта⟧ |
 
 На момент написання цього розділу всі коміти в репозиторії зроблено з акаунта Андрія Плешу
@@ -72,7 +72,7 @@
 * STM32CubeF4 HAL User Manual (UM1725) — ⟦URL⟧
 * MPU-6000/6050 Product Specification, Register Map — ⟦URL⟧
 * OV7670 datasheet / Implementation Guide — ⟦URL⟧
-* W25Q32 datasheet — ⟦URL⟧
+* W25Q64 datasheet — ⟦URL⟧
 * FT232R datasheet — ⟦URL⟧
 * ⟦інші: статті, відповіді, відео⟧
 

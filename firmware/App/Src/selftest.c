@@ -54,7 +54,7 @@ void selftest_run_all(void)
     uint8_t id[3] = {0};
     total++;
     if (w25q_read_jedec(id) == 0) {
-        snprintf(buf, sizeof buf, "JEDEC=%02X %02X %02X (expected EF 40 16/17)", id[0], id[1], id[2]);
+        snprintf(buf, sizeof buf, "JEDEC=%02X %02X %02X (expected EF 40 17)", id[0], id[1], id[2]);
         int ok = (id[0] == 0xEF);
         line("W25Q flash (SPI2)", ok, buf);
         if (ok) pass++;
