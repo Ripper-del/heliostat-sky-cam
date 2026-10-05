@@ -58,11 +58,24 @@
   залишкову нестабільність контактів, камеру й серво — для ЛР2. Деталі — `docs/problems.md`.
 
 ## 3.2 Збірка і Docker
-⟦Опис, що саме робить Dockerfile/Makefile і чому --user. Посилання на коміт.⟧
+`docker/Dockerfile` — образ на базі `ubuntu:22.04` з крос-компілятором
+`gcc-arm-none-eabi` (`arm-none-eabi-gcc`), `binutils-arm-none-eabi` (`objcopy`/`size`),
+`libnewlib-arm-none-eabi` (libc для bare-metal, потрібна для `printf`) та `srecord`.
+Кореневий `Makefile` (ціль `build`) монтує репозиторій у контейнер (`-v "$(CURDIR)":/workspace`)
+і запускає там `make -C firmware all`. Прапорець `--user $(id -u):$(id -g)` змушує компілятор
+усередині контейнера писати файли під тим самим UID/GID, що й користувач на хості — інакше
+`firmware/build/*` створювався б від імені `root` (бо процеси в контейнері за замовчуванням
+root) і потім не видалявся б і не редагувався б звичайним користувачем без `sudo`.
+Якщо образу `stm32-build` ще немає — `build` збирає його автоматично (`docker image inspect
+... || docker build ...`), тож `make image` не є обов'язковим окремим кроком.
+Коміт: [8df3169](https://github.com/Ripper-del/incident-recorder-lab1/commit/8df3169) (PR #1).
 
 ## 3.3 Конфігурація в CubeMX
-Скріншоти: ![Pinout](screenshots/cubemx-pinout.png) ![Clock](screenshots/cubemx-clock.png)
-⟦Які периферії увімкнено, чому саме ці піни, який SYSCLK.⟧
+У цьому ЛР1 CubeMX не використовувався — ініціалізація HAL (тактування, GPIO, USART2, I2C1,
+SPI2, ADC1, TIM3) написана вручну в `firmware/Core/Src/main.c` (функції `MX_*_Init`, за
+стилем ідентичні тому, що згенерував би CubeMX, але без самого `.ioc`-файлу). Відповідно до
+підтвердження викладача, для ЛР1 обов'язковим є лише UART-логер — bring-up виконано і
+перевірено без CubeMX.
 
 ## 3.4 Перший вивід по UART
 ![UART](screenshots/uart-first-output.png)
