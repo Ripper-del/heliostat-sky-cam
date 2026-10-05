@@ -1,18 +1,5 @@
-/**
- * @file    main.c
- * @brief   ЛР1: bring-up STM32 (проєкт Heliostat) — UART-лог, LED, кнопка,
- *          I2C/SPI/ADC(x4)/TIM3-PWM + перевірка датчиків.
- *
- * Що робить прошивка:
- *   1. Налаштовує тактування, USART2, GPIO, I2C1, SPI2, ADC1 (4 канали квадранта),
- *      TIM3 (PWM 50 Гц для серво азимуту/елевації, лише ініціалізація), MCO1 (XCLK камери).
- *   2. Друкує банер і результат кожної ініціалізації (HAL_OK / помилка).
- *   3. Одноразово перевіряє датчики (self-test): I2C-скан, MPU-6050, OV7670, W25Q, квадрант фоторезисторів.
- *   4. У нескінченному циклі: блимає LED, щосекунди друкує "tick" + 4 канали ADC, реагує на кнопку.
- *
- * Серво у ЛР1 лише отримують PWM-сигнал нейтрального положення (SERVO_CENTER_US) —
- * алгоритм наведення за квадрантом це завдання наступних ЛР (див. docs/PRD.md).
- */
+/* ЛР1, проєкт "Геліостат". Серво тут тільки тримають нейтральне положення —
+ * алгоритм наведення за квадрантом буде в наступних ЛР (docs/PRD.md). */
 #include <stdio.h>
 #include "main.h"
 
@@ -52,7 +39,7 @@ int main(void)
     printf(" STM32 bring-up | LR1 | build %s %s\r\n", __DATE__, __TIME__);
     printf(" SYSCLK = %lu Hz\r\n", (unsigned long)HAL_RCC_GetSysClockFreq());
     printf("=====================================\r\n");
-    report_init("USART2", HAL_OK);          /* якщо ви це читаєте — UART працює */
+    report_init("USART2", HAL_OK);
     report_init("I2C1",   MX_I2C1_Init());
     report_init("SPI2",   MX_SPI2_Init());
     report_init("ADC1",   MX_ADC1_Init());
@@ -228,15 +215,8 @@ static HAL_StatusTypeDef MX_ADC1_Init(void)
 }
 
 /* TIM3 CH1/CH2 (PA6/PA7): PWM 50 Гц для серво азимуту та елевації.
- *
- * У цьому проєкті зі складу STM32Cube підключені лише потрібні модулі HAL
- * (stm32f4xx_hal_tim.c відсутній, HAL_TIM_MODULE_ENABLED вимкнено в
- * stm32f4xx_hal_conf.h) — тому таймер налаштовуємо напряму через регістри
- * CMSIS (RM0383, розділ «General-purpose timers TIM2 to TIM5»), а не через
- * HAL_TIM_PWM_*. GPIO як завжди йде через HAL_GPIO_Init.
- *
- * ЛР1: лише bring-up — таймер стартує і тримає обидва канали в нейтральному
- * положенні (SERVO_CENTER_US). Керування кутом за даними квадранта — ЛР2+. */
+ * stm32f4xx_hal_tim.c у проєкті немає (підключені лише потрібні модулі HAL),
+ * тому таймер піднімаємо напряму через регістри CMSIS (RM0383), без HAL_TIM_*. */
 static HAL_StatusTypeDef MX_TIM3_PWM_Init(void)
 {
     GPIO_InitTypeDef g = {0};
@@ -263,8 +243,8 @@ static HAL_StatusTypeDef MX_TIM3_PWM_Init(void)
                 | (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1) | TIM_CCMR1_OC1PE
                 | (TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2M_1) | TIM_CCMR1_OC2PE;
 
-    TIM3->CCR1 = SERVO_CENTER_US;   /* нейтральне положення азимуту */
-    TIM3->CCR2 = SERVO_CENTER_US;   /* нейтральне положення елевації */
+    TIM3->CCR1 = SERVO_CENTER_US;   /* CH1 = азимут */
+    TIM3->CCR2 = SERVO_CENTER_US;   /* CH2 = елевація */
 
     TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E;
     TIM3->CR1  |= TIM_CR1_ARPE;
