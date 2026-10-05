@@ -174,7 +174,8 @@ static HAL_StatusTypeDef MX_USART2_UART_Init(void)
 static HAL_StatusTypeDef MX_I2C1_Init(void)
 {
     hi2c1.Instance             = I2C1;
-    hi2c1.Init.ClockSpeed      = 100000;          /* Standard Mode 100 кГц */
+    hi2c1.Init.ClockSpeed      = 50000;           /* 50 кГц — повільніше за Standard Mode 100 кГц,
+                                                      стійкіше до довгих/шумних проводів на макетці */
     hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_2;
     hi2c1.Init.OwnAddress1     = 0;
     hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;
@@ -194,7 +195,8 @@ static HAL_StatusTypeDef MX_SPI2_Init(void)
     hspi2.Init.CLKPolarity       = SPI_POLARITY_LOW;   /* SPI mode 0: CPOL=0 */
     hspi2.Init.CLKPhase          = SPI_PHASE_1EDGE;    /*             CPHA=0 */
     hspi2.Init.NSS               = SPI_NSS_SOFT;       /* CS керуємо вручну (PB12) */
-    hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16; /* APB1/16 ~ 3 МГц — безпечно для старту */
+    hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128; /* APB1/128 ~ 390 кГц — повільно,
+                                                      щоб пробачити довгі/шумні проводи на макетці */
     hspi2.Init.FirstBit          = SPI_FIRSTBIT_MSB;
     hspi2.Init.TIMode            = SPI_TIMODE_DISABLE;
     hspi2.Init.CRCCalculation    = SPI_CRCCALCULATION_DISABLE;
