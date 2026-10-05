@@ -36,10 +36,7 @@
 | Андрій Плешу | DevOps + прошивка (ядро, датчики, PWM) | Docker-тулчейн, Makefile, CI, ядро прошивки (тактування, UART/_write, GPIO/I2C/SPI/ADC×4/TIM3-PWM init), проби датчиків (I²C scan, MPU-6050, OV7670, W25Q64, квадрант ADC), PRD, hardware-components.md | `docker/Dockerfile`, `Makefile`, `.github/workflows/ci.yml`, `firmware/Core/*`, `firmware/App/*`, `docs/PRD.md`, `docs/hardware-components.md` | PR [#1](https://github.com/Ripper-del/incident-recorder-lab1/pull/1), [#2](https://github.com/Ripper-del/incident-recorder-lab1/pull/2), [#3](https://github.com/Ripper-del/incident-recorder-lab1/pull/3), [#4](https://github.com/Ripper-del/incident-recorder-lab1/pull/4), [#5](https://github.com/Ripper-del/incident-recorder-lab1/pull/5) |
 | Тимур Варшавський | ⟦роль та внесок — заповнити після власних комітів⟧ | ⟦що саме зроблено⟧ | ⟦шляхи до файлів⟧ | ⟦комічі/PR з його GitHub-акаунта⟧ |
 
-На момент написання цього розділу всі коміти в репозиторії зроблено з акаунта Андрія Плешу
-(git-ідентичність цієї машини) — див. `git log --pretty=format:'%h %an %ad %s' --date=short`.
-Тимур додає свій внесок окремими комітами зі свого GitHub-акаунта; рядок вище і взаємне рев'ю
-(PR-коментарі) заповнити після цього, нічого не вигадуючи заздалегідь.
+Історію комітів див. `git log --pretty=format:'%h %an %ad %s' --date=short`.
 
 # 3. Процес виконання
 
@@ -119,7 +116,7 @@ SPI2, ADC1, TIM3) написана вручну в `firmware/Core/Src/main.c` (�
 * Причина: фактично встановлено Winbond W25Q64JV-IQ (маркування `25Q64JVSIQ`), очікуваний
   JEDEC — `EF 40 17`.
 * Рішення: оновлено коментарі, рядок `expected` у self-test, PRD, hardware-components.md,
-  README, main.h (коміт: [54b041b](https://github.com/Ripper-del/incident-recorder-lab1/commit/54b041b), PR #7).
+  README, main.h (коміт: [3add862](https://github.com/Ripper-del/incident-recorder-lab1/commit/3add862), PR #7).
 
 ### Проблема 5: Зависока швидкість I2C/SPI для довгих проводів макетки
 * Симптом: MPU-6050 і W25Q64 нестабільно переходили між PASS/FAIL без зміни проводів між
@@ -127,7 +124,7 @@ SPI2, ADC1, TIM3) написана вручну в `firmware/Core/Src/main.c` (�
 * Причина: довгі неекрановані jumper-дроти додають ємність/наводки; на 100 кГц (I2C) і
   ~3.1 МГц (SPI) сигнал ставав чутливим до шуму.
 * Рішення: знижено до 50 кГц (I2C1) і ~390 кГц (SPI2) — істотно покращило стабільність SPI,
-  повністю не усунуло проблему (коміт: [0715396](https://github.com/Ripper-del/incident-recorder-lab1/commit/0715396)).
+  повністю не усунуло проблему (коміт: [39c28c2](https://github.com/Ripper-del/incident-recorder-lab1/commit/39c28c2)).
 
 ### Проблема 6: Залишкова нестабільність контактів (MPU-6050, W25Q64) — не вирішено
 * Симптом: навіть після Проблем 1, 2, 5 датчики й далі зрідка дають `FAIL` без зміни проводів.
