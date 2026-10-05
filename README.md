@@ -22,6 +22,7 @@
 git clone <URL цього репозиторію>
 cd incident-recorder-lab1
 
+
 make image      # один раз: зібрати Docker-образ з тулчейном
 make build      # компіляція в Docker -> firmware/build/firmware.{elf,hex,bin}
 make flash      # прошивка через ST-Link (потрібен stlink-tools: brew install stlink)
