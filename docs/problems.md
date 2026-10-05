@@ -46,7 +46,7 @@ SDA — у D15, замість навпаки).
 `docs/PRD.md`, `docs/hardware-components.md`, `docs/report.md`, `README.md`, `main.h` —
 усі згадки W25Q32/`EF 40 16` замінено на W25Q64/`EF 40 17`. Логіку PASS/FAIL (перевірку
 лише першого байта `0xEF`) не змінювали.
-Коміт: [54b041b](https://github.com/Ripper-del/incident-recorder-lab1/commit/54b041b) (PR #7).
+Коміт: [3add862](https://github.com/Ripper-del/incident-recorder-lab1/commit/3add862) (PR #7).
 Дата: 2026-10-05
 
 ### Проблема 5: I2C1 (100 кГц) та SPI2 (~3.1 МГц) занадто швидкі для довгих проводів макетки
@@ -61,7 +61,7 @@ SDA — у D15, замість навпаки).
 `SPI_BAUDRATEPRESCALER_128` (~390 кГц). Це істотно підвищило стабільність SPI-флешу
 (кілька прошивок підряд з коректним JEDEC), проте повністю не усунуло нестабільність —
 див. Проблему 6.
-Коміт: [0715396](https://github.com/Ripper-del/incident-recorder-lab1/commit/0715396).
+Коміт: [39c28c2](https://github.com/Ripper-del/incident-recorder-lab1/commit/39c28c2).
 Дата: 2026-10-05
 
 ### Проблема 6: Залишкова нестабільність контактів макетної плати (MPU-6050, W25Q64)
