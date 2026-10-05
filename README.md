@@ -71,7 +71,7 @@ docs/screenshots/            скріншоти CubeMX, UART, логічного
 
 ## Піни
 
-Дивись `firmware/Core/Inc/main.h` та `docs/hardware-components.md`.
+Дивитись `firmware/Core/Inc/main.h` та `docs/hardware-components.md`.
 
 | Сигнал | Пін | Призначення |
 |--------|-----|-------------|
