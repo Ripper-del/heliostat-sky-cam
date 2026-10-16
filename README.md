@@ -1,4 +1,4 @@
-# Геліостат з камерою класифікації неба — ЛР1: bring-up STM32
+# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів
 
 Навчальний проєкт з курсу «Системне програмування вбудованих систем».
 Платформа: NUCLEO-F411RE / F446RE, STM32 HAL, C, збірка в Docker.
@@ -27,6 +27,9 @@ make image      # один раз: зібрати Docker-образ з тулч�
 make build      # компіляція в Docker -> firmware/build/firmware.{elf,hex,bin}
 make flash      # прошивка через ST-Link (потрібен stlink-tools: brew install stlink)
 make monitor    # UART-термінал 115200 8N1 (picocom; на macOS: brew install picocom)
+make test       # хостові тести (Docker, gcc), без плати
+make coverage   # тести + поріг покриття 90 % (gcov)
+make check-deps # перевірка правила залежностей між шарами
 ```
 
 Для F446RE: `make build BOARD=F446`.
@@ -53,25 +56,36 @@ USART2/I2C1/SPI2/ADC1(×4)/TIM3-PWM, блок `SELFTEST` (MPU-6050, OV7670, W25Q
 ## Структура репозиторію
 
 ```
-docker/Dockerfile            образ тулчейну (ubuntu:22.04 + arm-none-eabi-gcc)
-Makefile                     обгортка: image / build / flash / monitor / clean
+docker/Dockerfile            образ тулчейну (ubuntu:22.04 + arm-none-eabi-gcc, gcc для тестів)
+Makefile                     обгортка: image / build / flash / monitor / test / coverage / check-deps / clean
 scripts/readlog.py           читання UART-логу без термінала (pyserial)
-scripts/build.bat            Windows: збірка в Docker
-scripts/flash.bat            Windows: копіювання firmware.bin на диск NODE_F411RE
-firmware/                    проєкт STM32 (HAL)
-  Core/                      main, тактування, MSP (піни), syscalls (printf -> UART)
-  App/                       проби датчиків (I²C scan, MPU-6050, OV7670, W25Q, квадрант ADC)
-  Drivers/                   HAL та CMSIS від ST
-docs/PRD.md                  вимоги до продукту (геліостат + камера)
+scripts/check_deps.py        перевірка правила залежностей між шарами (в CI)
+firmware/                    проєкт STM32 (HAL), шарова структура
+  Core/                      main, тактування, MSP, syscalls (printf -> UART)
+  Platform/                  board.h (піни), реалізація шин поверх HAL / bit-bang SCCB, ADC, серво
+  Devices/                   драйвери MPU-6050, W25Q64, OV7670 (залежать лише від bus.h)
+  App/                       квадрант, selftest, CLI, головний цикл (без HAL)
+  Drivers/                   HAL та CMSIS від ST (вендорені, версії: docs/versions.md)
+tests/                       хостові тести: fake/mock шин, вектори, покриття
+docs/PRD.md                  вимоги до продукту
 docs/hardware-components.md  дослідження компонентів
-docs/report.md                звіт ЛР1
-docs/screenshots/            скріншоти CubeMX, UART, логічного аналізатора
-.github/workflows/ci.yml     CI: збірка F411 та F446 на кожен PR
+docs/pinout.md               pinout, адреси, живлення, параметри шин, схема (ЛР2)
+docs/architecture.md         шари, правила залежностей, component diagram (ЛР2)
+docs/captures/               записи логічного аналізатора + аналіз (ЛР2)
+docs/lab2-report.md          звіт ЛР2;  docs/problems.md — журнал проблем
+docs/versions.md             версії HAL/CMSIS/тулчейну
+.github/workflows/ci.yml     CI: check-deps, тести+покриття, збірка F411 та F446
 ```
+
+## CLI (UART, 115200): символ у монітор запускає транзакцію для запису аналізатором
+
+`h` help · `s` selftest · `i` I²C scan · `m` MPU · `c` камера PID/VER · `f` JEDEC flash · `w` flash erase/write/read · `p` PWM 1000/2000 мкс · `a` ADC + маркер D13 (PA5) · `e` навмисний NACK (0x69) · `1`/`2` серво азимут/елевація · `x` XCLK on/off · `k` статистика I²C
+
+Скрипти: `scripts/sendcmd.py <символ>` — надіслати команду з комп'ютера (для запису аналізатором), `make decode` / `make check-captures` — розбір записів.
 
 ## Піни
 
-Дивитись `firmware/Core/Inc/main.h` та `docs/hardware-components.md`.
+Дивитись `docs/pinout.md` (повна таблиця) та `firmware/Platform/Inc/board.h`.
 
 | Сигнал | Пін | Призначення |
 |--------|-----|-------------|
@@ -79,6 +93,7 @@ docs/screenshots/            скріншоти CubeMX, UART, логічного
 | LED LD2 / кнопка B1 | PA5 / PC13 | вбудовані |
 | ADC1_IN0/1/4/8 (TL/TR/BL/BR) | PA0/PA1/PA4/PB0 | квадрант GM5528 |
 | TIM3 CH1/CH2 (AZ/EL) | PA6/PA7 | PWM 50 Гц, серво SG92R/SG90 (5V!) |
-| I2C1 SCL/SDA | PB8/PB9 | MPU-6050 (опційно) + SCCB камери OV7670 |
+| I2C1 SCL/SDA | PB8/PB9 | MPU-6050 (опційно) |
+| SCCB SIOC/SIOD (bit-bang) | PB10/PB4 (D6/D5) | камера OV7670 (SCCB ≠ I²C, див. docs/architecture.md) |
 | SPI2 SCK/MISO/MOSI, CS | PB13/PB14/PB15, PB12 | W25Q64 |
 | MCO1 (XCLK) | PA8 | тактовий сигнал OV7670 |

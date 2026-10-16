@@ -20,3 +20,7 @@ Thumbs.db
 *.gcov
 scripts/fixtures/*.txt
 docs/captures/*.txt.tmp
+# локальні робочі нотатки по записах аналізатора — не в репозиторій
+docs/captures/HOWTO.md
+docs/captures/README.md
+docs/captures/analysis.md
