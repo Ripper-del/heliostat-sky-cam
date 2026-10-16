@@ -15,3 +15,8 @@ Thumbs.db
 # відео та великі файли не кладемо в репозиторій
 *.mp4
 *.mov
+*.gcda
+*.gcno
+*.gcov
+scripts/fixtures/*.txt
+docs/captures/*.txt.tmp

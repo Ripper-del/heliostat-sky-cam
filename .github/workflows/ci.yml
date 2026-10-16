@@ -5,6 +5,19 @@ on:
     branches: [main]
 
 jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check layer dependencies
+        run: python3 scripts/check_deps.py
+      - name: Build Docker image
+        run: docker build -t stm32-build docker/
+      - name: Host tests + coverage threshold
+        run: make coverage
+      - name: Capture-analysis pipeline self-check (synthetic signals)
+        run: make check-pipeline
+
   build:
     runs-on: ubuntu-22.04
     steps:
