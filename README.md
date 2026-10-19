@@ -71,7 +71,7 @@ docs/PRD.md                  вимоги до продукту
 docs/hardware-components.md  дослідження компонентів
 docs/pinout.md               pinout, адреси, живлення, параметри шин, схема (ЛР2)
 docs/architecture.md         шари, правила залежностей, component diagram (ЛР2)
-docs/captures/               записи логічного аналізатора + аналіз (ЛР2)
+docs/captures/               записи логічного аналізатора (ЛР2); розбір — docs/analysis.md
 docs/lab2-report.md          звіт ЛР2;  docs/problems.md — журнал проблем
 docs/versions.md             версії HAL/CMSIS/тулчейну
 .github/workflows/ci.yml     CI: check-deps, тести+покриття, збірка F411 та F446
@@ -79,7 +79,7 @@ docs/versions.md             версії HAL/CMSIS/тулчейну
 
 ## CLI (UART, 115200): символ у монітор запускає транзакцію для запису аналізатором
 
-`h` help · `s` selftest · `i` I²C scan · `m` MPU · `c` камера PID/VER · `f` JEDEC flash · `w` flash erase/write/read · `p` PWM 1000/2000 мкс · `a` ADC + маркер D13 (PA5) · `e` навмисний NACK (0x69) · `1`/`2` серво азимут/елевація · `x` XCLK on/off · `k` статистика I²C
+`h` help · `s` selftest · `i` I²C scan · `m` MPU · `c` камера PID/VER · `f` JEDEC flash · `w` flash erase/write/read · `p` PWM 1000/2000 мкс · `a` ADC + маркер D13 (PA5) · `e` навмисний NACK (0x69) · `r` потік MPU 60 с · `1`/`2` серво азимут/елевація · `x` XCLK on/off · `k` статистика I²C
 
 Скрипти: `scripts/sendcmd.py <символ>` — надіслати команду з комп'ютера (для запису аналізатором), `make decode` / `make check-captures` — розбір записів.
 

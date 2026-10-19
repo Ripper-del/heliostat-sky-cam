@@ -135,7 +135,7 @@ const spi_bus_t *platform_spi2_flash(void) { return &spi2_bus; }
 
 /* ---------------- SCCB (OV7670), bit-bang ----------------
  * Чому не HAL_I2C: ACK-біт у SCCB "don't care", немає repeated-START, а PB4/PB10 не є піни I2C1.
- * Півперіод ~10 мкс => ~50 кГц; затримка по лічильнику DWT (не залежить від SYSCLK). */
+ * Кожна зміна лінії + 10 мкс затримки => на записі період ~31 мкс (~32 кГц); затримка по лічильнику DWT (не залежить від SYSCLK). */
 static void sccb_dly(void)
 {
     uint32_t t = DWT->CYCCNT, n = (SystemCoreClock / 1000000U) * 10U;
