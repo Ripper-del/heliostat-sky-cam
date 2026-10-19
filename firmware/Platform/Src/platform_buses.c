@@ -112,7 +112,21 @@ static int spi_xfer(void *ctx, const uint8_t *tx, uint8_t *rx, uint16_t len)
     HAL_StatusTypeDef st;
     if (tx && rx)  st = HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)tx, rx, len, 100);
     else if (tx)   st = HAL_SPI_Transmit(&hspi2, (uint8_t *)tx, len, 100);
-    else           st = HAL_SPI_Receive(&hspi2, rx, len, 100);
+    else {
+        /* Лише приймання: HAL_SPI_Receive у режимі master/2 лінії сам викликає TransmitReceive(rx, rx) і
+         * висилає на MOSI вміст буфера приймання (на аналізаторі було видно сміття: 08, 03 …).
+         * Тому явно висилаємо dummy 0xFF — детермінований MOSI. */
+        static const uint8_t dummy[32] = {
+            0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+            0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+        st = HAL_OK;
+        for (uint16_t off = 0; off < len && st == HAL_OK; ) {
+            uint16_t left = (uint16_t)(len - off);
+            uint16_t n = left > (uint16_t)sizeof dummy ? (uint16_t)sizeof dummy : left;
+            st = HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)dummy, rx + off, n, 100);
+            off = (uint16_t)(off + n);
+        }
+    }
     return st == HAL_OK ? DEV_OK : DEV_ERR_BUS;
 }
 
