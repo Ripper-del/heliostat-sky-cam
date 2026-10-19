@@ -16,5 +16,6 @@ void selftest_pwm_az(void);
 void selftest_pwm_el(void);
 void selftest_adc(void);
 void selftest_i2c_stress(void);
+void selftest_mpu_stream(void);   /* ~60 с I²C-трафіку для запису аналізатором */
 void selftest_i2c_nack(void);     /* навмисний NACK (адреса 0x69) для запису аномалії */
 #endif

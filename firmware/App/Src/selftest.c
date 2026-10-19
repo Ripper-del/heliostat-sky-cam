@@ -196,6 +196,21 @@ static int run_adc(void)
     return ok;
 }
 
+/* Потік I²C для запису аналізатором без точного збігу за часом: ~60 с читання MPU кожні 100 мс
+ * (WHO_AM_I + burst 6 Б). Можна ловити будь-яким вікном запису. */
+void selftest_mpu_stream(void)
+{
+    mpu6050_t d; mpu6050_init_dev(&d, platform_i2c1());
+    int ok = 0, n = 600;
+    printf("[st] MPU_STREAM start n=%d period_ms=100\r\n", n);
+    for (int i = 0; i < n; i++) {
+        uint8_t id = 0; mpu6050_raw_t a;
+        if (mpu6050_who_am_i(&d, &id) == DEV_OK && mpu6050_read_accel_raw(&d, &a) == DEV_OK) ok++;
+        platform_delay_ms(100);
+    }
+    printf("[st] MPU_STREAM done ok=%d/%d\r\n", ok, n);
+}
+
 /* Навмисна аномалія для п. 4.4 методички: звернення на адресу, якої немає (0x69 при AD0 = GND) — на шині NACK. */
 void selftest_i2c_nack(void)
 {
