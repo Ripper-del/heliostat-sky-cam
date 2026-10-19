@@ -92,7 +92,7 @@ def check(path):
     elif name.startswith("spi_"):
         mosi, miso = spi_bytes(text)
         def has(seq, sub): return any(seq[i:i + len(sub)] == sub for i in range(len(seq) - len(sub) + 1))
-        if not has(mosi, [0x9F, 0, 0, 0]): problems.append("немає команди 0x9F + 3 dummy-байтів на MOSI")
+        if not (has(mosi, [0x9F, 0, 0, 0]) or has(mosi, [0x9F, 0xFF, 0xFF, 0xFF])): problems.append("немає команди 0x9F + 3 dummy-байтів (00 або FF) на MOSI")
         if not has(miso, [0xEF, 0x40, 0x17]): problems.append(f"MISO не містить EF 40 17 (є: {' '.join(f'{b:02X}' for b in miso[:8])})")
         if 0x06 not in mosi: problems.append("немає команди 0x06 (Write Enable) перед записом")
         if not has(mosi, [0x20, 0x7F, 0xF0, 0x00]): problems.append("немає 0x20 + адреса 7FF000 (Sector Erase)")
