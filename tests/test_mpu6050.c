@@ -60,10 +60,12 @@ static void accel_is_one_burst_big_endian(void)
     CHECK_EQ(mpu6050_read_accel_raw(&d, &a), DEV_OK);
     CHECK_EQ(f.nlog, 1);                       /* одне багатобайтове читання, а не 6 окремих */
     CHECK_EQ(f.log[0].reg, 0x3B); CHECK_EQ(f.log[0].len, 6);
-    CHECK_EQ(a.x, 0x0040); CHECK_EQ(a.y, -32);  /* 0xFFE0 = -32 (знаковий big-endian) */
-    CHECK_EQ(a.z, 0x3FE0);
+    CHECK_EQ(a.x, 7708); CHECK_EQ(a.y, -12096); /* 0xD0C0 = -12096 (знаковий big-endian) */
+    CHECK_EQ(a.z, -7512);
     /* ті самі байти => ті самі мілі-g, що виводить прошивка */
-    CHECK_EQ(mpu6050_raw_to_mg(a.z), 998);     /* 16352*1000/16384 = 998.05 */
+    CHECK_EQ(mpu6050_raw_to_mg(a.x), 470);     /* 7708*1000/16384 = 470.4 */
+    CHECK_EQ(mpu6050_raw_to_mg(a.z), -458);    /* -7512*1000/16384 = -458.5 */
+    CHECK(mpu6050_magnitude_mg(&a) > 950 && mpu6050_magnitude_mg(&a) < 1050); /* |a| ≈ 1 g */
     f.nack_all = 1;
     CHECK_EQ(mpu6050_read_accel_raw(&d, &a), DEV_ERR_BUS);
 }
