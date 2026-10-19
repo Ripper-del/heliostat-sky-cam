@@ -41,6 +41,7 @@
 #define SERVO_CENTER_US    1500U
 
 extern UART_HandleTypeDef huart2;
+extern UART_HandleTypeDef huart1;   /* дзеркало логу PA9 (D8) для аналізатора */
 extern I2C_HandleTypeDef  hi2c1;
 extern SPI_HandleTypeDef  hspi2;
 extern ADC_HandleTypeDef  hadc1;

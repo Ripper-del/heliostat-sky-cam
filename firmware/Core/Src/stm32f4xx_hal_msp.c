@@ -26,6 +26,16 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
         g.Speed     = GPIO_SPEED_FREQ_LOW;
         g.Alternate = GPIO_AF7_USART2;
         HAL_GPIO_Init(GPIOA, &g);
+    } else if (huart->Instance == USART1) {
+        GPIO_InitTypeDef g = {0};
+        __HAL_RCC_USART1_CLK_ENABLE();
+        __HAL_RCC_GPIOA_CLK_ENABLE();
+        g.Pin       = GPIO_PIN_9;                   /* PA9 = USART1_TX (D8): дзеркало логу */
+        g.Mode      = GPIO_MODE_AF_PP;
+        g.Pull      = GPIO_PULLUP;
+        g.Speed     = GPIO_SPEED_FREQ_LOW;
+        g.Alternate = GPIO_AF7_USART1;
+        HAL_GPIO_Init(GPIOA, &g);
     }
 }
 

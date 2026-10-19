@@ -5,6 +5,7 @@
 #include "platform.h"
 
 UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart1;   /* дзеркало логу на PA9 (D8) для логічного аналізатора */
 I2C_HandleTypeDef  hi2c1;
 SPI_HandleTypeDef  hspi2;
 ADC_HandleTypeDef  hadc1;
@@ -12,6 +13,7 @@ ADC_HandleTypeDef  hadc1;
 static void SystemClock_Config(void);
 static HAL_StatusTypeDef MX_GPIO_Init(void);
 static HAL_StatusTypeDef MX_USART2_UART_Init(void);
+static HAL_StatusTypeDef MX_USART1_Mirror_Init(void);
 static HAL_StatusTypeDef MX_I2C1_Init(void);
 static HAL_StatusTypeDef MX_SPI2_Init(void);
 static HAL_StatusTypeDef MX_ADC1_Init(void);
@@ -29,6 +31,7 @@ int main(void)
 
     MX_GPIO_Init();
     if (MX_USART2_UART_Init() != HAL_OK) Error_Handler();
+    (void)MX_USART1_Mirror_Init();   /* необов'язково: якщо не ініціалізувався, лог іде лише в VCP */
 
     printf("\r\n=====================================\r\n");
     printf(" STM32 bring-up | LR2 | build %s %s\r\n", __DATE__, __TIME__);
@@ -129,6 +132,21 @@ static HAL_StatusTypeDef MX_USART2_UART_Init(void)
     huart2.Init.HwFlowCtl    = UART_HWCONTROL_NONE;
     huart2.Init.OverSampling = UART_OVERSAMPLING_16;
     return HAL_UART_Init(&huart2);
+}
+
+/* Лог-дзеркало: USART2 TX (PA2) недоступний на гребінці Arduino (SB62 розімкнений),
+ * тому ті самі байти дублюємо на USART1 TX = PA9 (D8) — зручна точка для щупа аналізатора. */
+static HAL_StatusTypeDef MX_USART1_Mirror_Init(void)
+{
+    huart1.Instance          = USART1;
+    huart1.Init.BaudRate     = 115200;
+    huart1.Init.WordLength   = UART_WORDLENGTH_8B;
+    huart1.Init.StopBits     = UART_STOPBITS_1;
+    huart1.Init.Parity       = UART_PARITY_NONE;
+    huart1.Init.Mode         = UART_MODE_TX;
+    huart1.Init.HwFlowCtl    = UART_HWCONTROL_NONE;
+    huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+    return HAL_UART_Init(&huart1);
 }
 
 static HAL_StatusTypeDef MX_I2C1_Init(void)
