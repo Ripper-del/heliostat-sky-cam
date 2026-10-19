@@ -71,7 +71,7 @@ docs/PRD.md                  вимоги до продукту
 docs/hardware-components.md  дослідження компонентів
 docs/pinout.md               pinout, адреси, живлення, параметри шин, схема (ЛР2)
 docs/architecture.md         шари, правила залежностей, component diagram (ЛР2)
-docs/captures/               записи логічного аналізатора (ЛР2); розбір — у docs/lab2-report.md, розд. 5
+docs/captures/               записи логічного аналізатора (ЛР2); розбір — у docs/lab2-report.md, розд. 3.5
 docs/lab2-report.md          звіт ЛР2;  docs/problems.md — журнал проблем
 docs/versions.md             версії HAL/CMSIS/тулчейну
 .github/workflows/ci.yml     CI: check-deps, тести+покриття, збірка F411 та F446
