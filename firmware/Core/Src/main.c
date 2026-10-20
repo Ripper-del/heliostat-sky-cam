@@ -1,26 +1,23 @@
-/* ЛР1, проєкт "Геліостат". Серво тут тільки тримають нейтральне положення —
- * алгоритм наведення за квадрантом буде в наступних ЛР (docs/PRD.md). */
+/* Core/: ініціалізація периферії HAL та банер. Уся логіка — в App/, доступ до заліза — в Platform/. */
 #include <stdio.h>
 #include "main.h"
+#include "app.h"
+#include "platform.h"
 
 UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart1;   /* дзеркало логу на PA9 (D8) для логічного аналізатора */
 I2C_HandleTypeDef  hi2c1;
 SPI_HandleTypeDef  hspi2;
 ADC_HandleTypeDef  hadc1;
 
-/* Слабкі (weak) заглушки: ядро збирається саме по собі. Коли додано каталог App/,
- * його справжні реалізації з тими самими іменами переозначають ці заглушки. */
-__attribute__((weak)) void selftest_run_all(void) { printf("[app ] no sensor probes linked\r\n"); }
-__attribute__((weak)) void quadrant_read_raw(uint16_t out[4]) { out[0] = out[1] = out[2] = out[3] = 0; }
-
 static void SystemClock_Config(void);
 static HAL_StatusTypeDef MX_GPIO_Init(void);
 static HAL_StatusTypeDef MX_USART2_UART_Init(void);
+static HAL_StatusTypeDef MX_USART1_Mirror_Init(void);
 static HAL_StatusTypeDef MX_I2C1_Init(void);
 static HAL_StatusTypeDef MX_SPI2_Init(void);
 static HAL_StatusTypeDef MX_ADC1_Init(void);
 static HAL_StatusTypeDef MX_TIM3_PWM_Init(void);
-static void MX_MCO1_Init(void);
 
 static void report_init(const char *name, HAL_StatusTypeDef st)
 {
@@ -34,45 +31,24 @@ int main(void)
 
     MX_GPIO_Init();
     if (MX_USART2_UART_Init() != HAL_OK) Error_Handler();
+    (void)MX_USART1_Mirror_Init();   /* необов'язково: якщо не ініціалізувався, лог іде лише в VCP */
 
     printf("\r\n=====================================\r\n");
-    printf(" STM32 bring-up | LR1 | build %s %s\r\n", __DATE__, __TIME__);
+    printf(" STM32 bring-up | LR2 | build %s %s\r\n", __DATE__, __TIME__);
     printf(" SYSCLK = %lu Hz\r\n", (unsigned long)HAL_RCC_GetSysClockFreq());
     printf("=====================================\r\n");
     report_init("USART2", HAL_OK);
+    platform_i2c1_recover();
     report_init("I2C1",   MX_I2C1_Init());
     report_init("SPI2",   MX_SPI2_Init());
     report_init("ADC1",   MX_ADC1_Init());
     report_init("TIM3",   MX_TIM3_PWM_Init());
-    printf("[init] TIM3    : servo PWM 50 Hz, center=%uus (PA6=AZ, PA7=EL)\r\n", SERVO_CENTER_US);
-    MX_MCO1_Init();
+    printf("[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)\r\n");
+    platform_xclk(1);
     printf("[init] MCO1    : XCLK 16 MHz on PA8\r\n");
 
-    selftest_run_all();                     /* див. App/Src/selftest.c */
-
-    uint32_t last_tick = 0;
-    uint32_t seconds   = 0;
-    uint8_t  btn_prev  = 1;
-
-    while (1) {
-        HAL_GPIO_TogglePin(LED_PORT, LED_PIN);
-        HAL_Delay(100);
-
-        /* кнопка B1: активний рівень = 0, друкуємо подію по фронту натискання */
-        uint8_t btn = (uint8_t)HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN);
-        if (btn_prev == 1 && btn == 0) printf("[btn ] B1 pressed\r\n");
-        btn_prev = btn;
-
-        if (HAL_GetTick() - last_tick >= 1000) {
-            last_tick = HAL_GetTick();
-            seconds++;
-            uint16_t q[4];
-            quadrant_read_raw(q);
-            printf("tick %lu  (uptime %lu s, TL=%u TR=%u BL=%u BR=%u)\r\n",
-                   (unsigned long)HAL_GetTick(), (unsigned long)seconds,
-                   (unsigned)q[0], (unsigned)q[1], (unsigned)q[2], (unsigned)q[3]);
-        }
-    }
+    app_init();
+    while (1) app_step();
 }
 
 /* ------------------------------------------------------------------ */
@@ -158,11 +134,25 @@ static HAL_StatusTypeDef MX_USART2_UART_Init(void)
     return HAL_UART_Init(&huart2);
 }
 
+/* Лог-дзеркало: USART2 TX (PA2) недоступний на гребінці Arduino (SB62 розімкнений),
+ * тому ті самі байти дублюємо на USART1 TX = PA9 (D8) — зручна точка для щупа аналізатора. */
+static HAL_StatusTypeDef MX_USART1_Mirror_Init(void)
+{
+    huart1.Instance          = USART1;
+    huart1.Init.BaudRate     = 115200;
+    huart1.Init.WordLength   = UART_WORDLENGTH_8B;
+    huart1.Init.StopBits     = UART_STOPBITS_1;
+    huart1.Init.Parity       = UART_PARITY_NONE;
+    huart1.Init.Mode         = UART_MODE_TX;
+    huart1.Init.HwFlowCtl    = UART_HWCONTROL_NONE;
+    huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+    return HAL_UART_Init(&huart1);
+}
+
 static HAL_StatusTypeDef MX_I2C1_Init(void)
 {
     hi2c1.Instance             = I2C1;
-    hi2c1.Init.ClockSpeed      = 50000;           /* 50 кГц — повільніше за Standard Mode 100 кГц,
-                                                      стійкіше до довгих/шумних проводів на макетці */
+    hi2c1.Init.ClockSpeed      = 100000;          /* Standard Mode 100 кГц (з роздільним читанням стабільно 100/100) */
     hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_2;
     hi2c1.Init.OwnAddress1     = 0;
     hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;
@@ -246,26 +236,13 @@ static HAL_StatusTypeDef MX_TIM3_PWM_Init(void)
     TIM3->CCR1 = SERVO_CENTER_US;   /* CH1 = азимут */
     TIM3->CCR2 = SERVO_CENTER_US;   /* CH2 = елевація */
 
-    TIM3->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E;
+    /* Виходи PWM лишаються ВИМКНЕНИМИ: серво отримують імпульси лише коли їх вмикає App (platform_servo_enable),
+     * щоб не було кидка струму при старті й не тримати серво без потреби. */
     TIM3->CR1  |= TIM_CR1_ARPE;
     TIM3->EGR   = TIM_EGR_UG;       /* застосувати PSC/ARR/CCR до старту */
     TIM3->CR1  |= TIM_CR1_CEN;
 
     return HAL_OK;
-}
-
-/* MCO1 на PA8: виводимо 16 МГц (HSI) як XCLK для OV7670. Без цього камера мовчить на I2C. */
-static void MX_MCO1_Init(void)
-{
-    GPIO_InitTypeDef g = {0};
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    g.Pin       = GPIO_PIN_8;
-    g.Mode      = GPIO_MODE_AF_PP;
-    g.Pull      = GPIO_NOPULL;
-    g.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
-    g.Alternate = GPIO_AF0_MCO;
-    HAL_GPIO_Init(GPIOA, &g);
-    HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_1);
 }
 
 /* Фатальна помилка: швидке миготіння LED. */
