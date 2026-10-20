@@ -64,7 +64,6 @@ def check(path):
         if name.startswith("i2c_nack"):
             n = [x for x in t if x["rw"] == "W" and x["addr"] == 0x69 and "NACK" in x["acks"]]
             if len(n) < 3: problems.append(f"очікується ≥ 3 звернень до 0x69 з NACK (знайдено {len(n)})")
-            problems.append("УВАГА (для звіту, п. 4.4): аномалія NACK на адресі 0x69 — навмисна (відсутній пристрій)")
         elif name.startswith("i2c_"):
             w = [x for x in t if x["rw"] == "W" and x["addr"] == 0x68]
             r = [x for x in t if x["rw"] == "R" and x["addr"] == 0x68]
@@ -76,8 +75,6 @@ def check(path):
             r = [x for x in t if x["rw"] == "R" and x["addr"] == 0x21]
             if not any(x["data"][:1] == [0x0A] for x in w): problems.append("немає запису регістра PID (0x0A) на адресу 0x21 (0x42)")
             if not any(x["data"][:1] == [0x76] for x in r): problems.append("немає читання PID = 0x76 (адреса 0x21 read = 0x43)")
-        if any("NACK" in x["acks"] for x in t if x["rw"] == "W"):
-            problems.append("УВАГА (для звіту, п. 4.4): у фазі запису є NACK — це і є аномалія SCCB/I²C")
     elif name.startswith("uart_"):
         data = bytes(int(m.group(1), 16) for m in re.finditer(r'^uart-\d+: ([0-9A-Fa-f]{2})$', text, re.M))
         txt = data.decode("ascii", errors="replace")
@@ -155,7 +152,7 @@ if __name__ == "__main__":
     for f in files:
         p = check(f)
         if p is None: continue
-        hard = [x for x in p if not x.startswith("УВАГА")]
+        hard = p
         print(f"[{'FAIL' if hard else ' ok '}] {f.name}")
         for x in p: print("       -", x)
         bad += bool(hard)

@@ -17,7 +17,7 @@ decode() {
     spi_*)        P="spi:clk=D1:miso=D0:mosi=D2:cs=D3:cpol=0:cpha=0:wordsize=8"; A="spi=mosi-data:miso-data:warnings" ;;
     uart_*)       P="uart:rx=D0:baudrate=115200"; A="uart=rx-data" ;;
     pwm_*)        P="pwm:data=D2"; A="pwm" ;;                                                                                         # PWM азимуту на D2 (CN10 пін 13 = PA6)
-    *)            echo "  пропущено $base (невідомий префікс)"; return ;;
+    *)            return ;;                                                                                                           # adc_*.sr розбирає check_captures.py
   esac
   if [ "$base" != "${base#spi_}" ]; then   # SPI: MOSI і MISO окремо (інакше в тексті не видно, чиї це байти)
     { sigrok-cli -i "$f" -P "$P" -A "spi=mosi-data" | sed 's/^spi-1: /MOSI /';
