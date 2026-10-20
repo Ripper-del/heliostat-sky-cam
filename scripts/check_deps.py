@@ -43,4 +43,4 @@ if errors:
     print("Порушення правила залежностей:")
     print("\n".join("  " + e for e in errors))
     sys.exit(1)
-print("Залежності між шарами в порядку (Devices <- App <- Core; Platform -> HAL).")
+print("Layer dependencies OK (Devices <- App <- Core; Platform -> HAL).")

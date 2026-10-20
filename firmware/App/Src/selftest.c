@@ -216,7 +216,7 @@ void selftest_i2c_nack(void)
 {
     const i2c_bus_t *b = platform_i2c1();
     int rc = b->probe(b->ctx, 0x69);
-    printf("[st] I2C_NACK  addr=0x69 rc=%d (%s)\r\n", rc, rc == DEV_OK ? "ACK?!" : "NACK, як і очікувалось");
+    printf("[st] I2C_NACK %s addr=0x69 rc=%d\r\n", rc == DEV_OK ? "FAIL" : "PASS", rc);
 }
 
 void selftest_i2c_scan(void)  { run_i2c_scan(); }

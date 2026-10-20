@@ -29,7 +29,7 @@ coverage: test
 	  printf "  %-10s %s%%\n" $$f "$$pct"; \
 	  awk -v p="$$pct" -v m=$(COV_MIN) 'BEGIN{exit !(p+0 >= m)}' || fail=1; \
 	done; \
-	if [ $$fail = 1 ]; then echo "Покриття нижче $(COV_MIN)%"; exit 1; else echo "Покриття >= $(COV_MIN)% для всіх файлів під тестом"; fi
+	if [ $$fail = 1 ]; then echo "Coverage below $(COV_MIN)%"; exit 1; else echo "Coverage >= $(COV_MIN)% for all tested files"; fi
 
 clean:
 	rm -rf $(BUILD)
