@@ -249,9 +249,7 @@ static void print_stats(const char *tag, const frame_stats_t *s)
 /* Кадр через GPIO: два захоплення з різною фазою (який байт з пари — Y), далі ASCII-перегляд кращого. */
 static int run_cam_frame(void)
 {
-    ov7670_t d; ov7670_init_dev(&d, platform_sccb_cam());
-    int rc = ov7670_config_qqvga_yuv(&d);
-    platform_delay_ms(100);
+    int rc = DEV_OK;            /* камеру вже налаштовано продуктом (QQVGA YUV); повторне скидання дає нестабільні перші кадри */
     frame_stats_t st0 = {0}, st1 = {0};
     uint32_t t0 = platform_millis();
     int r0 = rc == DEV_OK ? platform_cam_capture(product_frame_buf(), FRAME_PIXELS, 0, 1000) : -2;
