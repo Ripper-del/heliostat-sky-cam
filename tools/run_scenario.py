@@ -46,11 +46,11 @@ def finish(b, log, tag="final"):
 
 
 def s1(b, log, a):
-    """Простій. З --no-camera камеру на час прогону вимикаємо (PERIOD camera 60000): "чисті" періодичні задачі без довгої
+    """Простій. З --no-camera камеру на час прогону вимикаємо (PERIOD camera 600000): "чисті" періодичні задачі без довгої
     операції — це точка відліку, щоб бачити, скільки коштує захоплення кадру."""
     b.send("SERVO OFF")
     if a.no_camera:
-        b.send("PERIOD camera 60000")
+        b.send("PERIOD camera 600000")
     b.send("STATS RESET")
     b.read_lines(a.duration)
     finish(b, log)
@@ -166,9 +166,10 @@ def main():
     ap.add_argument("--servo", action="store_true", help="s3: ввімкнути серво")
     ap.add_argument("--no-camera", action="store_true", help="s1: вимкнути періодичне захоплення кадру на час прогону")
     ap.add_argument("--button", action="store_true", help="s3: просити людину натискати B1")
+    ap.add_argument("--tag", help="префікс імені лог-файлу (за замовч. назва сценарію)")
     ap.add_argument("--port")
     a = ap.parse_args()
-    log, path = open_log(a.scenario)
+    log, path = open_log(a.tag or a.scenario)
     b = Board(a.port, log=log)
     header(b, log, a.scenario, a)
     print(f"лог: {path}")

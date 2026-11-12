@@ -55,11 +55,12 @@ static void log_event(uint8_t type, int16_t a, int16_t b, int16_t c)
 }
 
 /* ---- додаткова статистика (поза задачами) ---- */
-static perf_stat_t st_loop, st_btn, st_cam_frame;
+static perf_stat_t st_loop, st_btn, st_cam_frame, st_cmd;
 static perf_hist_t hist_loop;
 static uint32_t loop_prev_cyc;
 static uint32_t window_start_cyc; static uint64_t window_busy_base;
 static uint32_t last_load_pct;
+static uint32_t stats_t0_us;                 /* початок вікна статистики (мкс), для середнього завантаження CPU за весь прогін */
 
 /* ================= задачі ================= */
 static void adc_task(void)
@@ -226,9 +227,10 @@ void product_init(void)
     mpu6050_wake(&imu);
     { ov7670_t cam; ov7670_init_dev(&cam, platform_sccb_cam()); if (ov7670_config_qqvga_yuv(&cam) != DEV_OK) cam_err++; }
     platform_adc_read_quadrant(q);
-    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame");
+    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
     perf_hist_init(&hist_loop, 100);
     sched_init(&sched, tasks, NTASKS, platform_micros, platform_cycles);
+    stats_t0_us = platform_micros();
     window_start_cyc = platform_cycles(); window_busy_base = 0; loop_prev_cyc = window_start_cyc;
     log_event(EV_BOOT, 0, 0, 0);
     printf("[prod] %u tasks, boot_ms=%lu\r\n", (unsigned)NTASKS, (unsigned long)platform_millis());
@@ -262,9 +264,13 @@ void product_print_stats(void)
            (unsigned long)perf_hist_percentile(&hist_loop, 99));
     printf("STAT name=btn_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu presses=%lu\r\n", (unsigned long)st_btn.count,
            (unsigned long)cyc2us(st_btn.min), (unsigned long)cyc2us(perf_avg(&st_btn)), (unsigned long)cyc2us(st_btn.max), (unsigned long)btn_presses);
+    printf("STAT name=cmd_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)st_cmd.count, (unsigned long)cyc2us(st_cmd.min),
+           (unsigned long)cyc2us(perf_avg(&st_cmd)), (unsigned long)cyc2us(st_cmd.max));
     printf("STAT name=cam_frame n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)st_cam_frame.count,
            (unsigned long)cyc2us(st_cam_frame.min), (unsigned long)cyc2us(perf_avg(&st_cam_frame)), (unsigned long)cyc2us(st_cam_frame.max));
-    printf("LOAD pct=%lu uart_rx_overflow=%lu pend_lost=%lu flash_err=%lu imu_err=%lu cam_err=%lu\r\n", (unsigned long)last_load_pct,
+    uint32_t el_us = platform_micros() - stats_t0_us;
+    uint32_t run_pct = el_us ? (uint32_t)(sched.busy_cyc / (platform_cpu_hz() / 1000000U) * 100U / el_us) : 0;
+    printf("LOAD pct=%lu run_pct=%lu btn_lost=%lu uart_rx_overflow=%lu pend_lost=%lu flash_err=%lu imu_err=%lu cam_err=%lu\r\n", (unsigned long)last_load_pct, (unsigned long)run_pct, (unsigned long)platform_button_overruns(),
            (unsigned long)platform_uart_rx_overflow(), (unsigned long)pend_lost, (unsigned long)flash_err,
            (unsigned long)imu_err, (unsigned long)cam_err);
 }
@@ -272,9 +278,9 @@ void product_print_stats(void)
 void product_reset_stats(void)
 {
     sched_reset_stats(&sched);
-    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame");
+    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
     perf_hist_init(&hist_loop, 100);
-    window_start_cyc = platform_cycles(); window_busy_base = 0;
+    window_start_cyc = platform_cycles(); window_busy_base = 0; stats_t0_us = platform_micros();
     printf("[prod] stats reset\r\n");
 }
 
@@ -403,9 +409,14 @@ void product_print_version(void)
 
 int product_set_period(const char *name, uint32_t ms)
 {
-    if (ms < 1 || ms > 60000) return -1;
+    if (ms < 1 || ms > 600000) return -1;
     for (size_t i = 0; i < NTASKS; i++) {
-        if (!strcmp(tasks[i].name, name)) { tasks[i].period_us = ms * 1000U; return 0; }
+        if (!strcmp(tasks[i].name, name)) { tasks[i].period_us = ms * 1000U; tasks[i].due_us = platform_micros() + ms * 1000U; return 0; }
     }
     return -1;
+}
+
+void product_cmd_started(void)
+{
+    perf_add(&st_cmd, platform_cycles() - platform_uart_eol_cycles());      /* Enter у ISR -> початок виконання команди */
 }

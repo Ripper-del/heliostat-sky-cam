@@ -67,10 +67,14 @@ uint32_t platform_heap_used(void)      { struct mallinfo mi = mallinfo(); return
 /* ---------------- Кнопка B1 (PC13) по EXTI ---------------- */
 static volatile uint32_t btn_cyc;
 static volatile uint8_t  btn_pending;
+static volatile uint32_t btn_overrun;      /* подія прийшла, поки попередню ще не забрала задача */
 
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
-    if (pin == BTN_PIN) { btn_cyc = DWT->CYCCNT; btn_pending = 1; }
+    if (pin == BTN_PIN) {
+        if (btn_pending) btn_overrun++;
+        else { btn_cyc = DWT->CYCCNT; btn_pending = 1; }       /* момент ПЕРШОЇ непрочитаної події */
+    }
 }
 
 void platform_exti_irq(void) { HAL_GPIO_EXTI_IRQHandler(BTN_PIN); }
@@ -84,6 +88,8 @@ static void button_irq_enable(void)
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }
 
+uint32_t platform_button_overruns(void) { return btn_overrun; }
+
 int platform_button_event(uint32_t *t_cycles)
 {
     if (!btn_pending) return 0;
@@ -93,6 +99,7 @@ int platform_button_event(uint32_t *t_cycles)
 }
 
 /* ---------------- UART RX через IRQ ---------------- */
+static volatile uint32_t eol_cyc;
 static uint8_t rx_mem[256];
 static ring_t  rx_ring;
 
@@ -111,9 +118,10 @@ void platform_uart2_irq(void)
     if (sr & (USART_SR_RXNE | USART_SR_ORE)) {
         uint8_t b = (uint8_t)USART2->DR;          /* читання DR знімає RXNE і ORE */
         if (sr & USART_SR_ORE) rx_ring.overflow++;            /* апаратний overrun: байт(и) втрачено, поки ISR не встигла */
-        if (sr & USART_SR_RXNE) ring_put(&rx_ring, b);
+        if (sr & USART_SR_RXNE) { ring_put(&rx_ring, b); if (b == '\r' || b == '\n') eol_cyc = DWT->CYCCNT; }
     }
 }
 
 uint32_t platform_uart_rx_overflow(void) { return rx_ring.overflow; }
+uint32_t platform_uart_eol_cycles(void)  { return eol_cyc; }
 int platform_uart_getc(void) { return ring_get(&rx_ring); }

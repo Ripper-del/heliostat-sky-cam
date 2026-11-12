@@ -39,7 +39,7 @@ def table(path):
     if loop:
         out.append("")
         out.append(f"Період головного циклу: min {loop['min_us']} / avg {loop['avg_us']} / max {loop['max_us']} / p99 {loop.get('p99_us')} мкс. "
-                   f"Завантаження CPU (останнє вікно 1 с): {load.get('pct')} %. Втрачено байтів UART: {load.get('uart_rx_overflow')}.")
+                   f"Завантаження CPU: середнє за прогін {load.get('run_pct')} %, останнє вікно 1 с {load.get('pct')} %. Втрачено байтів UART: {load.get('uart_rx_overflow')}.")
     extra = [l for l in lines if l.startswith("# S3") or l.startswith("# FAIL")]
     if extra:
         out.append("")
@@ -64,7 +64,9 @@ def compare(paths):
         ("Знімок у flash, max, мкс", lambda s, l: s.get("snapshot", {}).get("max_us")),
         ("Реакція на кнопку, max, мкс", lambda s, l: s.get("btn_latency", {}).get("max_us")),
         ("Реакція на кнопку, n", lambda s, l: s.get("btn_latency", {}).get("n")),
-        ("Завантаження CPU, %", lambda s, l: l.get("pct")),
+        ("Середнє завантаження CPU за прогін, %", lambda s, l: l.get("run_pct")),
+        ("Затримка відповіді на команду, max, мкс", lambda s, l: s.get("cmd_latency", {}).get("max_us")),
+        ("Втрачено натискань кнопки", lambda s, l: l.get("btn_lost")),
         ("Втрачено байтів UART", lambda s, l: l.get("uart_rx_overflow")),
     ]
     out = ["| Метрика | " + " | ".join(cols) + " |", "|---|" + "---|" * len(cols)]

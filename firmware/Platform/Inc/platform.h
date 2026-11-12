@@ -83,11 +83,13 @@ uint32_t platform_heap_used(void);
 /* Кнопка B1 по EXTI: ISR фіксує такти; задача забирає подію. 1 — була подія, *t_cycles — момент фронту. */
 int      platform_button_event(uint32_t *t_cycles);
 void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
+uint32_t platform_button_overruns(void);    /* події, що злились із непрочитаною (втрачені) */
 
 /* UART RX через переривання в кільцевий буфер (256 Б); лічильник втрат при переповненні */
 void     platform_uart_rx_irq_enable(void);
 void     platform_uart2_irq(void);          /* з USART2_IRQHandler */
 uint32_t platform_uart_rx_overflow(void);
+uint32_t platform_uart_eol_cycles(void);   /* такти, коли в ISR прийшов останній Enter (початок відліку затримки команди) */
 
 /* UART: неблокуюче читання символу (-1, якщо немає) */
 int platform_uart_getc(void);

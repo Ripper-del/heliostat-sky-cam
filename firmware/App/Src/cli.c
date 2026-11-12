@@ -51,6 +51,7 @@ static void run_line(char *line)
     char *v[ARG_MAX];
     int n = tokenize(line, v, ARG_MAX);
     if (n == 0) return;
+    product_cmd_started();
     if (!strcmp(v[0], "STATS")) { if (n > 1 && !strcmp(v[1], "RESET")) product_reset_stats(); else product_print_stats(); }
     else if (!strcmp(v[0], "MODE"))  product_print_mode();
     else if (!strcmp(v[0], "SKY"))   product_print_sky();

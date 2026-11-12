@@ -28,6 +28,7 @@ void product_snapshot_request(void);
 void product_servo_power(int on);
 int  product_cam_exposure(uint32_t aec, uint32_t gain);
 void product_print_version(void);
+void product_cmd_started(void);   /* CLI викликає перед виконанням рядкової команди: міряє затримку відповіді */
 /** Змінити період задачі за ім'ям (мс); 0 — успіх, -1 — нема такої задачі або період поза 1..60000 мс. Для пошуку точки зламу. */
 int  product_set_period(const char *name, uint32_t ms);
 #endif
