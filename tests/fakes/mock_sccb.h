@@ -10,6 +10,8 @@ typedef struct {
     int fail_reads;            /* перші N read_reg -> DEV_ERR_BUS */
     int read_calls, write_calls, delay_calls;
     uint8_t last_wr_reg, last_wr_val;
+    uint8_t wr_regs[64], wr_vals[64];      /* журнал записів (перші 64) */
+    int fail_write_at;                     /* N-й запис (з 1) -> DEV_ERR_BUS; 0 = без збою */
     sccb_bus_t bus;
 } mock_sccb_t;
 
