@@ -1,0 +1,17 @@
+STAT name=button n=9278 min_us=0 avg_us=0 max_us=0 late_max_us=964 late_p99_us=200 missed=2941 max_cyc=56
+STAT name=cli n=9280 min_us=0 avg_us=1 max_us=3531 late_max_us=966 late_p99_us=200 missed=2939 max_cyc=353136
+STAT name=adc n=943 min_us=151 avg_us=151 max_us=152 late_max_us=9910 late_p99_us=1600 missed=279 max_cyc=15247
+STAT name=control n=941 min_us=3 avg_us=3 max_us=3 late_max_us=9230 late_p99_us=1100 missed=281 max_cyc=383
+STAT name=servo n=478 min_us=0 avg_us=0 max_us=0 late_max_us=19236 late_p99_us=1600 missed=133 max_cyc=41
+STAT name=loss n=101 min_us=1 avg_us=1 max_us=1 late_max_us=99239 late_p99_us=1600 missed=21 max_cyc=121
+STAT name=imu n=101 min_us=842 avg_us=842 max_us=842 late_max_us=99242 late_p99_us=1600 missed=21 max_cyc=84258
+STAT name=led n=100 min_us=0 avg_us=0 max_us=0 late_max_us=98953 late_p99_us=1600 missed=22 max_cyc=95
+STAT name=log n=1871 min_us=0 avg_us=0 max_us=0 late_max_us=4907 late_p99_us=1100 missed=573 max_cyc=49
+STAT name=snapshot n=101 min_us=0 avg_us=0 max_us=0 late_max_us=98958 late_p99_us=1600 missed=21 max_cyc=69
+STAT name=camera n=4 min_us=575418 avg_us=677457 max_us=778988 late_max_us=1025 late_p99_us=1100 missed=0 max_cyc=77898834
+STAT name=tick n=12 min_us=18875 avg_us=18965 max_us=19055 late_max_us=780014 late_p99_us=1600 missed=0 max_cyc=1905558
+STAT name=loop n=949929 min_us=9 avg_us=12 max_us=799069 p99_us=100
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=cmd_latency n=1 min_us=20 avg_us=20 max_us=20
+STAT name=cam_frame n=4 min_us=572721 avg_us=674761 max_us=776291
+LOAD pct=7 run_pct=25 btn_lost=0 uart_rx_overflow=0 pend_lost=0 flash_err=0 imu_err=524 cam_err=0
