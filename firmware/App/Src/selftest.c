@@ -18,6 +18,7 @@
 #include "w25q.h"
 #include "ov7670.h"
 #include "sky.h"
+#include "product.h"
 #include "quadrant.h"
 
 #define FLASH_TEST_ADDR  0x7FF000UL     /* останній 4-КБ сектор W25Q64 (8 МБ) */
@@ -239,7 +240,6 @@ static int run_cam_bus(void)
     return ok;
 }
 
-static uint8_t g_frame[FRAME_PIXELS];
 
 static void print_stats(const char *tag, const frame_stats_t *s)
 {
@@ -254,14 +254,14 @@ static int run_cam_frame(void)
     platform_delay_ms(100);
     frame_stats_t st0 = {0}, st1 = {0};
     uint32_t t0 = platform_millis();
-    int r0 = rc == DEV_OK ? platform_cam_capture(g_frame, FRAME_PIXELS, 0, 1000) : -2;
+    int r0 = rc == DEV_OK ? platform_cam_capture(product_frame_buf(), FRAME_PIXELS, 0, 1000) : -2;
     uint32_t ms0 = platform_millis() - t0;
-    if (r0 == 0) st0 = frame_stats(g_frame, FRAME_PIXELS, SKY_DEFAULTS.sat_level);
-    int r1 = rc == DEV_OK ? platform_cam_capture(g_frame, FRAME_PIXELS, 1, 1000) : -2;
-    if (r1 == 0) st1 = frame_stats(g_frame, FRAME_PIXELS, SKY_DEFAULTS.sat_level);
+    if (r0 == 0) st0 = frame_stats(product_frame_buf(), FRAME_PIXELS, SKY_DEFAULTS.sat_level);
+    int r1 = rc == DEV_OK ? platform_cam_capture(product_frame_buf(), FRAME_PIXELS, 1, 1000) : -2;
+    if (r1 == 0) st1 = frame_stats(product_frame_buf(), FRAME_PIXELS, SKY_DEFAULTS.sat_level);
     int phase = st1.contrast > st0.contrast ? 1 : 0;
-    if (rc == DEV_OK && platform_cam_capture(g_frame, FRAME_PIXELS, phase, 1000) == 0) {
-        frame_stats_t s = frame_stats(g_frame, FRAME_PIXELS, SKY_DEFAULTS.sat_level);
+    if (rc == DEV_OK && platform_cam_capture(product_frame_buf(), FRAME_PIXELS, phase, 1000) == 0) {
+        frame_stats_t s = frame_stats(product_frame_buf(), FRAME_PIXELS, SKY_DEFAULTS.sat_level);
         sky_t sky = sky_classify(&s, &SKY_DEFAULTS);
         st("CAM_FRAME", r0 == 0 && r1 == 0);
         printf(" rc=%d capture_ms=%lu phase=%d", rc, (unsigned long)ms0, phase);
@@ -272,7 +272,7 @@ static int run_cam_frame(void)
         for (unsigned row = 0; row < FRAME_H; row += 8) {            /* 40 x 15 знаків */
             for (unsigned col = 0; col < FRAME_W; col += 4) {
                 unsigned sum = 0;
-                for (unsigned yy = 0; yy < 8; yy++) for (unsigned xx = 0; xx < 4; xx++) sum += g_frame[(row + yy) * FRAME_W + col + xx];
+                for (unsigned yy = 0; yy < 8; yy++) for (unsigned xx = 0; xx < 4; xx++) sum += product_frame_buf()[(row + yy) * FRAME_W + col + xx];
                 printf("%c", shade[(sum / 32) * 9 / 255]);
             }
             printf("\r\n");

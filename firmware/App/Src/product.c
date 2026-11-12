@@ -420,3 +420,5 @@ void product_cmd_started(void)
 {
     perf_add(&st_cmd, platform_cycles() - platform_uart_eol_cycles());      /* Enter у ISR -> початок виконання команди */
 }
+
+uint8_t *product_frame_buf(void) { return g_frame; }
