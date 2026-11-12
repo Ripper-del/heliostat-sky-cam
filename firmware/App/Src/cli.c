@@ -78,6 +78,7 @@ static void run_line(char *line)
         printf("[cam] %s\r\n", (n > 3 && !strcmp(v[1], "EXP") && product_cam_exposure(aec, gain) == 0) ? "exposure set" : "ERROR (CAM EXP aec gain)");
     }
     else if (!strcmp(v[0], "VER"))   product_print_version();
+    else if (!strcmp(v[0], "PROBE")) { printf("[cli] probe test 4 s\r\n"); product_probe_test(); printf("[cli] probe test done\r\n"); }
     else if (!strcmp(v[0], "PERIOD")) {
         uint32_t ms = 0; for (char *s = n > 2 ? v[2] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0');
         /* імена задач у таблиці малими літерами */
@@ -87,7 +88,7 @@ static void run_line(char *line)
     }
     else if (!strcmp(v[0], "HELP")) {
         printf("[cli] STATS [RESET] | MODE | SKY | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
-        printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain | VER | PERIOD task ms\r\n");
+        printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain | VER | PROBE | PERIOD task ms\r\n");
     }
     else printf("[cli] unknown command (HELP)\r\n");
 }

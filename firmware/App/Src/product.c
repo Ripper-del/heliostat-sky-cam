@@ -422,3 +422,18 @@ void product_cmd_started(void)
 }
 
 uint8_t *product_frame_buf(void) { return g_frame; }
+
+void product_probe_test(void)
+{
+    uint32_t hz_us = platform_cpu_hz() / 1000000U;
+    uint32_t t0 = platform_cycles(), next[PLATFORM_PROBE_COUNT];
+    int lvl[PLATFORM_PROBE_COUNT] = {0};
+    for (int k = 0; k < PLATFORM_PROBE_COUNT; k++) next[k] = 0;
+    while (platform_cycles() - t0 < 4000000U * hz_us) {                 /* 4 с */
+        uint32_t el = (platform_cycles() - t0) / hz_us;                 /* мкс від старту */
+        for (int k = 0; k < PLATFORM_PROBE_COUNT; k++) {
+            if (el >= next[k]) { lvl[k] ^= 1; platform_probe(k, lvl[k]); next[k] = el + (100U << k); }   /* півперіод 100 мкс · 2^k */
+        }
+    }
+    for (int k = 0; k < PLATFORM_PROBE_COUNT; k++) platform_probe(k, 0);
+}

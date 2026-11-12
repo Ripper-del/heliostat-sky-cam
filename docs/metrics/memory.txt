@@ -1,0 +1,110 @@
+# git: f4751f7-dirty
+
+## arm-none-eabi-size (text/data/bss)
+   text	   data	    bss	    dec	    hex	filename
+  46276	   1868	  23728	  71872	  118c0	build/firmware.elf
+
+## секції
+build/firmware.elf  :
+section               size        addr
+.isr_vector            408   134217728
+.text                41360   134218176
+.rodata               4500   134259536
+.ARM.extab               0   134264036
+.ARM                     8   134264036
+.preinit_array           0   134264044
+.init_array              4   134264044
+.fini_array              4   134264048
+.data                 1860   536870912
+.bss                 20656   536872776
+._user_heap_stack     3072   536893432
+.ARM.attributes         48           0
+.comment                51           0
+.debug_info         231272           0
+.debug_abbrev        38463           0
+.debug_loc          116268           0
+.debug_aranges        6800           0
+.debug_ranges         7944           0
+.debug_line         124411           0
+.debug_str           27666           0
+.debug_frame         18300           0
+Total               643095
+
+
+
+## об'єктні файли за bss (RAM), 15 найбільших
+   2946	      0	      0	   2946	    b82	build/stm32f4xx_hal_adc.o
+   3498	      0	      0	   3498	    daa	build/selftest.o
+   3986	      0	      0	   3986	    f92	build/stm32f4xx_hal_dma_ex.o
+   5906	      0	      0	   5906	   1712	build/stm32f4xx_hal_uart.o
+   7584	      0	      0	   7584	   1da0	build/stm32f4xx_hal_spi.o
+  16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
+    182	      0	      4	    186	     ba	build/syscalls.o
+    486	      0	      4	    490	    1ea	build/platform_io.o
+    568	      5	      4	    577	    241	build/stm32f4xx_hal.o
+   1036	      4	      8	   1048	    418	build/platform_cam.o
+   1709	      8	     12	   1729	    6c1	build/platform_buses.o
+   2294	      0	     52	   2346	    92a	build/cli.o
+    744	      0	    297	   1041	    411	build/platform_perf.o
+   1488	      0	    388	   1876	    754	build/main.o
+   5983	   1733	  19789	  27505	   6b71	build/product.o
+
+## об'єктні файли за text (flash), 15 найбільших
+   1036	      4	      8	   1048	    418	build/platform_cam.o
+   1072	      0	      0	   1072	    430	build/stm32f4xx_hal_rcc_ex.o
+   1488	      0	    388	   1876	    754	build/main.o
+   1709	      8	     12	   1729	    6c1	build/platform_buses.o
+   1912	      0	      0	   1912	    778	build/stm32f4xx_hal_dma.o
+   2136	      0	      0	   2136	    858	build/stm32f4xx_hal_adc_ex.o
+   2138	      0	      0	   2138	    85a	build/stm32f4xx_hal_rcc.o
+   2294	      0	     52	   2346	    92a	build/cli.o
+   2946	      0	      0	   2946	    b82	build/stm32f4xx_hal_adc.o
+   3498	      0	      0	   3498	    daa	build/selftest.o
+   3986	      0	      0	   3986	    f92	build/stm32f4xx_hal_dma_ex.o
+   5906	      0	      0	   5906	   1712	build/stm32f4xx_hal_uart.o
+   5983	   1733	  19789	  27505	   6b71	build/product.o
+   7584	      0	      0	   7584	   1da0	build/stm32f4xx_hal_spi.o
+  16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
+
+## найбільші символи (десяткові розміри)
+134224244 00000644 T _vfprintf_r
+134225216 00000688 T _printf_i
+134228188 00000720 T __udivmoddi4
+134219944 00000732 T strcmp
+134226444 00000752 T __sfvwrite_r
+134254616 00000760 T HAL_I2C_Mem_Read
+134253496 00000764 T HAL_I2C_Master_Receive
+134256424 00000854 T HAL_SPI_TransmitReceive
+134236824 00000912 t run_line
+134248520 00001016 W HAL_RCC_OscConfig
+536871032 00001728 d tasks
+536873664 00019200 b g_frame
+
+## лише змінні в RAM (b/B = bss, d/D = data)
+536873100 00000072 B huart1
+536873172 00000072 B huart2
+536872928 00000084 B hi2c1
+536873012 00000088 B hspi2
+536892972 00000092 b loss
+536870916 00000096 d impure_data
+536893068 00000128 b pend
+536873296 00000256 b rx_mem
+536871032 00001728 d tasks
+536873664 00019200 b g_frame
+
+## статична оцінка стека (-fstack-usage), 15 найбільших кадрів
+Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:571:19:HAL_I2C_Mem_Read	56	static
+Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:596:19:HAL_I2C_Mem_Read_DMA	56	static
+Platform/Src/platform_buses.c:19:6:platform_i2c1_recover	56	static
+App/Src/evlog.c:68:5:evlog_append	64	static
+App/Src/product.c:209:6:product_init	64	static
+App/Src/product.c:305:6:product_cal_show	64	static
+Platform/Src/platform_cam.c:35:6:platform_cam_probe	64	static
+App/Src/product.c:253:6:product_print_stats	72	static
+App/Src/selftest.c:227:12:run_cam_bus	72	static
+App/Src/selftest.c:29:12:run_i2c_scan	80	static
+Platform/Src/platform_cam.c:75:5:platform_cam_capture	80	static
+App/Src/product.c:178:13:tick_task	88	static
+Core/Src/main.c:62:13:SystemClock_Config	88	static
+App/Src/selftest.c:152:6:selftest_i2c_stress	104	static
+App/Src/evlog.c:42:5:evlog_open	304	static

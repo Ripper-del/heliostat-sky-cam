@@ -28,6 +28,8 @@ void product_snapshot_request(void);
 void product_servo_power(int on);
 int  product_cam_exposure(uint32_t aec, uint32_t gain);
 void product_print_version(void);
+/** Перевірка підключення аналізатора: 4 с кожен службовий пін мигає зі своїм періодом (канал k: 200 мкс · 2^k півперіод). */
+void product_probe_test(void);
 /** Єдиний буфер кадру 160x120 (19 200 Б): користуються задачі і selftest, щоб не тримати два однакові масиви в RAM. */
 uint8_t *product_frame_buf(void);
 void product_cmd_started(void);   /* CLI викликає перед виконанням рядкової команди: міряє затримку відповіді */
