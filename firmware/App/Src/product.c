@@ -231,7 +231,8 @@ void product_init(void)
     sched_init(&sched, tasks, NTASKS, platform_micros, platform_cycles);
     window_start_cyc = platform_cycles(); window_busy_base = 0; loop_prev_cyc = window_start_cyc;
     log_event(EV_BOOT, 0, 0, 0);
-    printf("[prod] %u tasks, tick %lu Hz\r\n", (unsigned)NTASKS, 1000UL);
+    printf("[prod] %u tasks, boot_ms=%lu\r\n", (unsigned)NTASKS, (unsigned long)platform_millis());
+    product_print_version();
 }
 
 void product_step(void)
@@ -390,4 +391,21 @@ int product_cam_exposure(uint32_t aec, uint32_t gain)
     if (aec > 0xFFFF || gain > 0xFF) return -1;
     ov7670_t cam; ov7670_init_dev(&cam, platform_sccb_cam());
     return ov7670_set_exposure(&cam, (uint16_t)aec, (uint8_t)gain);
+}
+
+#ifndef GIT_HASH
+#define GIT_HASH "dev"
+#endif
+void product_print_version(void)
+{
+    printf("VER git=%s build=\"%s %s\" sysclk=%lu task_tick_us=1\r\n", GIT_HASH, __DATE__, __TIME__, (unsigned long)platform_cpu_hz());
+}
+
+int product_set_period(const char *name, uint32_t ms)
+{
+    if (ms < 1 || ms > 60000) return -1;
+    for (size_t i = 0; i < NTASKS; i++) {
+        if (!strcmp(tasks[i].name, name)) { tasks[i].period_us = ms * 1000U; return 0; }
+    }
+    return -1;
 }

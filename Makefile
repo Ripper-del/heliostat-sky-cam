@@ -16,6 +16,8 @@
 #   PORT=/dev/ttyACM0                     — послідовний порт для monitor
 
 IMAGE ?= stm32-build
+# Хеш коміту потрапляє в банер і в логи вимірювань (ЛР3: результат має бути пов'язаний зі збіркою)
+GIT_HASH := $(shell git rev-parse --short HEAD 2>/dev/null || echo nogit)$(shell git diff --quiet 2>/dev/null || echo -dirty)
 BOARD ?= F411
 PORT  ?= $(firstword $(wildcard /dev/ttyACM* /dev/tty.usbmodem*))
 BIN    = firmware/build/firmware.bin
@@ -30,7 +32,7 @@ build:
 	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace \
 	  --user $$(id -u):$$(id -g) $(IMAGE) \
-	  make -C firmware all BOARD=$(BOARD)
+	  make -C firmware all BOARD=$(BOARD) GIT_HASH=$(GIT_HASH)
 
 flash: build
 	st-flash --reset write $(BIN) 0x08000000

@@ -76,9 +76,17 @@ static void run_line(char *line)
         for (char *s = n > 3 ? v[3] : ""; *s >= '0' && *s <= '9'; s++) gain = gain * 10 + (uint32_t)(*s - '0');
         printf("[cam] %s\r\n", (n > 3 && !strcmp(v[1], "EXP") && product_cam_exposure(aec, gain) == 0) ? "exposure set" : "ERROR (CAM EXP aec gain)");
     }
+    else if (!strcmp(v[0], "VER"))   product_print_version();
+    else if (!strcmp(v[0], "PERIOD")) {
+        uint32_t ms = 0; for (char *s = n > 2 ? v[2] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0');
+        /* імена задач у таблиці малими літерами */
+        char name[16]; unsigned k = 0; for (const char *s = n > 1 ? v[1] : ""; *s && k < sizeof name - 1; s++) name[k++] = (char)((*s >= 'A' && *s <= 'Z') ? *s + 32 : *s);
+        name[k] = 0;
+        printf("[cli] period %s\r\n", (n > 2 && product_set_period(name, ms) == 0) ? "set" : "ERROR (PERIOD task ms)");
+    }
     else if (!strcmp(v[0], "HELP")) {
         printf("[cli] STATS [RESET] | MODE | SKY | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
-        printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain\r\n");
+        printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain | VER | PERIOD task ms\r\n");
     }
     else printf("[cli] unknown command (HELP)\r\n");
 }

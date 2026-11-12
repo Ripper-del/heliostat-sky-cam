@@ -11,6 +11,7 @@
 TARGET = firmware
 BUILD_DIR = build
 BOARD ?= F411
+GIT_HASH ?= dev
 
 ifeq ($(BOARD),F446)
   MCU_DEF  = STM32F446xx
@@ -55,7 +56,7 @@ VENDOR_INCLUDES = \
   -isystem Drivers/STM32F4xx_HAL_Driver/Inc \
   -isystem Drivers/CMSIS/Device/ST/STM32F4xx/Include \
   -isystem Drivers/CMSIS/Include
-C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF)
+C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF) -DGIT_HASH=\"$(GIT_HASH)\"
 
 # ---- Опції компіляції (Cortex-M4F) ----
 MCU = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
