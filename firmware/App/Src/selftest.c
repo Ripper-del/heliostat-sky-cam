@@ -221,7 +221,25 @@ void selftest_i2c_nack(void)
 
 void selftest_i2c_scan(void)  { run_i2c_scan(); }
 void selftest_mpu(void)       { run_mpu(); }
+/* Перевірка паралельної шини камери: режим QQVGA YUV + кольорові смуги, рахуємо фронти PCLK/VSYNC і які біти даних рухаються. */
+static int run_cam_bus(void)
+{
+    ov7670_t d; ov7670_init_dev(&d, platform_sccb_cam());
+    int rc = ov7670_config_qqvga_yuv(&d);
+    if (rc == DEV_OK) rc = ov7670_set_test_pattern(&d, 1);
+    platform_delay_ms(100);
+    cam_probe_t p;
+    platform_cam_probe(1500, &p);
+    ov7670_set_test_pattern(&d, 0);
+    int ok = rc == DEV_OK && p.pclk_rises > 1000 && p.vs_rises >= 1 && p.seen_high == 0xFF && p.seen_low == 0xFF;
+    st("CAM_BUS", ok);
+    printf(" rc=%d pclk=%lu vs=%lu high=0x%02X low=0x%02X pclk_per_frame=%lu frame_us=%lu", rc, (unsigned long)p.pclk_rises, (unsigned long)p.vs_rises, p.seen_high, p.seen_low, (unsigned long)p.pclk_per_frame, (unsigned long)p.frame_us);
+    endl();
+    return ok;
+}
+
 void selftest_cam(void)       { run_cam(); }
+void selftest_cam_bus(void)   { run_cam_bus(); }
 void selftest_flash_id(void)  { run_flash_id(); }
 void selftest_flash_rw(void)  { run_flash_rw(); }
 static int run_pwm(void) { return run_pwm_mask(3); }

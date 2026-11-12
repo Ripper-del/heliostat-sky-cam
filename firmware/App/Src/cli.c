@@ -6,11 +6,12 @@
 void cli_handle(char c)
 {
     switch (c) {
-    case 'h': printf("[cli] s=selftest i=i2c-scan m=mpu c=camera f=flash-id w=flash-rw p=pwm a=adc x=xclk-toggle k=i2c-stress e=i2c-nack(0x69) r=mpu-stream-60s 1=servo-az 2=servo-el\r\n"); break;
+    case 'h': printf("[cli] s=selftest i=i2c-scan m=mpu c=camera b=camera-bus f=flash-id w=flash-rw p=pwm a=adc x=xclk-toggle k=i2c-stress e=i2c-nack(0x69) r=mpu-stream-60s 1=servo-az 2=servo-el\r\n"); break;
     case 's': selftest_run_all(); break;
     case 'i': selftest_i2c_scan(); break;
     case 'm': selftest_mpu(); break;
     case 'c': selftest_cam(); break;
+    case 'b': selftest_cam_bus(); break;
     case 'f': selftest_flash_id(); break;
     case 'w': selftest_flash_rw(); break;
     case 'p': selftest_pwm(); break;

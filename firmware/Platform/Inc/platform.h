@@ -46,6 +46,19 @@ int      platform_button_pressed(void);
 void platform_xclk(int on);
 int  platform_xclk_is_on(void);
 
+/* Паралельна шина камери (програмне захоплення без DCMI): D0..D3 = PC0..PC3, D4..D6 = PC10..PC12, D7 = PD2,
+ * PCLK = PA15, VSYNC = PB7 (HREF не підключено; камера не тактує PCLK між рядками). */
+typedef struct {
+    uint32_t vs_rises;      /* фронтів VSYNC 0->1 за вікно */
+    uint32_t pclk_rises;    /* фронтів PCLK 0->1 за вікно */
+    uint8_t  seen_high;     /* біти D0..D7, що хоч раз були 1 на фронті PCLK */
+    uint8_t  seen_low;      /* біти, що хоч раз були 0 */
+    uint32_t pclk_per_frame;/* фронтів PCLK між двома сусідніми VSYNC (0 = не виміряно) */
+    uint32_t frame_us;      /* тривалість кадру між тими ж VSYNC, мкс */
+} cam_probe_t;
+void platform_cam_bus_init(void);
+void platform_cam_probe(uint32_t window_ms, cam_probe_t *out);
+
 /* UART: неблокуюче читання символу (-1, якщо немає) */
 int platform_uart_getc(void);
 #endif

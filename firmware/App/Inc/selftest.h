@@ -9,6 +9,7 @@ int selftest_run_all(void);
 void selftest_i2c_scan(void);
 void selftest_mpu(void);
 void selftest_cam(void);
+void selftest_cam_bus(void);      /* паралельна шина камери: PCLK/VSYNC/D0..D7 за 1,5 с */
 void selftest_flash_id(void);
 void selftest_flash_rw(void);
 void selftest_pwm(void);
