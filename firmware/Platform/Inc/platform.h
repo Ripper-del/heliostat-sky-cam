@@ -48,6 +48,7 @@ int  platform_xclk_is_on(void);
 
 /* Паралельна шина камери (програмне захоплення без DCMI): D0..D3 = PC0..PC3, D4..D6 = PC10..PC12, D7 = PD2,
  * PCLK = PA15, VSYNC = PB7 (HREF не підключено; камера не тактує PCLK між рядками). */
+#define FRAME_LINE_PIXELS 160U     /* QQVGA: пікселів у рядку (байтів у рядку вдвічі більше) */
 typedef struct {
     uint32_t vs_rises;      /* фронтів VSYNC 0->1 за вікно */
     uint32_t pclk_rises;    /* фронтів PCLK 0->1 за вікно */
@@ -55,9 +56,15 @@ typedef struct {
     uint8_t  seen_low;      /* біти, що хоч раз були 0 */
     uint32_t pclk_per_frame;/* фронтів PCLK між двома сусідніми VSYNC (0 = не виміряно) */
     uint32_t frame_us;      /* тривалість кадру між тими ж VSYNC, мкс */
+    uint32_t href_pc8, href_pc9;   /* фронтів на PC8 / PC9 (HREF: там, де ~120 на кадр) */
 } cam_probe_t;
 void platform_cam_bus_init(void);
 void platform_cam_probe(uint32_t window_ms, cam_probe_t *out);
+/** Захоплення одного кадру: чекає початок кадру (спад VSYNC), далі читає байти по фронтах PCLK і лишає лише Y
+ *  (байт з номером n, де (n & 1) == phase). Записує n_pixels байтів у y. Блокує процесор на весь кадр (~400 мс)
+ *  з вимкненими перериваннями — інакше SysTick/UART зіб'ють відлік PCLK; лічильник HAL_GetTick() потім доганяється.
+ *  Повертає 0 або -1, якщо кадр не почався за timeout_ms. */
+int platform_cam_capture(uint8_t *y, uint32_t n_pixels, int phase, uint32_t timeout_ms);
 
 /* UART: неблокуюче читання символу (-1, якщо немає) */
 int platform_uart_getc(void);
