@@ -30,6 +30,7 @@ image:
 # Якщо образу ще немає — збираємо його автоматично.
 build:
 	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	@rm -f firmware/build/product.o   # хеш коміту вшивається флагом -D: без цього об'єкт не перекомпілюється
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace \
 	  --user $$(id -u):$$(id -g) $(IMAGE) \
 	  make -C firmware all BOARD=$(BOARD) GIT_HASH=$(GIT_HASH)
