@@ -43,8 +43,8 @@ static const uint8_t qqvga_yuv_regs[][2] = {
     {0x17, 0x16}, {0x18, 0x04}, {0x32, 0x24},   /* HSTART, HSTOP, HREF */
     {0x19, 0x02}, {0x1A, 0x7A}, {0x03, 0x0A},   /* VSTART, VSTOP, VREF */
     {0x13, 0x80},   /* COM8: AGC, AEC, AWB вимкнені */
-    {0x00, 0x10},   /* GAIN: фіксоване */
-    {0x07, 0x00}, {0x10, 0x40}, {0x04, 0x00},   /* AECHH, AECH, COM1: фіксована експозиція */
+    {0x00, 0x30},   /* GAIN: фіксоване */
+    {0x07, 0x00}, {0x10, 0x96}, {0x04, 0x00},   /* AECHH, AECH, COM1: фіксована експозиція (AEC = 600), підібрано для кімнатного світла */
 };
 
 int ov7670_config_qqvga_yuv(ov7670_t *d)

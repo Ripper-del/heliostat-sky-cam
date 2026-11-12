@@ -298,8 +298,8 @@ void product_print_mem(void)
 void product_cal_show(void)
 {
     const tracker_cfg_t *c = &trk.cfg;
-    printf("[cal] AZ %u..%u us, EL %u..%u us, park %u/%u, dark_thr=%lu, invert=%d, sign az=%d el=%d\r\n", c->az_min_us, c->az_max_us,
-           c->el_min_us, c->el_max_us, c->park_az_us, c->park_el_us, (unsigned long)c->dark_light_thr, c->invert_light, c->sign_az, c->sign_el);
+    printf("[cal] AZ %u..%u us, EL %u..%u us, park %u/%u, dark_thr=%lu, invert=%d, sign az=%d el=%d, zero ex=%d ey=%d\r\n", c->az_min_us, c->az_max_us,
+           c->el_min_us, c->el_max_us, c->park_az_us, c->park_el_us, (unsigned long)c->dark_light_thr, c->invert_light, c->sign_az, c->sign_el, c->ex_off, c->ey_off);
 }
 
 static int parse_u(const char *s, uint32_t *out)
@@ -323,6 +323,7 @@ int product_cal_cmd(int argc, char **argv)
         trk.el_us = trk.el_us < c->el_min_us ? c->el_min_us : trk.el_us > c->el_max_us ? c->el_max_us : trk.el_us;
         return 0;
     }
+    if (!strcmp(argv[0], "ZERO")) { c->ex_off = (int16_t)(trk.ex + c->ex_off); c->ey_off = (int16_t)(trk.ey + c->ey_off); return 0; }   /* поточний перекіс = нуль */
     if (!strcmp(argv[0], "DARK")) { uint32_t v; if (argc < 2 || parse_u(argv[1], &v)) return -1; c->dark_light_thr = v; return 0; }
     if (!strcmp(argv[0], "INV"))  { uint32_t v; if (argc < 2 || parse_u(argv[1], &v) || v > 1) return -1; c->invert_light = (int8_t)v; return 0; }
     if (!strcmp(argv[0], "SIGN")) {

@@ -36,6 +36,16 @@ static void sign_inverts_direction(void)
     CHECK_EQ(t.az_us, 1490);
 }
 
+static void zero_offset_is_subtracted(void)
+{
+    setup();
+    tracker_update(&t, bright_right, SKY_CLEAR, 0);
+    CHECK_EQ(t.ex, 500);                                   /* (4000-2000)/4000 */
+    setup(); t.cfg.ex_off = 500;
+    tracker_update(&t, bright_right, SKY_CLEAR, 0);
+    CHECK_EQ(t.ex, 0); CHECK_EQ(t.az_us, 1500);            /* перекіс компенсовано: серво стоїть */
+}
+
 static void deadband_keeps_servo_still(void)
 {
     setup();
@@ -134,7 +144,7 @@ static void loss_can_fire_again_after_5s(void)
 void test_tracker(void)
 {
     RUN(light_sum_and_polarity); RUN(track_moves_towards_light_and_clamps); RUN(sign_inverts_direction);
-    RUN(deadband_keeps_servo_still); RUN(diffuse_light_is_overcast_and_servo_still);
+    RUN(deadband_keeps_servo_still); RUN(zero_offset_is_subtracted); RUN(diffuse_light_is_overcast_and_servo_still);
     RUN(park_after_dark_time_and_back_with_hysteresis); RUN(short_dark_pulse_does_not_park);
     RUN(spread_handles_all_zero); RUN(mode_names);
     RUN(loss_detects_halving_within_2s); RUN(loss_ignores_slow_decay_and_zero_history); RUN(loss_can_fire_again_after_5s);

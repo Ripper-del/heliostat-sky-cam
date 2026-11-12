@@ -78,7 +78,7 @@ static void run_line(char *line)
     }
     else if (!strcmp(v[0], "HELP")) {
         printf("[cli] STATS [RESET] | MODE | SKY | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
-        printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain\r\n");
+        printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain\r\n");
     }
     else printf("[cli] unknown command (HELP)\r\n");
 }

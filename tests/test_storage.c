@@ -140,11 +140,12 @@ static void calib_roundtrip_and_defaults(void)
     setup();
     tracker_cfg_t c, out; tracker_default_cfg(&c); tracker_default_cfg(&out);
     CHECK_EQ(calib_load(&fl, &out), DEV_ERR_ID);                              /* порожньо */
-    c.az_min_us = 700; c.az_max_us = 2300; c.el_min_us = 800; c.el_max_us = 2100; c.dark_light_thr = 777; c.sign_az = -1; c.invert_light = 1;
+    c.az_min_us = 700; c.az_max_us = 2300; c.el_min_us = 800; c.el_max_us = 2100; c.dark_light_thr = 777; c.sign_az = -1; c.invert_light = 1; c.ex_off = -57; c.ey_off = 83;
     CHECK_EQ(calib_save(&fl, &c), DEV_OK);
     CHECK_EQ(calib_load(&fl, &out), DEV_OK);
     CHECK_EQ(out.az_min_us, 700); CHECK_EQ(out.az_max_us, 2300);
     CHECK_EQ(out.el_min_us, 800); CHECK_EQ(out.el_max_us, 2100);                 /* різні межі для двох серво (FR-09) */
+    CHECK_EQ(out.ex_off, -57); CHECK_EQ(out.ey_off, 83);
     CHECK_EQ(out.dark_light_thr, 777); CHECK_EQ(out.sign_az, -1); CHECK_EQ(out.invert_light, 1);
     ff.mem[10] ^= 0x01;                                                         /* псуємо байт: CRC має це помітити */
     ff.mem[10] &= 0xFF;

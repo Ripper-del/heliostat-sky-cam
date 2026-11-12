@@ -10,6 +10,7 @@ void tracker_default_cfg(tracker_cfg_t *c)
     c->spread_permille = 40; c->deadband_permille = 30;
     c->invert_light = 0; c->sign_az = 1; c->sign_el = 1;
     c->step_us = 10;
+    c->ex_off = c->ey_off = 0;
 }
 
 void tracker_init(tracker_t *t, const tracker_cfg_t *c)
@@ -48,7 +49,7 @@ int tracker_update(tracker_t *t, const uint16_t q[4], sky_t sky, uint32_t now_ms
     const tracker_cfg_t *c = &t->cfg;
     t->light = tracker_light(q, c->invert_light);
     quadrant_error_t e = quadrant_error(q);
-    t->ex = e.x_permille; t->ey = e.y_permille;
+    t->ex = e.x_permille - c->ex_off; t->ey = e.y_permille - c->ey_off;
 
     /* Темрява: поріг із гістерезисом 1/8, щоб на межі не було брязкоту. */
     uint32_t thr = t->mode == MODE_PARK ? c->dark_light_thr + c->dark_light_thr / 8 : c->dark_light_thr;

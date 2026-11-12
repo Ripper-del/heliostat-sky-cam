@@ -19,6 +19,7 @@ typedef struct {
     int8_t   invert_light;        /* 1: АЦП зростає при зменшенні освітленості */
     int8_t   sign_az, sign_el;    /* напрямок руху серво: +1 або -1 */
     uint8_t  step_us;             /* макс. зміна цілі за один виклик (10 мс) */
+    int16_t  ex_off, ey_off;      /* нуль квадранта, проміле (статичний перекіс датчиків; CAL ZERO) */
 } tracker_cfg_t;
 
 typedef struct {

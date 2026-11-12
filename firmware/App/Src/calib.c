@@ -22,6 +22,7 @@ int calib_save(w25q_t *f, const tracker_cfg_t *c)
     put16(b + 12, c->park_az_us); put16(b + 14, c->park_el_us);
     put32(b + 16, c->dark_light_thr);
     b[20] = (uint8_t)c->invert_light; b[21] = (uint8_t)c->sign_az; b[22] = (uint8_t)c->sign_el;
+    put16(b + 24, (uint16_t)c->ex_off); put16(b + 26, (uint16_t)c->ey_off);
     put16(b + 30, crc16(b, 30));
     int rc = w25q_sector_erase(f, CALIB_ADDR);
     return rc != DEV_OK ? rc : w25q_write(f, CALIB_ADDR, b, CAL_LEN);
@@ -38,5 +39,6 @@ int calib_load(w25q_t *f, tracker_cfg_t *c)
     c->park_az_us = get16(b + 12); c->park_el_us = get16(b + 14);
     c->dark_light_thr = get32(b + 16);
     c->invert_light = (int8_t)b[20]; c->sign_az = (int8_t)b[21]; c->sign_el = (int8_t)b[22];
+    c->ex_off = (int16_t)get16(b + 24); c->ey_off = (int16_t)get16(b + 26);
     return DEV_OK;
 }
