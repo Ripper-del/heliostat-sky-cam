@@ -288,21 +288,6 @@ static int run_cam_frame(void)
 void selftest_cam(void)       { run_cam(); }
 void selftest_cam_frame(void) { run_cam_frame(); }
 
-void selftest_cam_raw(int color_bar)
-{
-    static uint8_t raw[FRAME_PIXELS * 2];
-    ov7670_t d; ov7670_init_dev(&d, platform_sccb_cam());
-    int rc = ov7670_config_qqvga_yuv(&d);
-    if (rc == DEV_OK && color_bar) rc = ov7670_set_test_pattern(&d, 1);
-    platform_delay_ms(100);
-    int cr = rc == DEV_OK ? platform_cam_capture(raw, FRAME_PIXELS, 2, 1000) : -2;
-    printf("[st] CAM_RAW rc=%d cap=%d bars=%d", rc, cr, color_bar); endl();
-    for (unsigned line = 0; line < 120; line += 30) {
-        printf("line %u:", line);
-        for (unsigned i = 0; i < 48; i++) printf(" %02X", raw[line * 320 + i]);
-        printf("\r\n");
-    }
-}
 void selftest_cam_bus(void)   { run_cam_bus(); }
 void selftest_flash_id(void)  { run_flash_id(); }
 void selftest_flash_rw(void)  { run_flash_rw(); }

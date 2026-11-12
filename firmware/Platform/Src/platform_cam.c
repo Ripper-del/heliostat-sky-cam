@@ -12,6 +12,7 @@ static inline int cam_pclk(void) { return (CAM_PCLK_PORT->IDR & CAM_PCLK_PIN) !=
 static inline int cam_vs(void)   { return (CAM_VS_PORT->IDR & CAM_VS_PIN) != 0; }
 /* HREF: провід підключають до PC8 (CN10 пін 2) або PC9 (CN10 пін 1); який саме — визначає platform_cam_probe. */
 static uint32_t href_mask = GPIO_PIN_8;
+static int href_detected;
 static inline int cam_href(void) { return (GPIOC->IDR & href_mask) != 0; }
 
 void platform_cam_bus_init(void)
@@ -65,8 +66,8 @@ void platform_cam_probe(uint32_t window_ms, cam_probe_t *out)
     }
     out->seen_high = high; out->seen_low = low;
     out->href_pc8 = h8; out->href_pc9 = h9;
-    if (h8 > h9 && h8 > 50) href_mask = GPIO_PIN_8;
-    else if (h9 > 50) href_mask = GPIO_PIN_9;
+    if (h8 > h9 && h8 > 50) { href_mask = GPIO_PIN_8; href_detected = 1; }
+    else if (h9 > 50)       { href_mask = GPIO_PIN_9; href_detected = 1; }
 }
 
 extern __IO uint32_t uwTick;    /* лічильник HAL_GetTick() */
@@ -74,8 +75,10 @@ extern __IO uint32_t uwTick;    /* лічильник HAL_GetTick() */
 int platform_cam_capture(uint8_t *y, uint32_t n_pixels, int phase, uint32_t timeout_ms)
 {
     platform_cam_bus_init();
+    if (!href_detected) { cam_probe_t tmp; platform_cam_probe(900, &tmp); if (!href_detected) return -1; }
     const uint32_t cyc_per_ms = SystemCoreClock / 1000U;
-    const uint32_t limit = timeout_ms * cyc_per_ms;
+    const uint32_t limit = timeout_ms * cyc_per_ms;       /* ліміт очікування початку кадру */
+    const uint32_t line_limit = 20U * cyc_per_ms;         /* один рядок (~1 мс) не може тривати довше */
     const uint32_t w = FRAME_LINE_PIXELS;                 /* пікселів у рядку: 160 */
     const uint32_t lines = n_pixels / w;
     uint32_t t0 = DWT->CYCCNT;
@@ -84,9 +87,12 @@ int platform_cam_capture(uint8_t *y, uint32_t n_pixels, int phase, uint32_t time
     while (!cam_vs())  { if (DWT->CYCCNT - t0 > limit) { ok = 0; break; } }   /* VSYNC високий: пауза між кадрами */
     while (ok && cam_vs()) { if (DWT->CYCCNT - t0 > limit) ok = 0; }          /* чекаємо спаду: початок кадру */
     for (uint32_t line = 0; ok && line < lines; line++) {
-        while (ok && !cam_href()) { if (DWT->CYCCNT - t0 > 4 * limit) ok = 0; }
+        uint32_t tl = DWT->CYCCNT;
+        while (ok && !cam_href()) { if (DWT->CYCCNT - tl > line_limit) ok = 0; }
         uint32_t n = 0; int prev = 0;
+        tl = DWT->CYCCNT;
         while (ok && cam_href()) {
+            if (DWT->CYCCNT - tl > line_limit) { ok = 0; break; }   /* HREF завис у 1 */
             int p = cam_pclk();
             if (p && !prev) {
                 uint8_t b = cam_data();

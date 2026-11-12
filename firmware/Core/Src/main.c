@@ -26,6 +26,7 @@ static void report_init(const char *name, HAL_StatusTypeDef st)
 
 int main(void)
 {
+    platform_stack_paint();    /* перший рядок: вимір найглибшого стека (ЛР3, п. 5.4) */
     HAL_Init();
     SystemClock_Config();
 
@@ -47,6 +48,8 @@ int main(void)
     platform_xclk(1);
     printf("[init] MCO1    : XCLK 16 MHz on PA8\r\n");
 
+    platform_perf_init();
+    platform_uart_rx_irq_enable();
     app_init();
     while (1) app_step();
 }

@@ -61,3 +61,12 @@ int ov7670_set_test_pattern(ov7670_t *d, int color_bar)
     if (rc == DEV_OK) rc = d->bus->write_reg(d->bus->ctx, OV7670_REG_YSC, color_bar ? 0xB5 : 0x35);
     return rc;
 }
+
+int ov7670_set_exposure(ov7670_t *d, uint16_t aec, uint8_t gain)
+{
+    int rc = d->bus->write_reg(d->bus->ctx, 0x00, gain);                                  /* GAIN */
+    if (rc == DEV_OK) rc = d->bus->write_reg(d->bus->ctx, 0x07, (uint8_t)((aec >> 10) & 0x3F));   /* AECHH */
+    if (rc == DEV_OK) rc = d->bus->write_reg(d->bus->ctx, 0x10, (uint8_t)((aec >> 2) & 0xFF));    /* AECH */
+    if (rc == DEV_OK) rc = d->bus->write_reg(d->bus->ctx, 0x04, (uint8_t)(aec & 0x03));           /* COM1[1:0] */
+    return rc;
+}

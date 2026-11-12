@@ -93,9 +93,22 @@ static void test_pattern_on_off(void)
     CHECK_EQ(m.write_calls, 1);
 }
 
+static void exposure_splits_aec_into_registers(void)
+{
+    setup();
+    CHECK_EQ(ov7670_set_exposure(&d, 0x1234, 0x2A), DEV_OK);
+    CHECK(wrote(0x00, 0x2A));
+    CHECK(wrote(0x07, 0x04));       /* (0x1234 >> 10) & 0x3F */
+    CHECK(wrote(0x10, 0x8D));       /* (0x1234 >> 2) & 0xFF */
+    CHECK(wrote(0x04, 0x00));       /* 0x1234 & 3 */
+    setup(); m.fail_write_at = 3;
+    CHECK_EQ(ov7670_set_exposure(&d, 0x1234, 0x2A), DEV_ERR_BUS);
+    CHECK_EQ(m.write_calls, 3);
+}
+
 void test_ov7670(void)
 {
     RUN(identify_ok); RUN(identify_retries_after_nack); RUN(identify_gives_up);
     RUN(identify_unexpected_id); RUN(identify_unexpected_id_is_retried); RUN(soft_reset_writes_com7);
-    RUN(config_qqvga_resets_then_writes_table); RUN(config_qqvga_stops_on_bus_error); RUN(test_pattern_on_off);
+    RUN(config_qqvga_resets_then_writes_table); RUN(config_qqvga_stops_on_bus_error); RUN(test_pattern_on_off); RUN(exposure_splits_aec_into_registers);
 }

@@ -66,6 +66,29 @@ void platform_cam_probe(uint32_t window_ms, cam_probe_t *out);
  *  Повертає 0 або -1, якщо кадр не почався за timeout_ms. */
 int platform_cam_capture(uint8_t *y, uint32_t n_pixels, int phase, uint32_t timeout_ms);
 
+/* ---- Вимірювання (ЛР3): лічильник тактів ядра DWT, службові піни для логічного аналізатора ---- */
+void     platform_perf_init(void);          /* увімкнути DWT, налаштувати службові піни */
+uint32_t platform_cycles(void);             /* DWT->CYCCNT (32 біти, переповнення ~43 с при 100 МГц) */
+uint32_t platform_cpu_hz(void);
+uint32_t platform_micros(void);             /* мкс, розширений лічильник; викликати частіше ніж раз на 40 с */
+/* Службові піни: 0 = PB1 (CN10-24), 1 = PB2 (CN10-22), 2 = PB5 (CN10-29), 3 = PB6 (CN10-17), 4 = PB3 (CN10-31, реакція) */
+#define PLATFORM_PROBE_COUNT 5
+void     platform_probe(int ch, int level);
+/* Стек: заповнення шаблоном на старті та вимір найглибшого використання */
+void     platform_stack_paint(void);
+uint32_t platform_stack_used(void);
+uint32_t platform_stack_reserved(void);
+uint32_t platform_heap_used(void);
+
+/* Кнопка B1 по EXTI: ISR фіксує такти; задача забирає подію. 1 — була подія, *t_cycles — момент фронту. */
+int      platform_button_event(uint32_t *t_cycles);
+void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
+
+/* UART RX через переривання в кільцевий буфер (256 Б); лічильник втрат при переповненні */
+void     platform_uart_rx_irq_enable(void);
+void     platform_uart2_irq(void);          /* з USART2_IRQHandler */
+uint32_t platform_uart_rx_overflow(void);
+
 /* UART: неблокуюче читання символу (-1, якщо немає) */
 int platform_uart_getc(void);
 #endif

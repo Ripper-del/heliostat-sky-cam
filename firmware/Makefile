@@ -37,6 +37,7 @@ HAL_SOURCES = \
     _pwr.c _pwr_ex.c _i2c.c _spi.c _uart.c _adc.c _adc_ex.c)
 OWN_SOURCES = \
   $(wildcard Core/Src/*.c) \
+  $(wildcard Common/Src/*.c) \
   $(wildcard Platform/Src/*.c) \
   $(wildcard Devices/Src/*.c) \
   $(wildcard App/Src/*.c)
@@ -49,7 +50,7 @@ ASM_SOURCES = $(STARTUP)
 # ---- Включення та визначення ----
 # Вендорські каталоги підключаються через -isystem: попередження в їхніх заголовках не показуються.
 C_INCLUDES = \
-  -ICore/Inc -IApp/Inc -IDevices/Inc -IPlatform/Inc
+  -ICore/Inc -IApp/Inc -IDevices/Inc -IPlatform/Inc -ICommon/Inc
 VENDOR_INCLUDES = \
   -isystem Drivers/STM32F4xx_HAL_Driver/Inc \
   -isystem Drivers/CMSIS/Device/ST/STM32F4xx/Include \
