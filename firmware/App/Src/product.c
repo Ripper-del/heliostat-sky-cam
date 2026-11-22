@@ -31,6 +31,7 @@ static uint8_t  g_frame[FRAME_PIXELS];
 static int      have_frame;
 static frame_stats_t fst;
 static sky_t    sky = SKY_OVERCAST;
+static int      sky_force = -1;                /* діагностика: -1 = за камерою, інакше задана класифікація */
 static uint16_t q[4];
 static int      servos_on;
 static int      snap_req;
@@ -115,7 +116,7 @@ static void camera_task(void)
     if (rc != 0) { cam_err++; return; }
     have_frame = 1;
     fst = frame_stats(g_frame, FRAME_PIXELS, SKY_DEFAULTS.sat_level);
-    sky = sky_classify(&fst, &SKY_DEFAULTS);                        /* FR-12 */
+    sky = sky_force >= 0 ? (sky_t)sky_force : sky_classify(&fst, &SKY_DEFAULTS);   /* FR-12 (SKY FORCE — лише для перевірок) */
     int ldr_dark = trk.light < trk.cfg.dark_light_thr;
     uint32_t now = platform_millis();
     if (sky_mismatch(sky, ldr_dark) && now - last_suspect_ms >= 10000U) {   /* FR-16 */
@@ -439,3 +440,5 @@ void product_probe_test(void)
     }
     for (int k = 0; k < PLATFORM_PROBE_COUNT; k++) platform_probe(k, 0);
 }
+
+void product_sky_force(int v) { sky_force = v; if (v >= 0) sky = (sky_t)v; }

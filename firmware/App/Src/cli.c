@@ -54,7 +54,12 @@ static void run_line(char *line)
     product_cmd_started();
     if (!strcmp(v[0], "STATS")) { if (n > 1 && !strcmp(v[1], "RESET")) product_reset_stats(); else product_print_stats(); }
     else if (!strcmp(v[0], "MODE"))  product_print_mode();
-    else if (!strcmp(v[0], "SKY"))   product_print_sky();
+    else if (!strcmp(v[0], "SKY")) {
+        if (n > 2 && !strcmp(v[1], "FORCE")) {
+            int f = !strcmp(v[2], "CLEAR") ? 2 : !strcmp(v[2], "OVERCAST") ? 1 : !strcmp(v[2], "DARK") ? 0 : -1;
+            product_sky_force(f); printf("[cli] sky %s\r\n", f < 0 ? "AUTO" : v[2]);
+        } else product_print_sky();
+    }
     else if (!strcmp(v[0], "MEM"))   product_print_mem();
     else if (!strcmp(v[0], "SNAP"))  { product_snapshot_request(); printf("[cli] snapshot requested\r\n"); }
     else if (!strcmp(v[0], "FRAMES")) {
@@ -87,7 +92,7 @@ static void run_line(char *line)
         printf("[cli] period %s\r\n", (n > 2 && product_set_period(name, ms) == 0) ? "set" : "ERROR (PERIOD task ms)");
     }
     else if (!strcmp(v[0], "HELP")) {
-        printf("[cli] STATS [RESET] | MODE | SKY | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
+        printf("[cli] STATS [RESET] | MODE | SKY [FORCE CLEAR|OVERCAST|DARK|AUTO] | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
         printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL DEADBAND n | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain | VER | PROBE | PERIOD task ms\r\n");
     }
     else printf("[cli] unknown command (HELP)\r\n");

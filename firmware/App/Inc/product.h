@@ -25,6 +25,8 @@ int  product_log_erase(void);
 void product_frames_info(void);
 int  product_frame_show(uint32_t no);
 void product_snapshot_request(void);
+/** Діагностика: -1 = класифікація за камерою; 0 DARK, 1 OVERCAST, 2 CLEAR примусово (для перевірки слідкування окремо від камери). */
+void product_sky_force(int v);
 void product_servo_power(int on);
 int  product_cam_exposure(uint32_t aec, uint32_t gain);
 void product_print_version(void);
