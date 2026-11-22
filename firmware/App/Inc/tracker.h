@@ -14,7 +14,7 @@ typedef struct {
     uint16_t park_az_us, park_el_us;                      /* безпечне положення (FR-05) */
     uint32_t dark_light_thr;      /* сума чотирьох каналів у "світлових" одиницях нижче порога = темно */
     uint32_t dark_time_ms;        /* скільки темно має бути, щоб піти в PARK */
-    uint16_t spread_permille;     /* розкид квадрантів нижче цього = розсіяне світло (OVERCAST) */
+    uint16_t spread_permille;     /* |зсув| (ex і ey після вирахування нуля) нижче цього = розсіяне світло (OVERCAST) */
     uint16_t deadband_permille;   /* |зсув| менший за це — серво не рухаємо */
     int8_t   invert_light;        /* 1: АЦП зростає при зменшенні освітленості */
     int8_t   sign_az, sign_el;    /* напрямок руху серво: +1 або -1 */

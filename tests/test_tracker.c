@@ -66,6 +66,17 @@ static void diffuse_light_is_overcast_and_servo_still(void)
     CHECK_EQ(t.mode, MODE_TRACK);
 }
 
+static void static_channel_imbalance_is_not_contrast(void)
+{
+    setup();
+    uint16_t q[4] = { 3500, 3500, 3400, 2650 };            /* один дільник постійно нижчий: стендовий перекіс, не напрямок світла */
+    tracker_update(&t, q, SKY_CLEAR, 0);
+    CHECK_EQ(t.mode, MODE_TRACK);                          /* без калібровки нуля це схоже на джерело збоку */
+    t.cfg.ex_off = (int16_t)t.ex + t.cfg.ex_off; t.cfg.ey_off = (int16_t)t.ey + t.cfg.ey_off;
+    tracker_update(&t, q, SKY_CLEAR, 10);
+    CHECK_EQ(t.mode, MODE_OVERCAST);                       /* після CAL ZERO рівномірний світловий фон = розсіяне світло */
+}
+
 static void park_after_dark_time_and_back_with_hysteresis(void)
 {
     setup(); t.az_us = 1700; t.el_us = 1200;
@@ -144,7 +155,7 @@ static void loss_can_fire_again_after_5s(void)
 void test_tracker(void)
 {
     RUN(light_sum_and_polarity); RUN(track_moves_towards_light_and_clamps); RUN(sign_inverts_direction);
-    RUN(deadband_keeps_servo_still); RUN(zero_offset_is_subtracted); RUN(diffuse_light_is_overcast_and_servo_still);
+    RUN(deadband_keeps_servo_still); RUN(zero_offset_is_subtracted); RUN(static_channel_imbalance_is_not_contrast); RUN(diffuse_light_is_overcast_and_servo_still);
     RUN(park_after_dark_time_and_back_with_hysteresis); RUN(short_dark_pulse_does_not_park);
     RUN(spread_handles_all_zero); RUN(mode_names);
     RUN(loss_detects_halving_within_2s); RUN(loss_ignores_slow_decay_and_zero_history); RUN(loss_can_fire_again_after_5s);
