@@ -331,6 +331,7 @@ int product_cal_cmd(int argc, char **argv)
         return 0;
     }
     if (!strcmp(argv[0], "ZERO")) { c->ex_off = (int16_t)(trk.ex + c->ex_off); c->ey_off = (int16_t)(trk.ey + c->ey_off); return 0; }   /* поточний перекіс = нуль */
+    if (!strcmp(argv[0], "DEADBAND")) { uint32_t v; if (argc < 2 || parse_u(argv[1], &v) || v > 500) return -1; c->deadband_permille = (uint16_t)v; return 0; }
     if (!strcmp(argv[0], "DARK")) { uint32_t v; if (argc < 2 || parse_u(argv[1], &v)) return -1; c->dark_light_thr = v; return 0; }
     if (!strcmp(argv[0], "INV"))  { uint32_t v; if (argc < 2 || parse_u(argv[1], &v) || v > 1) return -1; c->invert_light = (int8_t)v; return 0; }
     if (!strcmp(argv[0], "SIGN")) {
@@ -384,6 +385,7 @@ void product_snapshot_request(void) { snap_req = 1; }
 void product_servo_power(int on)
 {
     if (on) {
+        trk.az_us = trk.cfg.park_az_us; trk.el_us = trk.cfg.park_el_us;      /* старт з безпечного положення, без ривка до межі */
         platform_servo_set_us(PLATFORM_SERVO_AZ, trk.az_us); platform_servo_set_us(PLATFORM_SERVO_EL, trk.el_us);
         platform_servo_enable(PLATFORM_SERVO_AZ, 1); platform_servo_enable(PLATFORM_SERVO_EL, 1);
     } else {
