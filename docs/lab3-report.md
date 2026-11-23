@@ -369,4 +369,4 @@ Time-triggered super loop: планувальник у нескінченном�
 
 ## 12. Відеозвіт (2–3 хв)
 
-Посилання: ВСТАВИТИ_ПОСИЛАННЯ_НА_ВІДЕО
+Посилання на відео: https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing
