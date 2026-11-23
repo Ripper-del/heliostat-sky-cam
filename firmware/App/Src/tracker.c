@@ -11,6 +11,7 @@ void tracker_default_cfg(tracker_cfg_t *c)
     c->invert_light = 0; c->sign_az = 1; c->sign_el = 1;
     c->step_us = 10;
     c->ex_off = c->ey_off = 0;
+    c->mode_dwell_ms = 1000;
 }
 
 void tracker_init(tracker_t *t, const tracker_cfg_t *c)
@@ -18,7 +19,7 @@ void tracker_init(tracker_t *t, const tracker_cfg_t *c)
     t->cfg = *c;
     t->mode = MODE_TRACK;
     t->az_us = c->park_az_us; t->el_us = c->park_el_us;
-    t->light = 0; t->ex = t->ey = 0; t->dark_pending = 0; t->dark_since_ms = 0;
+    t->light = 0; t->ex = t->ey = 0; t->dark_pending = 0; t->dark_since_ms = 0; t->mode_since_ms = 0;
 }
 
 uint32_t tracker_light(const uint16_t q[4], int invert)
@@ -59,7 +60,9 @@ int tracker_update(tracker_t *t, const uint16_t q[4], sky_t sky, uint32_t now_ms
     }
     if (t->mode != MODE_PARK) {
         int diffuse = (iabs(t->ex) < c->spread_permille && iabs(t->ey) < c->spread_permille) || sky == SKY_OVERCAST;
-        t->mode = diffuse ? MODE_OVERCAST : MODE_TRACK;        /* FR-06, FR-13 */
+        track_mode_t want = diffuse ? MODE_OVERCAST : MODE_TRACK;   /* FR-06, FR-13 */
+        if (before != MODE_PARK && want != before && now_ms - t->mode_since_ms < c->mode_dwell_ms) want = before;   /* утримання */
+        t->mode = want;
         if (t->mode == MODE_TRACK) {
             int32_t da = iabs(t->ex) > c->deadband_permille ? (t->ex > 0 ? c->step_us : -(int32_t)c->step_us) * c->sign_az : 0;
             int32_t de = iabs(t->ey) > c->deadband_permille ? (t->ey > 0 ? c->step_us : -(int32_t)c->step_us) * c->sign_el : 0;
@@ -67,6 +70,7 @@ int tracker_update(tracker_t *t, const uint16_t q[4], sky_t sky, uint32_t now_ms
             t->el_us = clamp_us((int32_t)t->el_us + de, c->el_min_us, c->el_max_us);
         }
     }
+    if (t->mode != before) t->mode_since_ms = now_ms;
     return t->mode != before;
 }
 

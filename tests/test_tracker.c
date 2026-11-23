@@ -2,7 +2,7 @@
 #include "tracker.h"
 
 static tracker_t t; static tracker_cfg_t cfg;
-static void setup(void) { tracker_default_cfg(&cfg); tracker_init(&t, &cfg); }
+static void setup(void) { tracker_default_cfg(&cfg); cfg.mode_dwell_ms = 0; tracker_init(&t, &cfg); }   /* утримання вимкнене в старих тестах */
 
 static const uint16_t bright_left[4]  = { 3000, 1000, 3000, 1000 };   /* ліві яскравіші: ex < 0 */
 static const uint16_t bright_right[4] = { 1000, 3000, 1000, 3000 };
@@ -75,6 +75,20 @@ static void static_channel_imbalance_is_not_contrast(void)
     t.cfg.ex_off = (int16_t)t.ex + t.cfg.ex_off; t.cfg.ey_off = (int16_t)t.ey + t.cfg.ey_off;
     tracker_update(&t, q, SKY_CLEAR, 10);
     CHECK_EQ(t.mode, MODE_OVERCAST);                       /* після CAL ZERO рівномірний світловий фон = розсіяне світло */
+}
+
+static void mode_dwell_stops_chattering_on_the_threshold(void)
+{
+    tracker_default_cfg(&cfg); tracker_init(&t, &cfg);              /* утримання 1 с */
+    uint16_t tilt[4]  = { 2000, 2400, 2000, 2400 };               /* ex = 90 -> TRACK */
+    uint16_t quiet[4] = { 2000, 2010, 2000, 2010 };               /* ex = 2  -> OVERCAST */
+    int changes = 0;
+    for (int i = 0; i < 100; i++)                                  /* 1 с, кожні 10 мс: сигнал метляється між двома станами */
+        changes += tracker_update(&t, (i & 1) ? tilt : quiet, SKY_CLEAR, 1000 + i * 10);
+    CHECK_EQ(changes, 1);                                          /* лише перша зміна, далі режим утримується */
+    CHECK(tracker_update(&t, quiet, SKY_CLEAR, 2500) >= 0);
+    tracker_update(&t, tilt, SKY_CLEAR, 4000);
+    CHECK_EQ(t.mode, MODE_TRACK);                                  /* після утримання режим може змінитись */
 }
 
 static void park_after_dark_time_and_back_with_hysteresis(void)
@@ -155,7 +169,7 @@ static void loss_can_fire_again_after_5s(void)
 void test_tracker(void)
 {
     RUN(light_sum_and_polarity); RUN(track_moves_towards_light_and_clamps); RUN(sign_inverts_direction);
-    RUN(deadband_keeps_servo_still); RUN(zero_offset_is_subtracted); RUN(static_channel_imbalance_is_not_contrast); RUN(diffuse_light_is_overcast_and_servo_still);
+    RUN(deadband_keeps_servo_still); RUN(zero_offset_is_subtracted); RUN(static_channel_imbalance_is_not_contrast); RUN(mode_dwell_stops_chattering_on_the_threshold); RUN(diffuse_light_is_overcast_and_servo_still);
     RUN(park_after_dark_time_and_back_with_hysteresis); RUN(short_dark_pulse_does_not_park);
     RUN(spread_handles_all_zero); RUN(mode_names);
     RUN(loss_detects_halving_within_2s); RUN(loss_ignores_slow_decay_and_zero_history); RUN(loss_can_fire_again_after_5s);
