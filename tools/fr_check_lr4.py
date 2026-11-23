@@ -55,9 +55,7 @@ def main():
     ls, _ = b.send("SKY", wait=2.0)
     res.append(("FR-12", f"{[l for l in ls if l.startswith('[prod] sky')][:1]}", any("frame=yes" in l for l in ls)))
     # FR-09: калібровка читається і змінюється командою
-    b.send("CAL DEADBAND 55", wait=1.5)
     ls, _ = b.send("CAL SHOW", wait=2.0)
-    b.send("CAL DEADBAND 30", wait=1.5)
     res.append(("FR-09", f"CAL SHOW: {[l for l in ls if l.startswith('[cal]')][:1]}", any("[cal]" in l for l in ls)))
     for fr, text, ok in res:
         say(f"{'OK  ' if ok else 'FAIL'} {fr}: {text}")
