@@ -124,6 +124,10 @@ def fig_trace():
         m = re.match(r"TRACE t_us=(\d+) task=(\S+)", l)
         if m:
             ev.append((int(m.group(1)), m.group(2)))
+    n1 = len(ev) // 2
+    if n1 and ev[:n1] == ev[n1:]:         # лог пише кожен рядок двічі (автозапис Board і явний запис сценарію)
+        ev = ev[:n1]
+    ev = [e for i, e in enumerate(ev) if i == 0 or e != ev[i - 1]]      # або двічі поспіль
     if len(ev) < 20:
         return
     names = ["button", "adc", "control", "servo", "cli", "loss", "imu", "log", "tick", "snapshot", "camera", "led", "IDLE"]
@@ -132,9 +136,9 @@ def fig_trace():
     fig, ax = plt.subplots(figsize=(12, 4.6))
     for (t0, n), (t1, _) in zip(ev, ev[1:]):
         if n in ypos:
-            ax.barh(ypos[n], max(t1 - t0, 150) / 1000.0, left=t0 / 1000.0, height=0.7, color=cmap.get(n, BLUE), lw=0)
+            ax.barh(ypos[n], max(t1 - t0, 2500) / 1000.0, left=t0 / 1000.0, height=0.7, color=cmap.get(n, BLUE), lw=0)   # коротші за 2,5 мс малюються шириною 2,5 мс, інакше їх не видно
     ax.set_yticks(range(len(names))); ax.set_yticklabels([f"{n}" for n in names], fontsize=8)
-    ax.invert_yaxis(); ax.set_xlabel("час від початку журналу, мс"); ax.grid(axis="x", alpha=0.3)
+    ax.invert_yaxis(); ax.set_xlabel("час від початку журналу, мс (запуски, коротші за 2,5 мс, показано шириною 2,5 мс)"); ax.grid(axis="x", alpha=0.3)
     ax.set_title("Хронологія виконання задач у фрагменті S3 (журнал перемикань FreeRTOS): знімок витісняється подіями кнопки, АЦП і командами", fontsize=9.5)
     ax.spines[["top", "right"]].set_visible(False)
     fig.tight_layout(); fig.savefig(os.path.join(OUT, "fig_trace.png"), dpi=150); plt.close(fig)
@@ -149,7 +153,7 @@ def fig_trace():
         ax.set_xlim(c - 8, c + 8)
         ax.set_yticks(range(len(names))); ax.set_yticklabels(names, fontsize=8); ax.invert_yaxis()
         ax.set_xlabel("мс"); ax.grid(axis="x", alpha=0.3)
-        ax.set_title("Збільшено: подія кнопки (button) негайно витісняє поточну задачу", fontsize=9.5)
+        ax.set_title("Збільшено: подія кнопки будить button і snapshot; adc, imu, led витісняють snapshot (пріоритет 1)", fontsize=9.5)
         ax.spines[["top", "right"]].set_visible(False)
         fig.tight_layout(); fig.savefig(os.path.join(OUT, "fig_trace_zoom.png"), dpi=150); plt.close(fig)
 
@@ -159,7 +163,11 @@ def fig_stacks():
     if not files:
         return
     d = C.load_log(files[-1])
-    st = [s for s in d["stack"] if s.get("size_words")]
+    uniq = {}
+    for s in d["stack"]:                      # у лозі рядки бувають подвоєні (автолог + явний запис): беремо по одному на задачу
+        if s.get("size_words"):
+            uniq[s["task"]] = s
+    st = list(uniq.values())
     if not st:
         return
     st.sort(key=lambda s: -s["size_words"])
@@ -189,7 +197,7 @@ def fig_tick():
     def mx(rs, name, key):
         v = C.vals(rs, lambda r: r["stats"][name][key])
         return max(v) if v else 0
-    for ax, (title, name, key, conv) in zip(axs, [("Джитер АЦП, max, мс", "adc", "late_max_us", 1000.0), ("Затримка реакції на кнопку, max, мкс", "btn_latency", "max_us", 1.0), ("Відповідь на команду, max, мс", "cmd_latency", "max_us", 1000.0)]):
+    for ax, (title, name, key, conv) in zip(axs, [("Джитер АЦП, max, мс", "adc", "late_max_us", 1000.0), ("Реакція на подію кнопки, max, мс", "evt_latency", "max_us", 1000.0), ("Відповідь на команду, max, мс", "cmd_latency", "max_us", 1000.0)]):
         vals = [mx(out[1000], name, key) / conv, mx(out[100], name, key) / conv]
         ax.bar(["1000 Гц", "100 Гц"], vals, color=[BLUE, ORANGE], width=0.5)
         for i, v in enumerate(vals):
