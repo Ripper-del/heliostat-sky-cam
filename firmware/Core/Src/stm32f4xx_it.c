@@ -14,6 +14,7 @@ void PendSV_Handler(void)     {}
 
 void EXTI15_10_IRQHandler(void) { platform_exti_irq(); }
 void USART2_IRQHandler(void)    { platform_uart2_irq(); }
+void TIM2_IRQHandler(void)      { platform_tim2_irq(); }
 
 /* SysTick іде щомілісекунди й збільшує лічильник HAL_GetTick(). */
 void SysTick_Handler(void)

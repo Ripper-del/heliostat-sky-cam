@@ -85,6 +85,12 @@ int      platform_button_event(uint32_t *t_cycles);
 void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
 uint32_t platform_button_overruns(void);    /* події, що злились із непрочитаною (втрачені) */
 
+/** Імітатор кнопки: кожні period_ms мс TIM2 ставить програмну EXTI-подію лінії кнопки; 0 — вимкнути. */
+void     platform_btnsim(uint32_t period_ms);
+void     platform_tim2_irq(void);
+/** Інжекція відмови: 1 — SDA I2C1 (PB9) замкнено на землю, 0 — відпущено. */
+void     platform_fault_sda(int on);
+
 /* UART RX через переривання в кільцевий буфер (256 Б); лічильник втрат при переповненні */
 void     platform_uart_rx_irq_enable(void);
 void     platform_uart2_irq(void);          /* з USART2_IRQHandler */

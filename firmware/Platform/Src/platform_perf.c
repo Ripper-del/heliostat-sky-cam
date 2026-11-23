@@ -125,3 +125,34 @@ void platform_uart2_irq(void)
 uint32_t platform_uart_rx_overflow(void) { return rx_ring.overflow; }
 uint32_t platform_uart_eol_cycles(void)  { return eol_cyc; }
 int platform_uart_getc(void) { return ring_get(&rx_ring); }
+
+/* ---------------- Імітатор кнопки (ЛР4, п. 7.1): TIM2 періодично ставить EXTI-подію кнопки програмно ---------------- */
+/* Той самий ланцюжок, що й від справжнього натискання: EXTI13 -> EXTI15_10_IRQHandler -> HAL callback. Дає повторювані події без людини. */
+void platform_btnsim(uint32_t period_ms)
+{
+    __HAL_RCC_TIM2_CLK_ENABLE();
+    TIM2->CR1 = 0;
+    if (period_ms == 0) { TIM2->DIER = 0; HAL_NVIC_DisableIRQ(TIM2_IRQn); return; }
+    TIM2->PSC = (SystemCoreClock / 1000000U) - 1U;
+    TIM2->ARR = period_ms * 1000U - 1U;
+    TIM2->EGR = TIM_EGR_UG;
+    TIM2->SR = 0;
+    TIM2->DIER = TIM_DIER_UIE;
+    HAL_NVIC_SetPriority(TIM2_IRQn, 1, 0);
+    HAL_NVIC_EnableIRQ(TIM2_IRQn);
+    TIM2->CR1 = TIM_CR1_CEN;
+}
+
+void platform_tim2_irq(void)
+{
+    TIM2->SR = 0;
+    EXTI->SWIER = BTN_PIN;
+}
+
+/* ---------------- Інжекція відмови (ЛР4): SDA I2C1 (PB9) замкнено на землю програмно ---------------- */
+/* Те саме, що й дротом на GND (сценарій ЛР3 «замкнена SDA»), але повторюється командою: PB9 переводиться з AF у вихід open-drain низько. */
+void platform_fault_sda(int on)
+{
+    if (on) { GPIOB->BSRR = (uint32_t)GPIO_PIN_9 << 16; GPIOB->MODER = (GPIOB->MODER & ~(3U << 18)) | (1U << 18); }
+    else    { GPIOB->MODER = (GPIOB->MODER & ~(3U << 18)) | (2U << 18); }
+}
