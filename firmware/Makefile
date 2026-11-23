@@ -42,9 +42,13 @@ OWN_SOURCES = \
   $(wildcard Platform/Src/*.c) \
   $(wildcard Devices/Src/*.c) \
   $(wildcard App/Src/*.c)
+# ЛР4: ядро FreeRTOS V11.1.0 (docs/versions.md), порт GCC/ARM_CM4F, heap_4. timers.c і event_groups.c не збираються (вимкнено в FreeRTOSConfig.h).
+RTOS_DIR = Middlewares/FreeRTOS/Source
+RTOS_SOURCES = $(addprefix $(RTOS_DIR)/,tasks.c queue.c list.c stream_buffer.c) \
+  $(RTOS_DIR)/portable/GCC/ARM_CM4F/port.c $(RTOS_DIR)/portable/MemMang/heap_4.c
 VENDOR_SOURCES = \
   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c \
-  $(HAL_SOURCES)
+  $(HAL_SOURCES) $(RTOS_SOURCES)
 C_SOURCES = $(OWN_SOURCES) $(VENDOR_SOURCES)
 ASM_SOURCES = $(STARTUP)
 
@@ -53,10 +57,13 @@ ASM_SOURCES = $(STARTUP)
 C_INCLUDES = \
   -ICore/Inc -IApp/Inc -IDevices/Inc -IPlatform/Inc -ICommon/Inc
 VENDOR_INCLUDES = \
+  -isystem $(RTOS_DIR)/include -isystem $(RTOS_DIR)/portable/GCC/ARM_CM4F \
   -isystem Drivers/STM32F4xx_HAL_Driver/Inc \
   -isystem Drivers/CMSIS/Device/ST/STM32F4xx/Include \
   -isystem Drivers/CMSIS/Include
-C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF) -DGIT_HASH=\"$(GIT_HASH)\"
+# Варіанти збірки для сценаріїв ЛР4 п. 7.2: make all RTOS_FLAGS="-DRTOS_TICK_HZ=100" (інші: -DRTOS_NO_SOF, -DRTOS_HEAP_BYTES=..., -DRTOS_STACK_SCALE_PCT=...)
+RTOS_FLAGS ?=
+C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF) -DGIT_HASH=\"$(GIT_HASH)\" $(RTOS_FLAGS)
 
 # ---- Опції компіляції (Cortex-M4F) ----
 MCU = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
@@ -69,6 +76,7 @@ VENDOR_CFLAGS = $(COMMON) -w
 ASFLAGS = $(MCU) $(C_DEFS) $(OPT) -Wall -fdata-sections -ffunction-sections
 LDSCRIPT = STM32F4xx_FLASH.ld
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) -lc -lm -lnosys \
+          -Wl,--wrap=printf,--wrap=puts,--wrap=putchar \
           -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--print-memory-usage
 
 # ---- Правила ----
