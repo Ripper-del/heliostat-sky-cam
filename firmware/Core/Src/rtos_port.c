@@ -16,10 +16,14 @@
 extern void * volatile pxCurrentTCB;          /* tasks.c: задача, що щойно отримала процесор */
 
 /* ---- аварійний вивід без printf (стек і heap можуть бути пошкоджені) ---- */
+/* Спершу дописуємо те, що вже лежить у кільці передавання DMA (щоб рядки не перемішались), далі — прямо в регістр. */
 static void raw_puts(const char *s)
 {
+    uint32_t pm = __get_PRIMASK(); __disable_irq();
+    platform_uart_flush_polling();
     for (; *s; s++) { while (!(USART2->SR & USART_SR_TXE)) { } USART2->DR = (uint8_t)*s; }
     while (!(USART2->SR & USART_SR_TC)) { }
+    if (!pm) __enable_irq();
 }
 
 static volatile uint32_t os_fault_count;
@@ -31,6 +35,17 @@ void rtos_assert_failed(const char *file, int line)
     char b[64]; snprintf(b, sizeof b, "\r\nFATAL configASSERT %s:%d\r\n", file, line);
     raw_puts(b);
     for (;;) { }
+}
+
+/* Збій ядра процесора (HardFault): повідомлення в UART без printf і м'який перезапуск, щоб плата не висіла мовчки */
+void rtos_fatal(const char *what)
+{
+    __disable_irq();
+    raw_puts("\r\nFATAL ");
+    raw_puts(what);
+    raw_puts("\r\n");
+    for (volatile uint32_t i = 0; i < 2000000; i++) { }
+    NVIC_SystemReset();
 }
 
 /* Heap ОС вичерпано: повідомляємо і повертаємо NULL (pvPortMalloc сам поверне 0) — прошивка вирішує, що робити далі */

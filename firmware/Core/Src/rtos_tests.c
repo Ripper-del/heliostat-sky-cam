@@ -54,19 +54,23 @@ static int test_inv(int argc, char **argv)
 }
 
 /* ---- 2. переповнення стека ---- */
-static void recurse(int n)
+/* Задача зі стеком 96 слів (384 Б) рекурсивно займає ~64 Б на рівень. На найглибшому рівні вона віддає процесор (vTaskDelay):
+ * саме при перемиканні контексту ядро перевіряє стек (configCHECK_FOR_STACK_OVERFLOW = 2) і викликає хук. Перевищення невелике
+ * (≈ 100–200 Б), щоб встигнути побачити реакцію ядра до того, як зіпсовані сусідні блоки heap обвалять програму. */
+static uint32_t stk_depth;
+static void recurse(uint32_t n)
 {
-    volatile uint8_t buf[200];
+    volatile uint8_t buf[48];
     buf[0] = (uint8_t)n;
-    if (n) recurse(n - 1);
+    if (n) recurse(n - 1); else vTaskDelay(pdMS_TO_TICKS(5));
     buf[1] = buf[0];
 }
-static void stk_task(void *a) { (void)a; recurse(40); for (;;) vTaskDelay(1000); }
+static void stk_task(void *a) { (void)a; recurse(stk_depth); printf("[test] STK: рекурсія завершилась без реакції ядра\r\n"); for (;;) vTaskDelay(1000); }
 
 static int test_stk(int argc, char **argv)
 {
-    (void)argc; (void)argv;
-    printf("[test] STK: задача з стеком 96 слів рекурсивно займає ~8 КБ; очікуємо FATAL stack overflow і м'який перезапуск\r\n");
+    stk_depth = parse(argc > 1 ? argv[1] : 0, 8);
+    printf("[test] STK: стек 96 слів, глибина рекурсії %lu (~%lu Б); очікуємо FATAL stack overflow і м'який перезапуск\r\n", (unsigned long)stk_depth, (unsigned long)(stk_depth * 64U + 100U));
     xTaskCreate(stk_task, "stkovf", 96, NULL, 3, NULL);
     vTaskDelay(pdMS_TO_TICKS(3000));
     printf("[test] STK: хук не спрацював за 3 с (контроль вимкнено або збій інший)\r\n");

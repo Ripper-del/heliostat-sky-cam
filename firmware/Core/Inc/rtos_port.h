@@ -13,5 +13,6 @@ void     rtos_switch_gap(uint32_t *gap_us, uint32_t *task);   /* найдовш�
 void     rtos_switch_gap_reset(void);
 uint32_t rtos_tick_time(uint32_t tick);       /* ідеальний момент тіка (DWT): SysTick->VAL при вході в ISR віднімається */
 uint32_t rtos_fault_count(void);
+void     rtos_fatal(const char *what);              /* повідомити в UART без printf і перезапустити плату */
 uint32_t rtos_malloc_failed_count(void);
 #endif
