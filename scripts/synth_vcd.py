@@ -93,8 +93,13 @@ if __name__ == "__main__":
         ([0x42, 0x0A], [ACK, ACK]),
         ([0x43, 0x76], [ACK, NACK]),
     ]).vcd())
-    # SPI: JEDEC 9F -> EF 40 17
+    # SPI: JEDEC 9F -> EF 40 17, далі Write Enable, Sector Erase 7FF000, Write Enable, Page Program 7FF000 (16 байтів) — як перевіряє check_captures.py
+    page = list(range(0xA0, 0xB0))
     (OUT / "spi_w25q_synthetic.vcd").write_text(spi([
         ([0x9F, 0, 0, 0], [0, 0xEF, 0x40, 0x17]),
+        ([0x06], [0]),
+        ([0x20, 0x7F, 0xF0, 0x00], [0, 0, 0, 0]),
+        ([0x06], [0]),
+        ([0x02, 0x7F, 0xF0, 0x00] + page, [0] * (4 + len(page))),
     ]).vcd())
     print("fixtures ->", OUT)
