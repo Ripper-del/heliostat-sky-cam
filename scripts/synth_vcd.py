@@ -61,7 +61,7 @@ def i2c(txns, bit_us=10):
     return s
 
 
-# ---------- SPI mode 0 (D0 = SCK, D1 = MISO, D2 = MOSI, D3 = CS#) ----------
+# ---------- SPI mode 0 (D0 = MISO, D1 = SCK, D2 = MOSI, D3 = CS#): та сама розводка, що в справжніх записах і в decode_captures.sh ----------
 def spi(frames, bit_us=10):
     """frames: список (mosi_bytes, miso_bytes) однакової довжини."""
     s = Sig(["D0", "D1", "D2", "D3"], {"D0": 0, "D1": 0, "D2": 0, "D3": 1})
@@ -71,8 +71,8 @@ def spi(frames, bit_us=10):
         s.set(D3=0); s.wait(bit_us)
         for tx, rx in zip(mosi, miso):
             for i in range(7, -1, -1):
-                s.set(D2=(tx >> i) & 1, D1=(rx >> i) & 1); s.wait(h)
-                s.set(D0=1); s.wait(bit_us); s.set(D0=0); s.wait(h)
+                s.set(D2=(tx >> i) & 1, D0=(rx >> i) & 1); s.wait(h)
+                s.set(D1=1); s.wait(bit_us); s.set(D1=0); s.wait(h)
         s.set(D3=1); s.wait(100)
     return s
 
