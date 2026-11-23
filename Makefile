@@ -78,6 +78,7 @@ shell:
 
 # ЛР3, п. 5.4: використання пам'яті — підсумок лінкера, розмір за секціями/модулями, найбільші символи, кадри стека.
 # Результат у docs/metrics/memory.txt (виконується в Docker, потрібна попередня збірка: make build).
+MEM_OUT ?= docs/metrics/memory.txt
 memory:
 	@test -f firmware/build/firmware.elf || $(MAKE) build
 	$(DOCKER_RUN) sh -c '\
@@ -90,7 +91,8 @@ memory:
 	  echo; echo "## найбільші символи (десяткові розміри)"; arm-none-eabi-nm --size-sort -S --radix=d build/firmware.elf | tail -12; \
 	  echo; echo "## лише змінні в RAM (b/B = bss, d/D = data)"; arm-none-eabi-nm --size-sort -S --radix=d build/firmware.elf | grep -E " [bBdD] " | tail -10; \
 	  echo; echo "## статична оцінка стека (-fstack-usage), 15 найбільших кадрів"; cat build/*.su | sort -t"	" -k2 -n | tail -15; \
-	  } > ../docs/metrics/memory.txt 2>&1'
-	@echo "docs/metrics/memory.txt"
+	  echo; echo "## ЛР4: внесок ядра FreeRTOS і службового коду (text = flash, bss = RAM)"; arm-none-eabi-size build/tasks.o build/queue.o build/list.o build/stream_buffer.o build/port.o build/heap_4.o build/rtos_port.o build/product_rtos.o build/rtos_tests.o build/rtstats.o 2>/dev/null; \
+	  } > ../$(MEM_OUT) 2>&1'
+	@echo "$(MEM_OUT)"
 
 .PHONY: memory
