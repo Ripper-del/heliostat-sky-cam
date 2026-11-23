@@ -1,112 +1,112 @@
-# git: 8c9399a
+# git: 4939628
 
 ## arm-none-eabi-size (text/data/bss)
    text	   data	    bss	    dec	    hex	filename
-  68172	    156	  62864	 131192	  20078	build/firmware.elf
+  69504	    156	  67256	 136916	  216d4	build/firmware.elf
 
 ## секції
 build/firmware.elf  :
 section               size        addr
 .isr_vector            408   134217728
-.text                59952   134218176
-.rodata               7804   134278128
-.ARM.extab               0   134285932
-.ARM                     8   134285932
-.preinit_array           0   134285940
-.init_array              4   134285940
-.fini_array              4   134285944
+.text                61184   134218176
+.rodata               7904   134279360
+.ARM.extab               0   134287264
+.ARM                     8   134287264
+.preinit_array           0   134287272
+.init_array              4   134287272
+.fini_array              4   134287276
 .data                  148   536870912
-.bss                 59792   536871064
-._user_heap_stack     3072   536930856
+.bss                 64184   536871064
+._user_heap_stack     3072   536935248
 .ARM.attributes         48           0
 .comment                51           0
-.debug_info         285108           0
-.debug_abbrev        43256           0
-.debug_loc          162250           0
-.debug_aranges        8872           0
-.debug_ranges        11152           0
-.debug_line         164659           0
-.debug_str           38591           0
-.debug_frame         24636           0
-Total               869815
+.debug_info         288280           0
+.debug_abbrev        43667           0
+.debug_loc          163444           0
+.debug_aranges        8952           0
+.debug_ranges        11280           0
+.debug_line         166556           0
+.debug_str           38937           0
+.debug_frame         24888           0
+Total               883019
 
 
 
 ## об'єктні файли за bss (RAM), 15 найбільших
   16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
-    182	      0	      4	    186	     ba	build/syscalls.o
     568	      5	      4	    577	    241	build/stm32f4xx_hal.o
    1045	      4	      5	   1054	    41e	build/port.o
+    206	      0	      8	    214	     d6	build/syscalls.o
     514	      0	      8	    522	    20a	build/platform_io.o
-   1709	      8	     12	   1729	    6c1	build/platform_buses.o
+   1717	      8	     12	   1737	    6c9	build/platform_buses.o
    1772	      4	     44	   1820	    71c	build/platform_cam.o
    3438	      0	     52	   3490	    da2	build/cli.o
-   3188	      0	    300	   3488	    da0	build/rtos_tests.o
-   1076	      0	    313	   1389	    56d	build/platform_perf.o
+   3312	      0	    304	   3616	    e20	build/rtos_tests.o
    9246	      4	    328	   9578	   256a	build/tasks.o
    1496	      0	    388	   1884	    75c	build/main.o
-   1229	      4	   9184	  10417	   28b1	build/rtos_port.o
-  10275	      9	  24447	  34731	   87ab	build/product_rtos.o
+   2024	      0	   4689	   6713	   1a39	build/platform_perf.o
+   1332	      4	   9184	  10520	   2918	build/rtos_port.o
+  10365	      9	  24451	  34825	   8809	build/product_rtos.o
    1054	      0	  24604	  25658	   643a	build/heap_4.o
 
 ## об'єктні файли за text (flash), 15 найбільших
-   1912	      0	      0	   1912	    778	build/stm32f4xx_hal_dma.o
+   2024	      0	   4689	   6713	   1a39	build/platform_perf.o
    2136	      0	      0	   2136	    858	build/stm32f4xx_hal_adc_ex.o
    2138	      0	      0	   2138	    85a	build/stm32f4xx_hal_rcc.o
    2320	      0	      0	   2320	    910	build/stream_buffer.o
    2946	      0	      0	   2946	    b82	build/stm32f4xx_hal_adc.o
    3122	      0	      0	   3122	    c32	build/queue.o
-   3188	      0	    300	   3488	    da0	build/rtos_tests.o
+   3312	      0	    304	   3616	    e20	build/rtos_tests.o
    3438	      0	     52	   3490	    da2	build/cli.o
    3450	      0	      0	   3450	    d7a	build/selftest.o
    3986	      0	      0	   3986	    f92	build/stm32f4xx_hal_dma_ex.o
    5906	      0	      0	   5906	   1712	build/stm32f4xx_hal_uart.o
    7584	      0	      0	   7584	   1da0	build/stm32f4xx_hal_spi.o
    9246	      4	    328	   9578	   256a	build/tasks.o
-  10275	      9	  24447	  34731	   87ab	build/product_rtos.o
+  10365	      9	  24451	  34825	   8809	build/product_rtos.o
   16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
 
 ## найбільші символи (десяткові розміри)
-134226396 00000752 T __sfvwrite_r
-134262192 00000760 T HAL_I2C_Mem_Read
-134261072 00000764 T HAL_I2C_Master_Receive
-134264000 00000854 T HAL_SPI_TransmitReceive
-134243548 00000976 T platform_cam_capture
-134256096 00001016 W HAL_RCC_OscConfig
-134248088 00001436 t run_line
+134263416 00000760 T HAL_I2C_Mem_Read
+134262296 00000764 T HAL_I2C_Master_Receive
+134265224 00000854 T HAL_SPI_TransmitReceive
+134243828 00000976 T platform_cam_capture
+134257320 00001016 W HAL_RCC_OscConfig
+134249316 00001436 t run_line
 536871544 00001824 b c.2
-536892768 00001824 b rt
-536895992 00008608 B g_rts
-536873412 00019200 b g_frame
-536906256 00024576 b ucHeap
+536892776 00001824 b rt
+536906148 00004096 b tx_mem
+536896000 00008608 B g_rts
+536873416 00019200 b g_frame
+536910648 00024576 b ucHeap
 
 ## лише змінні в RAM (b/B = bss, d/D = data)
-536905176 00000256 b blk.0
-536905576 00000256 b rx_mem
-536904664 00000512 b tick_ts
-536894608 00000576 b st.0
-536895184 00000576 b st.1
+536905856 00000256 b rx_mem
+536904672 00000512 b tick_ts
+536894616 00000576 b st.0
+536895192 00000576 b st.1
 536871544 00001824 b c.2
-536892768 00001824 b rt
-536895992 00008608 B g_rts
-536873412 00019200 b g_frame
-536906256 00024576 b ucHeap
+536892776 00001824 b rt
+536906148 00004096 b tx_mem
+536896000 00008608 B g_rts
+536873416 00019200 b g_frame
+536910648 00024576 b ucHeap
 
 ## статична оцінка стека (-fstack-usage), 15 найбільших кадрів
-Core/Src/product_rtos.c:342:6:product_init	72	static
-Core/Src/product_rtos.c:485:6:product_print_tasks	72	static
+App/Src/selftest.c:227:12:run_cam_bus	72	static
+Core/Src/product_rtos.c:344:6:product_init	72	static
+Core/Src/product_rtos.c:487:6:product_print_tasks	72	static
 Middlewares/FreeRTOS/Source/include/task.h:2352:10:vTaskGetRunTimeStatistics	72	static
 App/Src/selftest.c:29:12:run_i2c_scan	80	static
 Core/Inc/FreeRTOSConfig.h:10:10:rtos_assert_failed	80	static
 Core/Src/main.c:64:13:SystemClock_Config	88	static
-Core/Src/product_rtos.c:213:13:tick_work	96	static
+Core/Src/product_rtos.c:214:13:tick_work	96	static
 App/Src/selftest.c:152:6:selftest_i2c_stress	104	static
-Core/Src/product_rtos.c:515:6:product_print_oscost	104	static
-Core/Src/rtos_tests.c:167:12:test_camdiag	104	static
+Core/Src/product_rtos.c:517:6:product_print_oscost	104	static
+Core/Src/rtos_tests.c:171:12:test_camdiag	104	static
 Platform/Src/platform_cam.c:89:5:platform_cam_capture	112	static
-Core/Src/product_rtos.c:415:6:product_print_stats	168	static
-Core/Src/rtos_tests.c:57:13:recurse	208	static
-Core/Src/product_rtos.c:596:6:product_log_dump	296	static
+Core/Src/product_rtos.c:417:6:product_print_stats	168	static
+Core/Src/product_rtos.c:601:6:product_log_dump	296	static
 App/Src/evlog.c:42:5:evlog_open	304	static
 
 ## ЛР4: внесок ядра FreeRTOS і службового коду (text = flash, bss = RAM)
@@ -117,7 +117,7 @@ App/Src/evlog.c:42:5:evlog_open	304	static
    2320	      0	      0	   2320	    910	build/stream_buffer.o
    1045	      4	      5	   1054	    41e	build/port.o
    1054	      0	  24604	  25658	   643a	build/heap_4.o
-   1229	      4	   9184	  10417	   28b1	build/rtos_port.o
-  10275	      9	  24447	  34731	   87ab	build/product_rtos.o
-   3188	      0	    300	   3488	    da0	build/rtos_tests.o
+   1332	      4	   9184	  10520	   2918	build/rtos_port.o
+  10365	      9	  24451	  34825	   8809	build/product_rtos.o
+   3312	      0	    304	   3616	    e20	build/rtos_tests.o
     500	      0	      0	    500	    1f4	build/rtstats.o

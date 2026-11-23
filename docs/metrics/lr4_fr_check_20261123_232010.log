@@ -1,0 +1,9 @@
+# VER git=4939628 build="Nov 23 2026 21:02:48" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+OK   FR-18: рядків tick за 12 с: 12
+OK   FR-01: adc: 1222 запусків за ≈10 с (потрібно ≈ 1000, тобто ≥ 100 Гц)
+OK   FR-11, FR-15: два запити SNAP за < 1 с дали +1 кадр (next 828 → 829)
+OK   FR-14, FR-15: запис журналу типу 3 (втрата сигналу) з номером кадру 60: є
+OK   FR-15: кадр #828 читається з flash: ['[frames] #828 mean=10 contrast=5 sat_permille=0 sky=DARK']
+OK   FR-12: ['[prod] sky=DARK frame=yes mean=15 contrast=17 sat_permille=0 next_frame=829']
+OK   FR-09: CAL SHOW: ['[cal] AZ 500..2500 us, EL 500..2400 us, park 1500/1500, dark_thr=2500, invert=0, sign az=1 el=1, zero ex=28 ey=42']
+# підсумок: 7/7 перевірок пройдено
