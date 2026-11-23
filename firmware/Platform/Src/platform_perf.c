@@ -65,7 +65,8 @@ uint32_t platform_stack_reserved(void) { return (uint32_t)&_Min_Stack_Size; }
 uint32_t platform_heap_used(void)      { struct mallinfo mi = mallinfo(); return (uint32_t)mi.arena; }
 
 /* ---------------- Кнопка B1 (PC13) по EXTI ---------------- */
-static volatile uint32_t btn_cyc;
+static volatile uint32_t btn_cyc, btn_evt;          /* btn_evt: справжній момент події імітатора (ЛР4) */
+static volatile uint32_t sim_evt_cyc, sim_evt_valid;
 static volatile uint8_t  btn_pending;
 static volatile uint32_t btn_overrun;      /* подія прийшла, поки попередню ще не забрала задача */
 
@@ -73,7 +74,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
     if (pin == BTN_PIN) {
         if (btn_pending) btn_overrun++;
-        else { btn_cyc = DWT->CYCCNT; btn_pending = 1; }       /* момент ПЕРШОЇ непрочитаної події */
+        else { btn_cyc = DWT->CYCCNT; btn_evt = sim_evt_valid ? sim_evt_cyc : btn_cyc; btn_pending = 1; }       /* момент ПЕРШОЇ непрочитаної події */
+        sim_evt_valid = 0;
     }
 }
 
@@ -97,6 +99,8 @@ int platform_button_event(uint32_t *t_cycles)
     btn_pending = 0;
     return 1;
 }
+
+uint32_t platform_button_event_cycles(void) { return btn_evt; }
 
 /* ---------------- UART RX через IRQ ---------------- */
 static volatile uint32_t eol_cyc;
@@ -145,7 +149,10 @@ void platform_btnsim(uint32_t period_ms)
 
 void platform_tim2_irq(void)
 {
+    uint32_t cnt = TIM2->CNT, now = DWT->CYCCNT;               /* CNT = мкс від апаратного переповнення: скільки ISR чекала через вимкнені IRQ */
     TIM2->SR = 0;
+    sim_evt_cyc = now - cnt * (SystemCoreClock / 1000000U);    /* справжній момент події в тактах DWT */
+    sim_evt_valid = 1;
     EXTI->SWIER = BTN_PIN;
 }
 

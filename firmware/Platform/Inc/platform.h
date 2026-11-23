@@ -83,6 +83,7 @@ uint32_t platform_heap_used(void);
 /* Кнопка B1 по EXTI: ISR фіксує такти; задача забирає подію. 1 — була подія, *t_cycles — момент фронту. */
 int      platform_button_event(uint32_t *t_cycles);
 void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
+uint32_t platform_button_event_cycles(void);   /* момент справжньої події, пов'язаної з останньою platform_button_event (для імітатора — апаратне переповнення TIM2) */
 uint32_t platform_button_overruns(void);    /* події, що злились із непрочитаною (втрачені) */
 
 /** Імітатор кнопки: кожні period_ms мс TIM2 ставить програмну EXTI-подію лінії кнопки; 0 — вимкнути. */

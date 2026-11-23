@@ -56,7 +56,7 @@ static void log_event(uint8_t type, int16_t a, int16_t b, int16_t c)
 }
 
 /* ---- додаткова статистика (поза задачами) ---- */
-static perf_stat_t st_loop, st_btn, st_cam_frame, st_cmd;
+static perf_stat_t st_loop, st_btn, st_evt, st_cam_frame, st_cmd;
 static perf_hist_t hist_loop;
 static uint32_t loop_prev_cyc;
 static uint32_t window_start_cyc; static uint64_t window_busy_base;
@@ -162,6 +162,7 @@ static void button_task(void)
     if (!platform_button_event(&t)) return;
     platform_probe(4, 1);                                              /* початок реакції (видно на аналізаторі) */
     perf_add(&st_btn, platform_cycles() - t);                          /* ISR -> початок реакції, такти */
+    perf_add(&st_evt, platform_cycles() - platform_button_event_cycles());   /* подія -> початок реакції (ЛР4) */
     btn_presses++;
     snap_req = 1;
     platform_probe(4, 0);
@@ -228,7 +229,7 @@ void product_init(void)
     mpu6050_wake(&imu);
     { ov7670_t cam; ov7670_init_dev(&cam, platform_sccb_cam()); if (ov7670_config_qqvga_yuv(&cam) != DEV_OK) cam_err++; }
     platform_adc_read_quadrant(q);
-    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
+    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_evt, "evt_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
     perf_hist_init(&hist_loop, 100);
     sched_init(&sched, tasks, NTASKS, platform_micros, platform_cycles);
     stats_t0_us = platform_micros();
@@ -265,6 +266,7 @@ void product_print_stats(void)
            (unsigned long)perf_hist_percentile(&hist_loop, 99));
     printf("STAT name=btn_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu presses=%lu\r\n", (unsigned long)st_btn.count,
            (unsigned long)cyc2us(st_btn.min), (unsigned long)cyc2us(perf_avg(&st_btn)), (unsigned long)cyc2us(st_btn.max), (unsigned long)btn_presses);
+    printf("STAT name=evt_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)st_evt.count, (unsigned long)cyc2us(st_evt.min), (unsigned long)cyc2us(perf_avg(&st_evt)), (unsigned long)cyc2us(st_evt.max));
     printf("STAT name=cmd_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)st_cmd.count, (unsigned long)cyc2us(st_cmd.min),
            (unsigned long)cyc2us(perf_avg(&st_cmd)), (unsigned long)cyc2us(st_cmd.max));
     printf("STAT name=cam_frame n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)st_cam_frame.count,
@@ -279,7 +281,7 @@ void product_print_stats(void)
 void product_reset_stats(void)
 {
     sched_reset_stats(&sched);
-    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
+    perf_stat_init(&st_loop, "loop"); perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_evt, "evt_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
     perf_hist_init(&hist_loop, 100);
     window_start_cyc = platform_cycles(); window_busy_base = 0; stats_t0_us = platform_micros();
     printf("[prod] stats reset\r\n");
