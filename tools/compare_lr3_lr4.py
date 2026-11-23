@@ -82,13 +82,13 @@ def table_main():
     rows = []
 
     def row(metric, scen, tag, fn, req, tool, unit="", conv=None, kind="max", better_low=True, req_val=None):
-        a, b, f = runs("lr3", tag), runs("lr4", tag), runs("lr3f", tag)
-        va, vb, vf = vals(a, fn), vals(b, fn), vals(f, fn)
+        a, b = runs("lr3", tag), runs("lr4", tag)
+        va, vb = vals(a, fn), vals(b, fn)
         if conv:
-            va, vb, vf = [conv(x) for x in va], [conv(x) for x in vb], [conv(x) for x in vf]
+            va, vb = [conv(x) for x in va], [conv(x) for x in vb]
         agg = max if kind == "max" else (lambda x: sum(x) / len(x))
-        ra, rb, rf = (agg(va) if va else None), (agg(vb) if vb else None), (agg(vf) if vf else None)
-        rows.append(dict(metric=metric, scen=scen, lr3=ra, lr4=rb, lr3f=rf, lr3_runs=va, lr4_runs=vb, lr3f_runs=vf, req=req, tool=tool, unit=unit, req_val=req_val, better_low=better_low))
+        ra, rb = (agg(va) if va else None), (agg(vb) if vb else None)
+        rows.append(dict(metric=metric, scen=scen, lr3=ra, lr4=rb, lr3_runs=va, lr4_runs=vb, req=req, tool=tool, unit=unit, req_val=req_val, better_low=better_low))
 
     row("Затримка реакції: від події до початку реакції, max", "S3", "s3", stat("evt_latency", "max_us"), "≤ 50 мс", "DWT + апаратний момент події (TIM2)", " мс", ms, req_val=50)
     row("Затримка реакції: від події до початку реакції, середня", "S3", "s3", stat("evt_latency", "avg_us"), "—", "DWT + апаратний момент події", " мс", ms, kind="avg")
@@ -131,8 +131,6 @@ def verdict(r):
 
 
 def md_main(rows):
-    if any(r.get("lr3f_runs") for r in rows):
-        return md_main3(rows)
     out = ["| Метрика | Сценарій | Super loop (ЛР3) | FreeRTOS (ЛР4) | Різниця | Вимога PRD | Інструмент | Хто кращий |", "|---|---|---|---|---|---|---|---|"]
     for r in rows:
         a, b = r["lr3"], r["lr4"]
@@ -143,21 +141,6 @@ def md_main(rows):
             ratio = (a / b) if b else None
             diff = f"{d:+.2f}{r['unit']}" + (f", ÷{ratio:.0f}" if ratio and ratio >= 2 else (f", ×{b / a:.1f}" if a and b / a >= 2 else ""))
         out.append(f"| {r['metric']} | {r['scen']} | {fmt_runs(r['lr3_runs'], r['unit'])} | {fmt_runs(r['lr4_runs'], r['unit'])} | {diff} | {r['req']} | {r['tool']} | {verdict(r)} |")
-    return "\n".join(out)
-
-
-def md_main3(rows):
-    """Те саме плюс колонка «super loop з UART через DMA» (ЛР3 після виправлення проблеми 20, збірка lab3-fix)."""
-    out = ["| Метрика | Сценарій | Super loop (ЛР3) | Super loop + UART DMA | FreeRTOS (ЛР4) | Різниця ЛР4 − ЛР3 | Вимога PRD | Інструмент | Хто кращий (ЛР3 / ЛР4) |", "|---|---|---|---|---|---|---|---|---|"]
-    for r in rows:
-        a, b = r["lr3"], r["lr4"]
-        if a is None or b is None:
-            diff = "—"
-        else:
-            d = b - a
-            ratio = (a / b) if b else None
-            diff = f"{d:+.2f}{r['unit']}" + (f", ÷{ratio:.0f}" if ratio and ratio >= 2 else (f", ×{b / a:.1f}" if a and b / a >= 2 else ""))
-        out.append(f"| {r['metric']} | {r['scen']} | {fmt_runs(r['lr3_runs'], r['unit'])} | {fmt_runs(r.get('lr3f_runs'), r['unit'])} | {fmt_runs(r['lr4_runs'], r['unit'])} | {diff} | {r['req']} | {r['tool']} | {verdict(r)} |")
     return "\n".join(out)
 
 
@@ -183,8 +166,7 @@ def main():
     ap.add_argument("--json")
     a = ap.parse_args()
     rows = table_main()
-    has3f = any(r.get("lr3f_runs") for r in rows)
-    print(md_main3(rows) if has3f else md_main(rows))
+    print(md_main(rows))
     for tag in ("s3", "s2"):
         t = md_tasks(tag)
         if t:
