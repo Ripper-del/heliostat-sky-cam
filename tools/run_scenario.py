@@ -30,8 +30,10 @@ def open_log(name):
 
 
 def header(b, log, scenario, args):
-    log.write(f"# scenario={scenario} duration={getattr(args, 'duration', 0)} servo={int(getattr(args, 'servo', False))}\n")
-    log.write("# " + b.version() + "\n")
+    log.write(f"# scenario={scenario} duration={getattr(args, 'duration', 0)} servo={int(getattr(args, 'servo', False))} btnsim_ms={getattr(args, 'btnsim', 0) or 0}\n")
+    ver = b.version()
+    b.is_os = "os=FreeRTOS" in ver                      # ЛР4: прошивка на FreeRTOS додатково звітує TASKS/STACK/HEAP/OSCOST
+    log.write("# " + ver + "\n")
 
 
 def finish(b, log, tag="final"):
@@ -41,6 +43,12 @@ def finish(b, log, tag="final"):
     for ln in lines:
         log.write(ln + "\n")
     log.write(f"# MEM {mem}\n")
+    if getattr(b, "is_os", False):
+        for cmd, tag in (("TASKS", "TASK"), ("STACK", "STACK"), ("HEAP", "HEAP"), ("OSCOST", "OSCOST")):
+            lines, _ = b.send(cmd, wait=2.0)
+            for ln in lines:
+                if ln.startswith(tag):
+                    log.write(ln + "\n")
     log.flush()
     return stats, load
 
@@ -79,6 +87,8 @@ def s3(b, log, a):
     t0 = time.time(); next_snap = t0
     if a.button:
         print(">>> Натискайте B1 приблизно раз на секунду протягом сценарію.")
+    if a.btnsim:
+        b.send(f"BTNSIM {a.btnsim}")                     # програмні події кнопки (TIM2 -> EXTI): повторювані, без людини
     while time.time() - t0 < a.duration:
         now = time.time()
         if now >= next_snap:
@@ -93,6 +103,8 @@ def s3(b, log, a):
             resp.append(time.time() - t)
     b.read_lines(2.0)
     stats, load, _ = b.stats()
+    if a.btnsim:
+        b.send("BTNSIM 0")
     log.write(f"# S3 commands sent={sent} answered_in_50ms={answered}\n")
     log.write(f"# S3 uart_rx_overflow_delta={load.get('uart_rx_overflow', 0) - load0.get('uart_rx_overflow', 0)}\n")
     finish(b, log)
@@ -156,7 +168,37 @@ def fail(b, log, a):
     finish(b, log, "after_reconnect")
 
 
-SCEN = {"s1": s1, "s2": s2, "s3": s3, "break_adc": break_adc, "break_cam": break_cam, "long": long_run, "fail": fail}
+def trace(b, log, a):
+    """ЛР4: хронологія перемикань задач у фрагменті S3 — кнопка (BTNSIM 700) під час знімка у flash. Лише для прошивки на FreeRTOS."""
+    b.send("SERVO OFF"); b.send("STATS RESET")
+    b.send("BTNSIM 700")
+    b.read_lines(1.0)
+    b.send("TRACE ARM")
+    b.send_raw(b"\rSNAP\r")
+    b.read_lines(a.duration)
+    b.send("BTNSIM 0")
+    lines, _ = b.send("TRACE DUMP", wait=14.0)
+    for ln in lines:
+        if ln.startswith("TRACE") or ln.startswith("[trace]"):
+            log.write(ln + "\n")
+    finish(b, log, "trace")
+
+
+def sda(b, log, a):
+    """Відмова шини: SDA I2C1 замкнено на землю програмно (FAULT SDA 1) на a.duration с, потім відпущено. Те саме, що дріт на GND у ЛР3."""
+    b.send("SERVO OFF"); b.send("STATS RESET")
+    b.send("FAULT SDA 1")
+    b.read_lines(a.duration)
+    stats, load, lines = b.stats()
+    log.write("# FAULT SDA on: imu_err=%s imu_max_us=%s adc_late_max_us=%s\n" % (load.get("imu_err"), stats.get("imu", {}).get("max_us"), stats.get("adc", {}).get("late_max_us")))
+    for ln in lines:
+        log.write(ln + "\n")
+    b.send("FAULT SDA 0"); b.send("STATS RESET")
+    b.read_lines(10)
+    finish(b, log, "after_release")
+
+
+SCEN = {"s1": s1, "s2": s2, "s3": s3, "break_adc": break_adc, "break_cam": break_cam, "long": long_run, "fail": fail, "sda": sda, "trace": trace}
 
 
 def main():
@@ -166,6 +208,7 @@ def main():
     ap.add_argument("--servo", action="store_true", help="s3: ввімкнути серво")
     ap.add_argument("--no-camera", action="store_true", help="s1: вимкнути періодичне захоплення кадру на час прогону")
     ap.add_argument("--button", action="store_true", help="s3: просити людину натискати B1")
+    ap.add_argument("--btnsim", type=int, default=0, metavar="MS", help="s3: програмні події кнопки кожні MS мс (BTNSIM), без людини")
     ap.add_argument("--tag", help="префікс імені лог-файлу (за замовч. назва сценарію)")
     ap.add_argument("--port")
     a = ap.parse_args()
