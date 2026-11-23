@@ -83,6 +83,15 @@ static void run_line(char *line)
         printf("[cam] %s\r\n", (n > 3 && !strcmp(v[1], "EXP") && product_cam_exposure(aec, gain) == 0) ? "exposure set" : "ERROR (CAM EXP aec gain)");
     }
     else if (!strcmp(v[0], "VER"))   product_print_version();
+    else if (!strcmp(v[0], "TASKS")) product_print_tasks();
+    else if (!strcmp(v[0], "STACK")) product_print_stack();
+    else if (!strcmp(v[0], "HEAP"))  product_print_heap();
+    else if (!strcmp(v[0], "OSCOST")) product_print_oscost();
+    else if (!strcmp(v[0], "TRACE")) product_trace_cmd(n - 1, v + 1);
+    else if (!strcmp(v[0], "FAULT")) { int on = (n > 2 && v[2][0] == '1'); if (n > 1 && !strcmp(v[1], "SDA")) { platform_fault_sda(on); printf("[cli] fault SDA %s\r\n", on ? "ON (замкнено на землю)" : "OFF"); } else printf("[cli] FAULT SDA 1|0\r\n"); }
+    else if (!strcmp(v[0], "BTNSIM")) { uint32_t ms = 0; for (char *s = n > 1 ? v[1] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0'); product_btnsim(ms); printf("[cli] btnsim %lu ms\r\n", (unsigned long)ms); }
+    else if (!strcmp(v[0], "CAMIRQ")) { int m = (n > 1 && v[1][0] == '1') ? 1 : 0; product_cam_irq_mode(m); printf("[cli] camera irq mode %d\r\n", m); }
+    else if (!strcmp(v[0], "TEST"))  { if (product_test(n - 1, v + 1) != 0) printf("[test] ERROR (TEST INV [SEM] | STK | STARVE ms | QFLOOD n timeout_ms | HEAP | CTX n)\r\n"); }
     else if (!strcmp(v[0], "PROBE")) { printf("[cli] probe test 4 s\r\n"); product_probe_test(); printf("[cli] probe test done\r\n"); }
     else if (!strcmp(v[0], "PERIOD")) {
         uint32_t ms = 0; for (char *s = n > 2 ? v[2] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0');
@@ -94,6 +103,7 @@ static void run_line(char *line)
     else if (!strcmp(v[0], "HELP")) {
         printf("[cli] STATS [RESET] | MODE | SKY [FORCE CLEAR|OVERCAST|DARK|AUTO] | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
         printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL DEADBAND n | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain | VER | PROBE | PERIOD task ms\r\n");
+        printf("[cli] LR4: TASKS | STACK | HEAP | OSCOST | TRACE ARM|DUMP [n] | BTNSIM ms | CAMIRQ 0|1 | TEST INV [SEM]|STK|STARVE ms|QFLOOD n ms|HEAP|CTX n\r\n");
     }
     else printf("[cli] unknown command (HELP)\r\n");
 }

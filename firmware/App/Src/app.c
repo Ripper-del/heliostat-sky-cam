@@ -11,7 +11,4 @@ void app_init(void)
     printf("[cli] type 'h' or HELP\r\n");
 }
 
-void app_step(void)
-{
-    product_step();
-}
+void app_step(void) { }          /* ЛР4: головного циклу немає, виконання — у задачах FreeRTOS (Core/Src/product_rtos.c) */
