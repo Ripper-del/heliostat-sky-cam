@@ -442,3 +442,5 @@ void product_probe_test(void)
 }
 
 void product_sky_force(int v) { sky_force = v; if (v >= 0) sky = (sky_t)v; }
+
+void product_btnsim(uint32_t period_ms) { platform_btnsim(period_ms); }

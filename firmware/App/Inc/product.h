@@ -37,4 +37,5 @@ uint8_t *product_frame_buf(void);
 void product_cmd_started(void);   /* CLI викликає перед виконанням рядкової команди: міряє затримку відповіді */
 /** Змінити період задачі за ім'ям (мс); 0 — успіх, -1 — нема такої задачі або період поза 1..60000 мс. Для пошуку точки зламу. */
 int  product_set_period(const char *name, uint32_t ms);
+void product_btnsim(uint32_t period_ms);   /* BTNSIM ms|0: програмні події кнопки (S3 без людини); додано для порівняння з ЛР4 */
 #endif

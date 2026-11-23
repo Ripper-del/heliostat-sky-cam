@@ -83,6 +83,8 @@ static void run_line(char *line)
         printf("[cam] %s\r\n", (n > 3 && !strcmp(v[1], "EXP") && product_cam_exposure(aec, gain) == 0) ? "exposure set" : "ERROR (CAM EXP aec gain)");
     }
     else if (!strcmp(v[0], "VER"))   product_print_version();
+    else if (!strcmp(v[0], "FAULT")) { int on = (n > 2 && v[2][0] == '1'); if (n > 1 && !strcmp(v[1], "SDA")) { platform_fault_sda(on); printf("[cli] fault SDA %s\r\n", on ? "ON (замкнено на землю)" : "OFF"); } else printf("[cli] FAULT SDA 1|0\r\n"); }
+    else if (!strcmp(v[0], "BTNSIM")) { uint32_t ms = 0; for (char *s = n > 1 ? v[1] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0'); product_btnsim(ms); printf("[cli] btnsim %lu ms\r\n", (unsigned long)ms); }
     else if (!strcmp(v[0], "PROBE")) { printf("[cli] probe test 4 s\r\n"); product_probe_test(); printf("[cli] probe test done\r\n"); }
     else if (!strcmp(v[0], "PERIOD")) {
         uint32_t ms = 0; for (char *s = n > 2 ? v[2] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0');
