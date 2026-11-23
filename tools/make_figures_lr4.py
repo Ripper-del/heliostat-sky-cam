@@ -153,7 +153,7 @@ def fig_trace():
         ax.set_xlim(c - 8, c + 8)
         ax.set_yticks(range(len(names))); ax.set_yticklabels(names, fontsize=8); ax.invert_yaxis()
         ax.set_xlabel("мс"); ax.grid(axis="x", alpha=0.3)
-        ax.set_title("Збільшено: подія кнопки будить button і snapshot; adc, imu, led витісняють snapshot (пріоритет 1)", fontsize=9.5)
+        ax.set_title("Збільшено: подія кнопки будить button і snapshot; кожні 10 мс adc, control і servo витісняють snapshot (пріоритет 1)", fontsize=9.5)
         ax.spines[["top", "right"]].set_visible(False)
         fig.tight_layout(); fig.savefig(os.path.join(OUT, "fig_trace_zoom.png"), dpi=150); plt.close(fig)
 
