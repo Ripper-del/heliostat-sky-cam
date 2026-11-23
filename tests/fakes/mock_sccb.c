@@ -15,6 +15,8 @@ static int m_write(void *ctx, uint8_t reg, uint8_t val)
 {
     mock_sccb_t *m = ctx;
     m->write_calls++; m->last_wr_reg = reg; m->last_wr_val = val;
+    if (m->write_calls <= 64) { m->wr_regs[m->write_calls - 1] = reg; m->wr_vals[m->write_calls - 1] = val; }
+    if (m->fail_write_at && m->write_calls == m->fail_write_at) return DEV_ERR_BUS;
     return DEV_OK;
 }
 

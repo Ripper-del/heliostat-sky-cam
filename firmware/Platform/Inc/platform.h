@@ -46,6 +46,51 @@ int      platform_button_pressed(void);
 void platform_xclk(int on);
 int  platform_xclk_is_on(void);
 
+/* Паралельна шина камери (програмне захоплення без DCMI): D0..D3 = PC0..PC3, D4..D6 = PC10..PC12, D7 = PD2,
+ * PCLK = PA15, VSYNC = PB7 (HREF не підключено; камера не тактує PCLK між рядками). */
+#define FRAME_LINE_PIXELS 160U     /* QQVGA: пікселів у рядку (байтів у рядку вдвічі більше) */
+typedef struct {
+    uint32_t vs_rises;      /* фронтів VSYNC 0->1 за вікно */
+    uint32_t pclk_rises;    /* фронтів PCLK 0->1 за вікно */
+    uint8_t  seen_high;     /* біти D0..D7, що хоч раз були 1 на фронті PCLK */
+    uint8_t  seen_low;      /* біти, що хоч раз були 0 */
+    uint32_t pclk_per_frame;/* фронтів PCLK між двома сусідніми VSYNC (0 = не виміряно) */
+    uint32_t frame_us;      /* тривалість кадру між тими ж VSYNC, мкс */
+    uint32_t href_pc8, href_pc9;   /* фронтів на PC8 / PC9 (HREF: там, де ~120 на кадр) */
+} cam_probe_t;
+void platform_cam_bus_init(void);
+void platform_cam_probe(uint32_t window_ms, cam_probe_t *out);
+/** Захоплення одного кадру: чекає початок кадру (спад VSYNC), далі читає байти по фронтах PCLK і лишає лише Y
+ *  (байт з номером n, де (n & 1) == phase). Записує n_pixels байтів у y. Блокує процесор на весь кадр (~400 мс)
+ *  з вимкненими перериваннями — інакше SysTick/UART зіб'ють відлік PCLK; лічильник HAL_GetTick() потім доганяється.
+ *  Повертає 0 або -1, якщо кадр не почався за timeout_ms. */
+int platform_cam_capture(uint8_t *y, uint32_t n_pixels, int phase, uint32_t timeout_ms);
+
+/* ---- Вимірювання (ЛР3): лічильник тактів ядра DWT, службові піни для логічного аналізатора ---- */
+void     platform_perf_init(void);          /* увімкнути DWT, налаштувати службові піни */
+uint32_t platform_cycles(void);             /* DWT->CYCCNT (32 біти, переповнення ~43 с при 100 МГц) */
+uint32_t platform_cpu_hz(void);
+uint32_t platform_micros(void);             /* мкс, розширений лічильник; викликати частіше ніж раз на 40 с */
+/* Службові піни: 0 = PB1 (CN10-24), 1 = PB2 (CN10-22), 2 = PB5 (CN10-29), 3 = PB6 (CN10-17), 4 = PB3 (CN10-31, реакція) */
+#define PLATFORM_PROBE_COUNT 5
+void     platform_probe(int ch, int level);
+/* Стек: заповнення шаблоном на старті та вимір найглибшого використання */
+void     platform_stack_paint(void);
+uint32_t platform_stack_used(void);
+uint32_t platform_stack_reserved(void);
+uint32_t platform_heap_used(void);
+
+/* Кнопка B1 по EXTI: ISR фіксує такти; задача забирає подію. 1 — була подія, *t_cycles — момент фронту. */
+int      platform_button_event(uint32_t *t_cycles);
+void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
+uint32_t platform_button_overruns(void);    /* події, що злились із непрочитаною (втрачені) */
+
+/* UART RX через переривання в кільцевий буфер (256 Б); лічильник втрат при переповненні */
+void     platform_uart_rx_irq_enable(void);
+void     platform_uart2_irq(void);          /* з USART2_IRQHandler */
+uint32_t platform_uart_rx_overflow(void);
+uint32_t platform_uart_eol_cycles(void);   /* такти, коли в ISR прийшов останній Enter (початок відліку затримки команди) */
+
 /* UART: неблокуюче читання символу (-1, якщо немає) */
 int platform_uart_getc(void);
 #endif

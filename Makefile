@@ -16,6 +16,8 @@
 #   PORT=/dev/ttyACM0                     — послідовний порт для monitor
 
 IMAGE ?= stm32-build
+# Хеш коміту потрапляє в банер і в логи вимірювань (ЛР3: результат має бути пов'язаний зі збіркою)
+GIT_HASH := $(shell git rev-parse --short HEAD 2>/dev/null || echo nogit)$(shell git diff --quiet 2>/dev/null || echo -dirty)
 BOARD ?= F411
 PORT  ?= $(firstword $(wildcard /dev/ttyACM* /dev/tty.usbmodem*))
 BIN    = firmware/build/firmware.bin
@@ -28,9 +30,10 @@ image:
 # Якщо образу ще немає — збираємо його автоматично.
 build:
 	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	@rm -f firmware/build/product.o   # хеш коміту вшивається флагом -D: без цього об'єкт не перекомпілюється
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace \
 	  --user $$(id -u):$$(id -g) $(IMAGE) \
-	  make -C firmware all BOARD=$(BOARD)
+	  make -C firmware all BOARD=$(BOARD) GIT_HASH=$(GIT_HASH)
 
 flash: build
 	st-flash --reset write $(BIN) 0x08000000
@@ -72,3 +75,22 @@ clean:
 
 shell:
 	docker run --rm -it -v "$(CURDIR)":/workspace -w /workspace --user $$(id -u):$$(id -g) $(IMAGE) bash
+
+# ЛР3, п. 5.4: використання пам'яті — підсумок лінкера, розмір за секціями/модулями, найбільші символи, кадри стека.
+# Результат у docs/metrics/memory.txt (виконується в Docker, потрібна попередня збірка: make build).
+memory:
+	@test -f firmware/build/firmware.elf || $(MAKE) build
+	$(DOCKER_RUN) sh -c '\
+	  cd firmware && { \
+	  echo "# git: $(GIT_HASH)"; \
+	  echo; echo "## arm-none-eabi-size (text/data/bss)"; arm-none-eabi-size build/firmware.elf; \
+	  echo; echo "## секції"; arm-none-eabi-size -A build/firmware.elf; \
+	  echo; echo "## об'"'"'єктні файли за bss (RAM), 15 найбільших"; arm-none-eabi-size build/*.o | grep -v filename | sort -n -k3 | tail -15; \
+	  echo; echo "## об'"'"'єктні файли за text (flash), 15 найбільших"; arm-none-eabi-size build/*.o | grep -v filename | sort -n -k1 | tail -15; \
+	  echo; echo "## найбільші символи (десяткові розміри)"; arm-none-eabi-nm --size-sort -S --radix=d build/firmware.elf | tail -12; \
+	  echo; echo "## лише змінні в RAM (b/B = bss, d/D = data)"; arm-none-eabi-nm --size-sort -S --radix=d build/firmware.elf | grep -E " [bBdD] " | tail -10; \
+	  echo; echo "## статична оцінка стека (-fstack-usage), 15 найбільших кадрів"; cat build/*.su | sort -t"	" -k2 -n | tail -15; \
+	  } > ../docs/metrics/memory.txt 2>&1'
+	@echo "docs/metrics/memory.txt"
+
+.PHONY: memory

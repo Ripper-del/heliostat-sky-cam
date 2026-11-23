@@ -55,15 +55,6 @@ void     platform_led_toggle(void)     { HAL_GPIO_TogglePin(LED_PORT, LED_PIN); 
 void     platform_marker(int level)    { HAL_GPIO_WritePin(LED_PORT, LED_PIN, level ? GPIO_PIN_SET : GPIO_PIN_RESET); }
 int      platform_button_pressed(void) { return HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN) == GPIO_PIN_RESET; }
 
-/* ---- UART RX (неблокуюче) ---- */
-int platform_uart_getc(void)
-{
-    uint8_t c;
-    if (HAL_UART_Receive(&huart2, &c, 1, 0) == HAL_OK) return c;
-    __HAL_UART_CLEAR_OREFLAG(&huart2);
-    return -1;
-}
-
 /* ---- XCLK камери: MCO1 на PA8, джерело HSI 16 МГц (діапазон камери 10..48 МГц) ---- */
 static int xclk_on;
 int platform_xclk_is_on(void) { return xclk_on; }

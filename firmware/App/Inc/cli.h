@@ -1,7 +1,8 @@
 #ifndef CLI_H
 #define CLI_H
-/** Однолітерні команди UART для запису саме тієї транзакції, яку треба зловити аналізатором:
- *  h help | s selftest | i I2C scan | m MPU (WHO_AM_I + 6-байтне читання) | c камера PID/VER
- *  f JEDEC flash | w flash erase+write+read | p PWM 1000/2000 мкс | a ADC + маркер D13 */
-void cli_handle(char c);
+/** Один символ з UART. Малі літери/цифри на початку рядка — старі однознакові команди (виконуються одразу);
+ *  рядок, що починається з великої літери, збирається до Enter (STATS, CAL, LOG ...). */
+void cli_feed(char c);
+void cli_reset(void);       /* скинути недописаний рядок (якщо байти загубились під час довгої операції) */
+void cli_handle(char c);   /* лише однознакові команди (самоперевірка, діагностика шин) */
 #endif

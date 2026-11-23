@@ -6,6 +6,7 @@
 firmware/
 ├── Core/       main, тактування, MSP, IRQ, syscalls (printf → USART2). Знає про HAL і всі шари.
 ├── Drivers/    CMSIS + HAL від ST (вендорені, версії — docs/versions.md). НЕ редагуються.
+├── Common/     модулі без залежностей (кільцевий буфер); можуть включатись усіма шарами.
 ├── Platform/   адаптація до плати: board.h (піни, хендли), реалізації шин поверх HAL / bit-bang,
 │               ADC, серво (TIM3), UART RX. API для верхніх шарів — platform.h (без HAL).
 ├── Devices/    драйвери пристроїв: MPU-6050, W25Q64, OV7670. Залежать ЛИШЕ від bus.h.
@@ -69,6 +70,7 @@ flowchart TB
 | Devices | лише заголовки `Devices/Inc` (`bus.h`, власні) та стандартні `<...>` |
 | App | `Devices/Inc`, `App/Inc`, `Platform/Inc/platform.h`; **не** HAL, `main.h`, `board.h` |
 | Platform | HAL/CMSIS, `board.h`, `Devices/Inc/bus.h`; **не** App |
+| Common | лише стандартні `<...>` |
 | Core | усе |
 
 Додатково в Devices/ та App/ заборонені апаратно-залежні ідентифікатори (`HAL_*`, `hi2c1`, `GPIOA`, `TIM3` …) у коді (коментарі не рахуються).

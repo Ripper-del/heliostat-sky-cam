@@ -17,6 +17,8 @@
 #include "mpu6050.h"
 #include "w25q.h"
 #include "ov7670.h"
+#include "sky.h"
+#include "product.h"
 #include "quadrant.h"
 
 #define FLASH_TEST_ADDR  0x7FF000UL     /* останній 4-КБ сектор W25Q64 (8 МБ) */
@@ -221,7 +223,70 @@ void selftest_i2c_nack(void)
 
 void selftest_i2c_scan(void)  { run_i2c_scan(); }
 void selftest_mpu(void)       { run_mpu(); }
+/* Перевірка паралельної шини камери: режим QQVGA YUV + кольорові смуги, рахуємо фронти PCLK/VSYNC і які біти даних рухаються. */
+static int run_cam_bus(void)
+{
+    ov7670_t d; ov7670_init_dev(&d, platform_sccb_cam());
+    int rc = ov7670_config_qqvga_yuv(&d);
+    if (rc == DEV_OK) rc = ov7670_set_test_pattern(&d, 1);
+    platform_delay_ms(100);
+    cam_probe_t p;
+    platform_cam_probe(1500, &p);
+    ov7670_set_test_pattern(&d, 0);
+    int ok = rc == DEV_OK && p.pclk_rises > 1000 && p.vs_rises >= 1 && p.seen_high == 0xFF && p.seen_low == 0xFF && (p.href_pc8 > 50 || p.href_pc9 > 50);
+    st("CAM_BUS", ok);
+    printf(" rc=%d pclk=%lu vs=%lu high=0x%02X low=0x%02X pclk_per_frame=%lu frame_us=%lu href_pc8=%lu href_pc9=%lu", rc, (unsigned long)p.pclk_rises, (unsigned long)p.vs_rises, p.seen_high, p.seen_low, (unsigned long)p.pclk_per_frame, (unsigned long)p.frame_us, (unsigned long)p.href_pc8, (unsigned long)p.href_pc9);
+    endl();
+    return ok;
+}
+
+
+static void print_stats(const char *tag, const frame_stats_t *s)
+{
+    printf(" %s mean=%u contrast=%u sat_permille=%u", tag, s->mean, s->contrast, s->sat_permille);
+}
+
+/* Кадр через GPIO: два захоплення з різною фазою (який байт з пари — Y), далі ASCII-перегляд кращого. */
+static int run_cam_frame(void)
+{
+    int rc = DEV_OK;            /* камеру вже налаштовано продуктом (QQVGA YUV); повторне скидання дає нестабільні перші кадри */
+    frame_stats_t st0 = {0}, st1 = {0};
+    uint32_t t0 = platform_millis();
+    int r0 = rc == DEV_OK ? platform_cam_capture(product_frame_buf(), FRAME_PIXELS, 0, 1000) : -2;
+    uint32_t ms0 = platform_millis() - t0;
+    if (r0 == 0) st0 = frame_stats(product_frame_buf(), FRAME_PIXELS, SKY_DEFAULTS.sat_level);
+    int r1 = rc == DEV_OK ? platform_cam_capture(product_frame_buf(), FRAME_PIXELS, 1, 1000) : -2;
+    if (r1 == 0) st1 = frame_stats(product_frame_buf(), FRAME_PIXELS, SKY_DEFAULTS.sat_level);
+    int phase = st1.contrast > st0.contrast ? 1 : 0;
+    if (rc == DEV_OK && platform_cam_capture(product_frame_buf(), FRAME_PIXELS, phase, 1000) == 0) {
+        frame_stats_t s = frame_stats(product_frame_buf(), FRAME_PIXELS, SKY_DEFAULTS.sat_level);
+        sky_t sky = sky_classify(&s, &SKY_DEFAULTS);
+        st("CAM_FRAME", r0 == 0 && r1 == 0);
+        printf(" rc=%d capture_ms=%lu phase=%d", rc, (unsigned long)ms0, phase);
+        print_stats("p0", &st0); print_stats("p1", &st1); print_stats("best", &s);
+        printf(" sky=%s", sky_name(sky));
+        endl();
+        static const char shade[] = " .:-=+*#%@";
+        for (unsigned row = 0; row < FRAME_H; row += 8) {            /* 40 x 15 знаків */
+            for (unsigned col = 0; col < FRAME_W; col += 4) {
+                unsigned sum = 0;
+                for (unsigned yy = 0; yy < 8; yy++) for (unsigned xx = 0; xx < 4; xx++) sum += product_frame_buf()[(row + yy) * FRAME_W + col + xx];
+                printf("%c", shade[(sum / 32) * 9 / 255]);
+            }
+            printf("\r\n");
+        }
+        return 1;
+    }
+    st("CAM_FRAME", 0);
+    printf(" rc=%d r0=%d r1=%d", rc, r0, r1);
+    endl();
+    return 0;
+}
+
 void selftest_cam(void)       { run_cam(); }
+void selftest_cam_frame(void) { run_cam_frame(); }
+
+void selftest_cam_bus(void)   { run_cam_bus(); }
 void selftest_flash_id(void)  { run_flash_id(); }
 void selftest_flash_rw(void)  { run_flash_rw(); }
 static int run_pwm(void) { return run_pwm_mask(3); }

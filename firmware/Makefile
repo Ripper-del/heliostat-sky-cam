@@ -11,6 +11,7 @@
 TARGET = firmware
 BUILD_DIR = build
 BOARD ?= F411
+GIT_HASH ?= dev
 
 ifeq ($(BOARD),F446)
   MCU_DEF  = STM32F446xx
@@ -37,6 +38,7 @@ HAL_SOURCES = \
     _pwr.c _pwr_ex.c _i2c.c _spi.c _uart.c _adc.c _adc_ex.c)
 OWN_SOURCES = \
   $(wildcard Core/Src/*.c) \
+  $(wildcard Common/Src/*.c) \
   $(wildcard Platform/Src/*.c) \
   $(wildcard Devices/Src/*.c) \
   $(wildcard App/Src/*.c)
@@ -49,17 +51,17 @@ ASM_SOURCES = $(STARTUP)
 # ---- Включення та визначення ----
 # Вендорські каталоги підключаються через -isystem: попередження в їхніх заголовках не показуються.
 C_INCLUDES = \
-  -ICore/Inc -IApp/Inc -IDevices/Inc -IPlatform/Inc
+  -ICore/Inc -IApp/Inc -IDevices/Inc -IPlatform/Inc -ICommon/Inc
 VENDOR_INCLUDES = \
   -isystem Drivers/STM32F4xx_HAL_Driver/Inc \
   -isystem Drivers/CMSIS/Device/ST/STM32F4xx/Include \
   -isystem Drivers/CMSIS/Include
-C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF)
+C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF) -DGIT_HASH=\"$(GIT_HASH)\"
 
 # ---- Опції компіляції (Cortex-M4F) ----
 MCU = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
 OPT = -Og
-COMMON  = $(MCU) $(C_DEFS) $(C_INCLUDES) $(VENDOR_INCLUDES) $(OPT) -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP
+COMMON  = $(MCU) $(C_DEFS) $(C_INCLUDES) $(VENDOR_INCLUDES) $(OPT) -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -fstack-usage
 # Власний код: -Wall -Wextra, попередження = помилка збірки.
 CFLAGS  = $(COMMON) -Wall -Wextra -Werror
 # Вендорський код (HAL/CMSIS ST): попередження свідомо придушені (-w), лише для нього.
@@ -67,7 +69,7 @@ VENDOR_CFLAGS = $(COMMON) -w
 ASFLAGS = $(MCU) $(C_DEFS) $(OPT) -Wall -fdata-sections -ffunction-sections
 LDSCRIPT = STM32F4xx_FLASH.ld
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) -lc -lm -lnosys \
-          -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+          -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--print-memory-usage
 
 # ---- Правила ----
 OBJECTS  = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))

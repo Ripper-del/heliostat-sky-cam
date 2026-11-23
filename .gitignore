@@ -24,3 +24,7 @@ docs/captures/*.txt.tmp
 docs/captures/HOWTO.md
 docs/captures/README.md
 docs/captures/analysis.md
+
+# Python bytecode
+__pycache__/
+*.pyc

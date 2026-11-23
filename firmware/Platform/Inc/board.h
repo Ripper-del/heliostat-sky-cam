@@ -40,6 +40,12 @@
 #define SERVO_EL_MAX_US    2400U
 #define SERVO_CENTER_US    1500U
 
+/* Паралельна шина камери (CN7), див. docs/pinout.md */
+#define CAM_VS_PORT      GPIOB
+#define CAM_VS_PIN       GPIO_PIN_7
+#define CAM_PCLK_PORT    GPIOA
+#define CAM_PCLK_PIN     GPIO_PIN_15
+
 extern UART_HandleTypeDef huart2;
 extern UART_HandleTypeDef huart1;   /* дзеркало логу PA9 (D8) для аналізатора */
 extern I2C_HandleTypeDef  hi2c1;
