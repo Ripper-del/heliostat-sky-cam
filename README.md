@@ -1,4 +1,4 @@
-# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів
+# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів, ЛР3 super loop
 
 Навчальний проєкт з курсу «Системне програмування вбудованих систем».
 Платформа: NUCLEO-F411RE / F446RE, STM32 HAL, C, збірка в Docker.
@@ -62,9 +62,10 @@ scripts/readlog.py           читання UART-логу без терміна�
 scripts/check_deps.py        перевірка правила залежностей між шарами (в CI)
 firmware/                    проєкт STM32 (HAL), шарова структура
   Core/                      main, тактування, MSP, syscalls (printf -> UART)
+  Common/                    кільцевий буфер без залежностей (ringbuf)
   Platform/                  board.h (піни), реалізація шин поверх HAL / bit-bang SCCB, ADC, серво
   Devices/                   драйвери MPU-6050, W25Q64, OV7670 (залежать лише від bus.h)
-  App/                       квадрант, selftest, CLI, головний цикл (без HAL)
+  App/                       продукт ЛР3 (product.c: 12 задач), планувальник, статистика (perf), трекер, журнал, кадри, калібрування, класифікація неба, CLI, selftest (без HAL)
   Drivers/                   HAL та CMSIS від ST (вендорені, версії: docs/versions.md)
 tests/                       хостові тести: fake/mock шин, вектори, покриття
 docs/PRD.md                  вимоги до продукту
@@ -73,6 +74,9 @@ docs/pinout.md               pinout, адреси, живлення, парам�
 docs/architecture.md         шари, правила залежностей, component diagram (ЛР2)
 docs/captures/               записи логічного аналізатора (ЛР2); розбір — у docs/lab2-report.md, розд. 3.5
 docs/lab2-report.md          звіт ЛР2;  docs/problems.md — журнал проблем
+docs/lab3-report.md          звіт ЛР3;  docs/tasks.md — задачі; docs/limitations.md — реєстр обмежень;
+                             docs/baseline-lab4.md — базова лінія для ЛР4; docs/metrics/ — логи прогонів
+tools/                       хост-скрипти ЛР3: run_scenario.py, analyze_stats.py, analyze_latency.py, make_figures.py
 docs/versions.md             версії HAL/CMSIS/тулчейну
 .github/workflows/ci.yml     CI: check-deps, тести+покриття, збірка F411 та F446
 ```
@@ -80,6 +84,8 @@ docs/versions.md             версії HAL/CMSIS/тулчейну
 ## CLI (UART, 115200): символ у монітор запускає транзакцію для запису аналізатором
 
 `h` help · `s` selftest · `i` I²C scan · `m` MPU · `c` камера PID/VER · `f` JEDEC flash · `w` flash erase/write/read · `p` PWM 1000/2000 мкс · `a` ADC + маркер D13 (PA5) · `e` навмисний NACK (0x69) · `r` потік MPU 60 с · `1`/`2` серво азимут/елевація · `x` XCLK on/off · `k` статистика I²C
+
+Команди ЛР3 (рядки великими літерами, закінчуються `\r`): `VER` · `STATS [RESET]` · `MEM` · `MODE` · `SKY [FORCE CLEAR|OVERCAST|DARK|AUTO]` · `SERVO ON|OFF` · `CAL ...` · `LOG [n]` · `FRAMES [n]` · `SNAP` · `PERIOD <задача> <мс>` · `PROBE`. Приклад: `py scripts/sendcmd.py "LOG 8" --wait 3`. Сценарії вимірювань — `docs/baseline-lab4.md`.
 
 Скрипти: `scripts/sendcmd.py <символ>` — надіслати команду з комп'ютера (для запису аналізатором), `make decode` / `make check-captures` — розбір записів.
 
