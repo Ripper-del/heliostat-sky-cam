@@ -28,17 +28,19 @@ def main():
 
     def run(cmd, wait=3.0, keep=("[test]", "STAT", "TASK", "OSCOST", "HEAP", "LOAD", "STACK", "[os]", "FATAL", "VER", "MEM", "[cli]")):
         log.write(f"$ {cmd}\n")
-        lines, _ = b.send(cmd, wait=wait, retries=2)
+        lines, _ = b.send(cmd, wait=wait, retries=2 if keep else 1)
         for ln in lines:
-            if ln.startswith(keep):
+            if not keep or ln.startswith(keep):
                 log.write(ln + "\n")
         log.flush()
         return lines
 
     log.write("# " + b.version() + "\n")
     if a.stk:
-        run("TEST STK", wait=8.0)
-        time.sleep(3)
+        run("TEST STK", wait=10.0, keep=())          # усе підряд: FATAL, рядки перезапуску, банер
+        log.write("# далі ще 10 с усього, що друкує плата\n")
+        for ln in b.read_lines(10.0):
+            log.write(ln + "\n")
         log.write("# після TEST STK: відповідь на VER\n")
         run("VER", wait=3.0)
         log.close(); print(path); return

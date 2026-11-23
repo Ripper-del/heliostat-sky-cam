@@ -37,18 +37,14 @@ def header(b, log, scenario, args):
 
 
 def finish(b, log, tag="final"):
+    # Board сам пише кожен прийнятий рядок у лог, тому тут лише мітка блоку перед запитом (раніше рядки писались ще раз — дублікати)
+    log.write(f"# --- STATS {tag} ---\n"); log.flush()
     stats, load, lines = b.stats()
     mem = b.mem()
-    log.write(f"# --- STATS {tag} ---\n")
-    for ln in lines:
-        log.write(ln + "\n")
     log.write(f"# MEM {mem}\n")
     if getattr(b, "is_os", False):
-        for cmd, tag in (("TASKS", "TASK"), ("STACK", "STACK"), ("HEAP", "HEAP"), ("OSCOST", "OSCOST")):
-            lines, _ = b.send(cmd, wait=2.0)
-            for ln in lines:
-                if ln.startswith(tag):
-                    log.write(ln + "\n")
+        for cmd in ("TASKS", "STACK", "HEAP", "OSCOST"):
+            b.send(cmd, wait=2.0)
     log.flush()
     return stats, load
 
@@ -125,8 +121,6 @@ def break_series(b, log, a, task, values_ms, wait_s):
                          adc.get("missed", 0), stats.get("loop", {}).get("max_us", 0), load.get("pct", 0)))
             log.write(f"# POINT period_ms={ms} {task}_n={rows[-1][1]} {task}_missed={rows[-1][2]} {task}_late_p99_us={rows[-1][3]} "
                       f"{task}_late_max_us={rows[-1][4]} adc_missed={rows[-1][5]} loop_max_us={rows[-1][6]} load_pct={rows[-1][7]}\n")
-            for ln in lines:
-                log.write(ln + "\n")
             log.flush()
     finally:
         defaults = {"adc": 10, "camera": 3000}
@@ -149,8 +143,6 @@ def long_run(b, log, a):
         k += 1
         stats, load = finish(b, log, f"t={int(time.time() - t0)}s")
         lines, _ = b.send("LOG 1", wait=1.5)
-        for ln in lines:
-            log.write(ln + "\n")
 
 
 def fail(b, log, a):
@@ -160,8 +152,6 @@ def fail(b, log, a):
     b.read_lines(15)
     s1_, l1, lines = b.stats()
     log.write("# FAIL disconnected: imu_err=%s imu_max_us=%s\n" % (l1.get("imu_err"), s1_.get("imu", {}).get("max_us")))
-    for ln in lines:
-        log.write(ln + "\n")
     input(">>> Підключіть датчик назад, натисніть Enter...")
     b.send("STATS RESET")
     b.read_lines(15)
@@ -177,10 +167,7 @@ def trace(b, log, a):
     b.send_raw(b"\rSNAP\r")
     b.read_lines(a.duration)
     b.send("BTNSIM 0")
-    lines, _ = b.send("TRACE DUMP", wait=14.0)
-    for ln in lines:
-        if ln.startswith("TRACE") or ln.startswith("[trace]"):
-            log.write(ln + "\n")
+    b.send("TRACE DUMP", wait=14.0)
     finish(b, log, "trace")
 
 
@@ -191,8 +178,6 @@ def sda(b, log, a):
     b.read_lines(a.duration)
     stats, load, lines = b.stats()
     log.write("# FAULT SDA on: imu_err=%s imu_max_us=%s adc_late_max_us=%s\n" % (load.get("imu_err"), stats.get("imu", {}).get("max_us"), stats.get("adc", {}).get("late_max_us")))
-    for ln in lines:
-        log.write(ln + "\n")
     b.send("FAULT SDA 0"); b.send("STATS RESET")
     b.read_lines(10)
     finish(b, log, "after_release")
