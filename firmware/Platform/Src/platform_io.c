@@ -50,7 +50,9 @@ uint32_t platform_servo_get_us(int ch) { return ch == PLATFORM_SERVO_AZ ? TIM3->
 
 /* ---- Час, LED, кнопка, маркер ---- */
 uint32_t platform_millis(void)         { return HAL_GetTick(); }
-void     platform_delay_ms(uint32_t ms){ HAL_Delay(ms); }
+static void (*delay_hook)(uint32_t ms);
+void     platform_set_delay_hook(void (*h)(uint32_t ms)) { delay_hook = h; }
+void     platform_delay_ms(uint32_t ms){ if (delay_hook) delay_hook(ms); else HAL_Delay(ms); }
 void     platform_led_toggle(void)     { HAL_GPIO_TogglePin(LED_PORT, LED_PIN); }
 void     platform_marker(int level)    { HAL_GPIO_WritePin(LED_PORT, LED_PIN, level ? GPIO_PIN_SET : GPIO_PIN_RESET); }
 int      platform_button_pressed(void) { return HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN) == GPIO_PIN_RESET; }

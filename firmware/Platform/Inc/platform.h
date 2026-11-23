@@ -38,6 +38,8 @@ uint32_t platform_servo_max_us(int ch);
 /* Час, LED, кнопка, службовий GPIO-маркер (PA5/D13 — LED, зручно чіпляти аналізатор) */
 uint32_t platform_millis(void);
 void     platform_delay_ms(uint32_t ms);
+/** ЛР4: ОС реєструє затримку, що віддає процесор іншим задачам (vTaskDelay), замість активного очікування HAL_Delay. 0 = HAL_Delay (ЛР3). */
+void     platform_set_delay_hook(void (*h)(uint32_t ms));
 void     platform_led_toggle(void);
 void     platform_marker(int level);
 int      platform_button_pressed(void);

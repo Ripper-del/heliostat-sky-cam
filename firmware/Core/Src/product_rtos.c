@@ -304,6 +304,11 @@ static void uart_isr_hook(uint8_t b)
     portYIELD_FROM_ISR(w);
 }
 static void catchup_hook(uint32_t ms) { xTaskCatchUpTicks(ms); }
+/* Очікування в драйверах (опитування статусу flash, SCCB): до старту планувальника — HAL_Delay, далі задача блокується і віддає процесор */
+static void rtos_delay_ms(uint32_t ms)
+{
+    if (xTaskGetSchedulerState() == taskSCHEDULER_RUNNING) vTaskDelay(pdMS_TO_TICKS(ms) ? pdMS_TO_TICKS(ms) : 1); else HAL_Delay(ms);
+}
 
 /* ---- створення задач ---- */
 typedef struct { const char *name; uint16_t stack; UBaseType_t prio; uint32_t period_ms; void (*work)(void); TaskFunction_t ev; } spec_t;
@@ -379,6 +384,7 @@ void product_init(void)
     platform_set_uart_hook(uart_isr_hook);
     platform_cam_set_irq_mode(1);                       /* ЛР4: IRQ вимкнені лише на активну частину рядка */
     platform_cam_set_catchup_hook(catchup_hook);
+    platform_set_delay_hook(rtos_delay_ms);
     rts_init(&g_rts, platform_cycles());
     stats_t0_us = platform_micros(); win_cyc0 = platform_cycles();
     log_event(EV_BOOT, 0, 0, 0);
