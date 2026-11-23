@@ -4,6 +4,7 @@
 #include "perf.h"
 #include "sched.h"
 #include "ringbuf.h"
+#include "rtstats.h"
 
 /* ---- crc16 ---- */
 static void crc16_known_vector(void)
@@ -97,9 +98,62 @@ static void ring_fifo_and_overflow(void)
     CHECK_EQ(ring_get(&r), -1);
 }
 
+
+/* ---- rtstats: облік часу за задачами і журнал перемикань ---- */
+static void rts_accounts_time_to_previous_task(void)
+{
+    rtstats_t s; rts_init(&s, 1000);
+    rts_switch(&s, 10, 1000);                 /* задача 10 отримала процесор у 1000 */
+    rts_switch(&s, 20, 1300);                 /* 10 працювала 300 тактів */
+    rts_switch(&s, 10, 1350);                 /* 20 працювала 50 */
+    rts_flush(&s, 1500);                      /* 10 працює ще 150 */
+    CHECK_EQ(rts_run_cyc(&s, 10), 450); CHECK_EQ(rts_run_cyc(&s, 20), 50);
+    CHECK_EQ(rts_total_cyc(&s), 500); CHECK_EQ(s.total_switches, 3); CHECK_EQ(s.t[0].switches, 2);
+    CHECK_EQ(rts_run_cyc(&s, 99), 0);
+}
+
+static void rts_survives_dwt_wraparound(void)
+{
+    rtstats_t s; rts_init(&s, 0xFFFFFF00u);
+    rts_switch(&s, 1, 0xFFFFFF00u);
+    rts_switch(&s, 2, 0x00000100u);           /* лічильник переповнився: пройшло 0x200 тактів */
+    CHECK_EQ(rts_run_cyc(&s, 1), 0x200);
+}
+
+static void rts_reset_keeps_task_table(void)
+{
+    rtstats_t s; rts_init(&s, 0);
+    rts_switch(&s, 1, 0); rts_switch(&s, 2, 100);
+    rts_reset(&s, 500);
+    CHECK_EQ(s.n, 2); CHECK_EQ(rts_total_cyc(&s), 0); CHECK_EQ(s.total_switches, 0);
+    rts_flush(&s, 700);
+    CHECK_EQ(rts_run_cyc(&s, 2), 200);        /* поточна задача лишилась тією самою */
+}
+
+static void rts_table_full_counts_unknown(void)
+{
+    rtstats_t s; rts_init(&s, 0);
+    for (uint32_t i = 1; i <= RTS_MAX_TASKS + 2; i++) rts_switch(&s, i, i * 10);
+    CHECK_EQ(s.n, RTS_MAX_TASKS); CHECK_EQ(s.unknown, 2);
+}
+
+static void rts_trace_records_and_stops_when_full(void)
+{
+    rtstats_t s; rts_init(&s, 0);
+    rts_switch(&s, 1, 10);                    /* ще не озброєно: не записується */
+    CHECK_EQ(s.ev_count, 0);
+    rts_trace_arm(&s);
+    rts_switch(&s, 2, 20); rts_switch(&s, 3, 30);
+    CHECK_EQ(s.ev_count, 2); CHECK_EQ(s.ev[0].id, 2); CHECK_EQ(s.ev[1].cyc, 30);
+    for (int i = 0; i < RTS_TRACE_N + 5; i++) rts_switch(&s, 4, (uint32_t)(100 + i));
+    CHECK_EQ(s.ev_count, RTS_TRACE_N); CHECK_EQ(s.trace_on, 0);
+}
+
 void test_core(void)
 {
     RUN(crc16_known_vector); RUN(perf_stats_min_avg_max); RUN(perf_hist_bins_and_percentile);
     RUN(sched_runs_on_time_and_measures); RUN(sched_counts_missed_periods_after_long_task); RUN(sched_late_start_is_jitter);
     RUN(ring_fifo_and_overflow);
+    RUN(rts_accounts_time_to_previous_task); RUN(rts_survives_dwt_wraparound); RUN(rts_reset_keeps_task_table);
+    RUN(rts_table_full_counts_unknown); RUN(rts_trace_records_and_stops_when_full);
 }
