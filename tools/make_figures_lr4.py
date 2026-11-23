@@ -87,7 +87,7 @@ def fig_tasks():
 def fig_compare():
     rows = {(r["metric"], r["scen"]): r for r in C.table_main()}
     items = [
-        ("Затримка реакції на кнопку, max (S3), мс", rows.get(("Затримка реакції на подію (кнопка), max", "S3")), 50, True),
+        ("Затримка реакції на кнопку, max (S3), мс", rows.get(("Затримка реакції: від події до початку реакції, max", "S3")), 50, True),
         ("Джитер АЦП, max (S3), мс", rows.get(("Джитер АЦП (запізнення старту), max", "S3")), 2, True),
         ("Пропущені періоди АЦП за 60 с (S3)", rows.get(("Пропущені періоди АЦП за 60 с", "S3")), 0, True),
         ("Час відповіді на команду, max (S3), мс", rows.get(("Час відповіді на команду, max", "S3")), 100, True),
@@ -180,7 +180,7 @@ def fig_stacks():
 def fig_tick():
     out = {}
     for hz in (1000, 100):
-        fs = sorted(glob.glob(os.path.join(C.M, f"lr4_tick{hz}_s3*.log")))
+        fs = sorted(glob.glob(os.path.join(C.M, "lr4_s3[abc]_*.log" if hz == 1000 else f"lr4_tick{hz}_s3*.log")))
         if fs:
             out[hz] = [C.load_log(f) for f in fs]
     if len(out) < 2:

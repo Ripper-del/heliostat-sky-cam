@@ -90,8 +90,9 @@ def table_main():
         ra, rb = (agg(va) if va else None), (agg(vb) if vb else None)
         rows.append(dict(metric=metric, scen=scen, lr3=ra, lr4=rb, lr3_runs=va, lr4_runs=vb, req=req, tool=tool, unit=unit, req_val=req_val, better_low=better_low))
 
-    row("Затримка реакції на подію (кнопка), max", "S3", "s3", stat("btn_latency", "max_us"), "≤ 50 мс", "DWT: ISR → початок реакції", " мс", ms, req_val=50)
-    row("Затримка реакції на подію, середня", "S3", "s3", stat("btn_latency", "avg_us"), "—", "DWT", " мс", ms, kind="avg")
+    row("Затримка реакції: від події до початку реакції, max", "S3", "s3", stat("evt_latency", "max_us"), "≤ 50 мс", "DWT + апаратний момент події (TIM2)", " мс", ms, req_val=50)
+    row("Затримка реакції: від події до початку реакції, середня", "S3", "s3", stat("evt_latency", "avg_us"), "—", "DWT + апаратний момент події", " мс", ms, kind="avg")
+    row("Затримка реакції: від входу в ISR до початку реакції, max", "S3", "s3", stat("btn_latency", "max_us"), "—", "DWT (як у ЛР3)", " мс", ms)
     row("Подій кнопки оброблено / втрачено", "S3", "s3", lambda r: r["load"].get("btn_lost"), "0", "лічильник", "", None, req_val=0)
     row("Джитер АЦП (запізнення старту), max", "S3", "s3", stat("adc", "late_max_us"), "≤ 2 мс", "DWT", " мс", ms, req_val=2)
     row("Джитер АЦП, max", "S2", "s2", stat("adc", "late_max_us"), "≤ 2 мс", "DWT", " мс", ms, req_val=2)
