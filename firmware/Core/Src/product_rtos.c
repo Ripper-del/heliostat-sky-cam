@@ -48,6 +48,7 @@ static volatile int servos_on;
 static uint32_t last_snap_ms, last_suspect_ms;
 static volatile uint32_t btn_presses, btn_lost, rx_lost;
 static volatile uint32_t flash_err, imu_err, cam_err;
+static volatile int32_t flash_last_rc;          /* код останньої помилки flash (DEV_ERR_*), для розбору таких випадків */
 static mpu6050_t imu;
 static mpu6050_raw_t imu_raw;
 static uint32_t seconds;
@@ -246,7 +247,7 @@ static void snapshot_task(void *arg)
             rc = evlog_append(&elog, EV_SIGNAL_LOSS, (uint8_t)(no & 0xFF), now, (int16_t)(trk.light / 4), (int16_t)trk.mode, fst.mean);
         }
         xSemaphoreGive(flash_mx);
-        if (rc != DEV_OK) flash_err++;
+        if (rc != DEV_OK) { flash_err++; flash_last_rc = rc; }
         platform_probe(3, 0);
         xSemaphoreGive(frame_mx);
         rt_account(r, t0);
@@ -261,7 +262,8 @@ static void log_task(void *arg)
         uint32_t t0 = platform_cycles();
         if (flash_ok) {
             xSemaphoreTake(flash_mx, portMAX_DELAY);
-            if (evlog_append(&elog, p.type, p.frame, p.t_ms, p.a, p.b, p.c) != DEV_OK) flash_err++;
+            int rc = evlog_append(&elog, p.type, p.frame, p.t_ms, p.a, p.b, p.c);
+            if (rc != DEV_OK) { flash_err++; flash_last_rc = rc; }
             xSemaphoreGive(flash_mx);
         }
         rt_account(r, t0);
@@ -436,9 +438,9 @@ void product_print_stats(void)
     uint32_t now_cyc = platform_cycles();
     taskENTER_CRITICAL(); rts_flush(&g_rts, now_cyc); uint64_t total = rts_total_cyc(&g_rts); uint64_t idl = rts_run_cyc(&g_rts, (uint32_t)xTaskGetIdleTaskHandle()); taskEXIT_CRITICAL();
     uint32_t run_pct = total ? (uint32_t)((total - idl) * 100U / total) : 0;
-    printf("LOAD pct=%lu run_pct=%lu btn_lost=%lu uart_rx_overflow=%lu pend_lost=%lu flash_err=%lu imu_err=%lu cam_err=%lu\r\n", (unsigned long)last_load_pct,
+    printf("LOAD pct=%lu run_pct=%lu btn_lost=%lu uart_rx_overflow=%lu pend_lost=%lu flash_err=%lu imu_err=%lu cam_err=%lu flash_last_rc=%ld\r\n", (unsigned long)last_load_pct,
            (unsigned long)run_pct, (unsigned long)btn_lost, (unsigned long)(platform_uart_rx_overflow() + rx_lost), (unsigned long)pend_lost,
-           (unsigned long)flash_err, (unsigned long)imu_err, (unsigned long)cam_err);
+           (unsigned long)flash_err, (unsigned long)imu_err, (unsigned long)cam_err, (long)flash_last_rc);
 }
 
 void product_reset_stats(void)
@@ -519,7 +521,10 @@ void product_print_oscost(void)
     printf("OSCOST tick_hz=%u tick_isr_n=%lu tick_isr_avg_cyc=%lu tick_isr_max_cyc=%lu tick_isr_avg_us_x100=%lu tick_isr_max_us_x100=%lu\r\n",
            (unsigned)configTICK_RATE_HZ, (unsigned long)n, (unsigned long)avg, (unsigned long)max,
            (unsigned long)((uint64_t)avg * 100000000U / hz), (unsigned long)((uint64_t)max * 100000000U / hz));
-    uint32_t el_us = platform_micros() - stats_t0_us;
+    /* вікно — за 64-бітним лічильником тактів обліку задач (platform_micros переповнювався, якщо його не читали > 43 с) */
+    uint32_t now_cyc = platform_cycles();
+    taskENTER_CRITICAL(); rts_flush(&g_rts, now_cyc); uint64_t win_cyc = rts_total_cyc(&g_rts); taskEXIT_CRITICAL();
+    uint32_t win_ms = (uint32_t)(win_cyc / (hz / 1000U));
     uint32_t gap, gaps, off_n, lines, per, resync, sf, ll;
     rtos_tick_gap(&gap, &gaps);
     uint32_t off_max = platform_cam_diag(&off_n, &lines, &per, &resync); platform_cam_loss(&sf, &ll);
@@ -527,7 +532,7 @@ void product_print_oscost(void)
     const char *swn = swt ? pcTaskGetName((TaskHandle_t)swt) : "-";
     printf("OSCOST longest_run_us=%lu longest_run_task=%s\r\n", (unsigned long)swg, swn);
     printf("OSCOST switches=%lu window_ms=%lu tick_gap_max_us=%lu tick_gaps_over_1500us=%lu cam_irq_off_max_us=%lu cam_short_frames=%lu cam_lines_lost=%lu\r\n", (unsigned long)g_rts.total_switches,
-           (unsigned long)(el_us / 1000U), (unsigned long)gap, (unsigned long)gaps, (unsigned long)off_max, (unsigned long)sf, (unsigned long)ll);
+           (unsigned long)win_ms, (unsigned long)gap, (unsigned long)gaps, (unsigned long)off_max, (unsigned long)sf, (unsigned long)ll);
 }
 
 void product_trace_cmd(int argc, char **argv)

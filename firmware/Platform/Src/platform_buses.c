@@ -106,12 +106,17 @@ const i2c_bus_t *platform_i2c1(void) { return &i2c1_bus; }
 static void spi_begin(void *ctx) { (void)ctx; HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET); }
 static void spi_end(void *ctx)   { (void)ctx; HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET); }
 
+/* Тайм-аут HAL рахується за HAL_GetTick, тобто за реальним часом. Під FreeRTOS задачу знімка (пріоритет 1) можуть витіснити
+ * посеред обміну, і після повернення HAL бачить «минуло > тайм-ауту», хоча шина справна (ЛР4, проблема 29). Обмін 256 Б
+ * на 12,5 МГц триває ≈ 0,2 мс, тож 1 с — лише страховка від мертвої шини, а не очікування. */
+#define SPI_TIMEOUT_MS 1000U
+
 static int spi_xfer(void *ctx, const uint8_t *tx, uint8_t *rx, uint16_t len)
 {
     (void)ctx;
     HAL_StatusTypeDef st;
-    if (tx && rx)  st = HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)tx, rx, len, 100);
-    else if (tx)   st = HAL_SPI_Transmit(&hspi2, (uint8_t *)tx, len, 100);
+    if (tx && rx)  st = HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)tx, rx, len, SPI_TIMEOUT_MS);
+    else if (tx)   st = HAL_SPI_Transmit(&hspi2, (uint8_t *)tx, len, SPI_TIMEOUT_MS);
     else {
         /* Лише приймання: HAL_SPI_Receive у режимі master/2 лінії сам викликає TransmitReceive(rx, rx) і
          * висилає на MOSI вміст буфера приймання (на аналізаторі було видно сміття: 08, 03 …).
@@ -123,7 +128,7 @@ static int spi_xfer(void *ctx, const uint8_t *tx, uint8_t *rx, uint16_t len)
         for (uint16_t off = 0; off < len && st == HAL_OK; ) {
             uint16_t left = (uint16_t)(len - off);
             uint16_t n = left > (uint16_t)sizeof dummy ? (uint16_t)sizeof dummy : left;
-            st = HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)dummy, rx + off, n, 100);
+            st = HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)dummy, rx + off, n, SPI_TIMEOUT_MS);
             off = (uint16_t)(off + n);
         }
     }
