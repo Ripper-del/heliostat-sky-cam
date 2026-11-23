@@ -6,6 +6,7 @@
 firmware/
 ├── Core/       main, тактування, MSP, IRQ, syscalls (printf → USART2). Знає про HAL і всі шари.
 ├── Drivers/    CMSIS + HAL від ST (вендорені, версії — docs/versions.md). НЕ редагуються.
+├── Middlewares/ ядро FreeRTOS V11.1.0 (ЛР4); збирається як вендорський код, у правилах залежностей не бере участі.
 ├── Common/     модулі без залежностей (кільцевий буфер); можуть включатись усіма шарами.
 ├── Platform/   адаптація до плати: board.h (піни, хендли), реалізації шин поверх HAL / bit-bang,
 │               ADC, серво (TIM3), UART RX. API для верхніх шарів — platform.h (без HAL).

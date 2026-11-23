@@ -1,4 +1,4 @@
-# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів, ЛР3 super loop
+# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів, ЛР3 super loop, ЛР4 FreeRTOS
 
 Навчальний проєкт з курсу «Системне програмування вбудованих систем».
 Платформа: NUCLEO-F411RE / F446RE, STM32 HAL, C, збірка в Docker.
@@ -65,7 +65,9 @@ firmware/                    проєкт STM32 (HAL), шарова структ
   Common/                    кільцевий буфер без залежностей (ringbuf)
   Platform/                  board.h (піни), реалізація шин поверх HAL / bit-bang SCCB, ADC, серво
   Devices/                   драйвери MPU-6050, W25Q64, OV7670 (залежать лише від bus.h)
-  App/                       продукт ЛР3 (product.c: 12 задач), планувальник, статистика (perf), трекер, журнал, кадри, калібрування, класифікація неба, CLI, selftest (без HAL)
+  App/                       логіка продукту: трекер, журнал, кадри, калібровка, клас неба, статистика (perf), облік задач (rtstats), CLI, selftest (без HAL)
+  Core/Src/product_rtos.c    ЛР4: 12 задач FreeRTOS, черги, м'ютекси; rtos_port.c — хуки, printf, тік; rtos_tests.c — сценарії п. 7.2
+  Middlewares/FreeRTOS/      ядро FreeRTOS V11.1.0 (версія — docs/versions.md); прошивка ЛР3 (super loop) — git-тег lab3
   Drivers/                   HAL та CMSIS від ST (вендорені, версії: docs/versions.md)
 tests/                       хостові тести: fake/mock шин, вектори, покриття
 docs/PRD.md                  вимоги до продукту
@@ -74,6 +76,7 @@ docs/pinout.md               pinout, адреси, живлення, парам�
 docs/architecture.md         шари, правила залежностей, component diagram (ЛР2)
 docs/captures/               записи логічного аналізатора (ЛР2); розбір — у docs/lab2-report.md, розд. 3.5
 docs/lab2-report.md          звіт ЛР2;  docs/problems.md — журнал проблем
+docs/lab4-report.md          звіт ЛР4;  docs/rtos-design.md — задачі, пріоритети, механізми; docs/comparison.md — порівняння з ЛР3
 docs/lab3-report.md          звіт ЛР3;  docs/tasks.md — задачі; docs/limitations.md — реєстр обмежень;
                              docs/baseline-lab4.md — базова лінія для ЛР4; docs/metrics/ — логи прогонів
 tools/                       хост-скрипти ЛР3: run_scenario.py, analyze_stats.py, analyze_latency.py, make_figures.py
@@ -84,6 +87,8 @@ docs/versions.md             версії HAL/CMSIS/тулчейну
 ## CLI (UART, 115200): символ у монітор запускає транзакцію для запису аналізатором
 
 `h` help · `s` selftest · `i` I²C scan · `m` MPU · `c` камера PID/VER · `f` JEDEC flash · `w` flash erase/write/read · `p` PWM 1000/2000 мкс · `a` ADC + маркер D13 (PA5) · `e` навмисний NACK (0x69) · `r` потік MPU 60 с · `1`/`2` серво азимут/елевація · `x` XCLK on/off · `k` статистика I²C
+
+Команди ЛР4 (додано, старі не змінено): `TASKS` · `STACK` · `HEAP` · `OSCOST` · `TRACE ARM|DUMP [n]` · `BTNSIM ms` · `FAULT SDA 1|0` · `CAMIRQ 0|1` · `TEST INV [SEM]|STK|STARVE ms|QFLOOD n ms|HEAP|CTX n|CAMDIAG ms`. Матриця вимірювань для обох прошивок: `python3 tools/measure_all.py --fw lr3|lr4 --bin ...`; порівняння: `python3 tools/compare_lr3_lr4.py`.
 
 Команди ЛР3 (рядки великими літерами, закінчуються `\r`): `VER` · `STATS [RESET]` · `MEM` · `MODE` · `SKY [FORCE CLEAR|OVERCAST|DARK|AUTO]` · `SERVO ON|OFF` · `CAL ...` · `LOG [n]` · `FRAMES [n]` · `SNAP` · `PERIOD <задача> <мс>` · `PROBE`. Приклад: `py scripts/sendcmd.py "LOG 8" --wait 3`. Сценарії вимірювань — `docs/baseline-lab4.md`.
 
