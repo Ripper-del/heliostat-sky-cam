@@ -85,9 +85,16 @@ static volatile int idle_pin_enabled = 1;
 
 uint32_t rtos_runtime_cycles(void) { return DWT->CYCCNT; }
 
+static volatile uint32_t sw_gap_max, sw_gap_task, sw_last;
+void rtos_switch_gap(uint32_t *gap_us, uint32_t *task) { *gap_us = sw_gap_max / (SystemCoreClock / 1000000U); *task = sw_gap_task; }
+void rtos_switch_gap_reset(void) { sw_gap_max = 0; }
+
 void rtos_trace_switch_in(void)
 {
     uint32_t id = (uint32_t)pxCurrentTCB;
+    uint32_t nowc = DWT->CYCCNT;
+    if (sw_last) { uint32_t g = nowc - sw_last; if (g > sw_gap_max && g_rts.cur_id != idle_tcb) { sw_gap_max = g; sw_gap_task = g_rts.cur_id; } }   /* найдовше безперервне виконання однієї не-idle задачі і хто це */
+    sw_last = nowc;
     if (!idle_tcb) idle_tcb = (uint32_t)xTaskGetIdleTaskHandle();     /* idle створюється при старті планувальника, до першого перемикання */
     rts_switch(&g_rts, id, DWT->CYCCNT);
     if (idle_pin_enabled) platform_probe(1, id == idle_tcb);        /* PB2 = 1, коли працює idle: вільний процесор видно на аналізаторі */
@@ -96,12 +103,17 @@ void rtos_trace_switch_in(void)
 /* ---- вартість тіка: SysTick_Handler міряє свій час і додає сюди ---- */
 static volatile uint32_t tick_n, tick_max; static volatile uint64_t tick_sum;
 static volatile uint32_t tick_gap_max, tick_gaps, tick_last;
-static volatile uint32_t tick_ts[128];                 /* ідеальний момент (DWT) кожного тіка: за ним міряється джитер періодичних задач */
+static volatile uint32_t isr_n, isr_to_kernel;         /* isr_n — кількість входів у SysTick; isr_n - kernel_tick = isr_to_kernel, коли відкладених тіків немає */
+static volatile uint32_t tick_ts[128];                 /* ідеальний момент (DWT) кожного входу в SysTick: за ним міряється джитер періодичних задач */
 void rtos_tick_cost(uint32_t cyc)
 {
     uint32_t now = DWT->CYCCNT;
     uint32_t since_reload = SysTick->LOAD - SysTick->VAL;            /* скільки тактів минуло від справжнього моменту тіка до входу в ISR (IRQ-off, вищі ISR) */
-    tick_ts[xTaskGetTickCount() & 127U] = now - since_reload;
+    isr_n++;
+    tick_ts[isr_n & 127U] = now - since_reload;
+    /* Коли планувальник не призупинено, лічильник тіків ядра дорівнює isr_n мінус стала. Під час vTaskSuspendAll тіки відкладаються
+     * (xPendedTicks) і лічильник відстає, тож сталу оновлюємо лише коли планувальник працює. */
+    if (xTaskGetSchedulerState() == taskSCHEDULER_RUNNING) isr_to_kernel = isr_n - xTaskGetTickCount();
     if (tick_last) { uint32_t gap = (uint32_t)(now - tick_last); if (gap > tick_gap_max) tick_gap_max = gap; if (gap > SystemCoreClock / 1000U * 3U / 2U) tick_gaps++; }
     tick_last = now;
     tick_n++; tick_sum += cyc; if (cyc > tick_max) tick_max = cyc;
@@ -116,10 +128,10 @@ void rtos_tick_stats(uint32_t *n, uint32_t *avg, uint32_t *max)
 }
 void rtos_tick_reset(void) { taskENTER_CRITICAL(); tick_n = 0; tick_sum = 0; tick_max = 0; taskEXIT_CRITICAL(); }
 
-/* Ідеальний момент тіка `tick` у тактах DWT; якщо тік старіший за 127 мс — оцінка від поточного моменту */
+/* Ідеальний момент тіка ядра `tick` у тактах DWT (за входом у SysTick, де враховано затримку ISR); якщо запис застарів (> 120 мс) — оцінка від поточного моменту */
 uint32_t rtos_tick_time(uint32_t tick)
 {
-    uint32_t now_tick = xTaskGetTickCount(), cyc = DWT->CYCCNT, age = now_tick - tick;
-    if (age < 120U) return tick_ts[tick & 127U];
+    uint32_t idx = tick + isr_to_kernel, cyc = DWT->CYCCNT, age = isr_n - idx;
+    if (age < 120U) return tick_ts[idx & 127U];
     return cyc - age * (SystemCoreClock / 1000U);
 }

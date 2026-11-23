@@ -104,11 +104,11 @@ static void rt_account(rt_t *r, uint32_t t0_cyc)
     taskEXIT_CRITICAL();
 }
 
-static void rt_late(rt_t *r, uint32_t late_us)
+static void rt_late(rt_t *r, uint32_t late_us, uint32_t skipped)
 {
     taskENTER_CRITICAL();
     perf_add(&r->late_us, late_us); perf_hist_add(&r->late_hist, late_us);
-    if (late_us >= r->period_ms * 1000U) r->missed++;
+    r->missed += skipped;
     taskEXIT_CRITICAL();
 }
 
@@ -124,7 +124,11 @@ static void periodic(rt_t *r, void (*work)(void))
         if (r->rebase) { r->rebase = 0; last = xTaskGetTickCount(); continue; }   /* PERIOD змінили: сон перервано, відлік з нуля, цей прохід не рахується */
         uint32_t t0 = platform_cycles();
         int32_t late = (int32_t)(t0 - rtos_tick_time(last));
-        rt_late(r, late > 0 ? (uint32_t)late / cyc_us : 0U);
+        uint32_t late_us = late > 0 ? (uint32_t)late / cyc_us : 0U, skipped = 0, per_us = r->period_ms * 1000U;
+        /* Та сама семантика, що в ЛР3 (sched.c): повністю пропущені періоди рахуються в missed і не наздоганяються пачкою,
+         * джитер — залишок запізнення в межах одного періоду. */
+        if (late_us >= per_us) { skipped = late_us / per_us; late_us -= skipped * per_us; last += skipped * pdMS_TO_TICKS(r->period_ms); }
+        rt_late(r, late_us, skipped);
         work();
         rt_account(r, t0);
     }
@@ -445,7 +449,7 @@ void product_reset_stats(void)
     btn_presses = 0; btn_lost = 0; rx_lost = 0; pend_lost = 0;
     rts_reset(&g_rts, platform_cycles()); win_busy_base = 0; win_cyc0 = platform_cycles(); stats_t0_us = platform_micros();
     taskEXIT_CRITICAL();
-    rtos_tick_reset(); rtos_tick_gap_reset(); platform_cam_diag_reset();
+    rtos_tick_reset(); rtos_tick_gap_reset(); rtos_switch_gap_reset(); platform_cam_diag_reset();
     printf("[prod] stats reset\r\n");
 }
 
@@ -519,6 +523,9 @@ void product_print_oscost(void)
     uint32_t gap, gaps, off_n, lines, per, resync, sf, ll;
     rtos_tick_gap(&gap, &gaps);
     uint32_t off_max = platform_cam_diag(&off_n, &lines, &per, &resync); platform_cam_loss(&sf, &ll);
+    uint32_t swg, swt; rtos_switch_gap(&swg, &swt);
+    const char *swn = swt ? pcTaskGetName((TaskHandle_t)swt) : "-";
+    printf("OSCOST longest_run_us=%lu longest_run_task=%s\r\n", (unsigned long)swg, swn);
     printf("OSCOST switches=%lu window_ms=%lu tick_gap_max_us=%lu tick_gaps_over_1500us=%lu cam_irq_off_max_us=%lu cam_short_frames=%lu cam_lines_lost=%lu\r\n", (unsigned long)g_rts.total_switches,
            (unsigned long)(el_us / 1000U), (unsigned long)gap, (unsigned long)gaps, (unsigned long)off_max, (unsigned long)sf, (unsigned long)ll);
 }
