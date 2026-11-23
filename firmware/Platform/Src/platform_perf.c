@@ -1,4 +1,4 @@
-/** @file platform_perf.c — DWT, час у мкс, службові піни, стек/heap, кнопка (EXTI), UART RX (IRQ). */
+/** @file platform_perf.c — DWT, час у мкс, службові піни, стек/heap, кнопка (EXTI), UART RX/TX (DMA). */
 #include <malloc.h>
 #include "main.h"
 #include "platform.h"
@@ -109,34 +109,164 @@ int platform_button_event(uint32_t *t_cycles)
     return 1;
 }
 
-/* ---------------- UART RX через IRQ ---------------- */
+/* ---------------- UART2 через DMA (ЛР4) ----------------
+ * Приймання: DMA1 Stream5 (канал 4) пише байти в кільцевий буфер rx_dma сам, без процесора, тож байти не губляться,
+ * навіть коли переривання вимкнені (рядок камери, до 0,9 мс). ISR (IDLE на лінії, половина/кінець буфера DMA) лише
+ * забирає нові байти з буфера і віддає їх у rx_hook (stream buffer задачі cli) або в rx_ring (без ОС).
+ * Передавання: printf кладе байти в кільце tx_mem (4 КБ), DMA1 Stream6 (канал 4) відправляє його порціями.
+ * Задача, що друкує, не чекає UART; якщо кільце заповнене — спить через platform_delay_ms (vTaskDelay), а не крутиться. */
+#define RX_DMA_SIZE 256U
+#define TX_SIZE     4096U
 static volatile uint32_t eol_cyc;
 static uint8_t rx_mem[256];
 static ring_t  rx_ring;
+static uint8_t rx_dma[RX_DMA_SIZE];
+static uint32_t rx_pos;                       /* скільки байтів з rx_dma вже забрано */
+static volatile uint32_t rx_dma_overrun;      /* DMA обійшло буфер, поки ISR не встигла (не мало б траплятись) */
+static uint8_t tx_mem[TX_SIZE];
+static volatile uint32_t tx_head, tx_tail;    /* head пише задача (під print_mx), tail рухає ISR DMA */
+static volatile uint32_t tx_len;              /* довжина порції, яку зараз відправляє DMA (0 — DMA вільний) */
+static int mirror_on;                         /* дзеркало на USART1 (PA9) для аналізатора: та сама порція через DMA2 Stream7 */
 
-void platform_uart_rx_irq_enable(void)
+static void rx_drain(void)
+{
+    uint32_t pos = RX_DMA_SIZE - DMA1_Stream5->NDTR;            /* куди DMA запише наступний байт */
+    if (pos == RX_DMA_SIZE) pos = 0;
+    while (rx_pos != pos) {
+        uint8_t b = rx_dma[rx_pos];
+        rx_pos = (rx_pos + 1U) % RX_DMA_SIZE;
+        if (b == '\r' || b == '\n') eol_cyc = DWT->CYCCNT;
+        if (rx_hook) rx_hook(b); else ring_put(&rx_ring, b);
+    }
+}
+
+static void tx_kick(void)                      /* викликається з вимкненими перериваннями */
+{
+    if (tx_len || tx_head == tx_tail) return;
+    uint32_t t = tx_tail % TX_SIZE, n = tx_head - tx_tail;
+    if (n > TX_SIZE - t) n = TX_SIZE - t;     /* до кінця кільця, решта — наступною порцією */
+    tx_len = n;
+    DMA1->HIFCR = DMA_HIFCR_CTCIF6 | DMA_HIFCR_CHTIF6 | DMA_HIFCR_CTEIF6 | DMA_HIFCR_CDMEIF6 | DMA_HIFCR_CFEIF6;
+    DMA1_Stream6->M0AR = (uint32_t)&tx_mem[t];
+    DMA1_Stream6->NDTR = n;
+    DMA1_Stream6->CR |= DMA_SxCR_EN;
+    if (mirror_on && !(DMA2_Stream7->CR & DMA_SxCR_EN)) {
+        DMA2->HIFCR = DMA_HIFCR_CTCIF7 | DMA_HIFCR_CHTIF7 | DMA_HIFCR_CTEIF7 | DMA_HIFCR_CDMEIF7 | DMA_HIFCR_CFEIF7;
+        DMA2_Stream7->M0AR = (uint32_t)&tx_mem[t];
+        DMA2_Stream7->NDTR = n;
+        DMA2_Stream7->CR |= DMA_SxCR_EN;
+    }
+}
+
+void platform_uart_rx_irq_enable(void)        /* назва з ЛР3; тепер вмикає DMA для обох напрямків */
 {
     ring_init(&rx_ring, rx_mem, sizeof rx_mem);
     button_irq_enable();
-    USART2->CR1 |= USART_CR1_RXNEIE;
+    __HAL_RCC_DMA1_CLK_ENABLE();
+    /* приймання */
+    USART2->CR1 &= ~USART_CR1_RXNEIE;
+    DMA1_Stream5->CR = 0; while (DMA1_Stream5->CR & DMA_SxCR_EN) { }
+    DMA1->HIFCR = DMA_HIFCR_CTCIF5 | DMA_HIFCR_CHTIF5 | DMA_HIFCR_CTEIF5 | DMA_HIFCR_CDMEIF5 | DMA_HIFCR_CFEIF5;
+    DMA1_Stream5->PAR  = (uint32_t)&USART2->DR;
+    DMA1_Stream5->M0AR = (uint32_t)rx_dma;
+    DMA1_Stream5->NDTR = RX_DMA_SIZE;
+    DMA1_Stream5->CR   = (4U << DMA_SxCR_CHSEL_Pos) | DMA_SxCR_MINC | DMA_SxCR_CIRC | DMA_SxCR_HTIE | DMA_SxCR_TCIE;
+    DMA1_Stream5->CR  |= DMA_SxCR_EN;
+    rx_pos = 0;
+    (void)USART2->SR; (void)USART2->DR;
+    USART2->CR3 |= USART_CR3_DMAR;
+    USART2->CR1 |= USART_CR1_IDLEIE;
+    /* передавання */
+    DMA1_Stream6->CR = 0; while (DMA1_Stream6->CR & DMA_SxCR_EN) { }
+    DMA1_Stream6->PAR = (uint32_t)&USART2->DR;
+    DMA1_Stream6->CR  = (4U << DMA_SxCR_CHSEL_Pos) | DMA_SxCR_MINC | DMA_SxCR_DIR_0 | DMA_SxCR_TCIE;
+    USART2->CR3 |= USART_CR3_DMAT;
+    extern UART_HandleTypeDef huart1;
+    if (huart1.gState == HAL_UART_STATE_READY) {
+        __HAL_RCC_DMA2_CLK_ENABLE();
+        DMA2_Stream7->CR = 0; while (DMA2_Stream7->CR & DMA_SxCR_EN) { }
+        DMA2_Stream7->PAR = (uint32_t)&USART1->DR;
+        DMA2_Stream7->CR  = (4U << DMA_SxCR_CHSEL_Pos) | DMA_SxCR_MINC | DMA_SxCR_DIR_0;
+        USART1->CR3 |= USART_CR3_DMAT;
+        mirror_on = 1;
+    }
     HAL_NVIC_SetPriority(USART2_IRQn, PLATFORM_IRQ_PRIO, 0);
+    HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, PLATFORM_IRQ_PRIO, 0);
+    HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, PLATFORM_IRQ_PRIO, 0);
     HAL_NVIC_EnableIRQ(USART2_IRQn);
+    HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
+    HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
+    extern int uart_dma_ready;
+    uart_dma_ready = 1;
 }
 
 void platform_uart2_irq(void)
 {
     uint32_t sr = USART2->SR;
-    if (sr & (USART_SR_RXNE | USART_SR_ORE)) {
-        uint8_t b = (uint8_t)USART2->DR;          /* читання DR знімає RXNE і ORE */
-        if (sr & USART_SR_ORE) rx_ring.overflow++;            /* апаратний overrun: байт(и) втрачено, поки ISR не встигла */
-        if (sr & USART_SR_RXNE) {
-            if (b == '\r' || b == '\n') eol_cyc = DWT->CYCCNT;
-            if (rx_hook) rx_hook(b); else ring_put(&rx_ring, b);
-        }
+    if (sr & (USART_SR_IDLE | USART_SR_ORE)) {
+        (void)USART2->DR;                       /* SR, потім DR — знімає IDLE/ORE */
+        if (sr & USART_SR_ORE) rx_ring.overflow++;
     }
+    rx_drain();
 }
 
-uint32_t platform_uart_rx_overflow(void) { return rx_ring.overflow; }
+void platform_dma1_s5_irq(void)               /* приймання: половина або кінець кільця */
+{
+    uint32_t f = DMA1->HISR;
+    DMA1->HIFCR = DMA_HIFCR_CTCIF5 | DMA_HIFCR_CHTIF5 | DMA_HIFCR_CTEIF5 | DMA_HIFCR_CDMEIF5 | DMA_HIFCR_CFEIF5;
+    if (f & DMA_HISR_TEIF5) rx_dma_overrun++;
+    rx_drain();
+}
+
+void platform_dma1_s6_irq(void)               /* передавання: порцію відправлено, беремо наступну */
+{
+    DMA1->HIFCR = DMA_HIFCR_CTCIF6 | DMA_HIFCR_CHTIF6 | DMA_HIFCR_CTEIF6 | DMA_HIFCR_CDMEIF6 | DMA_HIFCR_CFEIF6;
+    if (mirror_on) { while (DMA2_Stream7->CR & DMA_SxCR_EN) { } }   /* USART1 з тією самою швидкістю закінчує одночасно */
+    tx_tail += tx_len;
+    tx_len = 0;
+    tx_kick();
+}
+
+int platform_uart_write(const uint8_t *p, int len)
+{
+    int done = 0;
+    while (done < len) {
+        uint32_t room = TX_SIZE - (tx_head - tx_tail);
+        if (room == 0) {                         /* кільце повне: чекаємо, поки DMA звільнить місце */
+            if (__get_PRIMASK() || __get_BASEPRI()) {   /* переривання DMA замасковані (аварія або до старту планувальника): обслуговуємо самі */
+                while (DMA1_Stream6->CR & DMA_SxCR_EN) { }
+                platform_dma1_s6_irq();
+            }
+            else platform_delay_ms(1);
+            continue;
+        }
+        uint32_t n = (uint32_t)(len - done);
+        if (n > room) n = room;
+        for (uint32_t i = 0; i < n; i++) tx_mem[(tx_head + i) % TX_SIZE] = p[done + (int)i];
+        __DMB();
+        tx_head += n;
+        done += (int)n;
+        uint32_t pm = __get_PRIMASK(); __disable_irq();
+        tx_kick();
+        if (!pm) __enable_irq();
+    }
+    return len;
+}
+
+/* Аварійний вивід (HardFault, переповнення стека): дочекатися поточної порції і відправити решту кільця опитуванням */
+void platform_uart_flush_polling(void)
+{
+    while (DMA1_Stream6->CR & DMA_SxCR_EN) { }
+    if (tx_len) { tx_tail += tx_len; tx_len = 0; }
+    while (tx_head != tx_tail) {
+        while (!(USART2->SR & USART_SR_TXE)) { }
+        USART2->DR = tx_mem[tx_tail % TX_SIZE];
+        tx_tail++;
+    }
+    while (!(USART2->SR & USART_SR_TC)) { }
+}
+
+uint32_t platform_uart_rx_overflow(void) { return rx_ring.overflow + rx_dma_overrun; }
 uint32_t platform_uart_eol_cycles(void)  { return eol_cyc; }
 int platform_uart_getc(void) { return ring_get(&rx_ring); }
 

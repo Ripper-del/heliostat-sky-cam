@@ -10,11 +10,16 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include "main.h"
+#include "platform.h"
+
+int uart_dma_ready;   /* встановлює platform_uart_rx_irq_enable() */
 
 int _write(int fd, char *ptr, int len)
 {
     (void)fd;
-    HAL_UART_Transmit(&huart2, (uint8_t *)ptr, (uint16_t)len, HAL_MAX_DELAY);
+    if (uart_dma_ready)                           /* ЛР4: кільце + DMA, задача не чекає UART (дзеркало на PA9 — там же) */
+        return platform_uart_write((const uint8_t *)ptr, len);
+    HAL_UART_Transmit(&huart2, (uint8_t *)ptr, (uint16_t)len, HAL_MAX_DELAY);   /* ранній старт, до platform_uart_rx_irq_enable() */
     if (huart1.gState == HAL_UART_STATE_READY)   /* дзеркало на PA9 (D8) */
         HAL_UART_Transmit(&huart1, (uint8_t *)ptr, (uint16_t)len, HAL_MAX_DELAY);
     return len;

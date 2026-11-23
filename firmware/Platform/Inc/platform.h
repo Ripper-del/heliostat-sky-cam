@@ -108,6 +108,10 @@ void     platform_fault_sda(int on);          /* з TIM2_IRQHandler */
 /* UART RX через переривання в кільцевий буфер (256 Б); лічильник втрат при переповненні */
 void     platform_uart_rx_irq_enable(void);
 void     platform_uart2_irq(void);          /* з USART2_IRQHandler */
+void     platform_dma1_s5_irq(void);        /* DMA1 Stream5: приймання USART2 */
+void     platform_dma1_s6_irq(void);        /* DMA1 Stream6: передавання USART2 */
+int      platform_uart_write(const uint8_t *p, int len);   /* у кільце передавання, DMA відправляє */
+void     platform_uart_flush_polling(void); /* аварійно: відправити все з кільця без переривань */
 uint32_t platform_uart_rx_overflow(void);
 uint32_t platform_uart_eol_cycles(void);   /* такти, коли в ISR прийшов останній Enter (початок відліку затримки команди) */
 
