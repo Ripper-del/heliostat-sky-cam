@@ -5,6 +5,7 @@
 і для оцінки «скільки команд лишилось без відповіді».
 """
 import glob
+import os
 import re
 import sys
 import time
@@ -55,7 +56,7 @@ class Board:
         port = port or next(iter(sorted(glob.glob("/dev/cu.usbmodem*") + glob.glob("/dev/ttyACM*"))), None)
         if not port:
             sys.exit("UART-порт не знайдено (плата підключена? --port ...)")
-        self.s = serial.Serial(port, baud, timeout=0.05)
+        self.s = serial.Serial(port, baud, timeout=0.05, write_timeout=3)
         self.log = log
         self.buf = b""
 
@@ -80,20 +81,38 @@ class Board:
                         self._emit(ln)
         return lines
 
+    def _stalled(self):
+        print("ST-Link VCP не приймає дані від комп'ютера (байти застрягли у вихідному буфері). Вимкніть USB плати на 15 с і підключіть знову.", flush=True)
+        if self.log:
+            self.log.write("# ST-Link VCP stall: host->target bytes not accepted\n"); self.log.flush()
+        os._exit(3)    # без close(): закриття порту чекало б, поки буфер спорожніє, тобто вічно
+
+    def _write(self, data):
+        """Запис у порт; якщо ST-Link перестав приймати дані (VCP завис), байти лишаються у вихідному буфері — повідомляємо явно, а не збираємо порожні логи."""
+        try:
+            self.s.write(data)
+        except serial.SerialTimeoutException:
+            self._stalled()
+        t = time.time()
+        while self.s.out_waiting and time.time() - t < 2.0:
+            time.sleep(0.01)
+        if self.s.out_waiting:
+            self._stalled()
+
     def send(self, cmd, wait=2.0, retries=4):
         """Надсилає команду з Enter; прошивка під час довгої операції може втратити байти (це ЛР3-явище),
         тому повторюємо, доки не прийде відповідь, відмінна від 'tick'. Повертає (рядки, спроби)."""
         for attempt in range(1, retries + 1):
-            self.s.write(b"\r")
+            self._write(b"\r")
             time.sleep(0.03)
-            self.s.write(cmd.encode() + b"\r")
+            self._write(cmd.encode() + b"\r")
             lines = [l for l in self.read_lines(wait) if not l.startswith("tick") and "unknown command" not in l]
             if lines:
                 return lines, attempt
         return [], retries
 
     def send_raw(self, data):
-        self.s.write(data)
+        self._write(data)
 
     def stats(self):
         lines, _ = self.send("STATS", wait=2.5)

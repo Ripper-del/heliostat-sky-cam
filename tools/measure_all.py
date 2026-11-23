@@ -28,7 +28,8 @@ def ports():
 def flash_and_capture(binpath, wait=30):
     """Копіює .bin на NOD_F411RE і збирає завантажувальний лог (потрібен рядок boot_ms). Повертає список рядків."""
     import serial
-    shutil.copy(binpath, VOL)
+    with open(os.path.join(VOL, os.path.basename(binpath)), "wb") as f:   # лише байти, без атрибутів macOS (tools/flash.py)
+        f.write(open(binpath, "rb").read()); f.flush(); os.fsync(f.fileno())
     t0 = time.time(); lines = []; s = None; buf = b""
     while time.time() - t0 < wait:
         try:
