@@ -16,8 +16,6 @@ void DebugMon_Handler(void)   {}
 
 void EXTI15_10_IRQHandler(void) { platform_exti_irq(); }
 void USART2_IRQHandler(void)    { platform_uart2_irq(); }
-void DMA1_Stream5_IRQHandler(void) { platform_dma1_s5_irq(); }
-void DMA1_Stream6_IRQHandler(void) { platform_dma1_s6_irq(); }
 void TIM2_IRQHandler(void)      { platform_tim2_irq(); }     /* імітатор кнопки (ЛР4) */
 
 /* SysTick: і лічильник HAL_GetTick(), і тік FreeRTOS. Час обробника міряємо (ЛР4, п. 6.5). SVC_Handler і PendSV_Handler — з порту ядра (FreeRTOSConfig.h). */

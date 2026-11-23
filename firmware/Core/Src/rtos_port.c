@@ -16,11 +16,9 @@
 extern void * volatile pxCurrentTCB;          /* tasks.c: задача, що щойно отримала процесор */
 
 /* ---- аварійний вивід без printf (стек і heap можуть бути пошкоджені) ---- */
-/* Спершу дописуємо те, що вже лежить у кільці передавання DMA (щоб рядки не перемішались), далі — прямо в регістр. */
 static void raw_puts(const char *s)
 {
     uint32_t pm = __get_PRIMASK(); __disable_irq();
-    platform_uart_flush_polling();
     for (; *s; s++) { while (!(USART2->SR & USART_SR_TXE)) { } USART2->DR = (uint8_t)*s; }
     while (!(USART2->SR & USART_SR_TC)) { }
     if (!pm) __enable_irq();
