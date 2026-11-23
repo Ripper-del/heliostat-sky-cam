@@ -61,6 +61,7 @@ static StreamBufferHandle_t sb_rx;        /* байти UART RX: ISR -> зада
 static TaskHandle_t         h_snap;
 
 typedef struct { uint8_t type, frame; uint32_t t_ms; int16_t a, b, c; } pend_t;
+typedef struct { uint32_t isr, evt; } btn_evt_t;      /* вхід у ISR і справжній момент події (DWT) */
 static volatile uint32_t pend_lost;
 
 static void log_event(uint8_t type, int16_t a, int16_t b, int16_t c)
@@ -86,7 +87,7 @@ typedef struct {
 } rt_t;
 static rt_t rt[12];
 static int  nrt;
-static perf_stat_t st_btn, st_cam_frame, st_cmd;
+static perf_stat_t st_btn, st_evt, st_cam_frame, st_cmd;
 static uint32_t stats_t0_us, last_load_pct; static uint64_t win_busy_base; static uint32_t win_cyc0;
 
 static void rt_reset_one(rt_t *r)
@@ -265,12 +266,12 @@ static void log_task(void *arg)
 
 static void button_task(void *arg)
 {
-    rt_t *r = arg; uint32_t t_isr;
+    rt_t *r = arg; btn_evt_t ev;
     for (;;) {
-        if (xQueueReceive(q_btn, &t_isr, portMAX_DELAY) != pdTRUE) continue;
+        if (xQueueReceive(q_btn, &ev, portMAX_DELAY) != pdTRUE) continue;
         uint32_t t0 = platform_cycles();
         platform_probe(4, 1);                                           /* початок реакції (аналізатор) */
-        taskENTER_CRITICAL(); perf_add(&st_btn, t0 - t_isr); taskEXIT_CRITICAL();   /* ISR -> початок реакції */
+        taskENTER_CRITICAL(); perf_add(&st_btn, t0 - ev.isr); perf_add(&st_evt, t0 - ev.evt); taskEXIT_CRITICAL();   /* ISR -> початок реакції; подія -> початок реакції */
         btn_presses++;
         snap_request();
         platform_probe(4, 0);
@@ -291,10 +292,11 @@ static void cli_task(void *arg)
     }
 }
 
-static void btn_isr_hook(uint32_t cyc)
+static void btn_isr_hook(uint32_t isr_cyc, uint32_t evt_cyc)
 {
     BaseType_t w = pdFALSE;
-    if (xQueueSendFromISR(q_btn, &cyc, &w) != pdTRUE) btn_lost++;      /* черга переповнилась */
+    btn_evt_t ev = { isr_cyc, evt_cyc };
+    if (xQueueSendFromISR(q_btn, &ev, &w) != pdTRUE) btn_lost++;      /* черга переповнилась */
     portYIELD_FROM_ISR(w);
 }
 static void uart_isr_hook(uint8_t b)
@@ -354,11 +356,11 @@ void product_init(void)
     mpu6050_wake(&imu);
     { ov7670_t cam; ov7670_init_dev(&cam, platform_sccb_cam()); if (ov7670_config_qqvga_yuv(&cam) != DEV_OK) cam_err++; }
     platform_adc_read_quadrant(q);
-    perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
+    perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_evt, "evt_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
 
     rtos_print_init();
     flash_mx = xSemaphoreCreateMutex(); frame_mx = xSemaphoreCreateMutex();
-    q_log = xQueueCreate(16, sizeof(pend_t)); q_btn = xQueueCreate(16, sizeof(uint32_t));
+    q_log = xQueueCreate(16, sizeof(pend_t)); q_btn = xQueueCreate(16, sizeof(btn_evt_t));
     sb_rx = xStreamBufferCreate(256, 1);
     configASSERT(flash_mx && frame_mx && q_log && q_btn && sb_rx);
 
@@ -418,9 +420,10 @@ void product_print_stats(void)
                (unsigned long)perf_hist_percentile(&t->late_hist, 99), (unsigned long)t->missed, (unsigned long)t->exec_cyc.max);
     }
     printf("STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0\r\n");           /* головного циклу в ОС немає */
-    perf_stat_t b, f; taskENTER_CRITICAL(); b = st_btn; f = st_cam_frame; taskEXIT_CRITICAL();
+    perf_stat_t b, f, ev; taskENTER_CRITICAL(); b = st_btn; f = st_cam_frame; ev = st_evt; taskEXIT_CRITICAL();
     printf("STAT name=btn_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu presses=%lu\r\n", (unsigned long)b.count,
            (unsigned long)cyc2us(b.min), (unsigned long)cyc2us(perf_avg(&b)), (unsigned long)cyc2us(b.max), (unsigned long)btn_presses);
+    printf("STAT name=evt_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)ev.count, (unsigned long)cyc2us(ev.min), (unsigned long)cyc2us(perf_avg(&ev)), (unsigned long)cyc2us(ev.max));
     perf_stat_t m; taskENTER_CRITICAL(); m = st_cmd; taskEXIT_CRITICAL();
     printf("STAT name=cmd_latency n=%lu min_us=%lu avg_us=%lu max_us=%lu\r\n", (unsigned long)m.count, (unsigned long)cyc2us(m.min),
            (unsigned long)cyc2us(perf_avg(&m)), (unsigned long)cyc2us(m.max));
@@ -438,7 +441,7 @@ void product_reset_stats(void)
 {
     taskENTER_CRITICAL();
     for (int i = 0; i < nrt; i++) rt_reset_one(&rt[i]);
-    perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
+    perf_stat_init(&st_btn, "btn_latency"); perf_stat_init(&st_evt, "evt_latency"); perf_stat_init(&st_cam_frame, "cam_frame"); perf_stat_init(&st_cmd, "cmd_latency");
     btn_presses = 0; btn_lost = 0; rx_lost = 0; pend_lost = 0;
     rts_reset(&g_rts, platform_cycles()); win_busy_base = 0; win_cyc0 = platform_cycles(); stats_t0_us = platform_micros();
     taskEXIT_CRITICAL();

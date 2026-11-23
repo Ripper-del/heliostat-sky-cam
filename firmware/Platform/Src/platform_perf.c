@@ -72,15 +72,17 @@ static volatile uint32_t btn_cyc;
 static volatile uint8_t  btn_pending;
 static volatile uint32_t btn_overrun;      /* подія прийшла, поки попередню ще не забрала задача */
 
-static void (*btn_hook)(uint32_t cyc);       /* ЛР4: ISR -> ядро ОС (черга подій), замість прапорця */
+static void (*btn_hook)(uint32_t isr_cyc, uint32_t evt_cyc);       /* ЛР4: ISR -> ядро ОС (черга подій), замість прапорця */
+static volatile uint32_t sim_evt_cyc, sim_evt_valid;     /* момент справжньої події імітатора (див. platform_tim2_irq) */
 static void (*rx_hook)(uint8_t b);           /* ЛР4: ISR -> stream buffer */
-void platform_set_button_hook(void (*h)(uint32_t cyc)) { btn_hook = h; }
+void platform_set_button_hook(void (*h)(uint32_t isr_cyc, uint32_t evt_cyc)) { btn_hook = h; }
 void platform_set_uart_hook(void (*h)(uint8_t b))      { rx_hook = h; }
 
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
     if (pin == BTN_PIN) {
-        if (btn_hook) { btn_hook(DWT->CYCCNT); return; }
+        uint32_t now = DWT->CYCCNT;
+        if (btn_hook) { btn_hook(now, sim_evt_valid ? sim_evt_cyc : now); sim_evt_valid = 0; return; }
         if (btn_pending) btn_overrun++;
         else { btn_cyc = DWT->CYCCNT; btn_pending = 1; }       /* момент ПЕРШОЇ непрочитаної події */
     }
@@ -157,7 +159,10 @@ void platform_btnsim(uint32_t period_ms)
 
 void platform_tim2_irq(void)
 {
+    uint32_t cnt = TIM2->CNT, now = DWT->CYCCNT;               /* CNT = мкс від апаратного переповнення: скільки ISR чекала через вимкнені IRQ */
     TIM2->SR = 0;
+    sim_evt_cyc = now - cnt * (SystemCoreClock / 1000000U);    /* справжній момент події в тактах DWT */
+    sim_evt_valid = 1;
     EXTI->SWIER = BTN_PIN;                                    /* програмна подія на лінії кнопки */
 }
 

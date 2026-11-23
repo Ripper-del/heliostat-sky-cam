@@ -97,7 +97,7 @@ void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
 uint32_t platform_button_overruns(void);    /* події, що злились із непрочитаною (втрачені) */
 
 /* ЛР4: замість прапорця/кільцевого буфера ISR викликає зареєстровану функцію (черга/stream buffer ядра ОС). 0 = поведінка ЛР3. */
-void     platform_set_button_hook(void (*h)(uint32_t cyc));     /* cyc — момент фронту (DWT) */
+void     platform_set_button_hook(void (*h)(uint32_t isr_cyc, uint32_t evt_cyc));     /* isr_cyc — вхід у ISR (DWT); evt_cyc — справжній момент події: для імітатора апаратне переповнення TIM2 (враховує затримку ISR через вимкнені IRQ), інакше = isr_cyc */
 void     platform_set_uart_hook(void (*h)(uint8_t b));
 /** Імітатор кнопки: кожні period_ms мс TIM2 ставить програмну EXTI-подію лінії кнопки; 0 — вимкнути. Для сценарію S3 без людини. */
 void     platform_btnsim(uint32_t period_ms);
