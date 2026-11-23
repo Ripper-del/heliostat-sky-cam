@@ -1,0 +1,4 @@
+FreeRTOS-Kernel V11.1.0
+source: https://github.com/FreeRTOS/FreeRTOS-Kernel (tag V11.1.0, commit dbf70559b27d39c1fdb68dfb9a32140b6a6777a0)
+port: GCC/ARM_CM4F, heap: heap_4
+files copied unchanged: tasks.c queue.c list.c timers.c stream_buffer.c event_groups.c include/*.h portable/GCC/ARM_CM4F/{port.c,portmacro.h} portable/MemMang/heap_4.c
