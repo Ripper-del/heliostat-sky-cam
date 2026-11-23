@@ -65,6 +65,15 @@ void platform_cam_probe(uint32_t window_ms, cam_probe_t *out);
  *  з вимкненими перериваннями — інакше SysTick/UART зіб'ють відлік PCLK; лічильник HAL_GetTick() потім доганяється.
  *  Повертає 0 або -1, якщо кадр не почався за timeout_ms. */
 int platform_cam_capture(uint8_t *y, uint32_t n_pixels, int phase, uint32_t timeout_ms);
+/** Режим переривань під час захоплення: 0 — вимкнені на весь кадр (ЛР3); 1 — вимкнені лише поки HREF активний (~0,3 мс на рядок),
+ *  між рядками ISR і планувальник ОС працюють. */
+void platform_cam_set_irq_mode(int mode);
+/** Діагностика режиму 1: найдовше вікно з вимкненими IRQ (мкс), кількість вікон, період рядка (мкс), скільки разів вікно відкрито запізно. */
+uint32_t platform_cam_diag(uint32_t *off_n, uint32_t *lines, uint32_t *period_us, uint32_t *resync);
+void     platform_cam_diag_reset(void);
+void     platform_cam_loss(uint32_t *short_frames, uint32_t *lines_lost);   /* кадрів, де частину рядків пропущено через витіснення, і скільки рядків не добрано */
+/** ОС реєструє функцію, якою доганяється лічильник тіків після кадру з вимкненими перериваннями (режим 0). */
+void platform_cam_set_catchup_hook(void (*h)(uint32_t ms));
 
 /* ---- Вимірювання (ЛР3): лічильник тактів ядра DWT, службові піни для логічного аналізатора ---- */
 void     platform_perf_init(void);          /* увімкнути DWT, налаштувати службові піни */
@@ -84,6 +93,15 @@ uint32_t platform_heap_used(void);
 int      platform_button_event(uint32_t *t_cycles);
 void     platform_exti_irq(void);           /* з EXTI15_10_IRQHandler */
 uint32_t platform_button_overruns(void);    /* події, що злились із непрочитаною (втрачені) */
+
+/* ЛР4: замість прапорця/кільцевого буфера ISR викликає зареєстровану функцію (черга/stream buffer ядра ОС). 0 = поведінка ЛР3. */
+void     platform_set_button_hook(void (*h)(uint32_t cyc));     /* cyc — момент фронту (DWT) */
+void     platform_set_uart_hook(void (*h)(uint8_t b));
+/** Імітатор кнопки: кожні period_ms мс TIM2 ставить програмну EXTI-подію лінії кнопки; 0 — вимкнути. Для сценарію S3 без людини. */
+void     platform_btnsim(uint32_t period_ms);
+void     platform_tim2_irq(void);
+/** Інжекція відмови: 1 — SDA I2C1 (PB9) замкнено на землю, 0 — відпущено. */
+void     platform_fault_sda(int on);          /* з TIM2_IRQHandler */
 
 /* UART RX через переривання в кільцевий буфер (256 Б); лічильник втрат при переповненні */
 void     platform_uart_rx_irq_enable(void);

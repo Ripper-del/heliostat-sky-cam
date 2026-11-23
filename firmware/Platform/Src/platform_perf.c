@@ -4,6 +4,9 @@
 #include "platform.h"
 #include "ringbuf.h"
 
+/* Пріоритет ISR кнопки/UART/TIM2: у ЛР4 має бути числово не меншим за configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5), інакше FromISR-виклики недопустимі */
+#define PLATFORM_IRQ_PRIO 6
+
 /* ---------------- DWT і час ---------------- */
 static uint32_t last_cyc, rem_cyc, us_total;
 
@@ -69,9 +72,15 @@ static volatile uint32_t btn_cyc;
 static volatile uint8_t  btn_pending;
 static volatile uint32_t btn_overrun;      /* подія прийшла, поки попередню ще не забрала задача */
 
+static void (*btn_hook)(uint32_t cyc);       /* ЛР4: ISR -> ядро ОС (черга подій), замість прапорця */
+static void (*rx_hook)(uint8_t b);           /* ЛР4: ISR -> stream buffer */
+void platform_set_button_hook(void (*h)(uint32_t cyc)) { btn_hook = h; }
+void platform_set_uart_hook(void (*h)(uint8_t b))      { rx_hook = h; }
+
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
     if (pin == BTN_PIN) {
+        if (btn_hook) { btn_hook(DWT->CYCCNT); return; }
         if (btn_pending) btn_overrun++;
         else { btn_cyc = DWT->CYCCNT; btn_pending = 1; }       /* момент ПЕРШОЇ непрочитаної події */
     }
@@ -84,7 +93,7 @@ static void button_irq_enable(void)
     GPIO_InitTypeDef g = {0};
     g.Pin = BTN_PIN; g.Mode = GPIO_MODE_IT_FALLING; g.Pull = GPIO_NOPULL;   /* на платі є зовнішній підтяг */
     HAL_GPIO_Init(BTN_PORT, &g);
-    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
+    HAL_NVIC_SetPriority(EXTI15_10_IRQn, PLATFORM_IRQ_PRIO, 0);
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 }
 
@@ -108,7 +117,7 @@ void platform_uart_rx_irq_enable(void)
     ring_init(&rx_ring, rx_mem, sizeof rx_mem);
     button_irq_enable();
     USART2->CR1 |= USART_CR1_RXNEIE;
-    HAL_NVIC_SetPriority(USART2_IRQn, 1, 0);
+    HAL_NVIC_SetPriority(USART2_IRQn, PLATFORM_IRQ_PRIO, 0);
     HAL_NVIC_EnableIRQ(USART2_IRQn);
 }
 
@@ -118,10 +127,44 @@ void platform_uart2_irq(void)
     if (sr & (USART_SR_RXNE | USART_SR_ORE)) {
         uint8_t b = (uint8_t)USART2->DR;          /* читання DR знімає RXNE і ORE */
         if (sr & USART_SR_ORE) rx_ring.overflow++;            /* апаратний overrun: байт(и) втрачено, поки ISR не встигла */
-        if (sr & USART_SR_RXNE) { ring_put(&rx_ring, b); if (b == '\r' || b == '\n') eol_cyc = DWT->CYCCNT; }
+        if (sr & USART_SR_RXNE) {
+            if (b == '\r' || b == '\n') eol_cyc = DWT->CYCCNT;
+            if (rx_hook) rx_hook(b); else ring_put(&rx_ring, b);
+        }
     }
 }
 
 uint32_t platform_uart_rx_overflow(void) { return rx_ring.overflow; }
 uint32_t platform_uart_eol_cycles(void)  { return eol_cyc; }
 int platform_uart_getc(void) { return ring_get(&rx_ring); }
+
+/* ---------------- Імітатор кнопки (ЛР4): TIM2 періодично ставить EXTI-подію кнопки програмно ---------------- */
+/* Той самий ланцюжок, що й від справжнього натискання: EXTI13 -> EXTI15_10_IRQHandler -> HAL callback. Дає повторювані події без людини. */
+void platform_btnsim(uint32_t period_ms)
+{
+    __HAL_RCC_TIM2_CLK_ENABLE();
+    TIM2->CR1 = 0;
+    if (period_ms == 0) { TIM2->DIER = 0; HAL_NVIC_DisableIRQ(TIM2_IRQn); return; }
+    TIM2->PSC = (SystemCoreClock / 1000000U) - 1U;          /* TIM2 на APB1 x2 = SYSCLK: 1 МГц */
+    TIM2->ARR = period_ms * 1000U - 1U;
+    TIM2->EGR = TIM_EGR_UG;
+    TIM2->SR = 0;
+    TIM2->DIER = TIM_DIER_UIE;
+    HAL_NVIC_SetPriority(TIM2_IRQn, PLATFORM_IRQ_PRIO, 0);
+    HAL_NVIC_EnableIRQ(TIM2_IRQn);
+    TIM2->CR1 = TIM_CR1_CEN;
+}
+
+void platform_tim2_irq(void)
+{
+    TIM2->SR = 0;
+    EXTI->SWIER = BTN_PIN;                                    /* програмна подія на лінії кнопки */
+}
+
+/* ---------------- Інжекція відмови (ЛР4): SDA I2C1 (PB9) замкнено на землю програмно ---------------- */
+/* Те саме, що й дротом на GND (сценарій ЛР3 «замкнена SDA»), але повторюється командою: PB9 переводиться з AF у вихід open-drain низько. */
+void platform_fault_sda(int on)
+{
+    if (on) { GPIOB->BSRR = (uint32_t)GPIO_PIN_9 << 16; GPIOB->MODER = (GPIOB->MODER & ~(3U << 18)) | (1U << 18); }
+    else    { GPIOB->MODER = (GPIOB->MODER & ~(3U << 18)) | (2U << 18); }
+}
