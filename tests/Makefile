@@ -9,7 +9,7 @@ BUILD   = build
 
 UNDER_TEST = $(FW)/Devices/Src/mpu6050.c $(FW)/Devices/Src/w25q.c $(FW)/Devices/Src/ov7670.c $(FW)/App/Src/quadrant.c $(FW)/App/Src/sky.c \
              $(FW)/App/Src/crc16.c $(FW)/App/Src/perf.c $(FW)/App/Src/sched.c $(FW)/Common/Src/ringbuf.c \
-             $(FW)/App/Src/tracker.c $(FW)/App/Src/evlog.c $(FW)/App/Src/framestore.c $(FW)/App/Src/calib.c $(FW)/App/Src/rtstats.c
+             $(FW)/App/Src/tracker.c $(FW)/App/Src/evlog.c $(FW)/App/Src/framestore.c $(FW)/App/Src/calib.c $(FW)/App/Src/rtstats.c $(FW)/App/Src/fjob.c
 TESTS      = test_main.c test_mpu6050.c test_w25q.c test_ov7670.c test_quadrant.c test_sky.c test_core.c test_tracker.c test_storage.c
 FAKES      = fakes/fake_i2c.c fakes/fake_w25q.c fakes/mock_sccb.c
 

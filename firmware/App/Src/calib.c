@@ -1,7 +1,6 @@
 #include "calib.h"
 #include "crc16.h"
 
-#define CAL_LEN 32U
 
 static void put16(uint8_t *p, uint16_t v) { p[0] = (uint8_t)v; p[1] = (uint8_t)(v >> 8); }
 static void put32(uint8_t *p, uint32_t v) { for (int i = 0; i < 4; i++) p[i] = (uint8_t)(v >> (8 * i)); }
@@ -13,9 +12,9 @@ int calib_check_range(uint16_t lo, uint16_t hi)
     return (lo >= 400 && hi <= 2600 && lo < hi) ? 0 : -1;
 }
 
-int calib_save(w25q_t *f, const tracker_cfg_t *c)
+int calib_plan_save(fjob_t *j, const tracker_cfg_t *c, uint8_t b[CALIB_LEN])
 {
-    uint8_t b[CAL_LEN] = {0};
+    for (unsigned i = 0; i < CALIB_LEN; i++) b[i] = 0;
     put32(b, CALIB_MAGIC);
     put16(b + 4, c->az_min_us); put16(b + 6, c->az_max_us);
     put16(b + 8, c->el_min_us); put16(b + 10, c->el_max_us);
@@ -24,14 +23,23 @@ int calib_save(w25q_t *f, const tracker_cfg_t *c)
     b[20] = (uint8_t)c->invert_light; b[21] = (uint8_t)c->sign_az; b[22] = (uint8_t)c->sign_el;
     put16(b + 24, (uint16_t)c->ex_off); put16(b + 26, (uint16_t)c->ey_off);
     put16(b + 30, crc16(b, 30));
-    int rc = w25q_sector_erase(f, CALIB_ADDR);
-    return rc != DEV_OK ? rc : w25q_write(f, CALIB_ADDR, b, CAL_LEN);
+    fjob_init(j);
+    fjob_erase(j, CALIB_ADDR);
+    fjob_prog(j, CALIB_ADDR, b, CALIB_LEN);
+    return DEV_OK;
+}
+
+int calib_save(w25q_t *f, const tracker_cfg_t *c)
+{
+    fjob_t j; uint8_t b[CALIB_LEN];
+    calib_plan_save(&j, c, b);
+    return fjob_run_blocking(&j, f);
 }
 
 int calib_load(w25q_t *f, tracker_cfg_t *c)
 {
-    uint8_t b[CAL_LEN];
-    int rc = w25q_read(f, CALIB_ADDR, b, CAL_LEN);
+    uint8_t b[CALIB_LEN];
+    int rc = w25q_read(f, CALIB_ADDR, b, CALIB_LEN);
     if (rc != DEV_OK) return rc;
     if (get32(b) != CALIB_MAGIC || get16(b + 30) != crc16(b, 30)) return DEV_ERR_ID;
     c->az_min_us = get16(b + 4); c->az_max_us = get16(b + 6);

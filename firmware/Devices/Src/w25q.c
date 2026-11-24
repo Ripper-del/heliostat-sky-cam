@@ -65,15 +65,41 @@ static int write_enable(w25q_t *d)
     return (sr & W25Q_SR1_WEL) ? DEV_OK : DEV_ERR_BUS;   /* WEL не встановився — запис не дозволено */
 }
 
-int w25q_sector_erase(w25q_t *d, uint32_t addr)
+int w25q_erase_start(w25q_t *d, uint32_t addr)
 {
     int rc = write_enable(d);
     if (rc != DEV_OK) return rc;
     d->bus->begin(d->bus->ctx);
     rc = cmd_addr(d, W25Q_CMD_SECTOR_ERASE, addr);
     d->bus->end(d->bus->ctx);
+    return rc;
+}
+
+int w25q_sector_erase(w25q_t *d, uint32_t addr)
+{
+    int rc = w25q_erase_start(d, addr);
     if (rc != DEV_OK) return rc;
     return w25q_wait_ready(d, 500);               /* tSE typ 45 мс, max 400 мс */
+}
+
+int w25q_program_start(w25q_t *d, uint32_t addr, const uint8_t *data, uint32_t n)
+{
+    if (n == 0 || n > W25Q_PAGE_SIZE - (addr % W25Q_PAGE_SIZE)) return DEV_ERR_ARG;   /* не перетинати межу сторінки */
+    int rc = write_enable(d);
+    if (rc != DEV_OK) return rc;
+    d->bus->begin(d->bus->ctx);
+    rc = cmd_addr(d, W25Q_CMD_PAGE_PROGRAM, addr);
+    if (rc == DEV_OK) rc = d->bus->xfer(d->bus->ctx, data, NULL, (uint16_t)n) == DEV_OK ? DEV_OK : DEV_ERR_BUS;
+    d->bus->end(d->bus->ctx);
+    return rc;
+}
+
+int w25q_busy(w25q_t *d, int *busy)
+{
+    uint8_t sr;
+    if (w25q_read_status(d, &sr) != DEV_OK) return DEV_ERR_BUS;
+    *busy = (sr & W25Q_SR1_BUSY) ? 1 : 0;
+    return DEV_OK;
 }
 
 int w25q_write(w25q_t *d, uint32_t addr, const uint8_t *data, uint32_t len)
@@ -81,12 +107,7 @@ int w25q_write(w25q_t *d, uint32_t addr, const uint8_t *data, uint32_t len)
     while (len) {
         uint32_t room = W25Q_PAGE_SIZE - (addr % W25Q_PAGE_SIZE);   /* не перетинати межу сторінки */
         uint32_t n = len < room ? len : room;
-        int rc = write_enable(d);
-        if (rc != DEV_OK) return rc;
-        d->bus->begin(d->bus->ctx);
-        rc = cmd_addr(d, W25Q_CMD_PAGE_PROGRAM, addr);
-        if (rc == DEV_OK) rc = d->bus->xfer(d->bus->ctx, data, NULL, (uint16_t)n) == DEV_OK ? DEV_OK : DEV_ERR_BUS;
-        d->bus->end(d->bus->ctx);
+        int rc = w25q_program_start(d, addr, data, n);
         if (rc != DEV_OK) return rc;
         rc = w25q_wait_ready(d, 10);              /* tPP typ 0.4 мс, max 3 мс */
         if (rc != DEV_OK) return rc;

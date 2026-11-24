@@ -8,6 +8,7 @@
 #define EVLOG_H
 #include <stdint.h>
 #include "w25q.h"
+#include "fjob.h"
 
 #define EVLOG_REC_SIZE      16U
 #define EVLOG_BASE_ADDR     0x001000UL      /* сектор 0 — калібровка */
@@ -29,4 +30,9 @@ int  evlog_append(evlog_t *l, uint8_t type, uint8_t frame, uint32_t t_ms, int16_
 int  evlog_read(evlog_t *l, uint32_t idx, ev_rec_t *out);
 /** Індекс слота найновішого запису (для виводу "останні N"), або -1. */
 int32_t evlog_newest_idx(const evlog_t *l);
+/* ЛР5: той самий запис частинами. plan — вибрати слот і скласти завдання (читання тут коротке), commit — після виконання завдання.
+ * buf має жити до кінця завдання. evlog_append = plan + fjob_run_blocking + commit. */
+int  evlog_plan_append(evlog_t *l, uint8_t type, uint8_t frame, uint32_t t_ms, int16_t a, int16_t b, int16_t c,
+                       fjob_t *j, uint8_t buf[EVLOG_REC_SIZE], uint32_t *idx_out);
+void evlog_commit(evlog_t *l, uint32_t idx);
 #endif

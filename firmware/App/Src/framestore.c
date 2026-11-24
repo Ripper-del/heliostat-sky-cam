@@ -5,22 +5,27 @@ static uint32_t slot_addr(uint32_t frame_no) { return FRAMESTORE_BASE + (frame_n
 static void put32(uint8_t *p, uint32_t v) { for (int i = 0; i < 4; i++) p[i] = (uint8_t)(v >> (8 * i)); }
 static uint32_t get32(const uint8_t *p) { return (uint32_t)p[0] | ((uint32_t)p[1] << 8) | ((uint32_t)p[2] << 16) | ((uint32_t)p[3] << 24); }
 
-int framestore_save(w25q_t *f, uint32_t frame_no, const uint8_t *px, uint16_t len)
+int framestore_plan_save(fjob_t *j, uint32_t frame_no, const uint8_t *px, uint16_t len, uint8_t hdr[FRAMESTORE_HDR])
 {
     if (len == 0 || (uint32_t)len + FRAMESTORE_HDR > FRAMESTORE_SLOT_SIZE) return DEV_ERR_ARG;
     uint32_t a = slot_addr(frame_no);
-    for (uint32_t s = 0; s < FRAMESTORE_SLOT_SIZE; s += W25Q_SECTOR_SIZE) {
-        int rc = w25q_sector_erase(f, a + s);
-        if (rc != DEV_OK) return rc;
-    }
-    int rc = w25q_write(f, a + FRAMESTORE_HDR, px, len);
-    if (rc != DEV_OK) return rc;
-    uint8_t h[FRAMESTORE_HDR] = {0};
-    put32(h, FRAMESTORE_MAGIC); put32(h + 4, frame_no);
-    h[8] = (uint8_t)len; h[9] = (uint8_t)(len >> 8);
+    fjob_init(j);
+    for (uint32_t s = 0; s < FRAMESTORE_SLOT_SIZE; s += W25Q_SECTOR_SIZE) fjob_erase(j, a + s);
+    fjob_prog(j, a + FRAMESTORE_HDR, px, len);
+    for (unsigned i = 0; i < FRAMESTORE_HDR; i++) hdr[i] = 0;
+    put32(hdr, FRAMESTORE_MAGIC); put32(hdr + 4, frame_no);
+    hdr[8] = (uint8_t)len; hdr[9] = (uint8_t)(len >> 8);
     uint16_t c = crc16(px, len);
-    h[10] = (uint8_t)c; h[11] = (uint8_t)(c >> 8);
-    return w25q_write(f, a, h, FRAMESTORE_HDR);
+    hdr[10] = (uint8_t)c; hdr[11] = (uint8_t)(c >> 8);
+    fjob_prog(j, a, hdr, FRAMESTORE_HDR);                      /* заголовок останнім: недописаний кадр не має магії */
+    return DEV_OK;
+}
+
+int framestore_save(w25q_t *f, uint32_t frame_no, const uint8_t *px, uint16_t len)
+{
+    fjob_t j; uint8_t h[FRAMESTORE_HDR];
+    int rc = framestore_plan_save(&j, frame_no, px, len, h);
+    return rc != DEV_OK ? rc : fjob_run_blocking(&j, f);
 }
 
 static int read_hdr(w25q_t *f, uint32_t addr, uint32_t *frame_no, uint16_t *len, uint16_t *crc)

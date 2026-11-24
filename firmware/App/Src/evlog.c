@@ -65,26 +65,38 @@ int32_t evlog_newest_idx(const evlog_t *l)
     return (int32_t)((l->next_idx + EVLOG_CAPACITY - 1) % EVLOG_CAPACITY);
 }
 
-int evlog_append(evlog_t *l, uint8_t type, uint8_t frame, uint32_t t_ms, int16_t a, int16_t b, int16_t c)
+int evlog_plan_append(evlog_t *l, uint8_t type, uint8_t frame, uint32_t t_ms, int16_t a, int16_t b, int16_t c,
+                      fjob_t *j, uint8_t buf[EVLOG_REC_SIZE], uint32_t *idx_out)
 {
-    uint8_t buf[EVLOG_REC_SIZE];
+    fjob_init(j);
     for (uint32_t tries = 0; tries <= EVLOG_RECS_PER_SECTOR; tries++) {
         uint32_t idx = l->next_idx;
-        int rc;
         if (idx % EVLOG_RECS_PER_SECTOR == 0) {
-            rc = w25q_sector_erase(l->flash, slot_addr(idx));       /* новий сектор: стираємо (довга операція) */
-            if (rc != DEV_OK) return rc;
+            fjob_erase(j, slot_addr(idx));                          /* новий сектор: стираємо (довга операція) */
         } else {
-            rc = w25q_read(l->flash, slot_addr(idx), buf, EVLOG_REC_SIZE);
+            int rc = w25q_read(l->flash, slot_addr(idx), buf, EVLOG_REC_SIZE);
             if (rc != DEV_OK) return rc;
             if (!is_blank(buf)) { l->next_idx = (idx + 1) % EVLOG_CAPACITY; continue; }   /* недописаний запис після втрати живлення */
         }
         ev_rec_t r = { type, frame, l->next_seq, t_ms, a, b, c };
         encode(&r, buf);
-        rc = w25q_write(l->flash, slot_addr(idx), buf, EVLOG_REC_SIZE);
-        if (rc != DEV_OK) return rc;
-        l->next_idx = (idx + 1) % EVLOG_CAPACITY; l->next_seq++; l->valid++;
+        fjob_prog(j, slot_addr(idx), buf, EVLOG_REC_SIZE);
+        *idx_out = idx;
         return DEV_OK;
     }
     return DEV_ERR_BUS;
+}
+
+void evlog_commit(evlog_t *l, uint32_t idx)
+{
+    l->next_idx = (idx + 1) % EVLOG_CAPACITY; l->next_seq++; l->valid++;
+}
+
+int evlog_append(evlog_t *l, uint8_t type, uint8_t frame, uint32_t t_ms, int16_t a, int16_t b, int16_t c)
+{
+    uint8_t buf[EVLOG_REC_SIZE]; fjob_t j; uint32_t idx;
+    int rc = evlog_plan_append(l, type, frame, t_ms, a, b, c, &j, buf, &idx);
+    if (rc == DEV_OK) rc = fjob_run_blocking(&j, l->flash);
+    if (rc == DEV_OK) evlog_commit(l, idx);
+    return rc;
 }

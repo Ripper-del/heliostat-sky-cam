@@ -6,6 +6,7 @@
 #define FRAMESTORE_H
 #include <stdint.h>
 #include "w25q.h"
+#include "fjob.h"
 
 #define FRAMESTORE_BASE     0x100000UL
 #define FRAMESTORE_SLOTS    20U
@@ -19,4 +20,6 @@ int framestore_save(w25q_t *f, uint32_t frame_no, const uint8_t *px, uint16_t le
 int framestore_load(w25q_t *f, uint32_t frame_no, uint8_t *px, uint16_t len);
 /** Знаходить найбільший збережений номер кадру; *next = він + 1 (1, якщо порожньо). */
 int framestore_scan(w25q_t *f, uint32_t *next);
+/* ЛР5: план того самого запису (5 стирань, піксели, заголовок останнім); hdr і px мають жити до кінця завдання */
+int framestore_plan_save(fjob_t *j, uint32_t frame_no, const uint8_t *px, uint16_t len, uint8_t hdr[FRAMESTORE_HDR]);
 #endif

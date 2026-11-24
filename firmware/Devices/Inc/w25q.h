@@ -27,4 +27,10 @@ int  w25q_sector_erase(w25q_t *d, uint32_t addr);           /* WE + 0x20 + 24-б
 /** Запис довільної довжини: розбивається на сторінки по 256 Б; перед КОЖНОЮ сторінкою Write Enable. */
 int  w25q_write(w25q_t *d, uint32_t addr, const uint8_t *data, uint32_t len);
 int  w25q_read(w25q_t *d, uint32_t addr, uint8_t *buf, uint32_t len);
+
+/* ЛР5: ті самі операції без очікування всередині. Команду лише запускають; готовність перевіряє власник flash
+ * окремим кроком (w25q_busy), тож очікування мілісекунд стирання не займає процесор і не блокує задачу. */
+int  w25q_erase_start(w25q_t *d, uint32_t addr);            /* WE + 0x20, без очікування */
+int  w25q_program_start(w25q_t *d, uint32_t addr, const uint8_t *data, uint32_t n);   /* WE + 0x02, n <= до кінця сторінки */
+int  w25q_busy(w25q_t *d, int *busy);                       /* *busy = 1, поки flash виконує стирання або запис */
 #endif

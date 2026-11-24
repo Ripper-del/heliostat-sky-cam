@@ -4,6 +4,7 @@
 #include "evlog.h"
 #include "framestore.h"
 #include "calib.h"
+#include "tracker.h"
 
 static fake_w25q_t ff; static w25q_t fl; static evlog_t log_;
 static void setup(void) { fake_w25q_init(&ff); w25q_init_dev(&fl, &ff.bus); }
@@ -166,10 +167,75 @@ static void calib_range_check(void)
     CHECK_EQ(calib_check_range(1000, 1000), -1);
 }
 
+/* ---- ЛР5: запис частинами без очікування (fjob) ---- */
+/* Крок за кроком, як власник flash у прошивці: запустити операцію, опитувати BUSY, поки не зніметься, далі наступна. */
+static int run_stepwise(fjob_t *j, int *polls)
+{
+    for (;;) {
+        int rc = fjob_step(j, &fl);
+        if (rc <= 0) return rc;
+        int busy = 1;
+        while (busy) { if (w25q_busy(&fl, &busy) != DEV_OK) return DEV_ERR_BUS; (*polls)++; }
+    }
+}
+
+static void fjob_stepwise_frame_equals_blocking(void)
+{
+    static uint8_t px[FRAMESTORE_SLOT_SIZE];
+    for (unsigned i = 0; i < 19200; i++) px[i] = (uint8_t)(i * 7 + 3);
+    setup(); ff.busy_after_op = 3;
+    CHECK_EQ(framestore_save(&fl, 41, px, 19200), DEV_OK);              /* блокуючий шлях ЛР3/ЛР4 */
+    static uint8_t ref[FRAMESTORE_SLOT_SIZE]; memcpy(ref, ff.mem + FRAMESTORE_BASE + (41 % FRAMESTORE_SLOTS) * FRAMESTORE_SLOT_SIZE, FRAMESTORE_SLOT_SIZE);
+    teardown();
+    setup(); ff.busy_after_op = 3;
+    fjob_t j; uint8_t hdr[FRAMESTORE_HDR]; int polls = 0;
+    CHECK_EQ(framestore_plan_save(&j, 41, px, 19200, hdr), DEV_OK);
+    CHECK_EQ(run_stepwise(&j, &polls), 0);
+    CHECK(polls >= 4 * (5 + 19200 / 256));                               /* 5 стирань + 75 сторінок + заголовок, кожна чекала BUSY */
+    CHECK(memcmp(ref, ff.mem + FRAMESTORE_BASE + (41 % FRAMESTORE_SLOTS) * FRAMESTORE_SLOT_SIZE, FRAMESTORE_SLOT_SIZE) == 0);
+    static uint8_t back[19200]; CHECK_EQ(framestore_load(&fl, 41, back, 19200), DEV_OK);
+    CHECK(memcmp(back, px, 19200) == 0);
+    teardown();
+}
+
+static void fjob_stepwise_log_equals_blocking(void)
+{
+    setup(); evlog_open(&log_, &fl);
+    for (int i = 0; i < (int)EVLOG_RECS_PER_SECTOR + 5; i++) {        /* через межу сектора: план містить стирання */
+        fjob_t j; uint8_t buf[EVLOG_REC_SIZE]; uint32_t idx; int polls = 0;
+        CHECK_EQ(evlog_plan_append(&log_, EV_MODE, EVLOG_NO_FRAME, 500 + i, i, 2, 3, &j, buf, &idx), DEV_OK);
+        CHECK_EQ(run_stepwise(&j, &polls), 0);
+        evlog_commit(&log_, idx);
+    }
+    evlog_t again; CHECK_EQ(evlog_open(&again, &fl), DEV_OK);
+    CHECK_EQ(again.valid, EVLOG_RECS_PER_SECTOR + 5); CHECK_EQ(again.next_seq, EVLOG_RECS_PER_SECTOR + 6);
+    ev_rec_t r; CHECK_EQ(evlog_read(&again, EVLOG_RECS_PER_SECTOR + 4, &r), DEV_OK); CHECK_EQ(r.t_ms, 500 + EVLOG_RECS_PER_SECTOR + 4);
+    teardown();
+}
+
+static void fjob_calib_and_errors(void)
+{
+    setup();
+    tracker_cfg_t c, out; tracker_default_cfg(&c); c.ex_off = -12;
+    fjob_t j; uint8_t b[CALIB_LEN]; int polls = 0;
+    calib_plan_save(&j, &c, b);
+    CHECK_EQ(run_stepwise(&j, &polls), 0);
+    CHECK_EQ(calib_load(&fl, &out), DEV_OK); CHECK_EQ(out.ex_off, -12);
+    fjob_init(&j); for (int i = 0; i < FJOB_MAX_OPS; i++) CHECK_EQ(fjob_erase(&j, 0), 0);
+    CHECK_EQ(fjob_prog(&j, 0, b, 1), -1);                                 /* місця для операцій немає */
+    CHECK_EQ(w25q_program_start(&fl, 250, b, 10), DEV_ERR_ARG);           /* через межу сторінки не можна */
+    ff.bus_fail = 1;
+    fjob_init(&j); fjob_erase(&j, 0); CHECK(fjob_step(&j, &fl) < 0);
+    fjob_init(&j); fjob_prog(&j, 0, b, 4); CHECK(fjob_step(&j, &fl) < 0);
+    int busy; CHECK(w25q_busy(&fl, &busy) != DEV_OK);
+    teardown();
+}
+
 void test_storage(void)
 {
     RUN(log_empty_flash_opens_clean); RUN(log_append_and_survive_reopen); RUN(log_wraps_and_overwrites_oldest_sector);
     RUN(log_skips_torn_record_after_power_loss); RUN(log_reports_bus_errors); RUN(log_seq_wrap_picks_newest);
     RUN(frames_ring_keeps_last_20_of_25); RUN(frames_detect_corruption_and_bad_args); RUN(frames_header_is_written_last);
     RUN(calib_roundtrip_and_defaults); RUN(calib_range_check);
+    RUN(fjob_stepwise_frame_equals_blocking); RUN(fjob_stepwise_log_equals_blocking); RUN(fjob_calib_and_errors);
 }
