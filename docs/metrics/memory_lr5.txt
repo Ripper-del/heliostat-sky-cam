@@ -1,0 +1,134 @@
+# git: 351fff2 (ЛР5, QP/C 8.1.6 на FreeRTOS V11.1.0)
+
+## arm-none-eabi-size (text/data/bss)
+   text	   data	    bss	    dec	    hex	filename
+  75488	    144	  63720	 139352	  22058	build/firmware.elf
+
+## секції
+build/firmware.elf  :
+section                size        addr
+.isr_vector             408   134217728
+.text                 67840   134218176
+.rodata                7232   134286016
+.ARM.extab                0   134293248
+.ARM                      8   134293248
+.preinit_array            0   134293256
+.init_array               4   134293256
+.fini_array               4   134293260
+.data                   136   536870912
+.bss                  60648   536871048
+._user_heap_stack      3072   536931696
+.ARM.attributes          48           0
+
+## об'єктні файли за bss (RAM), 15 найбільших
+    236	      0	    224	    460	    1cc	build/ao_adc.o
+    424	      0	    228	    652	    28c	build/ao_servo.o
+    521	      0	    240	    761	    2f9	build/ao_imu.o
+    816	      0	    244	   1060	    424	build/ao_snapshot.o
+   2207	      0	    312	   2519	    9d7	build/ao_control.o
+   1076	      0	    313	   1389	    56d	build/platform_perf.o
+   1492	      0	    388	   1880	    758	build/main.o
+   9600	      4	    488	  10092	   276c	build/tasks.o
+    974	      0	    796	   1770	    6ea	build/ao_small.o
+   3324	      0	    988	   4312	   10d8	build/ao_log.o
+   1050	      0	   1052	   2102	    836	build/heap_4.o
+   4863	      0	   5172	  10035	   2733	build/meas.o
+   1207	      4	   9184	  10395	   289b	build/rtos_port.o
+   1445	      0	  19440	  20885	   5195	build/ao_camera.o
+   1797	      0	  20784	  22581	   5835	build/bsp.o
+
+## об'єктні файли за text (flash), 15 найбільших
+   2136	      0	      0	   2136	    858	build/stm32f4xx_hal_adc_ex.o
+   2138	      0	      0	   2138	    85a	build/stm32f4xx_hal_rcc.o
+   2207	      0	    312	   2519	    9d7	build/ao_control.o
+   2588	      0	      0	   2588	    a1c	build/stream_buffer.o
+   2946	      0	      0	   2946	    b82	build/stm32f4xx_hal_adc.o
+   3324	      0	    988	   4312	   10d8	build/ao_log.o
+   3408	      0	      0	   3408	    d50	build/queue.o
+   3450	      0	      0	   3450	    d7a	build/selftest.o
+   3486	      0	     52	   3538	    dd2	build/cli.o
+   3986	      0	      0	   3986	    f92	build/stm32f4xx_hal_dma_ex.o
+   4863	      0	   5172	  10035	   2733	build/meas.o
+   5906	      0	      0	   5906	   1712	build/stm32f4xx_hal_uart.o
+   7584	      0	      0	   7584	   1da0	build/stm32f4xx_hal_spi.o
+   9600	      4	    488	  10092	   276c	build/tasks.o
+  16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
+
+## найбільші змінні в RAM (b/B = bss, d/D = data), десяткові розміри
+536889856 00000768 b s_snapshot
+536927688 00000988 b l_log
+536885760 00001024 b s_imu
+536930500 00001024 b ucHeap
+536881664 00001280 b s_camera
+536884480 00001280 b s_control
+536887296 00001280 b s_log
+536890624 00001280 b s_tick
+536873624 00001440 b pool2
+536882944 00001536 b s_cli
+536871832 00001792 b pool1
+536892304 00001920 b c.2
+536894264 00001920 B g_rt
+536875064 00004608 b pool3
+536897512 00008608 B g_rts
+536907496 00019440 b l_camera
+
+## статична оцінка стека (-fstack-usage), 15 найбільших кадрів
+App/Src/selftest.c:29:12:run_i2c_scan	80	static
+Core/Inc/FreeRTOSConfig.h:10:10:rtos_assert_failed	80	static
+Core/Src/bsp.c:70:6:product_init	80	static
+App/Src/ao_control.c:112:15:Control_running	88	static
+Core/Src/main.c:64:13:SystemClock_Config	88	static
+App/Src/ao_control.c:69:12:cal_cmd	96	static
+App/Src/ao_small.c:109:15:Tick_reporting	104	static
+App/Src/selftest.c:152:6:selftest_i2c_stress	104	static
+Core/Src/meas.c:182:6:meas_print_oscost	104	static
+Platform/Src/platform_cam.c:89:5:platform_cam_capture	112	static
+App/Src/framestore.c:24:5:framestore_save	168	static
+App/Src/calib.c:32:5:calib_save	176	static
+Core/Src/meas.c:103:6:meas_print_stats	192	static
+App/Src/evlog.c:95:5:evlog_append	200	static
+App/Src/evlog.c:42:5:evlog_open	304	static
+
+## ядро FreeRTOS і службовий код ОС
+   text	   data	    bss	    dec	    hex	filename
+   9600	      4	    488	  10092	   276c	build/tasks.o
+   3408	      0	      0	   3408	    d50	build/queue.o
+    136	      0	      0	    136	     88	build/list.o
+   2588	      0	      0	   2588	    a1c	build/stream_buffer.o
+   1045	      4	      5	   1054	    41e	build/port.o
+   1050	      0	   1052	   2102	    836	build/heap_4.o
+   1207	      4	   9184	  10395	   289b	build/rtos_port.o
+    500	      0	      0	    500	    1f4	build/rtstats.o
+
+## QP/C: QEP, QF, порт до FreeRTOS
+   text	   data	    bss	    dec	    hex	filename
+   1156	      0	      0	   1156	    484	build/qep_hsm.o
+    716	      0	      0	    716	    2cc	build/qep_msm.o
+    101	      0	      0	    101	     65	build/qf_act.o
+    135	      0	      0	    135	     87	build/qf_defer.o
+    859	      0	      0	    859	    35b	build/qf_dyn.o
+    429	      0	      0	    429	    1ad	build/qf_mem.o
+    742	      0	      6	    748	    2ec	build/qf_ps.o
+    412	      0	    116	    528	    210	build/qf_qact.o
+    439	      0	      0	    439	    1b7	build/qf_qeq.o
+     44	      0	      0	     44	     2c	build/qf_qmact.o
+    754	      0	     28	    782	    30e	build/qf_time.o
+   1861	      0	      0	   1861	    745	build/qf_port.o
+
+## AO, BSP, вимірювальний і тестовий код
+   text	   data	    bss	    dec	    hex	filename
+    236	      0	    224	    460	    1cc	build/ao_adc.o
+    259	      0	    200	    459	    1cb	build/ao_button.o
+   1445	      0	  19440	  20885	   5195	build/ao_camera.o
+   1070	      0	    200	   1270	    4f6	build/ao_cli.o
+   2207	      0	    312	   2519	    9d7	build/ao_control.o
+    521	      0	    240	    761	    2f9	build/ao_imu.o
+   3324	      0	    988	   4312	   10d8	build/ao_log.o
+    424	      0	    228	    652	    28c	build/ao_servo.o
+    974	      0	    796	   1770	    6ea	build/ao_small.o
+    816	      0	    244	   1060	    424	build/ao_snapshot.o
+    340	      0	      0	    340	    154	build/ao_util.o
+   1797	      0	  20784	  22581	   5835	build/bsp.o
+   4863	      0	   5172	  10035	   2733	build/meas.o
+   1062	      0	     28	   1090	    442	build/qp_tests.o
+    306	      0	      0	    306	    132	build/fjob.o

@@ -110,7 +110,9 @@ void Loss_ctor(void); void Led_ctor(void); void Camera_ctor(void); void Snapshot
 uint8_t *Camera_service_buf(void);   /* лише службова самоперевірка ЛР2 (див. qp-design.md, винятки) */
 
 /* ---- допоміжне для AO (App/Src/ao_util.c) ---- */
-#define BSP_TICKS_PER_SEC 1000U                /* = configTICK_RATE_HZ */
+#ifndef BSP_TICKS_PER_SEC
+#define BSP_TICKS_PER_SEC 1000U                /* = configTICK_RATE_HZ; сценарій 200 Гц: -DRTOS_TICK_HZ=200 -DBSP_TICKS_PER_SEC=200U */
+#endif
 #define MS(ms_) ((uint32_t)((((uint32_t)(ms_)) * BSP_TICKS_PER_SEC + 999U) / 1000U))
 void ao_say(QActive const *sender, char const *fmt, ...);                         /* TEXT_SIG до cli: друкує лише cli (власник UART) */
 void ao_log(QActive const *sender, uint8_t type, uint8_t frame, int16_t a, int16_t b, int16_t c);   /* LOG_REQ_SIG до log */

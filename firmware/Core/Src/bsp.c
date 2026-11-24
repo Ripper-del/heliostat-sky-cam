@@ -138,7 +138,11 @@ static void post_line(char const *s, uint8_t n)
     Q_NEW_X_FROM_ISR(l, LineEvt, 2U, LINE_SIG);
     if (!l) { g_rx_lost++; return; }
     memcpy(l->s, s, n); l->n = n; l->eol_cyc = platform_uart_eol_cycles();
-    if (!QACTIVE_POST_X_FROM_ISR(AO_Cli, &l->super, 1U, &woken, 0)) g_rx_lost++;
+#ifdef LR5_RX_NO_MARGIN
+    QACTIVE_POST_FROM_ISR(AO_Cli, &l->super, &woken, 0);    /* п. 9.3.4: без запасу — повна черга cli = Q_onError qf_port */
+#else
+    if (!QACTIVE_POST_X_FROM_ISR(AO_Cli, &l->super, 1U, &woken, 0)) g_rx_lost++;   /* повна черга: рядок втрачено з лічильником */
+#endif
     portYIELD_FROM_ISR(woken);
 }
 static void rx_isr(uint8_t b)

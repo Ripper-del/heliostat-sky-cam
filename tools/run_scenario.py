@@ -33,6 +33,7 @@ def header(b, log, scenario, args):
     log.write(f"# scenario={scenario} duration={getattr(args, 'duration', 0)} servo={int(getattr(args, 'servo', False))} btnsim_ms={getattr(args, 'btnsim', 0) or 0}\n")
     ver = b.version()
     b.is_os = "os=FreeRTOS" in ver                      # ЛР4: прошивка на FreeRTOS додатково звітує TASKS/STACK/HEAP/OSCOST
+    b.is_qp = "QP/C" in ver                             # ЛР5: ще й QSTAT (черги AO і пули подій)
     log.write("# " + ver + "\n")
 
 
@@ -43,7 +44,7 @@ def finish(b, log, tag="final"):
     mem = b.mem()
     log.write(f"# MEM {mem}\n")
     if getattr(b, "is_os", False):
-        for cmd in ("TASKS", "STACK", "HEAP", "OSCOST"):
+        for cmd in ("TASKS", "STACK", "HEAP", "OSCOST") + (("QSTAT",) if getattr(b, "is_qp", False) else ()):
             b.send(cmd, wait=2.0)
     log.flush()
     return stats, load
