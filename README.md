@@ -13,7 +13,7 @@
 | ЛР2 інтеграція сенсорів | `docs/lab2-report.md` | https://drive.google.com/file/d/1bkmDj3VoO9egDjwT98JWo7B4difG5Dfp/view?usp=sharing |
 | ЛР3 super loop | `docs/lab3-report.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
 | ЛР4 FreeRTOS | `docs/lab4-report.md`, порівняння — `docs/comparison-lr3-lr4.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
-| ЛР5 QP/C на FreeRTOS | `docs/lab5-report.md`, дизайн AO — `docs/qp-design.md`, порівняння трьох підходів — `docs/comparison.md` | буде додано |
+| ЛР5 QP/C на FreeRTOS | `docs/lab5-report.md`, дизайн AO — `docs/qp-design.md`, порівняння трьох підходів — `docs/comparison.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
 
 ## Що це за проєкт
 
