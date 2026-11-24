@@ -1,0 +1,12 @@
+# FR-14: різке затемнення всіх фоторезисторів; до: LOG #9772, frames next=237
+[log] 822 records in flash (capacity 1024)
+[log] #9782 t=169508 ms type=4 frame=255 a=33 b=418 c=0
+[log] #9781 t=157509 ms type=4 frame=255 a=34 b=349 c=0
+[log] #9780 t=142310 ms type=4 frame=255 a=33 b=391 c=0
+[log] #9779 t=139529 ms type=2 frame=255 a=1 b=0 c=380
+[log] #9778 t=136330 ms type=2 frame=255 a=0 b=1 c=338
+[log] #9777 t=131111 ms type=4 frame=255 a=33 b=1130 c=0
+[log] #9776 t=128851 ms type=3 frame=237 a=1130 b=0 c=164
+[log] #9775 t=128847 ms type=3 frame=255 a=1130 b=0 c=0
+[frames] next=238, ring of 20 slots, frame 160 x 120 px, 19200 bytes
+[frames] #237 mean=40 contrast=15 sat_permille=0 sky=OVERCAST

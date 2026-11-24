@@ -1,0 +1,84 @@
+# boot 1
+=====================================
+ STM32 heliostat | LR4 FreeRTOS | build Nov 23 2026 17:58:18
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=7652 ay=-8280 az=-11324 mag_mg=974 temp_cC=2637 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=1832 mv=1476
+[st] ADC_TR   PASS raw=2452 mv=1975
+[st] ADC_BL   PASS raw=1936 mv=1560
+[st] ADC_BR   PASS raw=1722 mv=1387
+[st] RESULT pass=8 total=8
+[prod] log: 964 records, next frame #656, open 365 ms
+[prod] 12 tasks, tick=1000 Hz, heap=24576 B, boot_ms=715
+VER git=8c9399a build="Nov 23 2026 18:46:59" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] type 'h' or HELP
+# boot 2
+=====================================
+ STM32 heliostat | LR4 FreeRTOS | build Nov 23 2026 17:58:18
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=7712 ay=-8128 az=-11336 mag_mg=971 temp_cC=2637 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=1814 mv=1461
+[st] ADC_TR   PASS raw=2354 mv=1896
+[st] ADC_BL   PASS raw=2024 mv=1631
+[st] ADC_BR   PASS raw=1728 mv=1392
+[st] RESULT pass=8 total=8
+[prod] log: 966 records, next frame #656, open 365 ms
+[prod] 12 tasks, tick=1000 Hz, heap=24576 B, boot_ms=717
+VER git=8c9399a build="Nov 23 2026 18:46:59" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] type 'h' or HELP
+# boot 3
+=====================================
+ STM32 heliostat | LR4 FreeRTOS | build Nov 23 2026 17:58:18
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=7648 ay=-8160 az=-11436 mag_mg=975 temp_cC=2642 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=1835 mv=1478
+[st] ADC_TR   PASS raw=2454 mv=1977
+[st] ADC_BL   PASS raw=1923 mv=1549
+[st] ADC_BR   PASS raw=1711 mv=1378
+[st] RESULT pass=8 total=8
+[prod] log: 968 records, next frame #656, open 365 ms
+[prod] 12 tasks, tick=1000 Hz, heap=24576 B, boot_ms=715
+VER git=8c9399a build="Nov 23 2026 18:46:59" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] type 'h' or HELP

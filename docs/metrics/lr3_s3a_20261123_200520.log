@@ -1,0 +1,833 @@
+# scenario=s3 duration=60 servo=0 btnsim_ms=700
+VER git=62b4b88 build="Nov 23 2026 17:58:34" sysclk=100000000 task_tick_us=1
+tick 391783 (uptime 390 s, TL=1262 TR=1917 BL=1538 BR=1558, ex=107 ey=13) mode=TRACK sky=CLEAR load=11%
+tick 392784 (uptime 391 s, TL=1341 TR=1883 BL=1552 BR=1391, ex=61 ey=45) mode=OVERCAST sky=CLEAR load=4%
+# VER git=62b4b88 build="Nov 23 2026 17:58:34" sysclk=100000000 task_tick_us=1
+[cli] servo OFF
+tick 394238 (uptime 392 s, TL=1258 TR=1958 BL=1527 BR=1437, ex=98 ey=40) mode=TRACK sky=CLEAR load=37%
+tick 394783 (uptime 393 s, TL=1219 TR=1876 BL=1552 BR=1424, ex=87 ey=19) mode=OVERCAST sky=CLEAR load=6%
+[prod] stats reset
+tick 395783 (uptime 394 s, TL=1256 TR=1964 BL=1527 BR=1398, ex=94 ey=48) mode=TRACK sky=CLEAR load=3%
+tick 397436 (uptime 395 s, TL=1264 TR=1921 BL=1504 BR=1386, ex=88 ey=48) mode=OVERCAST sky=CLEAR load=45%
+tick 397783 (uptime 396 s, TL=1321 TR=1928 BL=1569 BR=1393, ex=69 ey=46) mode=TRACK sky=CLEAR load=26%
+tick 398783 (uptime 397 s, TL=1253 TR=1963 BL=1510 BR=1382, ex=95 ey=53) mode=OVERCAST sky=CLEAR load=4%
+tick 400236 (uptime 398 s, TL=1315 TR=1821 BL=1489 BR=1395, ex=68 ey=41) mode=TRACK sky=CLEAR load=37%
+tick 400784 (uptime 399 s, TL=1300 TR=1905 BL=1480 BR=1399, ex=86 ey=53) mode=OVERCAST sky=CLEAR load=6%
+tick 401784 (uptime 400 s, TL=1294 TR=1808 BL=1487 BR=1431, ex=76 ey=30) mode=TRACK sky=CLEAR load=4%
+STAT name=button n=5830 min_us=0 avg_us=0 max_us=0 late_max_us=867 late_p99_us=200 missed=1410 max_cyc=56
+STAT name=cli n=5838 min_us=1 avg_us=1 max_us=3530 late_max_us=870 late_p99_us=200 missed=1402 max_cyc=353015
+STAT name=adc n=592 min_us=151 avg_us=151 max_us=152 late_max_us=8734 late_p99_us=1600 missed=132 max_cyc=15240
+STAT name=control n=592 min_us=3 avg_us=3 max_us=4 late_max_us=8888 late_p99_us=1600 missed=132 max_cyc=489
+STAT name=servo n=300 min_us=0 avg_us=0 max_us=0 late_max_us=18894 late_p99_us=1600 missed=62 max_cyc=41
+STAT name=loss n=63 min_us=1 avg_us=1 max_us=1 late_max_us=72320 late_p99_us=1600 missed=10 max_cyc=126
+STAT name=imu n=63 min_us=842 avg_us=842 max_us=843 late_max_us=72323 late_p99_us=1600 missed=10 max_cyc=84334
+STAT name=led n=63 min_us=0 avg_us=0 max_us=0 late_max_us=73168 late_p99_us=1600 missed=10 max_cyc=95
+STAT name=log n=1177 min_us=0 avg_us=69 max_us=65548 late_max_us=4747 late_p99_us=1100 missed=271 max_cyc=6554865
+STAT name=snapshot n=62 min_us=0 avg_us=0 max_us=0 late_max_us=71518 late_p99_us=1600 missed=11 max_cyc=72
+STAT name=camera n=2 min_us=499281 avg_us=599845 max_us=700409 late_max_us=2 late_p99_us=100 missed=0 max_cyc=70040973
+STAT name=tick n=7 min_us=18010 avg_us=18311 max_us=18706 late_max_us=653438 late_p99_us=1600 missed=0 max_cyc=1870695
+STAT name=loop n=596739 min_us=9 avg_us=11 max_us=719129 p99_us=100
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cmd_latency n=1 min_us=862 avg_us=862 max_us=862
+STAT name=cam_frame n=2 min_us=496559 avg_us=597123 max_us=697687
+LOAD pct=4 run_pct=20 btn_lost=0 uart_rx_overflow=8 pend_lost=0 flash_err=0 imu_err=0 cam_err=0
+tick 403436 (uptime 401 s, TL=1255 TR=1950 BL=1508 BR=1406, ex=96 ey=47) mode=TRACK sky=CLEAR load=62%
+tick 403786 (uptime 402 s, TL=1208 TR=1970 BL=1538 BR=1394, ex=101 ey=40) mode=OVERCAST sky=CLEAR load=8%
+tick 404786 (uptime 403 s, TL=1317 TR=1809 BL=1503 BR=1449, ex=72 ey=28) mode=TRACK sky=CLEAR load=4%
+[cli] btnsim 700 ms
+tick 406236 (uptime 404 s, TL=1342 TR=1959 BL=1591 BR=1349, ex=60 ey=57) mode=OVERCAST sky=CLEAR load=37%
+tick 407883 (uptime 405 s, TL=1287 TR=1891 BL=1492 BR=1454, ex=92 ey=37) mode=OVERCAST sky=CLEAR load=99%
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=64 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6153 thr=2500 ex=76 ey=-16 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6104 thr=2500 ex=83 ey=-24 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6057 thr=2500 ex=58 ey=3 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6150 thr=2500 ex=66 ey=-24 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6027 thr=2500 ex=25 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6120 thr=2500 ex=70 ey=-6 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6180 thr=2500 ex=42 ey=2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6073 thr=2500 ex=45 ey=31 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6016 thr=2500 ex=68 ey=-25 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6114 thr=2500 ex=84 ey=-4 az=2500 el=500 servos=OFF
+tick 409434 (uptime 406 s, TL=1346 TR=1962 BL=1533 BR=1420, ex=80 ey=56) mode=TRACK sky=CLEAR load=75%
+[prod] mode=TRACK light=6261 thr=2500 ex=52 ey=14 az=2500 el=500 servos=OFF
+tick 411085 (uptime 407 s, TL=1333 TR=1876 BL=1559 BR=1473, ex=73 ey=28) mode=TRACK sky=CLEAR load=99%
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=45 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=42 ey=-1 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6193 thr=2500 ex=52 ey=-3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6203 thr=2500 ex=73 ey=-6 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=79 ey=-16 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6226 thr=2500 ex=59 ey=-4 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6124 thr=2500 ex=55 ey=0 az=2500 el=500 servos=OFF
+tick 412234 (uptime 408 s, TL=1315 TR=1827 BL=1542 BR=1418, ex=63 ey=29) mode=OVERCAST sky=CLEAR load=80%
+[prod] mode=OVERCAST light=6203 thr=2500 ex=45 ey=-7 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6082 thr=2500 ex=29 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6008 thr=2500 ex=80 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6135 thr=2500 ex=62 ey=4 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6265 thr=2500 ex=39 ey=7 az=2500 el=500 servos=OFF
+tick 413882 (uptime 409 s, TL=1373 TR=1877 BL=1562 BR=1482, ex=67 ey=32) mode=OVERCAST sky=CLEAR load=90%
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6294 thr=2500 ex=39 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6225 thr=2500 ex=54 ey=-7 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6291 thr=2500 ex=87 ey=-8 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6106 thr=2500 ex=29 ey=-39 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6288 thr=2500 ex=56 ey=-37 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6059 thr=2500 ex=76 ey=-18 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6040 thr=2500 ex=59 ey=20 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6151 thr=2500 ex=32 ey=8 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6179 thr=2500 ex=113 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6375 thr=2500 ex=25 ey=-27 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6225 thr=2500 ex=35 ey=13 az=2500 el=520 servos=OFF
+tick 415435 (uptime 410 s, TL=1242 TR=1964 BL=1502 BR=1394, ex=100 ey=50) mode=TRACK sky=CLEAR load=75%
+[prod] mode=TRACK light=6033 thr=2500 ex=57 ey=-18 az=2500 el=520 servos=OFF
+tick 417087 (uptime 411 s, TL=1311 TR=1812 BL=1480 BR=1443, ex=76 ey=33) mode=TRACK sky=CLEAR load=98%
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=48 ey=-9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6168 thr=2500 ex=41 ey=-31 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6207 thr=2500 ex=27 ey=7 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6155 thr=2500 ex=32 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6081 thr=2500 ex=49 ey=8 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6116 thr=2500 ex=73 ey=-8 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6031 thr=2500 ex=63 ey=33 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=50 ey=31 az=2500 el=510 servos=OFF
+tick 418236 (uptime 412 s, TL=1256 TR=1923 BL=1428 BR=1420, ex=109 ey=54) mode=OVERCAST sky=CLEAR load=79%
+[prod] mode=OVERCAST light=6113 thr=2500 ex=70 ey=-2 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6092 thr=2500 ex=80 ey=-15 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6207 thr=2500 ex=36 ey=-1 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6114 thr=2500 ex=67 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6191 thr=2500 ex=35 ey=10 az=2500 el=510 servos=OFF
+tick 419885 (uptime 413 s, TL=1338 TR=1866 BL=1518 BR=1398, ex=66 ey=47) mode=OVERCAST sky=CLEAR load=89%
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=38 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6118 thr=2500 ex=76 ey=20 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=5994 thr=2500 ex=44 ey=-10 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6144 thr=2500 ex=68 ey=-6 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6069 thr=2500 ex=77 ey=-13 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6300 thr=2500 ex=79 ey=-26 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6310 thr=2500 ex=61 ey=-8 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6335 thr=2500 ex=73 ey=-24 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6098 thr=2500 ex=62 ey=-3 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6156 thr=2500 ex=39 ey=19 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6163 thr=2500 ex=73 ey=-12 az=2500 el=510 servos=OFF
+tick 421435 (uptime 414 s, TL=1284 TR=1962 BL=1512 BR=1418, ex=94 ey=51) mode=TRACK sky=CLEAR load=75%
+[prod] mode=TRACK light=6460 thr=2500 ex=80 ey=-26 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6077 thr=2500 ex=41 ey=-14 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6206 thr=2500 ex=45 ey=14 az=2500 el=510 servos=OFF
+tick 423080 (uptime 415 s, TL=1181 TR=1935 BL=1528 BR=1467, ex=113 ey=19) mode=OVERCAST sky=CLEAR load=93%
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=85 ey=-23 az=2500 el=510 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=6191 thr=2500 ex=63 ey=15 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6199 thr=2500 ex=58 ey=11 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6147 thr=2500 ex=57 ey=7 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6145 thr=2500 ex=96 ey=13 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6317 thr=2500 ex=71 ey=15 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=5954 thr=2500 ex=48 ey=26 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6398 thr=2500 ex=66 ey=-31 az=2500 el=510 servos=OFF
+tick 424233 (uptime 416 s, TL=1373 TR=1881 BL=1554 BR=1400, ex=57 ey=48) mode=TRACK sky=CLEAR load=79%
+[prod] mode=TRACK light=6129 thr=2500 ex=57 ey=19 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6241 thr=2500 ex=56 ey=-6 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6058 thr=2500 ex=67 ey=18 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6035 thr=2500 ex=51 ey=-19 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6110 thr=2500 ex=44 ey=3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6164 thr=2500 ex=70 ey=-6 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6133 thr=2500 ex=77 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6070 thr=2500 ex=36 ey=-4 az=2500 el=500 servos=OFF
+tick 426279 (uptime 417 s, TL=1333 TR=1943 BL=1434 BR=1432, ex=98 ey=66) mode=OVERCAST sky=CLEAR load=84%
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6142 thr=2500 ex=70 ey=24 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=6052 thr=2500 ex=43 ey=-8 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6118 thr=2500 ex=60 ey=14 az=2500 el=500 servos=OFF
+tick 427434 (uptime 418 s, TL=1327 TR=1858 BL=1551 BR=1529, ex=81 ey=16) mode=TRACK sky=CLEAR load=91%
+[prod] mode=TRACK light=6115 thr=2500 ex=66 ey=5 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6243 thr=2500 ex=81 ey=-22 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6140 thr=2500 ex=66 ey=25 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6089 thr=2500 ex=38 ey=-3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6083 thr=2500 ex=69 ey=18 az=2500 el=500 servos=OFF
+tick 429080 (uptime 419 s, TL=1261 TR=1945 BL=1482 BR=1406, ex=99 ey=52) mode=OVERCAST sky=CLEAR load=89%
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=71 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6262 thr=2500 ex=47 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=5906 thr=2500 ex=47 ey=6 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6356 thr=2500 ex=75 ey=1 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6112 thr=2500 ex=76 ey=2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6204 thr=2500 ex=56 ey=-11 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6112 thr=2500 ex=81 ey=-27 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=26 ey=-17 az=2500 el=500 servos=OFF
+tick 430235 (uptime 420 s, TL=1328 TR=1938 BL=1570 BR=1370, ex=66 ey=52) mode=TRACK sky=CLEAR load=78%
+[prod] mode=TRACK light=6206 thr=2500 ex=38 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6202 thr=2500 ex=44 ey=0 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6000 thr=2500 ex=88 ey=4 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=54 ey=12 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6236 thr=2500 ex=32 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6053 thr=2500 ex=80 ey=12 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6121 thr=2500 ex=54 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6087 thr=2500 ex=60 ey=11 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6187 thr=2500 ex=59 ey=-10 az=2500 el=500 servos=OFF
+tick 432276 (uptime 421 s, TL=1184 TR=1940 BL=1521 BR=1430, ex=109 ey=28) mode=OVERCAST sky=CLEAR load=85%
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6032 thr=2500 ex=66 ey=-2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6188 thr=2500 ex=35 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6088 thr=2500 ex=64 ey=-20 az=2500 el=500 servos=OFF
+tick 433435 (uptime 422 s, TL=1304 TR=1910 BL=1544 BR=1382, ex=72 ey=46) mode=TRACK sky=CLEAR load=90%
+[prod] mode=TRACK light=6140 thr=2500 ex=44 ey=4 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6238 thr=2500 ex=91 ey=-42 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6302 thr=2500 ex=75 ey=-47 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6069 thr=2500 ex=54 ey=-10 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6298 thr=2500 ex=96 ey=-30 az=2500 el=500 servos=OFF
+tick 435078 (uptime 423 s, TL=1316 TR=1931 BL=1476 BR=1404, ex=88 ey=59) mode=TRACK sky=CLEAR load=89%
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6127 thr=2500 ex=60 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6153 thr=2500 ex=24 ey=12 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6184 thr=2500 ex=37 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6230 thr=2500 ex=39 ey=4 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6103 thr=2500 ex=72 ey=7 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6156 thr=2500 ex=68 ey=-11 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6084 thr=2500 ex=55 ey=3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6031 thr=2500 ex=67 ey=2 az=2500 el=500 servos=OFF
+tick 436235 (uptime 424 s, TL=1271 TR=1893 BL=1494 BR=1432, ex=91 ey=39) mode=OVERCAST sky=CLEAR load=77%
+[prod] mode=OVERCAST light=6090 thr=2500 ex=63 ey=-3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6029 thr=2500 ex=55 ey=18 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6047 thr=2500 ex=68 ey=-3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=77 ey=0 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=6105 thr=2500 ex=71 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6118 thr=2500 ex=47 ey=11 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6069 thr=2500 ex=12 ey=16 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6182 thr=2500 ex=70 ey=8 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6052 thr=2500 ex=50 ey=-13 az=2500 el=510 servos=OFF
+tick 438289 (uptime 425 s, TL=1263 TR=1980 BL=1507 BR=1440, ex=105 ey=47) mode=TRACK sky=CLEAR load=85%
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6190 thr=2500 ex=77 ey=5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6074 thr=2500 ex=60 ey=10 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6082 thr=2500 ex=71 ey=15 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6099 thr=2500 ex=34 ey=-2 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6183 thr=2500 ex=22 ey=7 az=2500 el=510 servos=OFF
+tick 439434 (uptime 426 s, TL=1306 TR=1912 BL=1427 BR=1425, ex=99 ey=60) mode=OVERCAST sky=CLEAR load=89%
+[prod] mode=OVERCAST light=6070 thr=2500 ex=71 ey=18 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6095 thr=2500 ex=67 ey=24 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=55 ey=12 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6116 thr=2500 ex=80 ey=-20 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6361 thr=2500 ex=88 ey=-29 az=2500 el=510 servos=OFF
+tick 441078 (uptime 427 s, TL=1357 TR=1930 BL=1531 BR=1402, ex=71 ey=56) mode=TRACK sky=CLEAR load=89%
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6220 thr=2500 ex=43 ey=14 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6156 thr=2500 ex=57 ey=-14 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6119 thr=2500 ex=72 ey=21 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6261 thr=2500 ex=31 ey=21 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6093 thr=2500 ex=75 ey=24 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6193 thr=2500 ex=81 ey=16 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6037 thr=2500 ex=41 ey=-12 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6047 thr=2500 ex=51 ey=-16 az=2500 el=510 servos=OFF
+tick 442235 (uptime 428 s, TL=1176 TR=1928 BL=1524 BR=1588, ex=131 ey=-1) mode=OVERCAST sky=CLEAR load=78%
+[prod] mode=OVERCAST light=6216 thr=2500 ex=103 ey=-43 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6304 thr=2500 ex=51 ey=-23 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6156 thr=2500 ex=39 ey=3 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6094 thr=2500 ex=39 ey=-5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6077 thr=2500 ex=64 ey=-13 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6205 thr=2500 ex=35 ey=-6 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6196 thr=2500 ex=60 ey=9 az=2500 el=520 servos=OFF
+[prod] mode=TRACK light=6309 thr=2500 ex=76 ey=-44 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6158 thr=2500 ex=69 ey=17 az=2500 el=500 servos=OFF
+tick 444285 (uptime 429 s, TL=1253 TR=1958 BL=1417 BR=1423, ex=117 ey=61) mode=TRACK sky=CLEAR load=84%
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6051 thr=2500 ex=89 ey=19 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6013 thr=2500 ex=67 ey=2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6096 thr=2500 ex=58 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6271 thr=2500 ex=74 ey=-34 az=2500 el=500 servos=OFF
+tick 445436 (uptime 430 s, TL=1274 TR=1939 BL=1454 BR=1358, ex=94 ey=66) mode=OVERCAST sky=CLEAR load=90%
+[prod] mode=OVERCAST light=6025 thr=2500 ex=66 ey=24 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6143 thr=2500 ex=64 ey=0 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6163 thr=2500 ex=29 ey=5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=58 ey=4 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6005 thr=2500 ex=38 ey=15 az=2500 el=500 servos=OFF
+tick 447080 (uptime 431 s, TL=1323 TR=1853 BL=1496 BR=1345, ex=62 ey=55) mode=OVERCAST sky=CLEAR load=89%
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6017 thr=2500 ex=34 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6309 thr=2500 ex=45 ey=8 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6501 thr=2500 ex=98 ey=2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=5963 thr=2500 ex=56 ey=-13 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6215 thr=2500 ex=82 ey=-34 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6238 thr=2500 ex=95 ey=-42 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6324 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+tick 448237 (uptime 432 s, TL=1307 TR=1823 BL=1483 BR=1420, ex=75 ey=37) mode=TRACK sky=CLEAR load=80%
+[prod] mode=TRACK light=6333 thr=2500 ex=39 ey=2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6018 thr=2500 ex=51 ey=-7 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6277 thr=2500 ex=101 ey=-28 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6191 thr=2500 ex=39 ey=-4 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6086 thr=2500 ex=61 ey=12 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6024 thr=2500 ex=41 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6120 thr=2500 ex=90 ey=17 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6058 thr=2500 ex=34 ey=5 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6111 thr=2500 ex=55 ey=3 az=2500 el=500 servos=OFF
+tick 450288 (uptime 433 s, TL=1316 TR=1812 BL=1555 BR=1454, ex=64 ey=19) mode=OVERCAST sky=CLEAR load=84%
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6137 thr=2500 ex=36 ey=-23 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6342 thr=2500 ex=42 ey=6 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6088 thr=2500 ex=31 ey=-15 az=2500 el=500 servos=OFF
+tick 451435 (uptime 434 s, TL=1336 TR=1864 BL=1446 BR=1320, ex=67 ey=72) mode=TRACK sky=CLEAR load=92%
+[prod] mode=TRACK light=6189 thr=2500 ex=46 ey=12 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6079 thr=2500 ex=81 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6073 thr=2500 ex=48 ey=-12 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6063 thr=2500 ex=74 ey=-2 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6075 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+tick 453092 (uptime 435 s, TL=1203 TR=1918 BL=1514 BR=1434, ex=104 ey=28) mode=OVERCAST sky=CLEAR load=89%
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6069 thr=2500 ex=76 ey=-14 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6016 thr=2500 ex=58 ey=0 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6477 thr=2500 ex=76 ey=2 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6085 thr=2500 ex=75 ey=20 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6337 thr=2500 ex=51 ey=-25 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6026 thr=2500 ex=72 ey=-8 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6083 thr=2500 ex=49 ey=-5 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6114 thr=2500 ex=55 ey=28 az=2500 el=500 servos=OFF
+tick 454235 (uptime 436 s, TL=1352 TR=1910 BL=1508 BR=1435, ex=78 ey=51) mode=TRACK sky=CLEAR load=76%
+[prod] mode=TRACK light=6205 thr=2500 ex=50 ey=9 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6285 thr=2500 ex=61 ey=15 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6217 thr=2500 ex=63 ey=10 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6124 thr=2500 ex=73 ey=-3 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6084 thr=2500 ex=58 ey=-1 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6049 thr=2500 ex=74 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6146 thr=2500 ex=32 ey=-7 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6091 thr=2500 ex=47 ey=-4 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6082 thr=2500 ex=44 ey=-8 az=2500 el=500 servos=OFF
+tick 456283 (uptime 437 s, TL=1294 TR=1904 BL=1418 BR=1347, ex=90 ey=72) mode=OVERCAST sky=CLEAR load=84%
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=5963 thr=2500 ex=62 ey=30 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6162 thr=2500 ex=91 ey=13 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6180 thr=2500 ex=58 ey=-4 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6233 thr=2500 ex=65 ey=2 az=2500 el=510 servos=OFF
+tick 457435 (uptime 438 s, TL=1344 TR=1893 BL=1565 BR=1373, ex=57 ey=48) mode=TRACK sky=CLEAR load=90%
+[prod] mode=TRACK light=6175 thr=2500 ex=29 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6142 thr=2500 ex=87 ey=-20 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6151 thr=2500 ex=52 ey=-41 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6066 thr=2500 ex=49 ey=-8 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6273 thr=2500 ex=107 ey=-15 az=2500 el=500 servos=OFF
+tick 459085 (uptime 439 s, TL=1198 TR=1963 BL=1535 BR=1419, ex=106 ey=33) mode=OVERCAST sky=CLEAR load=89%
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[cli] snapshot requested
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=OVERCAST light=6115 thr=2500 ex=78 ey=-9 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6065 thr=2500 ex=26 ey=-17 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6461 thr=2500 ex=85 ey=-22 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6054 thr=2500 ex=54 ey=-5 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6306 thr=2500 ex=27 ey=11 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6248 thr=2500 ex=84 ey=-6 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6120 thr=2500 ex=39 ey=6 az=2500 el=500 servos=OFF
+tick 460236 (uptime 440 s, TL=1328 TR=1819 BL=1549 BR=1420, ex=59 ey=29) mode=TRACK sky=CLEAR load=78%
+[prod] mode=TRACK light=6116 thr=2500 ex=31 ey=-13 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6125 thr=2500 ex=30 ey=31 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6060 thr=2500 ex=38 ey=-3 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6009 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6105 thr=2500 ex=58 ey=-2 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6150 thr=2500 ex=56 ey=27 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6074 thr=2500 ex=27 ey=8 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6118 thr=2500 ex=40 ey=-5 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6079 thr=2500 ex=90 ey=-8 az=2500 el=510 servos=OFF
+tick 462277 (uptime 441 s, TL=1291 TR=1832 BL=1487 BR=1432, ex=80 ey=33) mode=OVERCAST sky=CLEAR load=84%
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6042 thr=2500 ex=52 ey=-9 az=2500 el=510 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=6047 thr=2500 ex=54 ey=-16 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6271 thr=2500 ex=108 ey=-41 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6113 thr=2500 ex=56 ey=2 az=2500 el=510 servos=OFF
+tick 463435 (uptime 442 s, TL=1294 TR=1976 BL=1565 BR=1437, ex=88 ey=42) mode=TRACK sky=CLEAR load=90%
+[prod] mode=TRACK light=6004 thr=2500 ex=55 ey=-13 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6248 thr=2500 ex=56 ey=4 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6121 thr=2500 ex=62 ey=13 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6061 thr=2500 ex=58 ey=8 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6110 thr=2500 ex=29 ey=1 az=2500 el=510 servos=OFF
+tick 465086 (uptime 443 s, TL=1307 TR=1891 BL=1494 BR=1410, ex=81 ey=48) mode=OVERCAST sky=CLEAR load=88%
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=OVERCAST light=6102 thr=2500 ex=53 ey=6 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=5978 thr=2500 ex=51 ey=-10 az=2500 el=510 servos=OFF
+[prod] mode=TRACK light=6046 thr=2500 ex=59 ey=-31 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6075 thr=2500 ex=69 ey=21 az=2500 el=500 servos=OFF
+[prod] mode=TRACK light=6065 thr=2500 ex=35 ey=19 az=2500 el=500 servos=OFF
+tick 466233 (uptime 444 s, TL=1304 TR=1968 BL=1543 BR=1418, ex=86 ey=49) mode=TRACK sky=CLEAR load=76%
+tick 468285 (uptime 445 s, TL=1291 TR=1886 BL=1518 BR=1515, ex=95 ey=23) mode=OVERCAST sky=CLEAR load=73%
+STAT name=button n=17432 min_us=0 avg_us=0 max_us=2 late_max_us=999 late_p99_us=700 missed=55676 max_cyc=232
+STAT name=cli n=17458 min_us=1 avg_us=547 max_us=340361 late_max_us=999 late_p99_us=700 missed=55650 max_cyc=34036130
+STAT name=adc n=1986 min_us=151 avg_us=151 max_us=154 late_max_us=9996 late_p99_us=1600 missed=5175 max_cyc=15429
+STAT name=control n=1983 min_us=3 avg_us=3 max_us=4 late_max_us=9976 late_p99_us=1600 missed=5178 max_cyc=492
+STAT name=servo n=1062 min_us=0 avg_us=0 max_us=0 late_max_us=18894 late_p99_us=1600 missed=2518 max_cyc=41
+STAT name=loss n=251 min_us=1 avg_us=1 max_us=1 late_max_us=98693 late_p99_us=1600 missed=466 max_cyc=126
+STAT name=imu n=252 min_us=842 avg_us=842 max_us=843 late_max_us=98696 late_p99_us=1600 missed=465 max_cyc=84362
+STAT name=led n=253 min_us=0 avg_us=0 max_us=0 late_max_us=99541 late_p99_us=1600 missed=464 max_cyc=95
+STAT name=log n=3707 min_us=0 avg_us=47 max_us=65548 late_max_us=4990 late_p99_us=1600 missed=10616 max_cyc=6554865
+STAT name=snapshot n=257 min_us=0 avg_us=121736 max_us=1627106 late_max_us=99547 late_p99_us=1600 missed=460 max_cyc=162710683
+STAT name=camera n=24 min_us=465828 avg_us=583090 max_us=700409 late_max_us=12799 late_p99_us=1600 missed=0 max_cyc=70040973
+STAT name=tick n=52 min_us=18008 avg_us=18460 max_us=18888 late_max_us=653438 late_p99_us=1600 missed=21 max_cyc=1888824
+STAT name=loop n=1745526 min_us=9 avg_us=41 max_us=1649130 p99_us=100
+STAT name=btn_latency n=65 min_us=972 avg_us=306140 max_us=877048 presses=65
+STAT name=evt_latency n=65 min_us=974 avg_us=468549 max_us=1556407
+STAT name=cmd_latency n=682 min_us=5 avg_us=18309 max_us=543515
+STAT name=cam_frame n=24 min_us=463105 avg_us=580366 max_us=697687
+LOAD pct=73 run_pct=76 btn_lost=24 uart_rx_overflow=46 pend_lost=0 flash_err=0 imu_err=0 cam_err=0
+tick 469434 (uptime 446 s, TL=1355 TR=1923 BL=1590 BR=1353, ex=53 ey=53) mode=TRACK sky=CLEAR load=88%
+tick 471088 (uptime 447 s, TL=1303 TR=1965 BL=1505 BR=1395, ex=89 ey=59) mode=OVERCAST sky=CLEAR load=79%
+[cli] btnsim 0 ms
+tick 472235 (uptime 448 s, TL=1337 TR=1804 BL=1558 BR=1364, ex=45 ey=36) mode=TRACK sky=CLEAR load=44%
+# S3 commands sent=1090 answered_in_50ms=361
+# S3 uart_rx_overflow_delta=38
+STAT name=button n=18752 min_us=0 avg_us=0 max_us=2 late_max_us=999 late_p99_us=700 missed=58477 max_cyc=232
+STAT name=cli n=18778 min_us=1 avg_us=526 max_us=340361 late_max_us=999 late_p99_us=700 missed=58451 max_cyc=34036130
+STAT name=adc n=2123 min_us=151 avg_us=151 max_us=154 late_max_us=9996 late_p99_us=1600 missed=5600 max_cyc=15429
+STAT name=control n=2120 min_us=3 avg_us=3 max_us=4 late_max_us=9976 late_p99_us=1600 missed=5603 max_cyc=492
+STAT name=servo n=1132 min_us=0 avg_us=0 max_us=0 late_max_us=18951 late_p99_us=1600 missed=2729 max_cyc=41
+STAT name=loss n=269 min_us=1 avg_us=1 max_us=1 late_max_us=98954 late_p99_us=1600 missed=504 max_cyc=126
+STAT name=imu n=270 min_us=842 avg_us=842 max_us=843 late_max_us=98957 late_p99_us=1600 missed=503 max_cyc=84362
+STAT name=led n=271 min_us=0 avg_us=0 max_us=0 late_max_us=99802 late_p99_us=1600 missed=502 max_cyc=95
+STAT name=log n=3976 min_us=0 avg_us=47 max_us=65548 late_max_us=4990 late_p99_us=1600 missed=11470 max_cyc=6554865
+STAT name=snapshot n=274 min_us=0 avg_us=118839 max_us=1627106 late_max_us=99547 late_p99_us=1600 missed=499 max_cyc=162710683
+STAT name=camera n=26 min_us=465828 avg_us=582139 max_us=700409 late_max_us=12799 late_p99_us=1600 missed=0 max_cyc=70040973
+STAT name=tick n=55 min_us=18008 avg_us=18454 max_us=18888 late_max_us=653438 late_p99_us=1600 missed=22 max_cyc=1888824
+STAT name=loop n=1879752 min_us=9 avg_us=40 max_us=1649130 p99_us=100
+STAT name=btn_latency n=68 min_us=972 avg_us=305554 max_us=877048 presses=68
+STAT name=evt_latency n=68 min_us=974 avg_us=462009 max_us=1556407
+STAT name=cmd_latency n=684 min_us=5 avg_us=19358 max_us=753067
+STAT name=cam_frame n=26 min_us=463105 avg_us=579416 max_us=697687
+LOAD pct=44 run_pct=76 btn_lost=25 uart_rx_overflow=46 pend_lost=0 flash_err=0 imu_err=0 cam_err=0
+tick 472812 (uptime 449 s, TL=1313 TR=1804 BL=1550 BR=1407, ex=57 ey=26) mode=OVERCAST sky=CLEAR load=60%
+tick 474287 (uptime 450 s, TL=1377 TR=1927 BL=1541 BR=1573, ex=90 ey=29) mode=OVERCAST sky=CLEAR load=99%
+tick 475436 (uptime 451 s, TL=1312 TR=1838 BL=1519 BR=1368, ex=62 ey=43) mode=TRACK sky=CLEAR load=61%
+tick 475814 (uptime 452 s, TL=1304 TR=1827 BL=1541 BR=1395, ex=62 ey=32) mode=OVERCAST sky=CLEAR load=8%
+MEM stack_used=656 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 476815 (uptime 453 s, TL=1310 TR=1877 BL=1493 BR=1412, ex=79 ey=46) mode=TRACK sky=CLEAR load=5%
+# --- STATS final ---
+STAT name=button n=18752 min_us=0 avg_us=0 max_us=2 late_max_us=999 late_p99_us=700 missed=58477 max_cyc=232
+STAT name=cli n=18778 min_us=1 avg_us=526 max_us=340361 late_max_us=999 late_p99_us=700 missed=58451 max_cyc=34036130
+STAT name=adc n=2123 min_us=151 avg_us=151 max_us=154 late_max_us=9996 late_p99_us=1600 missed=5600 max_cyc=15429
+STAT name=control n=2120 min_us=3 avg_us=3 max_us=4 late_max_us=9976 late_p99_us=1600 missed=5603 max_cyc=492
+STAT name=servo n=1132 min_us=0 avg_us=0 max_us=0 late_max_us=18951 late_p99_us=1600 missed=2729 max_cyc=41
+STAT name=loss n=269 min_us=1 avg_us=1 max_us=1 late_max_us=98954 late_p99_us=1600 missed=504 max_cyc=126
+STAT name=imu n=270 min_us=842 avg_us=842 max_us=843 late_max_us=98957 late_p99_us=1600 missed=503 max_cyc=84362
+STAT name=led n=271 min_us=0 avg_us=0 max_us=0 late_max_us=99802 late_p99_us=1600 missed=502 max_cyc=95
+STAT name=log n=3976 min_us=0 avg_us=47 max_us=65548 late_max_us=4990 late_p99_us=1600 missed=11470 max_cyc=6554865
+STAT name=snapshot n=274 min_us=0 avg_us=118839 max_us=1627106 late_max_us=99547 late_p99_us=1600 missed=499 max_cyc=162710683
+STAT name=camera n=26 min_us=465828 avg_us=582139 max_us=700409 late_max_us=12799 late_p99_us=1600 missed=0 max_cyc=70040973
+STAT name=tick n=55 min_us=18008 avg_us=18454 max_us=18888 late_max_us=653438 late_p99_us=1600 missed=22 max_cyc=1888824
+STAT name=loop n=1879752 min_us=9 avg_us=40 max_us=1649130 p99_us=100
+STAT name=btn_latency n=68 min_us=972 avg_us=305554 max_us=877048 presses=68
+STAT name=evt_latency n=68 min_us=974 avg_us=462009 max_us=1556407
+STAT name=cmd_latency n=684 min_us=5 avg_us=19358 max_us=753067
+STAT name=cam_frame n=26 min_us=463105 avg_us=579416 max_us=697687
+LOAD pct=44 run_pct=76 btn_lost=25 uart_rx_overflow=46 pend_lost=0 flash_err=0 imu_err=0 cam_err=0
+# MEM {'stack_used': 656, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+tick 478236 (uptime 454 s, TL=1323 TR=1847 BL=1525 BR=1400, ex=65 ey=40) mode=OVERCAST sky=CLEAR load=36%
+tick 478816 (uptime 455 s, TL=1251 TR=1950 BL=1506 BR=1402, ex=97 ey=47) mode=TRACK sky=CLEAR load=6%
+tick 479815 (uptime 456 s, TL=1250 TR=1932 BL=1525 BR=1409, ex=92 ey=40) mode=OVERCAST sky=CLEAR load=4%
+[cli] servo OFF
+tick 481434 (uptime 457 s, TL=1339 TR=1849 BL=1500 BR=1473, ex=78 ey=34) mode=TRACK sky=CLEAR load=44%
+tick 481816 (uptime 458 s, TL=1361 TR=1882 BL=1548 BR=1417, ex=62 ey=44) mode=OVERCAST sky=CLEAR load=8%

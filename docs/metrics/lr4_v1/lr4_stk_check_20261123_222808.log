@@ -1,0 +1,5 @@
+# VER git=8c9399a build="Nov 23 2026 18:46:59" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+$ TEST STK
+[test] STK: задача з стеком 96 слів рекурсивно займає ~8 КБ; очікуємо FATAL stack overflow і м'який перезапуск
+# після TEST STK: відповідь на VER
+$ VER
