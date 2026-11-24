@@ -3,7 +3,6 @@
 #include <stdint.h>
 #include "rtstats.h"
 extern rtstats_t g_rts;                              /* облік часу за задачами і журнал перемикань */
-void     rtos_print_init(void);                      /* створити м'ютекс printf (до старту планувальника) */
 void     rtos_tick_cost(uint32_t cyc);               /* з SysTick_Handler */
 void     rtos_tick_stats(uint32_t *n, uint32_t *avg_cyc, uint32_t *max_cyc);
 void     rtos_tick_reset(void);

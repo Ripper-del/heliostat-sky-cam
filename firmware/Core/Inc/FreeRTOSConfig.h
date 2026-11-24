@@ -15,7 +15,7 @@ uint32_t rtos_runtime_cycles(void);
 #define RTOS_TICK_HZ                            1000      /* ЛР4, п. 7.2: S3 перевіряється з 1000 і 100 Гц (-DRTOS_TICK_HZ=100) */
 #endif
 #ifndef RTOS_HEAP_BYTES
-#define RTOS_HEAP_BYTES                         (24U * 1024U)
+#define RTOS_HEAP_BYTES                         (1U * 1024U)       /* ЛР5: AO, черги і задача простою статичні; heap ОС не потрібен (у ЛР4 24 КБ) */
 #endif
 
 /* ---- планувальник ---- */
@@ -24,7 +24,7 @@ uint32_t rtos_runtime_cycles(void);
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
 #define configCPU_CLOCK_HZ                      (SystemCoreClock)
 #define configTICK_RATE_HZ                      ((TickType_t)RTOS_TICK_HZ)
-#define configMAX_PRIORITIES                    8
+#define configMAX_PRIORITIES                    16    /* ЛР5: порт QP вимагає >= QF_MAX_ACTIVE (12); пріоритети задач ті самі, що в ЛР4 (QF_prioSpec) */
 #define configMINIMAL_STACK_SIZE                ((uint16_t)128)     /* слів (4 Б) */
 #define configMAX_TASK_NAME_LEN                 10
 #define configIDLE_SHOULD_YIELD                 1
@@ -32,7 +32,7 @@ uint32_t rtos_runtime_cycles(void);
 
 /* ---- пам'ять ---- */
 #define configSUPPORT_DYNAMIC_ALLOCATION        1
-#define configSUPPORT_STATIC_ALLOCATION         0
+#define configSUPPORT_STATIC_ALLOCATION         1     /* ЛР5: QActive_start створює задачу і чергу AO статично */
 #define configTOTAL_HEAP_SIZE                   ((size_t)RTOS_HEAP_BYTES)
 #define configAPPLICATION_ALLOCATED_HEAP        0
 #define configUSE_NEWLIB_REENTRANT              0     /* printf серіалізується м'ютексом (Core/Src/rtos_port.c), окремих reent-структур не потрібно */
@@ -52,7 +52,7 @@ uint32_t rtos_runtime_cycles(void);
 
 /* ---- хуки і діагностика ---- */
 #define configUSE_IDLE_HOOK                     0
-#define configUSE_TICK_HOOK                     0
+#define configUSE_TICK_HOOK                     1     /* ЛР5: у хуку тіку QP обслуговує часові події (bsp.c) */
 #define configUSE_MALLOC_FAILED_HOOK            1
 #ifdef RTOS_NO_SOF
 #define configCHECK_FOR_STACK_OVERFLOW          0     /* лише для сценарію ЛР4 п. 7.2: що буде без контролю */
@@ -66,6 +66,8 @@ uint32_t rtos_runtime_cycles(void);
 #define portGET_RUN_TIME_COUNTER_VALUE()        rtos_runtime_cycles()
 #define configASSERT(x)                         do { if ((x) == 0) rtos_assert_failed(__FILE__, __LINE__); } while (0)
 #define traceTASK_SWITCHED_IN()                 rtos_trace_switch_in()
+void meas_queue_rx(void const *q, uint32_t waiting);
+#define traceQUEUE_RECEIVE(pxQueue)             meas_queue_rx((pxQueue), (pxQueue)->uxMessagesWaiting)   /* ЛР5 QSTAT: заповненість черги AO */
 
 /* ---- переривання (Cortex-M4: 4 біти пріоритету, NVIC_PRIORITYGROUP_4) ---- */
 #define configPRIO_BITS                         4

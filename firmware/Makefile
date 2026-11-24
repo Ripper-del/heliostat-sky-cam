@@ -46,9 +46,13 @@ OWN_SOURCES = \
 RTOS_DIR = Middlewares/FreeRTOS/Source
 RTOS_SOURCES = $(addprefix $(RTOS_DIR)/,tasks.c queue.c list.c stream_buffer.c) \
   $(RTOS_DIR)/portable/GCC/ARM_CM4F/port.c $(RTOS_DIR)/portable/MemMang/heap_4.c
+# ЛР5: QP/C 8.1.6 (submodule) з портом до FreeRTOS. qf_actq.c не потрібен (черги AO — черги FreeRTOS), вбудовані ядра QV/QK/QXK не збираються.
+QPC = Middlewares/qpc
+QP_SOURCES = $(addprefix $(QPC)/src/qf/,qep_hsm.c qep_msm.c qf_act.c qf_defer.c qf_dyn.c qf_mem.c qf_ps.c qf_qact.c qf_qeq.c qf_qmact.c qf_time.c) \
+  $(QPC)/ports/freertos/qf_port.c
 VENDOR_SOURCES = \
   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c \
-  $(HAL_SOURCES) $(RTOS_SOURCES)
+  $(HAL_SOURCES) $(RTOS_SOURCES) $(QP_SOURCES)
 C_SOURCES = $(OWN_SOURCES) $(VENDOR_SOURCES)
 ASM_SOURCES = $(STARTUP)
 
@@ -58,10 +62,11 @@ C_INCLUDES = \
   -ICore/Inc -IApp/Inc -IDevices/Inc -IPlatform/Inc -ICommon/Inc
 VENDOR_INCLUDES = \
   -isystem $(RTOS_DIR)/include -isystem $(RTOS_DIR)/portable/GCC/ARM_CM4F \
+  -isystem $(QPC)/include -isystem $(QPC)/ports/freertos \
   -isystem Drivers/STM32F4xx_HAL_Driver/Inc \
   -isystem Drivers/CMSIS/Device/ST/STM32F4xx/Include \
   -isystem Drivers/CMSIS/Include
-# Варіанти збірки для сценаріїв ЛР4 п. 7.2: make all RTOS_FLAGS="-DRTOS_TICK_HZ=100" (інші: -DRTOS_NO_SOF, -DRTOS_HEAP_BYTES=..., -DRTOS_STACK_SCALE_PCT=...)
+# Варіанти збірки для сценаріїв: make all RTOS_FLAGS="-DRTOS_TICK_HZ=200" (ЛР5: -DBSP_STACK_SCALE_PCT=..., -DBSP_POOL1_N=..., -DLR5_FLASH_MUTEX, ...)
 RTOS_FLAGS ?=
 C_DEFS = -DUSE_HAL_DRIVER -D$(MCU_DEF) -DGIT_HASH=\"$(GIT_HASH)\" $(RTOS_FLAGS)
 

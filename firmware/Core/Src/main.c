@@ -36,7 +36,7 @@ int main(void)
     (void)MX_USART1_Mirror_Init();   /* необов'язково: якщо не ініціалізувався, лог іде лише в VCP */
 
     printf("\r\n=====================================\r\n");
-    printf(" STM32 heliostat | LR4 FreeRTOS | build %s %s\r\n", __DATE__, __TIME__);
+    printf(" STM32 heliostat | LR5 QP/C | build %s %s\r\n", __DATE__, __TIME__);
     printf(" SYSCLK = %lu Hz\r\n", (unsigned long)HAL_RCC_GetSysClockFreq());
     printf("=====================================\r\n");
     report_init("USART2", HAL_OK);
@@ -52,7 +52,7 @@ int main(void)
     platform_perf_init();
     platform_uart_rx_irq_enable();
     app_init();
-    product_start();            /* ЛР4: далі працюють задачі FreeRTOS; сюди керування не повертається */
+    product_start();            /* ЛР5: далі працюють AO (QP/C на FreeRTOS); сюди керування не повертається */
     while (1) { }
 }
 

@@ -38,15 +38,26 @@ static int read_hdr(w25q_t *f, uint32_t addr, uint32_t *frame_no, uint16_t *len,
     return DEV_OK;
 }
 
-int framestore_load(w25q_t *f, uint32_t frame_no, uint8_t *px, uint16_t len)
+int framestore_load_begin(w25q_t *f, uint32_t frame_no, uint16_t len, uint32_t *data_addr, uint16_t *crc)
 {
-    uint32_t no; uint16_t l, c;
-    int rc = read_hdr(f, slot_addr(frame_no), &no, &l, &c);
+    uint32_t no; uint16_t l;
+    int rc = read_hdr(f, slot_addr(frame_no), &no, &l, crc);
     if (rc != DEV_OK) return rc;
     if (no != frame_no || l != len) return DEV_ERR_ID;
-    rc = w25q_read(f, slot_addr(frame_no) + FRAMESTORE_HDR, px, len);
+    *data_addr = slot_addr(frame_no) + FRAMESTORE_HDR;
+    return DEV_OK;
+}
+
+int framestore_load_check(const uint8_t *px, uint16_t len, uint16_t crc) { return crc16(px, len) == crc ? DEV_OK : DEV_ERR_ID; }
+
+int framestore_load(w25q_t *f, uint32_t frame_no, uint8_t *px, uint16_t len)
+{
+    uint32_t a; uint16_t c;
+    int rc = framestore_load_begin(f, frame_no, len, &a, &c);
     if (rc != DEV_OK) return rc;
-    return crc16(px, len) == c ? DEV_OK : DEV_ERR_ID;
+    rc = w25q_read(f, a, px, len);
+    if (rc != DEV_OK) return rc;
+    return framestore_load_check(px, len, c);
 }
 
 int framestore_scan(w25q_t *f, uint32_t *next)

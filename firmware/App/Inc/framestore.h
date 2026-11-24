@@ -22,4 +22,7 @@ int framestore_load(w25q_t *f, uint32_t frame_no, uint8_t *px, uint16_t len);
 int framestore_scan(w25q_t *f, uint32_t *next);
 /* ЛР5: план того самого запису (5 стирань, піксели, заголовок останнім); hdr і px мають жити до кінця завдання */
 int framestore_plan_save(fjob_t *j, uint32_t frame_no, const uint8_t *px, uint16_t len, uint8_t hdr[FRAMESTORE_HDR]);
+/* ЛР5: читання кадру частинами (замість одного довгого кроку): заголовок, далі w25q_read шматками, наприкінці CRC */
+int framestore_load_begin(w25q_t *f, uint32_t frame_no, uint16_t len, uint32_t *data_addr, uint16_t *crc);
+int framestore_load_check(const uint8_t *px, uint16_t len, uint16_t crc);
 #endif

@@ -40,6 +40,8 @@ void product_print_tasks(void);          /* TASKS: частка CPU, пріор�
 void product_print_stack(void);          /* STACK: запас стека (мінімум за весь час) у словах */
 void product_print_heap(void);           /* HEAP: total / free / min_ever_free heap ОС */
 void product_print_oscost(void);         /* OSCOST: вартість тіка, кількість перемикань, затримка перемикання контексту */
+void product_print_qstat(void);          /* ЛР5 QSTAT: заповненість черг AO і пулів подій */
+#define PRODUCT_ASYNC 1                  /* ЛР5: відповідь надішле власник даних окремою подією, cli нічого не друкує */
 void product_trace_cmd(int argc, char **argv);   /* TRACE ARM | TRACE DUMP [n]: хронологія перемикань */
 void product_btnsim(uint32_t period_ms);         /* BTNSIM ms|0: програмні події кнопки (S3 без людини) */
 void product_cam_irq_mode(int mode);             /* CAMIRQ 0|1: IRQ вимкнені на весь кадр / лише на активну частину рядка */

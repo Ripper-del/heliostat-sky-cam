@@ -8,7 +8,6 @@
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
-#include "semphr.h"
 #include "platform.h"
 #include "rtstats.h"
 #include "rtos_port.h"
@@ -68,28 +67,26 @@ void vApplicationStackOverflowHook(TaskHandle_t t, char *name)
     NVIC_SystemReset();
 }
 
-/* ---- printf з кількох задач: один м'ютекс на виклик ---- */
-static SemaphoreHandle_t print_mx;
-void rtos_print_init(void) { print_mx = xSemaphoreCreateMutex(); configASSERT(print_mx); }
-static int locked_begin(void)
+/* ---- ЛР5: у UART пише лише AO cli (власник UART), тож м'ютекс printf не потрібен (у ЛР4 — print_mx).
+ * Перевірка правила: якщо після старту планувальника друкує інша задача — це порушення моделі AO, рахуємо його. ---- */
+#include "ao.h"
+volatile uint32_t g_print_foreign;
+static void check_owner(void)
 {
-    if (print_mx && xTaskGetSchedulerState() == taskSCHEDULER_RUNNING) { xSemaphoreTake(print_mx, portMAX_DELAY); return 1; }
-    return 0;
+    if (xTaskGetSchedulerState() == taskSCHEDULER_RUNNING && xTaskGetCurrentTaskHandle() != (TaskHandle_t)AO_Cli->thread) g_print_foreign++;
 }
-static void locked_end(int l) { if (l) xSemaphoreGive(print_mx); }
-
+extern int __real_printf(const char *fmt, ...);
 int __wrap_printf(const char *fmt, ...)
 {
     va_list ap; va_start(ap, fmt);
-    int l = locked_begin();
+    check_owner();
     int n = vprintf(fmt, ap);
-    locked_end(l);
     va_end(ap);
     return n;
 }
 extern int __real_puts(const char *s);
-int __wrap_puts(const char *s) { int l = locked_begin(); int n = __real_puts(s); locked_end(l); return n; }
-int __wrap_putchar(int c) { int l = locked_begin(); int n = putchar(c); locked_end(l); return n; }
+int __wrap_puts(const char *s) { check_owner(); return __real_puts(s); }
+int __wrap_putchar(int c) { check_owner(); return putchar(c); }
 
 /* ---- облік перемикань контексту (traceTASK_SWITCHED_IN з FreeRTOSConfig.h) ---- */
 rtstats_t g_rts;

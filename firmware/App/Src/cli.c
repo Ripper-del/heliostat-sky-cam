@@ -63,35 +63,37 @@ static void run_line(char *line)
     else if (!strcmp(v[0], "MEM"))   product_print_mem();
     else if (!strcmp(v[0], "SNAP"))  { product_snapshot_request(); printf("[cli] snapshot requested\r\n"); }
     else if (!strcmp(v[0], "FRAMES")) {
-        if (n > 1) { uint32_t no = 0; for (char *s = v[1]; *s >= '0' && *s <= '9'; s++) no = no * 10 + (uint32_t)(*s - '0'); if (product_frame_show(no)) printf("[frames] no such frame\r\n"); }
+        if (n > 1) { uint32_t no = 0; for (char *s = v[1]; *s >= '0' && *s <= '9'; s++) no = no * 10 + (uint32_t)(*s - '0'); int rc = product_frame_show(no); if (rc < 0) printf("[frames] no such frame\r\n"); }
         else product_frames_info();
     }
     else if (!strcmp(v[0], "LOG")) {
-        if (n > 1 && !strcmp(v[1], "ERASE")) printf("[log] erase %s\r\n", product_log_erase() == 0 ? "ok" : "FAILED");
+        if (n > 1 && !strcmp(v[1], "ERASE")) { int rc = product_log_erase(); if (rc != PRODUCT_ASYNC) printf("[log] erase %s\r\n", rc == 0 ? "ok" : "FAILED"); }
         else { int cnt = 10; if (n > 1) { cnt = 0; for (char *s = v[1]; *s >= '0' && *s <= '9'; s++) cnt = cnt * 10 + (*s - '0'); } product_log_dump(cnt); }
     }
     else if (!strcmp(v[0], "SERVO")) { if (n > 1 && !strcmp(v[1], "ON")) product_servo_power(1); else product_servo_power(0); printf("[cli] servo %s\r\n", n > 1 && !strcmp(v[1], "ON") ? "ON" : "OFF"); }
     else if (!strcmp(v[0], "CAL")) {
         if (n > 1 && !strcmp(v[1], "SHOW")) product_cal_show();
-        else if (n > 1) { int rc = product_cal_cmd(n - 1, v + 1); printf("[cal] %s\r\n", rc == 0 ? "ok" : "ERROR (see HELP)"); }
+        else if (n > 1) { int rc = product_cal_cmd(n - 1, v + 1); if (rc != PRODUCT_ASYNC) printf("[cal] %s\r\n", rc == 0 ? "ok" : "ERROR (see HELP)"); }
         else printf("[cal] ERROR (see HELP)\r\n");
     }
     else if (!strcmp(v[0], "CAM")) {
         uint32_t aec = 0, gain = 0;
         for (char *s = n > 2 ? v[2] : ""; *s >= '0' && *s <= '9'; s++) aec = aec * 10 + (uint32_t)(*s - '0');
         for (char *s = n > 3 ? v[3] : ""; *s >= '0' && *s <= '9'; s++) gain = gain * 10 + (uint32_t)(*s - '0');
-        printf("[cam] %s\r\n", (n > 3 && !strcmp(v[1], "EXP") && product_cam_exposure(aec, gain) == 0) ? "exposure set" : "ERROR (CAM EXP aec gain)");
+        int rc = (n > 3 && !strcmp(v[1], "EXP")) ? product_cam_exposure(aec, gain) : -1;
+        if (rc != PRODUCT_ASYNC) printf("[cam] %s\r\n", rc == 0 ? "exposure set" : "ERROR (CAM EXP aec gain)");
     }
     else if (!strcmp(v[0], "VER"))   product_print_version();
     else if (!strcmp(v[0], "TASKS")) product_print_tasks();
     else if (!strcmp(v[0], "STACK")) product_print_stack();
     else if (!strcmp(v[0], "HEAP"))  product_print_heap();
     else if (!strcmp(v[0], "OSCOST")) product_print_oscost();
+    else if (!strcmp(v[0], "QSTAT")) product_print_qstat();
     else if (!strcmp(v[0], "TRACE")) product_trace_cmd(n - 1, v + 1);
     else if (!strcmp(v[0], "FAULT")) { int on = (n > 2 && v[2][0] == '1'); if (n > 1 && !strcmp(v[1], "SDA")) { platform_fault_sda(on); printf("[cli] fault SDA %s\r\n", on ? "ON (замкнено на землю)" : "OFF"); } else printf("[cli] FAULT SDA 1|0\r\n"); }
     else if (!strcmp(v[0], "BTNSIM")) { uint32_t ms = 0; for (char *s = n > 1 ? v[1] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0'); product_btnsim(ms); printf("[cli] btnsim %lu ms\r\n", (unsigned long)ms); }
     else if (!strcmp(v[0], "CAMIRQ")) { int m = (n > 1 && v[1][0] == '1') ? 1 : 0; product_cam_irq_mode(m); printf("[cli] camera irq mode %d\r\n", m); }
-    else if (!strcmp(v[0], "TEST"))  { if (product_test(n - 1, v + 1) != 0) printf("[test] ERROR (TEST INV [SEM] | STK | STARVE ms | QFLOOD n timeout_ms | HEAP | CTX n)\r\n"); }
+    else if (!strcmp(v[0], "TEST"))  { if (product_test(n - 1, v + 1) != 0) printf("[test] ERROR (HELP)\r\n"); }
     else if (!strcmp(v[0], "PROBE")) { printf("[cli] probe test 4 s\r\n"); product_probe_test(); printf("[cli] probe test done\r\n"); }
     else if (!strcmp(v[0], "PERIOD")) {
         uint32_t ms = 0; for (char *s = n > 2 ? v[2] : ""; *s >= '0' && *s <= '9'; s++) ms = ms * 10 + (uint32_t)(*s - '0');
@@ -103,7 +105,8 @@ static void run_line(char *line)
     else if (!strcmp(v[0], "HELP")) {
         printf("[cli] STATS [RESET] | MODE | SKY [FORCE CLEAR|OVERCAST|DARK|AUTO] | MEM | SNAP | FRAMES [n] | LOG [n|ERASE] | SERVO ON|OFF\r\n");
         printf("[cli] CAL SHOW | CAL AZ lo hi | CAL EL lo hi | CAL DARK thr | CAL INV 0|1 | CAL SIGN AZ|EL +1|-1 | CAL ZERO | CAL DEADBAND n | CAL SAVE|LOAD|DEFAULT | CAM EXP aec gain | VER | PROBE | PERIOD task ms\r\n");
-        printf("[cli] LR4: TASKS | STACK | HEAP | OSCOST | TRACE ARM|DUMP [n] | BTNSIM ms | CAMIRQ 0|1 | TEST INV [SEM]|STK|STARVE ms|QFLOOD n ms|HEAP|CTX n\r\n");
+        printf("[cli] LR4: TASKS | STACK | HEAP | OSCOST | TRACE ARM|DUMP [n] | BTNSIM ms | CAMIRQ 0|1 | TEST ...\r\n");
+        printf("[cli] LR5: QSTAT | TEST STK | TEST QFLOOD n | TEST BLOCK LOG|LOG0|OWNER ms | TEST LONG ms | TEST POOL\r\n");
     }
     else printf("[cli] unknown command (HELP)\r\n");
 }
