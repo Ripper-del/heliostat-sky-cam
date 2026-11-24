@@ -46,7 +46,10 @@ AO_DEF(adc,      "adc",     11, 5,  4, 128)
 AO_DEF(control,  "control", 10, 4, 16, 320)
 AO_DEF(servo,    "servo",    9, 4,  8, 128)
 AO_DEF(imu,      "imu",      6, 2,  8, 256)
-AO_DEF(tick,     "tick",     5, 2, 32, 320)
+#ifndef STK_TICK_W
+#define STK_TICK_W 320                                   /* сценарій «переповнення стека»: -DSTK_TICK_W=96 */
+#endif
+AO_DEF(tick,     "tick",     5, 2, 32, STK_TICK_W)
 AO_DEF(loss,     "loss",     4, 2, 32, 192)
 AO_DEF(led,      "led",      3, 1, 32, 128)
 AO_DEF(camera,   "camera",   2, 1,  8, 320)
@@ -157,6 +160,9 @@ void QF_onStartup(void)
     platform_set_uart_hook(rx_isr);
     platform_cam_set_irq_mode(1);                           /* як у ЛР4: IRQ вимкнені лише на активну частину рядка */
     platform_cam_set_catchup_hook(catchup);
+#ifdef LR5_FLASH_MUTEX
+    { extern void meas_delay_hook(uint32_t ms); platform_set_delay_hook(meas_delay_hook); }   /* п. 9.3.1: драйвер чекає з блокуванням, як у ЛР4 */
+#endif
 }
 
 void QF_onCleanup(void) { }
@@ -185,4 +191,3 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **tcb, StackType_t **stk, uint32
     *tcb = &idle_tcb; *stk = idle_stk; *n = configMINIMAL_STACK_SIZE;
 }
 
-int product_test(int argc, char **argv) { (void)argc; (void)argv; return -1; }

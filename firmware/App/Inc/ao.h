@@ -89,6 +89,7 @@ enum CmdCode {
 typedef struct { tracker_cfg_t cfg; uint8_t flash_ok, cal_defaults; uint32_t frame_next, log_records, open_ms; } BootInfo;
 void Log_boot(BootInfo *b);      /* log: прочитати flash ДО QF_init (див. bsp.c) */
 
+
 /* ---- AO (визначені у своїх файлах App/Src/ao_*.c) ---- */
 extern QActive * const AO_Button;
 extern QActive * const AO_Adc;
@@ -117,4 +118,8 @@ void ao_snap(QActive const *sender);                                            
 /* періодична робота: одноразова часова подія, яку AO перезапускає на наступний ідеальний тік (як vTaskDelayUntil у ЛР4) */
 void ao_period_arm(QTimeEvt *te, int id, uint32_t ms);                             /* запустити (або змінити період, PERIOD task ms) */
 int  ao_period(QTimeEvt *te, int id, uint32_t t0);                                 /* на PERIOD_SIG: облік джитера, перезапуск; 1 — робити роботу */
+#ifdef LR5_FLASH_MUTEX
+int  Log_direct_save(FrameEvt const *f, uint32_t *no);   /* сценарій 3.1: кадр пише snapshot сам під м'ютексом */
+void Log_direct_flush(void);
+#endif
 #endif

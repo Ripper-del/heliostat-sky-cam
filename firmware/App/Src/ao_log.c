@@ -41,6 +41,7 @@ typedef struct {
     FrameEvt frame;                                    /* копія параметрів кадру, що пишеться */
     tracker_cfg_t cal;
     uint8_t *rd_buf; uint32_t rd_no, rd_addr, rd_off; uint16_t rd_crc;
+    uint8_t  errs;                                     /* помилок flash поспіль; 3 — перехід у fault */
 } Log;
 static Log l_log;
 QActive * const AO_Log = &l_log.super;
@@ -114,7 +115,10 @@ static void push(Log *me, uint8_t type, uint8_t frame, int16_t a, int16_t b, int
     r->type = type; r->frame = frame; r->a = a; r->b = b; r->c = c; r->t_ms = t_ms; r->post_cyc = post_cyc;
 }
 
-static void flash_error(int rc) { g_flash_err++; g_flash_last_rc = rc; }
+static void flash_error(int rc) { g_flash_err++; g_flash_last_rc = rc; l_log.errs++; }
+
+/* крок flash з урахуванням сценарію 3.8 (імітований збій шини: кожна операція — помилка) */
+static int fstep(fjob_t *j, w25q_t *f) { return g_test.flash_fail ? DEV_ERR_BUS : fjob_step(j, f); }
 
 static void big_done(Log *me, int rc)
 {
@@ -149,10 +153,10 @@ static int kick(Log *me)
 {
     for (;;) {
         if (me->lact) {
-            int rc = fjob_step(&me->ljob, &me->flash);
+            int rc = fstep(&me->ljob, &me->flash);
             if (rc == 1) return 1;
             me->lact = 0;
-            if (rc == 0) { evlog_commit(&me->elog, me->lidx); meas_add(M_FLASH_WAIT, platform_cycles() - me->lpost); }
+            if (rc == 0) { evlog_commit(&me->elog, me->lidx); meas_add(M_FLASH_WAIT, platform_cycles() - me->lpost); me->errs = 0; }
             else flash_error(rc);
             continue;
         }
@@ -164,8 +168,9 @@ static int kick(Log *me)
             continue;
         }
         if (me->bkind != BIG_NONE) {
-            int rc = fjob_step(&me->bjob, &me->flash);
+            int rc = fstep(&me->bjob, &me->flash);
             if (rc == 1) return 1;
+            if (rc == 0) me->errs = 0;
             big_done(me, rc);
             continue;
         }
@@ -215,14 +220,27 @@ static QState Log_idle(Log *me, QEvt const *e)
     case LOG_REQ_SIG: {
         LogEvt const *l = Q_EVT_CAST(LogEvt);              /* та сама копія, що в суперстані, плюс одразу почати запис */
         push(me, l->type, l->frame, l->a, l->b, l->c, l->t_ms, l->post_cyc);
+#ifdef LR5_FLASH_MUTEX
+        (void)l; Log_direct_flush(); meas_step(AO_LOG, t0); return Q_HANDLED();
+#else
         int r = kick(me); meas_step(AO_LOG, t0);
+        if (me->errs >= 3U) return Q_TRAN(&Log_fault);
         return r ? Q_TRAN(&Log_busy) : Q_HANDLED();
+#endif
     }
     case SAVE_FRAME_SIG: {
         me->frame = *Q_EVT_CAST(FrameEvt); me->breply = AO_Snapshot; me->bkind = BIG_FRAME;
         int rc = framestore_plan_save(&me->bjob, me->frame_next, me->frame.buf, FRAME_PIXELS, me->hdr);
         if (rc != DEV_OK) { big_done(me, rc); meas_step(AO_LOG, t0); return Q_HANDLED(); }
+        if (g_test.one_step_save) {                        /* сценарій 3: увесь кадр одним кроком (з очікуванням flash у драйвері) */
+            int rr = fjob_run_blocking(&me->bjob, &me->flash);
+            big_done(me, rr); (void)kick(me);              /* kick допише запис журналу про кадр */
+            while (me->lact || me->rn) { int b = 1; while (b) { if (w25q_busy(&me->flash, &b) != DEV_OK) break; } (void)kick(me); }
+            meas_step(AO_LOG, t0);
+            return Q_HANDLED();
+        }
         int r = kick(me); meas_step(AO_LOG, t0);
+        if (me->errs >= 3U) return Q_TRAN(&Log_fault);
         return r ? Q_TRAN(&Log_busy) : Q_HANDLED();
     }
     case CAL_SAVE_SIG: {
@@ -297,9 +315,14 @@ static QState Log_busy(Log *me, QEvt const *e)
         uint32_t t0 = platform_cycles();
         int busy = 0;
         if (w25q_busy(&me->flash, &busy) != DEV_OK) { flash_error(DEV_ERR_BUS); busy = 0; }
+        if (g_test.block_log) {                            /* сценарій 2: ЗАБОРОНЕНЕ очікування з блокуванням в обробнику */
+            while (busy) { meas_block_ms(1); if (w25q_busy(&me->flash, &busy) != DEV_OK) { flash_error(DEV_ERR_BUS); busy = 0; } }
+        }
+        if (g_test.owner_wait_ms) meas_spin_ms(g_test.owner_wait_ms);   /* сценарій 2: власник тримає процесор N мс у кожному кроці */
         if (busy) { QTimeEvt_armX(&me->poll, 1U, 0U); meas_step(AO_LOG, t0); return Q_HANDLED(); }
         int r = kick(me);
         meas_step(AO_LOG, t0);
+        if (me->errs >= 3U) return Q_TRAN(&Log_fault);
         if (r) { QTimeEvt_armX(&me->poll, 1U, 0U); return Q_HANDLED(); }
         return Q_TRAN(&Log_idle);
     }
@@ -327,10 +350,29 @@ static QState Log_reading(Log *me, QEvt const *e)
     }
 }
 
+/* fault: flash не відповідає (на старті або після трьох помилок поспіль). Ніхто не чекає: на кожен запит одразу помилка.
+ * Раз на секунду пробуємо прочитати JEDEC ID; відповіла (і сценарій збою вимкнено) — назад у idle. */
 static QState Log_fault(Log *me, QEvt const *e)
 {
     switch (e->sig) {
-    case LOG_REQ_SIG: return Q_HANDLED();                  /* як у ЛР4: без flash журнал не пишеться */
+    case Q_ENTRY_SIG:
+        while (QActive_recall(&me->super, &me->deferQ)) { }   /* відкладені запити отримають відповідь з помилкою */
+        me->lact = 0; me->rn = 0; me->bkind = BIG_NONE;
+        QTimeEvt_armX(&me->poll, MS(1000), 0U);
+        ao_say(&me->super, "[log] flash fault: requests answered with errors");
+        return Q_HANDLED();
+    case Q_EXIT_SIG:
+        (void)QTimeEvt_disarm(&me->poll);
+        me->errs = 0;
+        ao_say(&me->super, "[log] flash recovered");
+        return Q_HANDLED();
+    case POLL_SIG: {
+        uint8_t id[3];
+        if (!g_test.flash_fail && w25q_read_jedec(&me->flash, id) == DEV_OK) return Q_TRAN(&Log_idle);
+        QTimeEvt_armX(&me->poll, MS(1000), 0U);
+        return Q_HANDLED();
+    }
+    case LOG_REQ_SIG: g_pend_lost++; return Q_HANDLED();  /* без flash журнал не пишеться (як у ЛР4), але видно в лічильнику */
     case SAVE_FRAME_SIG: reply_frame(me, SAVE_DONE_SIG, AO_Snapshot, -1, 0); return Q_HANDLED();
     case FRAME_LOAD_SIG: reply_frame(me, FRAME_LOADED_SIG, AO_Camera, -1, Q_EVT_CAST(FrameEvt)->no); return Q_HANDLED();
     case CAL_SAVE_SIG: case CAL_LOAD_SIG: reply_cal(me, -1, e->sig == CAL_LOAD_SIG, &Q_EVT_CAST(CalEvt)->cfg); return Q_HANDLED();
@@ -338,3 +380,34 @@ static QState Log_fault(Log *me, QEvt const *e)
     default: return Q_SUPER(&QHsm_top);
     }
 }
+
+#ifdef LR5_FLASH_MUTEX
+/* ===== Сценарій 3.1 (навмисно неправильний варіант): клієнти пишуть flash САМІ під м'ютексом, як у ЛР4.
+ * Записи журналу пише log, кадр — snapshot; обидва беруть м'ютекс і чекають flash блокуючим драйвером. ===== */
+int Log_direct_save(FrameEvt const *f, uint32_t *no)
+{
+    Log *me = &l_log;
+    meas_flash_lock();
+    *no = me->frame_next;
+    int rc = framestore_save(&me->flash, me->frame_next, f->buf, FRAME_PIXELS);
+    if (rc == DEV_OK) {
+        me->frame_next++;
+        rc = evlog_append(&me->elog, EV_SIGNAL_LOSS, (uint8_t)(*no & 0xFF), f->t_ms, (int16_t)(f->light / 4), (int16_t)f->mode, f->mean);
+    }
+    meas_flash_unlock();
+    if (rc != DEV_OK) flash_error(rc);
+    return rc;
+}
+
+static void direct_append_ring(Log *me)
+{
+    while (me->rn) {
+        rec_t *r = &me->ring[me->rh]; me->rh = (uint8_t)((me->rh + 1U) % RING_N); me->rn--;
+        meas_flash_lock();
+        int rc = evlog_append(&me->elog, r->type, r->frame, r->t_ms, r->a, r->b, r->c);
+        meas_flash_unlock();
+        if (rc == DEV_OK) meas_add(M_FLASH_WAIT, platform_cycles() - r->post_cyc); else flash_error(rc);
+    }
+}
+void Log_direct_flush(void) { direct_append_ring(&l_log); }
+#endif

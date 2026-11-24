@@ -39,6 +39,26 @@ void meas_step(int id, uint32_t t0);              /* кінець кроку: т
 void meas_defer_min(uint16_t used, uint16_t len); /* заповненість черги відкладених подій log */
 uint32_t meas_load_update(void);                /* tick раз на секунду: навантаження CPU за останнє вікно, % */
 
+/* ---- сценарії п. 9.2–9.3 (TEST ...): перемикачі вмикає cli, AO лише читають їх. Це тестовий код, як вимірювальні лічильники.
+ * Навмисні порушення моделі AO (блокування в обробнику, довгий крок) йдуть через функції Core/Src/qp_tests.c, а не через
+ * виклики FreeRTOS у файлах AO: так перевірка п. 4.4 лишається чистою, а порушення видно лише при ввімкненому сценарії. ---- */
+typedef struct {
+    volatile uint8_t  block_log;       /* 2: log чекає flash циклом з блокуванням в обробнику, а не подією POLL */
+    volatile uint8_t  flash_fail;      /* 3.8: кожна операція flash повертає помилку шини */
+    volatile uint16_t owner_wait_ms;   /* 2: log ще й чекає N мс у кожному кроці (власник ресурсу тримає процесор) */
+    volatile uint16_t ctrl_work_ms;    /* 3: control робить N мс роботи на кожному SAMPLE */
+    volatile uint16_t hog_ms;          /* інверсія: imu (середній пріоритет) займає процесор N мс кожні 100 мс */
+    volatile uint16_t log_every_ms;    /* control пише запис EV_USER у журнал кожні N мс (багато вимірів flash_wait) */
+    volatile uint32_t snap_timeout_ms; /* 6: таймаут операції знімка (0 = 10 с) */
+    volatile uint32_t late_events;     /* 6: запізнілі CAPTURE_DONE / SAVE_DONE, що прийшли в idle */
+    volatile uint8_t  one_step_save;   /* 3: log пише весь кадр одним кроком */
+} meas_test_t;
+extern meas_test_t g_test;
+void meas_block_ms(uint32_t ms);      /* ЗАБОРОНЕНЕ в AO очікування з блокуванням задачі (лише сценарій 2) */
+void meas_spin_ms(uint32_t ms);       /* робота процесора N мс без блокування (сценарії 2, 3, інверсія) */
+void meas_flash_lock(void);           /* лише варіант LR5_FLASH_MUTEX (сценарій 3.1): м'ютекс flash, як у ЛР4 */
+void meas_flash_unlock(void);
+
 /* друк — лише з cli (власник UART) */
 void meas_print_stats(void);
 void meas_reset_stats(void);

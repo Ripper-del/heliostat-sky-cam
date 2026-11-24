@@ -14,7 +14,7 @@ typedef struct {
     uint16_t q[4];
     sky_t    sky;
     uint8_t  flash_ok, n;
-    uint32_t last_suspect_ms;
+    uint32_t last_suspect_ms, last_user_ms;
 } Control;
 static Control l_control;
 QActive * const AO_Control = &l_control.super;
@@ -114,6 +114,7 @@ static QState Control_running(Control *me, QEvt const *e)
     switch (e->sig) {
     case SAMPLE_SIG:                                   /* останній відлік; режим рахується за періодом, як у ЛР4 */
         memcpy(me->q, Q_EVT_CAST(QuadEvt)->q, sizeof me->q);
+        if (g_test.ctrl_work_ms) meas_spin_ms(g_test.ctrl_work_ms);       /* сценарій 3: довгий крок без блокування */
         return Q_HANDLED();
     case SKY_SIG: {                                    /* клас неба від camera (FR-13) і перевірка «датчик бреше» */
         SkyEvt const *s = Q_EVT_CAST(SkyEvt);
@@ -136,6 +137,11 @@ static QState Control_running(Control *me, QEvt const *e)
             }
             post_servo(me, TARGET_SIG, 0U);
             if (++me->n >= 10U) { me->n = 0; publish_track(me); }
+            uint32_t now = platform_millis();
+            if (g_test.log_every_ms && now - me->last_user_ms >= g_test.log_every_ms) {   /* сценарій 3.1: часті записи журналу */
+                me->last_user_ms = now;
+                ao_log(&me->super, EV_USER, EVLOG_NO_FRAME, 0, 0, 0);
+            }
         }
         meas_step(AO_CONTROL, t0);
         return Q_HANDLED();

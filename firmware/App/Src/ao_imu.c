@@ -46,6 +46,7 @@ static QState Imu_ok(Imu *me, QEvt const *e)
         uint32_t t0 = platform_cycles();
         int bad = 0;
         if (ao_period(&me->period, AO_IMU, t0)) {
+            if (g_test.hog_ms) meas_spin_ms(g_test.hog_ms);                 /* інверсія: AO середнього пріоритету займає процесор */
             if (mpu6050_read_accel_raw(&me->dev, &me->raw) != DEV_OK) { g_imu_err++; bad = 1; }
             else me->fails = 0;
         }

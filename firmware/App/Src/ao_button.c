@@ -3,7 +3,7 @@
 #include "meas.h"
 #include "platform.h"
 
-typedef struct { QActive super; } Button;
+typedef struct { QActive super; uint32_t starve_end; } Button;
 static Button l_button;
 QActive * const AO_Button = &l_button.super;
 
@@ -31,6 +31,17 @@ static QState Button_ready(Button *me, QEvt const *e)
         ao_snap(&me->super);
         platform_probe(4, 0);
         meas_step(AO_BUTTON, t0);
+        return Q_HANDLED();
+    }
+    case CMD_SIG: {                                    /* сценарій «голодування»: AO найвищого пріоритету шле подію сам собі */
+        CmdEvt const *c = Q_EVT_CAST(CmdEvt);
+        if (c->code != CMD_FAIL_STEP) return Q_HANDLED();
+        if (c->a) me->starve_end = platform_millis() + (uint32_t)c->a;
+        meas_spin_ms(1);
+        if ((int32_t)(platform_millis() - me->starve_end) < 0) {
+            CmdEvt *n = Q_NEW_X(CmdEvt, 2U, CMD_SIG);
+            if (n) { n->code = CMD_FAIL_STEP; n->a = 0; QACTIVE_POST(&me->super, &n->super, &me->super); }
+        } else ao_say(&me->super, "[test] starve done");
         return Q_HANDLED();
     }
     default:

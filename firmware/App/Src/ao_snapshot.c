@@ -59,9 +59,11 @@ static QState Snapshot_idle(Snapshot *me, QEvt const *e)
         return Q_HANDLED();                                 /* FR-11: не частіше ніж раз на 3 с */
     }
     case CAPTURE_DONE_SIG:                                  /* запізніле після таймауту: кадр не потрібен, буфер повертаємо */
+        g_test.late_events++;
         if (Q_EVT_CAST(FrameEvt)->rc == 0) release(me, -1, 0);
         return Q_HANDLED();
     case SAVE_DONE_SIG:                                     /* запізніле після таймауту: log закінчив писати, буфер вільний */
+        g_test.late_events++;
         release(me, Q_EVT_CAST(FrameEvt)->rc, Q_EVT_CAST(FrameEvt)->no);
         return Q_HANDLED();
     default:
@@ -75,7 +77,7 @@ static QState Snapshot_busy(Snapshot *me, QEvt const *e)
     case Q_ENTRY_SIG:
         platform_probe(3, 1);                               /* D3 аналізатора: уся операція знімка */
         me->t_op0 = platform_cycles();
-        QTimeEvt_armX(&me->timeout, MS(10000), 0U);
+        QTimeEvt_armX(&me->timeout, MS(g_test.snap_timeout_ms ? g_test.snap_timeout_ms : 10000U), 0U);
         return Q_HANDLED();
     case Q_EXIT_SIG:
         (void)QTimeEvt_disarm(&me->timeout);
@@ -116,6 +118,15 @@ static QState Snapshot_saving(Snapshot *me, QEvt const *e)
 {
     switch (e->sig) {
     case Q_ENTRY_SIG: {
+#ifdef LR5_FLASH_MUTEX
+        {   /* сценарій 3.1: snapshot сам пише кадр під м'ютексом (як задача snapshot у ЛР4); відповідь — собі ж */
+            FrameEvt tmp; tmp.buf = me->buf; tmp.light = me->light; tmp.mode = me->mode; tmp.mean = me->mean; tmp.t_ms = platform_millis();
+            uint32_t no = 0; int rc = Log_direct_save(&tmp, &no);
+            FrameEvt *d = Q_NEW_X(FrameEvt, 1U, SAVE_DONE_SIG);
+            if (d) { d->rc = (int16_t)rc; d->no = no; QACTIVE_POST(&me->super, &d->super, &me->super); }
+            return Q_HANDLED();
+        }
+#endif
         FrameEvt *f = Q_NEW_X(FrameEvt, 1U, SAVE_FRAME_SIG);
         if (!f) { g_ev_lost++; release(me, -1, 0); return Q_HANDLED(); }
         f->buf = me->buf; f->light = me->light; f->mode = me->mode; f->mean = me->mean; f->t_ms = platform_millis(); f->rc = 0;
