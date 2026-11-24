@@ -25,7 +25,7 @@ def logs(fw, tag):
     out = {}
     for p in sorted(glob.glob(os.path.join(M, f"{fw}_{tag}*.log"))):
         t = os.path.basename(p).split("_")[1]
-        if re.fullmatch(tag + r"[a-c]?", t):
+        if re.fullmatch(tag + r"[a-c]?", t) and re.fullmatch(rf"{fw}_{t}_\d{{8}}_\d{{6}}\.log", os.path.basename(p)):   # лише логи матриці, без lr4_s3_capture_... тощо
             out[t] = p                                   # пізніший файл перекриває ранній
     return list(out.values())
 

@@ -22,6 +22,7 @@ state "control : running" as control {
 state "cli : ready" as cli {
   cli : LINE / розбір cli.c; CMD → власник даних
   cli : TEXT / друк у UART (єдиний власник UART)
+  cli : TEST_STEP / крок TEST AUTO (тестовий код)
 }
 state "tick : reporting" as tick {
   tick : TRACK, SKY / копія стану

@@ -56,7 +56,23 @@ def flash_and_capture(binpath, wait=30):
 def run(args, tag):
     cmd = [PY, os.path.join(ROOT, "tools", "run_scenario.py")] + args + ["--tag", tag]
     print(">>", " ".join(cmd[2:]), flush=True)
-    subprocess.run(cmd, check=False, cwd=ROOT)
+    r = subprocess.run(cmd, check=False, cwd=ROOT, capture_output=True, text=True)
+    print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else "", flush=True)
+    if r.returncode == 3 or "ST-Link" in r.stdout:            # VCP завис (проблема 28): далі лише порожні логи — зупиняємось
+        sys.exit("ST-Link VCP stall під час " + tag + ": перепідключіть USB і продовжте з --skip-flash")
+
+
+def alive():
+    """Плата відповідає на VER після прошивки (інакше VCP завис і вся матриця буде порожньою)."""
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    from lab_serial import Board
+    try:
+        b = Board()
+        lines, _ = b.send("VER", wait=2.0)
+        b.s.close()
+        return bool(lines)
+    except SystemExit:
+        return False
 
 
 def main():
@@ -80,6 +96,8 @@ def main():
                 f.write(f"# boot {i}\n")
                 f.write("\n".join(ls) + "\n")
         time.sleep(3)
+    if not alive():
+        sys.exit("плата не відповідає на VER (ST-Link VCP завис після прошивки): перепідключіть USB і запустіть з --skip-flash")
     if a.quick:
         run(["s3", "--duration", d, "--btnsim", "700"], f"{fw}_s3q")
         return
