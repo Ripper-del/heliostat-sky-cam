@@ -12,14 +12,20 @@
 #include "product.h"
 #include "platform.h"
 
-typedef struct { QActive super; uint32_t eol_cyc; } Cli;
+typedef struct { QActive super; QTimeEvt test; uint32_t eol_cyc; } Cli;
 static Cli l_cli;
 QActive * const AO_Cli = &l_cli.super;
 
 static QState Cli_initial(Cli *me, void const *par);
 static QState Cli_ready(Cli *me, QEvt const *e);
 
-void Cli_ctor(void) { QActive_ctor(&l_cli.super, Q_STATE_CAST(&Cli_initial)); }
+void Cli_ctor(void)
+{
+    QActive_ctor(&l_cli.super, Q_STATE_CAST(&Cli_initial));
+    QTimeEvt_ctorX(&l_cli.test, &l_cli.super, TEST_STEP_SIG, 0U);
+}
+
+void Cli_test_arm(uint32_t ms) { (void)QTimeEvt_disarm(&l_cli.test); QTimeEvt_armX(&l_cli.test, MS(ms), 0U); }
 
 static QState Cli_initial(Cli *me, void const *par)
 {
@@ -37,6 +43,11 @@ static QState Cli_ready(Cli *me, QEvt const *e)
         if (l->n == 1 && !(l->s[0] >= 'A' && l->s[0] <= 'Z')) cli_handle(l->s[0]);       /* односимвольна команда ЛР2 */
         else { for (uint8_t i = 0; i < l->n; i++) cli_feed(l->s[i]); cli_feed('\r'); }
         meas_step(AO_CLI, t0);
+        return Q_HANDLED();
+    }
+    case TEST_STEP_SIG: {                              /* TEST AUTO: крок прогону сценаріїв (тестовий код, Core/Src/qp_tests.c) */
+        uint32_t next = meas_test_step();
+        if (next) QTimeEvt_armX(&me->test, MS(next), 0U);
         return Q_HANDLED();
     }
     case TEXT_SIG: {

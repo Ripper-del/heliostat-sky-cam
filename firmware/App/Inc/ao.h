@@ -20,6 +20,7 @@ enum Signals {
     PERIOD_SIG = MAX_PUB_SIG, /* період AO (adc 10 мс, control 10 мс, servo 20 мс, ...) */
     POLL_SIG,                 /* log: перевірити, чи flash закінчила стирання або запис */
     OP_TIMEOUT_SIG,           /* snapshot: операція не завершилась вчасно */
+    TEST_STEP_SIG,            /* cli: наступний крок автоматичного прогону сценаріїв (TEST AUTO) */
     /* з переривань */
     BUTTON_SIG,               /* EXTI кнопки B1 (або імітатор BTNSIM): BtnEvt */
     LINE_SIG,                 /* UART RX: рядок або односимвольна команда: LineEvt */
@@ -107,7 +108,8 @@ extern QActive * const AO_Snapshot;
 void Button_ctor(void); void Adc_ctor(void); void Control_ctor(void); void Servo_ctor(void);
 void Log_ctor(void); void Cli_ctor(void); void Imu_ctor(void); void Tick_ctor(void);
 void Loss_ctor(void); void Led_ctor(void); void Camera_ctor(void); void Snapshot_ctor(void);
-uint8_t *Camera_service_buf(void);   /* лише службова самоперевірка ЛР2 (див. qp-design.md, винятки) */
+uint8_t *Camera_service_buf(void);
+void Cli_test_arm(uint32_t ms);     /* TEST AUTO: запустити часову подію cli (викликається лише з контексту cli) */   /* лише службова самоперевірка ЛР2 (див. qp-design.md, винятки) */
 
 /* ---- допоміжне для AO (App/Src/ao_util.c) ---- */
 #ifndef BSP_TICKS_PER_SEC

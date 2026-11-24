@@ -14,7 +14,7 @@ typedef struct {
     uint16_t q[4];
     sky_t    sky;
     uint8_t  flash_ok, n;
-    uint32_t last_suspect_ms, last_user_ms;
+    uint32_t last_suspect_ms, last_user_ms, last_snap_ms;
 } Control;
 static Control l_control;
 QActive * const AO_Control = &l_control.super;
@@ -138,6 +138,7 @@ static QState Control_running(Control *me, QEvt const *e)
             post_servo(me, TARGET_SIG, 0U);
             if (++me->n >= 10U) { me->n = 0; publish_track(me); }
             uint32_t now = platform_millis();
+            if (g_test.snap_every_ms && now - me->last_snap_ms >= g_test.snap_every_ms) { me->last_snap_ms = now; ao_snap(&me->super); }
             if (g_test.log_every_ms && now - me->last_user_ms >= g_test.log_every_ms) {   /* сценарій 3.1: часті записи журналу */
                 me->last_user_ms = now;
                 ao_log(&me->super, EV_USER, EVLOG_NO_FRAME, 0, 0, 0);

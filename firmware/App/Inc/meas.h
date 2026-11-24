@@ -52,8 +52,10 @@ typedef struct {
     volatile uint32_t snap_timeout_ms; /* 6: таймаут операції знімка (0 = 10 с) */
     volatile uint32_t late_events;     /* 6: запізнілі CAPTURE_DONE / SAVE_DONE, що прийшли в idle */
     volatile uint8_t  one_step_save;   /* 3: log пише весь кадр одним кроком */
+    volatile uint16_t snap_every_ms;   /* TEST AUTO: control сам просить знімок кожні N мс (навантаження S3 без хоста) */
 } meas_test_t;
 extern meas_test_t g_test;
+uint32_t meas_test_step(void);       /* TEST AUTO: наступний крок; повертає мс до наступного кроку, 0 — кінець */
 void meas_block_ms(uint32_t ms);      /* ЗАБОРОНЕНЕ в AO очікування з блокуванням задачі (лише сценарій 2) */
 void meas_spin_ms(uint32_t ms);       /* робота процесора N мс без блокування (сценарії 2, 3, інверсія) */
 void meas_flash_lock(void);           /* лише варіант LR5_FLASH_MUTEX (сценарій 3.1): м'ютекс flash, як у ЛР4 */
