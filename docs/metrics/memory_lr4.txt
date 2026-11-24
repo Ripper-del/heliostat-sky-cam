@@ -1,62 +1,62 @@
-# git: 4939628
+# git: 83f936c
 
 ## arm-none-eabi-size (text/data/bss)
    text	   data	    bss	    dec	    hex	filename
-  69504	    156	  67256	 136916	  216d4	build/firmware.elf
+  68528	    156	  62880	 131564	  201ec	build/firmware.elf
 
 ## секції
 build/firmware.elf  :
 section               size        addr
 .isr_vector            408   134217728
-.text                61184   134218176
-.rodata               7904   134279360
-.ARM.extab               0   134287264
-.ARM                     8   134287264
-.preinit_array           0   134287272
-.init_array              4   134287272
-.fini_array              4   134287276
+.text                60208   134218176
+.rodata               7904   134278384
+.ARM.extab               0   134286288
+.ARM                     8   134286288
+.preinit_array           0   134286296
+.init_array              4   134286296
+.fini_array              4   134286300
 .data                  148   536870912
-.bss                 64184   536871064
-._user_heap_stack     3072   536935248
+.bss                 59804   536871064
+._user_heap_stack     3076   536930868
 .ARM.attributes         48           0
 .comment                51           0
-.debug_info         288280           0
-.debug_abbrev        43667           0
-.debug_loc          163444           0
-.debug_aranges        8952           0
-.debug_ranges        11280           0
-.debug_line         166556           0
-.debug_str           38937           0
-.debug_frame         24888           0
-Total               883019
+.debug_info         285712           0
+.debug_abbrev        43336           0
+.debug_loc          162627           0
+.debug_aranges        8888           0
+.debug_ranges        11192           0
+.debug_line         165155           0
+.debug_str           38660           0
+.debug_frame         24684           0
+Total               871917
 
 
 
 ## об'єктні файли за bss (RAM), 15 найбільших
   16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
+    182	      0	      4	    186	     ba	build/syscalls.o
     568	      5	      4	    577	    241	build/stm32f4xx_hal.o
    1045	      4	      5	   1054	    41e	build/port.o
-    206	      0	      8	    214	     d6	build/syscalls.o
     514	      0	      8	    522	    20a	build/platform_io.o
    1717	      8	     12	   1737	    6c9	build/platform_buses.o
    1772	      4	     44	   1820	    71c	build/platform_cam.o
    3438	      0	     52	   3490	    da2	build/cli.o
-   3312	      0	    304	   3616	    e20	build/rtos_tests.o
+   3328	      0	    304	   3632	    e30	build/rtos_tests.o
+   1076	      0	    313	   1389	    56d	build/platform_perf.o
    9246	      4	    328	   9578	   256a	build/tasks.o
    1496	      0	    388	   1884	    75c	build/main.o
-   2024	      0	   4689	   6713	   1a39	build/platform_perf.o
-   1332	      4	   9184	  10520	   2918	build/rtos_port.o
+   1324	      4	   9184	  10512	   2910	build/rtos_port.o
   10365	      9	  24451	  34825	   8809	build/product_rtos.o
    1054	      0	  24604	  25658	   643a	build/heap_4.o
 
 ## об'єктні файли за text (flash), 15 найбільших
-   2024	      0	   4689	   6713	   1a39	build/platform_perf.o
+   1912	      0	      0	   1912	    778	build/stm32f4xx_hal_dma.o
    2136	      0	      0	   2136	    858	build/stm32f4xx_hal_adc_ex.o
    2138	      0	      0	   2138	    85a	build/stm32f4xx_hal_rcc.o
    2320	      0	      0	   2320	    910	build/stream_buffer.o
    2946	      0	      0	   2946	    b82	build/stm32f4xx_hal_adc.o
    3122	      0	      0	   3122	    c32	build/queue.o
-   3312	      0	    304	   3616	    e20	build/rtos_tests.o
+   3328	      0	    304	   3632	    e30	build/rtos_tests.o
    3438	      0	     52	   3490	    da2	build/cli.o
    3450	      0	      0	   3450	    d7a	build/selftest.o
    3986	      0	      0	   3986	    f92	build/stm32f4xx_hal_dma_ex.o
@@ -67,30 +67,30 @@ Total               883019
   16724	      0	      0	  16724	   4154	build/stm32f4xx_hal_i2c.o
 
 ## найбільші символи (десяткові розміри)
-134263416 00000760 T HAL_I2C_Mem_Read
-134262296 00000764 T HAL_I2C_Master_Receive
-134265224 00000854 T HAL_SPI_TransmitReceive
-134243828 00000976 T platform_cam_capture
-134257320 00001016 W HAL_RCC_OscConfig
-134249316 00001436 t run_line
+134226396 00000752 T __sfvwrite_r
+134262440 00000760 T HAL_I2C_Mem_Read
+134261320 00000764 T HAL_I2C_Master_Receive
+134264248 00000854 T HAL_SPI_TransmitReceive
+134243796 00000976 T platform_cam_capture
+134256344 00001016 W HAL_RCC_OscConfig
+134248336 00001436 t run_line
 536871544 00001824 b c.2
 536892776 00001824 b rt
-536906148 00004096 b tx_mem
 536896000 00008608 B g_rts
 536873416 00019200 b g_frame
-536910648 00024576 b ucHeap
+536906268 00024576 b ucHeap
 
 ## лише змінні в RAM (b/B = bss, d/D = data)
-536905856 00000256 b rx_mem
+536905184 00000256 b blk.0
+536905588 00000256 b rx_mem
 536904672 00000512 b tick_ts
 536894616 00000576 b st.0
 536895192 00000576 b st.1
 536871544 00001824 b c.2
 536892776 00001824 b rt
-536906148 00004096 b tx_mem
 536896000 00008608 B g_rts
 536873416 00019200 b g_frame
-536910648 00024576 b ucHeap
+536906268 00024576 b ucHeap
 
 ## статична оцінка стека (-fstack-usage), 15 найбільших кадрів
 App/Src/selftest.c:227:12:run_cam_bus	72	static
@@ -103,7 +103,7 @@ Core/Src/main.c:64:13:SystemClock_Config	88	static
 Core/Src/product_rtos.c:214:13:tick_work	96	static
 App/Src/selftest.c:152:6:selftest_i2c_stress	104	static
 Core/Src/product_rtos.c:517:6:product_print_oscost	104	static
-Core/Src/rtos_tests.c:171:12:test_camdiag	104	static
+Core/Src/rtos_tests.c:173:12:test_camdiag	104	static
 Platform/Src/platform_cam.c:89:5:platform_cam_capture	112	static
 Core/Src/product_rtos.c:417:6:product_print_stats	168	static
 Core/Src/product_rtos.c:601:6:product_log_dump	296	static
@@ -117,7 +117,7 @@ App/Src/evlog.c:42:5:evlog_open	304	static
    2320	      0	      0	   2320	    910	build/stream_buffer.o
    1045	      4	      5	   1054	    41e	build/port.o
    1054	      0	  24604	  25658	   643a	build/heap_4.o
-   1332	      4	   9184	  10520	   2918	build/rtos_port.o
+   1324	      4	   9184	  10512	   2910	build/rtos_port.o
   10365	      9	  24451	  34825	   8809	build/product_rtos.o
-   3312	      0	    304	   3616	    e20	build/rtos_tests.o
+   3328	      0	    304	   3632	    e30	build/rtos_tests.o
     500	      0	      0	    500	    1f4	build/rtstats.o
