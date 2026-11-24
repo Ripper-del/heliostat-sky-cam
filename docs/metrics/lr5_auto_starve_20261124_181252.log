@@ -1,0 +1,52 @@
+# scenario=auto_starve (TEST AUTO, навантаження BTNSIM 700 + SNAP кожні 3,2 с)
+# VER git=a192342 build="Nov 24 2026 16:12:20" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[auto] begin starve 5 s
+[test] starve done
+tick 88950 (uptime 87 s, TL=3200 TR=3216 BL=3019 BR=2412, ex=-49 ey=83) mode=TRACK sky=CLEAR load=100%
+tick 89716 (uptime 88 s, TL=3268 TR=3201 BL=3018 BR=2319, ex=-64 ey=95) mode=TRACK sky=CLEAR load=100%
+tick 90716 (uptime 89 s, TL=3198 TR=3285 BL=2964 BR=2327, ex=-46 ey=101) mode=OVERCAST sky=CLEAR load=49%
+tick 91716 (uptime 90 s, TL=3198 TR=3306 BL=2978 BR=2364, ex=-42 ey=98) mode=TRACK sky=CLEAR load=66%
+tick 92716 (uptime 91 s, TL=3318 TR=3266 BL=3009 BR=2368, ex=-57 ey=100) mode=TRACK sky=CLEAR load=26%
+tick 93716 (uptime 92 s, TL=3155 TR=3322 BL=2901 BR=2491, ex=-20 ey=91) mode=OVERCAST sky=CLEAR load=5%
+# --- STATS final ---
+[auto] end starve
+STAT name=button n=8 min_us=8 avg_us=9 max_us=10 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1013
+STAT name=adc n=501 min_us=166 avg_us=166 max_us=174 late_max_us=900 late_p99_us=400 missed=0 max_cyc=17450
+STAT name=control n=501 min_us=19 avg_us=24 max_us=96 late_max_us=1127 late_p99_us=600 missed=0 max_cyc=9625
+STAT name=servo n=250 min_us=6 avg_us=6 max_us=6 late_max_us=1098 late_p99_us=800 missed=0 max_cyc=672
+STAT name=log n=616 min_us=50 avg_us=6121 max_us=3242508 late_max_us=0 late_p99_us=0 missed=0 max_cyc=324250896
+STAT name=cli n=7 min_us=3646 avg_us=16330 max_us=18875 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1887598
+STAT name=imu n=51 min_us=849 avg_us=1478 max_us=19824 late_max_us=33279 late_p99_us=1600 missed=19 max_cyc=1982418
+STAT name=tick n=6 min_us=18713 avg_us=19439 max_us=20017 late_max_us=233998 late_p99_us=1600 missed=1 max_cyc=2001761
+STAT name=loss n=51 min_us=7 avg_us=7 max_us=7 late_max_us=34019 late_p99_us=1600 missed=19 max_cyc=767
+STAT name=led n=42 min_us=6 avg_us=7 max_us=7 late_max_us=85101 late_p99_us=1600 missed=31 max_cyc=730
+STAT name=camera n=1 min_us=629492 avg_us=629492 max_us=629492 late_max_us=2184998 late_p99_us=1600 missed=2 max_cyc=62949228
+STAT name=snapshot n=2 min_us=1575918 avg_us=2790017 max_us=4004116 late_max_us=0 late_p99_us=0 missed=0 max_cyc=400411686
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=8 min_us=17 avg_us=18 max_us=25 presses=8
+STAT name=evt_latency n=8 min_us=18 avg_us=94 max_us=621
+STAT name=cam_frame n=1 min_us=626331 avg_us=626331 max_us=626331
+STAT name=cmd_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=flash_wait n=11 min_us=1029 avg_us=1700337 max_us=3235836
+LOAD pct=5 run_pct=52 btn_lost=0 uart_rx_overflow=0 pend_lost=0 flash_err=0 imu_err=0 cam_err=20 flash_last_rc=0
+QUEUE button max_used=1/8
+QUEUE adc max_used=1/4
+QUEUE control max_used=2/16
+QUEUE servo max_used=1/8
+QUEUE log max_used=6/16
+QUEUE cli max_used=1/32
+QUEUE imu max_used=1/8
+QUEUE tick max_used=1/32
+QUEUE loss max_used=2/32
+QUEUE led max_used=13/32
+QUEUE camera max_used=1/8
+QUEUE snapshot max_used=20/32
+DEFER log max_used=0/6
+POOL 1 min_free=45/64
+POOL 2 min_free=12/24
+POOL 3 min_free=31/32
+LOST lines=0 logs=0 events=0 texts=0
+[test] hog=0 lograte=0 block=0 owner=0 ctrl=0 onestep=0 snapto=0 flashfail=0 late_events=0
+tick 94716 (uptime 93 s, TL=3219 TR=3302 BL=3008 BR=2318, ex=-51 ey=100) mode=TRACK sky=CLEAR load=100%
+tick 95716 (uptime 94 s, TL=3172 TR=3269 BL=2962 BR=2405, ex=-38 ey=90) mode=TRACK sky=CLEAR load=78%
+[prod] stats reset
