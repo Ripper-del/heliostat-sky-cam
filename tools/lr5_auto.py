@@ -22,11 +22,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--prefix", default="lr5")
     ap.add_argument("--timeout", type=int, default=420)
+    ap.add_argument("--start", type=int, default=0, help="почати з n-го сценарію (TEST AUTO n)")
     a = ap.parse_args()
     b = Board()
     ver = b.version()
     print(ver, flush=True)
-    b._write(b"\rTEST AUTO\r")
+    b._write(b"\rTEST AUTO %d\r" % a.start)
     lines, cur, t0 = [], None, time.time()
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     while time.time() - t0 < a.timeout:
