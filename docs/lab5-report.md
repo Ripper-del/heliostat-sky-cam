@@ -361,4 +361,4 @@ Super loop — лише короткі періодичні задачі без 
 
 ## 16. Відеозвіт (3–4 хв)
 
-Посилання на відео: _буде додано_
+Посилання на відео: https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing
