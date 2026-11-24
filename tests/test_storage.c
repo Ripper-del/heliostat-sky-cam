@@ -191,7 +191,7 @@ static void fjob_stepwise_frame_equals_blocking(void)
     fjob_t j; uint8_t hdr[FRAMESTORE_HDR]; int polls = 0;
     CHECK_EQ(framestore_plan_save(&j, 41, px, 19200, hdr), DEV_OK);
     CHECK_EQ(run_stepwise(&j, &polls), 0);
-    CHECK(polls >= 4 * (5 + 19200 / 256));                               /* 5 стирань + 75 сторінок + заголовок, кожна чекала BUSY */
+    CHECK(polls >= (int)(4 * (5 + 19200 / FJOB_CHUNK)));                        /* 5 стирань + шматки по FJOB_CHUNK + заголовок, кожен чекав BUSY */
     CHECK(memcmp(ref, ff.mem + FRAMESTORE_BASE + (41 % FRAMESTORE_SLOTS) * FRAMESTORE_SLOT_SIZE, FRAMESTORE_SLOT_SIZE) == 0);
     static uint8_t back[19200]; CHECK_EQ(framestore_load(&fl, 41, back, 19200), DEV_OK);
     CHECK(memcmp(back, px, 19200) == 0);

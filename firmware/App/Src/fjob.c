@@ -24,6 +24,7 @@ int fjob_step(fjob_t *j, w25q_t *f)
         if (j->done >= o->len) { j->i++; j->done = 0; continue; }
         uint32_t a = o->addr + j->done, room = W25Q_PAGE_SIZE - (a % W25Q_PAGE_SIZE), left = o->len - j->done;
         uint32_t n = left < room ? left : room;                 /* до кінця сторінки, як у w25q_write */
+        if (n > FJOB_CHUNK) n = FJOB_CHUNK;                     /* і не довше за один короткий крок */
         int rc = w25q_program_start(f, a, o->data + j->done, n);
         if (rc != DEV_OK) return rc;
         j->done += n;
