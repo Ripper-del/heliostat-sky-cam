@@ -13,8 +13,8 @@ rectangle "button\nQP 12 / FreeRTOS 6" as button
 rectangle "adc\n11 / 5, власник АЦП" as adc
 rectangle "control\n10 / 4, трекер і калібровка" as control
 rectangle "servo\n9 / 4, власник ШІМ" as servo
-rectangle "log\n8 / 4, ВЛАСНИК FLASH" as log #F2DEDE
-rectangle "cli\n7 / 3, ВЛАСНИК UART" as cli #F2DEDE
+rectangle "log\n7 / 2, ВЛАСНИК FLASH" as log #F2DEDE
+rectangle "cli\n8 / 3, ВЛАСНИК UART" as cli #F2DEDE
 rectangle "imu\n6 / 2, власник I2C1" as imu
 rectangle "tick\n5 / 2" as tick
 rectangle "loss\n4 / 2" as loss

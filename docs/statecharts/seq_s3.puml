@@ -5,7 +5,7 @@ participant "ISR" as isr
 participant "button (6)" as button
 participant "adc (5)" as adc
 participant "control (4)" as control
-participant "log (4)" as log
+participant "log (2)" as log
 participant "cli (3)" as cli
 participant "camera (1)" as camera
 participant "snapshot (1)" as snapshot
