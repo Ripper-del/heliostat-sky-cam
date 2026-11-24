@@ -5,6 +5,15 @@
 
 Команда: Андрій Плешу, Тимур Варшавський, група ІО-36.
 
+## Звіти
+
+| Робота | Звіт | Відео |
+|---|---|---|
+| ЛР1 bring-up | звіт здано у Word | — |
+| ЛР2 інтеграція сенсорів | `docs/lab2-report.md` | https://drive.google.com/file/d/1bkmDj3VoO9egDjwT98JWo7B4difG5Dfp/view?usp=sharing |
+| ЛР3 super loop | `docs/lab3-report.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
+| ЛР4 FreeRTOS | `docs/lab4-report.md`, порівняння — `docs/comparison.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
+
 ## Що це за проєкт
 
 Квадрант із 4 фоторезисторів GM5528 визначає напрямок на джерело світла, два серводвигуни
@@ -20,7 +29,7 @@
 
 ```bash
 git clone <URL цього репозиторію>
-cd incident-recorder-lab1
+cd heliostat-sky-cam
 
 
 make image      # один раз: зібрати Docker-образ з тулчейном
