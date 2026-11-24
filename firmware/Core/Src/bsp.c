@@ -39,8 +39,17 @@ static QSubscrList subscrSto[MAX_PUB_SIG];
 #define STK(w) (((w) * BSP_STACK_SCALE_PCT) / 100U)
 #define AO_DEF(id_, nm_, qp_, os_, qlen_, stkw_) \
     static QEvtPtr q_##id_[qlen_]; static StackType_t s_##id_[STK(stkw_)];
-AO_DEF(cli,      "cli",      7, 3, 32, 384)
-AO_DEF(log,      "log",      8, 4, 16, 320)
+#ifdef LOG_OWNER_HIGH                                    /* варіант: власник flash вище за всіх клієнтів (4), п. 5.8 */
+#define CLI_QP 7
+#define LOG_QP 8
+#define LOG_OS 4
+#else                                                    /* основний: log на пріоритеті задачі ЛР4 (2), див. qp-design.md */
+#define CLI_QP 8
+#define LOG_QP 7
+#define LOG_OS 2
+#endif
+AO_DEF(cli,      "cli",      CLI_QP, 3, 32, 384)
+AO_DEF(log,      "log",      LOG_QP, LOG_OS, 16, 320)
 AO_DEF(button,   "button",  12, 6,  8, 128)
 AO_DEF(adc,      "adc",     11, 5,  4, 128)
 AO_DEF(control,  "control", 10, 4, 16, 320)
@@ -88,8 +97,8 @@ void product_init(void)
     meas_init();
     Cli_ctor(); Log_ctor(); Button_ctor(); Adc_ctor(); Control_ctor(); Servo_ctor();
     Imu_ctor(); Tick_ctor(); Loss_ctor(); Led_ctor(); Camera_ctor(); Snapshot_ctor();
-    START(AO_CLI,      AO_Cli,      cli,      7, 3);
-    START(AO_LOG,      AO_Log,      log,      8, 4);
+    START(AO_CLI,      AO_Cli,      cli,      CLI_QP, 3);
+    START(AO_LOG,      AO_Log,      log,      LOG_QP, LOG_OS);
     START(AO_BUTTON,   AO_Button,   button,  12, 6);
     START(AO_ADC,      AO_Adc,      adc,     11, 5);
     START(AO_CONTROL,  AO_Control,  control, 10, 4);
