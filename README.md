@@ -1,4 +1,4 @@
-# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів, ЛР3 super loop, ЛР4 FreeRTOS
+# Геліостат з камерою класифікації неба — ЛР1 bring-up, ЛР2 інтеграція сенсорів, ЛР3 super loop, ЛР4 FreeRTOS, ЛР5 QP/C
 
 Навчальний проєкт з курсу «Системне програмування вбудованих систем».
 Платформа: NUCLEO-F411RE / F446RE, STM32 HAL, C, збірка в Docker.
@@ -12,7 +12,8 @@
 | ЛР1 bring-up | звіт здано у Word | — |
 | ЛР2 інтеграція сенсорів | `docs/lab2-report.md` | https://drive.google.com/file/d/1bkmDj3VoO9egDjwT98JWo7B4difG5Dfp/view?usp=sharing |
 | ЛР3 super loop | `docs/lab3-report.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
-| ЛР4 FreeRTOS | `docs/lab4-report.md`, порівняння — `docs/comparison.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
+| ЛР4 FreeRTOS | `docs/lab4-report.md`, порівняння — `docs/comparison-lr3-lr4.md` | https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing |
+| ЛР5 QP/C на FreeRTOS | `docs/lab5-report.md`, дизайн AO — `docs/qp-design.md`, порівняння трьох підходів — `docs/comparison.md` | буде додано |
 
 ## Що це за проєкт
 
@@ -85,7 +86,8 @@ docs/pinout.md               pinout, адреси, живлення, парам�
 docs/architecture.md         шари, правила залежностей, component diagram (ЛР2)
 docs/captures/               записи логічного аналізатора (ЛР2); розбір — у docs/lab2-report.md, розд. 3.5
 docs/lab2-report.md          звіт ЛР2;  docs/problems.md — журнал проблем
-docs/lab4-report.md          звіт ЛР4;  docs/rtos-design.md — задачі, пріоритети, механізми; docs/comparison.md — порівняння з ЛР3
+docs/lab5-report.md          звіт ЛР5;  docs/qp-design.md — AO, події, власники ресурсів; docs/statecharts/ — діаграми; docs/comparison.md — три підходи
+docs/lab4-report.md          звіт ЛР4;  docs/rtos-design.md — задачі, пріоритети, механізми; docs/comparison-lr3-lr4.md — порівняння з ЛР3
 docs/lab3-report.md          звіт ЛР3;  docs/tasks.md — задачі; docs/limitations.md — реєстр обмежень;
                              docs/baseline-lab4.md — базова лінія для ЛР4; docs/metrics/ — логи прогонів
 tools/                       хост-скрипти ЛР3: run_scenario.py, analyze_stats.py, analyze_latency.py, make_figures.py
@@ -98,6 +100,10 @@ docs/versions.md             версії HAL/CMSIS/тулчейну
 `h` help · `s` selftest · `i` I²C scan · `m` MPU · `c` камера PID/VER · `f` JEDEC flash · `w` flash erase/write/read · `p` PWM 1000/2000 мкс · `a` ADC + маркер D13 (PA5) · `e` навмисний NACK (0x69) · `r` потік MPU 60 с · `1`/`2` серво азимут/елевація · `x` XCLK on/off · `k` статистика I²C
 
 Команди ЛР4 (додано, старі не змінено): `TASKS` · `STACK` · `HEAP` · `OSCOST` · `TRACE ARM|DUMP [n]` · `BTNSIM ms` · `FAULT SDA 1|0` · `CAMIRQ 0|1` · `TEST INV [SEM]|STK|STARVE ms|QFLOOD n ms|HEAP|CTX n|CAMDIAG ms`. Матриця вимірювань для обох прошивок: `python3 tools/measure_all.py --fw lr3|lr4 --bin ...`; порівняння: `python3 tools/compare_lr3_lr4.py`.
+
+Команди ЛР5: `QSTAT` (черги, пули, втрати подій) · `TEST HOG|LOGRATE|BLOCK|OWNER|CTRL|ONESTEP|SNAPTO|FLASHFAIL|STARVE|POOL|STATUS|AUTO [n]|OFF`. Матриця: `python3 tools/measure_all.py --fw lr5 --bin ...`; сценарії: `python3 tools/lr5_auto.py`; фінальна таблиця трьох підходів: `python3 tools/compare_all.py`; рисунки: `python3 tools/make_figures_lr5.py`.
+
+**Ліцензія QP/C.** `firmware/Middlewares/qpc` — QP/C 8.1.6 від Quantum Leaps під GPLv3 (використовуємо в навчальній роботі); для закритого продукту потрібна комерційна ліцензія.
 
 Команди ЛР3 (рядки великими літерами, закінчуються `\r`): `VER` · `STATS [RESET]` · `MEM` · `MODE` · `SKY [FORCE CLEAR|OVERCAST|DARK|AUTO]` · `SERVO ON|OFF` · `CAL ...` · `LOG [n]` · `FRAMES [n]` · `SNAP` · `PERIOD <задача> <мс>` · `PROBE`. Приклад: `py scripts/sendcmd.py "LOG 8" --wait 3`. Сценарії вимірювань — `docs/baseline-lab4.md`.
 
