@@ -1,0 +1,40 @@
+[test] pool1 free=64 min=61: Q_NEW without return until Q_onError
+FATAL Q_onError qf_dyn 630
+=====================================
+ STM32 heliostat | LR5 QP/C | build Nov 24 2026 16:12:20
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=6548 ay=-4916 az=-13372 mag_mg=956 temp_cC=2712 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=3209 mv=2586
+[st] ADC_TR   PASS raw=3300 mv=2659
+[st] ADC_BL   PASS raw=3030 mv=2441
+[st] ADC_BR   PASS raw=2311 mv=1862
+[st] RESULT pass=8 total=8
+[prod] log: 939 records, next frame #1587, open 365 ms
+[prod] 12 AO (QP/C 8.1.6 on FreeRTOS), tick=1000 Hz, heap=1024 B, boot_ms=718
+VER git=a192342 build="Nov 24 2026 16:12:20" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[cli] type 'h' or HELP
+tick 1718 (uptime 1 s, TL=3259 TR=3250 BL=3008 BR=2196, ex=-70 ey=111) mode=OVERCAST sky=OVERCAST load=3%
+tick 2718 (uptime 2 s, TL=3258 TR=3309 BL=3025 BR=2473, ex=-41 ey=88) mode=OVERCAST sky=OVERCAST load=5%
+tick 3718 (uptime 3 s, TL=3179 TR=3341 BL=2907 BR=2326, ex=-35 ey=109) mode=OVERCAST sky=OVERCAST load=5%
+tick 4718 (uptime 4 s, TL=3181 TR=3293 BL=2948 BR=2348, ex=-41 ey=100) mode=OVERCAST sky=OVERCAST load=100%
+tick 5718 (uptime 5 s, TL=3221 TR=3320 BL=2970 BR=2346, ex=-44 ey=103) mode=TRACK sky=CLEAR load=40%
+tick 6718 (uptime 6 s, TL=3240 TR=3320 BL=2903 BR=2449, ex=-31 ey=101) mode=TRACK sky=CLEAR load=5%
+tick 7718 (uptime 7 s, TL=3173 TR=3319 BL=2966 BR=2514, ex=-25 ey=84) mode=TRACK sky=CLEAR load=79%
+tick 8718 (uptime 8 s, TL=3225 TR=3294 BL=2959 BR=2313, ex=-48 ey=105) mode=TRACK sky=CLEAR load=5%
+tick 9718 (uptime 9 s, TL=3229 TR=3306 BL=2966 BR=2380, ex=-42 ey=100) mode=OVERCAST sky=CLEAR load=5%
+tick 10718 (uptime 10 s, TL=3231 TR=3323 BL=3001 BR=2470, ex=-36 ey=90) mode=TRACK sky=CLEAR load=58%
+tick 11718 (uptime 11 s, TL=3227 TR=3330 BL=2950 BR=2397, ex=-37 ey=101) mode=OVERCAST sky=CLEAR load=5%

@@ -1,0 +1,1255 @@
+# scenario=s3 duration=60 servo=0 btnsim_ms=700
+VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+tick 430712 (uptime 430 s, TL=404 TR=676 BL=357 BR=701, ex=288 ey=10) mode=OVERCAST sky=OVERCAST load=8%
+# VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[cli] servo OFF
+tick 431712 (uptime 431 s, TL=435 TR=721 BL=441 BR=704, ex=238 ey=4) mode=OVERCAST sky=OVERCAST load=5%
+tick 432712 (uptime 432 s, TL=493 TR=734 BL=394 BR=825, ex=274 ey=3) mode=OVERCAST sky=OVERCAST load=45%
+[prod] stats reset
+tick 433712 (uptime 433 s, TL=519 TR=622 BL=415 BR=685, ex=166 ey=18) mode=OVERCAST sky=OVERCAST load=6%
+tick 434712 (uptime 434 s, TL=445 TR=614 BL=355 BR=780, ex=270 ey=-34) mode=OVERCAST sky=OVERCAST load=5%
+tick 435712 (uptime 435 s, TL=402 TR=696 BL=443 BR=828, ex=286 ey=-73) mode=OVERCAST sky=OVERCAST load=63%
+tick 436712 (uptime 436 s, TL=379 TR=691 BL=404 BR=677, ex=271 ey=-5) mode=OVERCAST sky=OVERCAST load=5%
+tick 437712 (uptime 437 s, TL=389 TR=747 BL=425 BR=665, ex=268 ey=20) mode=OVERCAST sky=OVERCAST load=5%
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=adc n=467 min_us=165 avg_us=165 max_us=174 late_max_us=893 late_p99_us=700 missed=0 max_cyc=17420
+STAT name=control n=467 min_us=19 avg_us=23 max_us=54 late_max_us=1091 late_p99_us=900 missed=0 max_cyc=5423
+STAT name=servo n=233 min_us=6 avg_us=6 max_us=6 late_max_us=909 late_p99_us=800 missed=0 max_cyc=654
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=cli n=6 min_us=3538 avg_us=16209 max_us=18986 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1898666
+STAT name=imu n=47 min_us=849 avg_us=885 max_us=1224 late_max_us=19519 late_p99_us=1600 missed=0 max_cyc=122432
+STAT name=tick n=5 min_us=19987 avg_us=19988 max_us=19988 late_max_us=374 late_p99_us=400 missed=0 max_cyc=1998839
+STAT name=loss n=47 min_us=7 avg_us=7 max_us=7 late_max_us=20325 late_p99_us=1600 missed=0 max_cyc=756
+STAT name=led n=47 min_us=6 avg_us=6 max_us=7 late_max_us=20684 late_p99_us=1600 missed=0 max_cyc=711
+STAT name=camera n=1 min_us=622884 avg_us=622884 max_us=622884 late_max_us=25 late_p99_us=100 missed=0 max_cyc=62288446
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cam_frame n=1 min_us=599338 avg_us=599338 max_us=599338
+STAT name=cmd_latency n=1 min_us=25 avg_us=25 max_us=25
+STAT name=flash_wait n=0 min_us=0 avg_us=0 max_us=0
+LOAD pct=5 run_pct=25 btn_lost=0 uart_rx_overflow=1 pend_lost=0 flash_err=0 imu_err=0 cam_err=0 flash_last_rc=0
+tick 438712 (uptime 438 s, TL=479 TR=666 BL=424 BR=781, ex=231 ey=-25) mode=OVERCAST sky=OVERCAST load=63%
+tick 439712 (uptime 439 s, TL=416 TR=739 BL=464 BR=667, ex=230 ey=10) mode=OVERCAST sky=OVERCAST load=16%
+tick 440712 (uptime 440 s, TL=386 TR=705 BL=417 BR=774, ex=296 ey=-43) mode=OVERCAST sky=OVERCAST load=5%
+[cli] btnsim 700 ms
+tick 441712 (uptime 441 s, TL=483 TR=733 BL=413 BR=811, ex=265 ey=-3) mode=OVERCAST sky=OVERCAST load=63%
+tick 442712 (uptime 442 s, TL=386 TR=695 BL=435 BR=875, ex=313 ey=-95) mode=OVERCAST sky=OVERCAST load=83%
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2386 thr=2500 ex=179 ey=-63 az=1780 el=1410
+[prod] mode=OVERCAST light=2259 thr=2500 ex=161 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2456 thr=2500 ex=285 ey=-48 az=1780 el=1410
+[prod] mode=OVERCAST light=2329 thr=2500 ex=175 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2329 thr=2500 ex=175 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2239 thr=2500 ex=130 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2239 thr=2500 ex=130 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2239 thr=2500 ex=130 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2398 thr=2500 ex=210 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2381 thr=2500 ex=245 ey=-81 az=1780 el=1410
+[prod] mode=OVERCAST light=2262 thr=2500 ex=198 ey=23 az=1780 el=1410
+[prod] mode=OVERCAST light=2213 thr=2500 ex=211 ey=-53 az=1780 el=1410
+[prod] mode=OVERCAST light=2195 thr=2500 ex=217 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2304 thr=2500 ex=196 ey=-49 az=1780 el=1410
+tick 443712 (uptime 443 s, TL=353 TR=685 BL=404 BR=925, ex=360 ey=-122) mode=OVERCAST sky=OVERCAST load=64%
+[prod] mode=OVERCAST light=2240 thr=2500 ex=209 ey=-8 az=1780 el=1410
+[prod] mode=OVERCAST light=2309 thr=2500 ex=253 ey=-61 az=1780 el=1410
+[prod] mode=OVERCAST light=2249 thr=2500 ex=248 ey=-94 az=1780 el=1410
+[prod] mode=OVERCAST light=2322 thr=2500 ex=189 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2416 thr=2500 ex=255 ey=6 az=1780 el=1410
+[prod] mode=OVERCAST light=2269 thr=2500 ex=204 ey=-19 az=1780 el=1410
+[prod] mode=OVERCAST light=2364 thr=2500 ex=219 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2257 thr=2500 ex=195 ey=-57 az=1780 el=1410
+[prod] mode=OVERCAST light=2384 thr=2500 ex=265 ey=15 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2446 thr=2500 ex=281 ey=-60 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2328 thr=2500 ex=290 ey=-22 az=1780 el=1410
+[prod] mode=OVERCAST light=2361 thr=2500 ex=206 ey=-71 az=1780 el=1410
+[prod] mode=OVERCAST light=2298 thr=2500 ex=224 ey=-38 az=1780 el=1410
+[prod] mode=OVERCAST light=2302 thr=2500 ex=209 ey=-45 az=1780 el=1410
+[prod] mode=OVERCAST light=2324 thr=2500 ex=205 ey=7 az=1780 el=1410
+[prod] mode=OVERCAST light=2348 thr=2500 ex=222 ey=-116 az=1780 el=1410
+tick 444714 (uptime 444 s, TL=507 TR=776 BL=411 BR=837, ex=274 ey=13) mode=OVERCAST sky=OVERCAST load=57%
+[prod] mode=OVERCAST light=2331 thr=2500 ex=240 ey=-68 az=1780 el=1410
+[prod] mode=OVERCAST light=2242 thr=2500 ex=302 ey=-69 az=1780 el=1410
+[prod] mode=OVERCAST light=2270 thr=2500 ex=194 ey=-106 az=1780 el=1410
+[prod] mode=OVERCAST light=2344 thr=2500 ex=259 ey=-126 az=1780 el=1410
+[prod] mode=OVERCAST light=2342 thr=2500 ex=190 ey=5 az=1780 el=1410
+[prod] mode=OVERCAST light=2151 thr=2500 ex=190 ey=-7 az=1780 el=1410
+[prod] mode=OVERCAST light=2435 thr=2500 ex=236 ey=-61 az=1780 el=1410
+[prod] mode=OVERCAST light=2337 thr=2500 ex=265 ey=-86 az=1780 el=1410
+[prod] mode=OVERCAST light=2474 thr=2500 ex=242 ey=-53 az=1780 el=1410
+[prod] mode=OVERCAST light=2324 thr=2500 ex=240 ey=-86 az=1780 el=1410
+[prod] mode=OVERCAST light=2365 thr=2500 ex=255 ey=-82 az=1780 el=1410
+[prod] mode=OVERCAST light=2368 thr=2500 ex=221 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2399 thr=2500 ex=252 ey=-84 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2437 thr=2500 ex=230 ey=-72 az=1780 el=1410
+tick 445736 (uptime 445 s, TL=439 TR=763 BL=424 BR=760, ex=276 ey=7) mode=OVERCAST sky=OVERCAST load=77%
+[prod] mode=OVERCAST light=2298 thr=2500 ex=188 ey=-92 az=1780 el=1410
+[prod] mode=OVERCAST light=2431 thr=2500 ex=284 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2388 thr=2500 ex=301 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2380 thr=2500 ex=222 ey=-23 az=1780 el=1410
+[prod] mode=OVERCAST light=2262 thr=2500 ex=263 ey=-20 az=1780 el=1410
+[prod] mode=OVERCAST light=2431 thr=2500 ex=243 ey=-47 az=1780 el=1410
+[prod] mode=OVERCAST light=2275 thr=2500 ex=245 ey=-32 az=1780 el=1410
+[prod] mode=OVERCAST light=2566 thr=2500 ex=259 ey=-80 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2451 thr=2500 ex=303 ey=-135 az=1780 el=1410
+[prod] mode=OVERCAST light=2451 thr=2500 ex=303 ey=-135 az=1780 el=1410
+[prod] mode=OVERCAST light=2447 thr=2500 ex=242 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2447 thr=2500 ex=242 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2447 thr=2500 ex=242 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2209 thr=2500 ex=281 ey=-105 az=1780 el=1410
+[prod] mode=OVERCAST light=2209 thr=2500 ex=281 ey=-105 az=1780 el=1410
+[prod] mode=OVERCAST light=2339 thr=2500 ex=221 ey=-83 az=1780 el=1410
+[prod] mode=OVERCAST light=2325 thr=2500 ex=206 ey=-34 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=204 ey=3 az=1780 el=1410
+tick 446712 (uptime 446 s, TL=486 TR=727 BL=424 BR=853, ex=269 ey=-25) mode=OVERCAST sky=OVERCAST load=72%
+[prod] mode=OVERCAST light=2350 thr=2500 ex=221 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2341 thr=2500 ex=273 ey=-37 az=1780 el=1410
+[prod] mode=OVERCAST light=2240 thr=2500 ex=260 ey=-90 az=1780 el=1410
+[prod] mode=OVERCAST light=2298 thr=2500 ex=208 ey=-80 az=1780 el=1410
+[prod] mode=OVERCAST light=2327 thr=2500 ex=230 ey=-25 az=1780 el=1410
+[prod] mode=OVERCAST light=2410 thr=2500 ex=212 ey=-69 az=1780 el=1410
+[prod] mode=OVERCAST light=2323 thr=2500 ex=229 ey=-64 az=1780 el=1410
+[prod] mode=OVERCAST light=2249 thr=2500 ex=166 ey=-23 az=1780 el=1410
+[prod] mode=OVERCAST light=2313 thr=2500 ex=217 ey=62 az=1780 el=1410
+[prod] mode=OVERCAST light=2442 thr=2500 ex=304 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2243 thr=2500 ex=173 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2361 thr=2500 ex=202 ey=41 az=1780 el=1410
+[prod] mode=OVERCAST light=2274 thr=2500 ex=191 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2464 thr=2500 ex=278 ey=-13 az=1780 el=1410
+[prod] mode=OVERCAST light=2392 thr=2500 ex=239 ey=12 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2392 thr=2500 ex=254 ey=7 az=1780 el=1410
+[prod] mode=OVERCAST light=2331 thr=2500 ex=220 ey=-75 az=1780 el=1410
+tick 447712 (uptime 447 s, TL=423 TR=675 BL=427 BR=767, ex=258 ey=-41) mode=OVERCAST sky=OVERCAST load=72%
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2436 thr=2500 ex=226 ey=-5 az=1780 el=1410
+[prod] mode=OVERCAST light=2360 thr=2500 ex=217 ey=-103 az=1780 el=1410
+[prod] mode=OVERCAST light=2320 thr=2500 ex=195 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2352 thr=2500 ex=268 ey=-118 az=1780 el=1410
+[prod] mode=OVERCAST light=2438 thr=2500 ex=272 ey=-36 az=1780 el=1410
+[prod] mode=OVERCAST light=2218 thr=2500 ex=195 ey=-16 az=1780 el=1410
+[prod] mode=OVERCAST light=2217 thr=2500 ex=188 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2156 thr=2500 ex=184 ey=11 az=1780 el=1410
+[prod] mode=OVERCAST light=2254 thr=2500 ex=211 ey=-13 az=1780 el=1410
+[prod] mode=OVERCAST light=2246 thr=2500 ex=199 ey=9 az=1780 el=1410
+[prod] mode=OVERCAST light=2287 thr=2500 ex=254 ey=-110 az=1780 el=1410
+[prod] mode=OVERCAST light=2247 thr=2500 ex=216 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2252 thr=2500 ex=289 ey=-64 az=1780 el=1410
+[prod] mode=OVERCAST light=2165 thr=2500 ex=194 ey=-41 az=1780 el=1410
+[prod] mode=OVERCAST light=2379 thr=2500 ex=233 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2317 thr=2500 ex=252 ey=-58 az=1780 el=1410
+tick 448712 (uptime 448 s, TL=479 TR=708 BL=391 BR=738, ex=248 ey=25) mode=OVERCAST sky=OVERCAST load=44%
+[prod] mode=OVERCAST light=2213 thr=2500 ex=328 ey=-44 az=1780 el=1410
+[prod] mode=OVERCAST light=2275 thr=2500 ex=208 ey=-7 az=1780 el=1410
+[prod] mode=OVERCAST light=2147 thr=2500 ex=219 ey=-75 az=1780 el=1410
+[prod] mode=OVERCAST light=2256 thr=2500 ex=203 ey=16 az=1780 el=1410
+[prod] mode=OVERCAST light=2366 thr=2500 ex=253 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2337 thr=2500 ex=270 ey=-96 az=1780 el=1410
+[prod] mode=OVERCAST light=2251 thr=2500 ex=254 ey=-90 az=1780 el=1410
+[prod] mode=OVERCAST light=2314 thr=2500 ex=256 ey=-107 az=1780 el=1410
+[prod] mode=OVERCAST light=2273 thr=2500 ex=261 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2210 thr=2500 ex=219 ey=-93 az=1780 el=1410
+[prod] mode=OVERCAST light=2199 thr=2500 ex=251 ey=-117 az=1780 el=1410
+[prod] mode=OVERCAST light=2227 thr=2500 ex=199 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2280 thr=2500 ex=240 ey=-102 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2260 thr=2500 ex=250 ey=19 az=1780 el=1410
+[prod] mode=OVERCAST light=2266 thr=2500 ex=235 ey=-11 az=1780 el=1410
+[prod] mode=OVERCAST light=2160 thr=2500 ex=237 ey=-54 az=1780 el=1410
+[prod] mode=OVERCAST light=2365 thr=2500 ex=259 ey=-54 az=1780 el=1410
+[prod] mode=OVERCAST light=2333 thr=2500 ex=263 ey=-126 az=1780 el=1410
+tick 449712 (uptime 449 s, TL=466 TR=702 BL=376 BR=821, ex=287 ey=-12) mode=OVERCAST sky=OVERCAST load=100%
+[prod] mode=OVERCAST light=2362 thr=2500 ex=263 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=200 ey=-37 az=1780 el=1410
+[prod] mode=OVERCAST light=2269 thr=2500 ex=271 ey=-140 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2287 thr=2500 ex=268 ey=-103 az=1780 el=1410
+[prod] mode=OVERCAST light=2361 thr=2500 ex=246 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2228 thr=2500 ex=247 ey=-63 az=1780 el=1410
+[prod] mode=OVERCAST light=2240 thr=2500 ex=200 ey=20 az=1780 el=1410
+[prod] mode=OVERCAST light=2272 thr=2500 ex=331 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2235 thr=2500 ex=294 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2213 thr=2500 ex=220 ey=2 az=1780 el=1410
+[prod] mode=OVERCAST light=2160 thr=2500 ex=261 ey=13 az=1780 el=1410
+[prod] mode=OVERCAST light=2221 thr=2500 ex=241 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2455 thr=2500 ex=267 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2395 thr=2500 ex=204 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2399 thr=2500 ex=240 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2399 thr=2500 ex=240 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2304 thr=2500 ex=235 ey=-13 az=1780 el=1410
+[prod] mode=OVERCAST light=2304 thr=2500 ex=235 ey=-13 az=1780 el=1410
+[prod] mode=OVERCAST light=2245 thr=2500 ex=187 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2282 thr=2500 ex=274 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2282 thr=2500 ex=274 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2303 thr=2500 ex=219 ey=-51 az=1780 el=1410
+tick 450968 (uptime 450 s, TL=418 TR=711 BL=448 BR=715, ex=244 ey=-14) mode=OVERCAST sky=OVERCAST load=84%
+[prod] mode=OVERCAST light=2208 thr=2500 ex=300 ey=-72 az=1780 el=1410
+[prod] mode=OVERCAST light=2284 thr=2500 ex=259 ey=-142 az=1780 el=1410
+[prod] mode=OVERCAST light=2207 thr=2500 ex=196 ey=-6 az=1780 el=1410
+[prod] mode=OVERCAST light=2214 thr=2500 ex=228 ey=9 az=1780 el=1410
+[prod] mode=OVERCAST light=2254 thr=2500 ex=189 ey=-40 az=1780 el=1410
+[prod] mode=OVERCAST light=2272 thr=2500 ex=263 ey=-61 az=1780 el=1410
+[prod] mode=OVERCAST light=2388 thr=2500 ex=260 ey=-75 az=1780 el=1410
+[prod] mode=OVERCAST light=2226 thr=2500 ex=170 ey=-27 az=1780 el=1410
+[prod] mode=OVERCAST light=2293 thr=2500 ex=208 ey=4 az=1780 el=1410
+[prod] mode=OVERCAST light=2199 thr=2500 ex=198 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2219 thr=2500 ex=221 ey=-20 az=1780 el=1410
+[prod] mode=OVERCAST light=2401 thr=2500 ex=261 ey=4 az=1780 el=1410
+[prod] mode=OVERCAST light=2294 thr=2500 ex=266 ey=-19 az=1780 el=1410
+tick 451712 (uptime 451 s, TL=359 TR=675 BL=458 BR=737, ex=266 ey=-72) mode=OVERCAST sky=OVERCAST load=28%
+[prod] mode=OVERCAST light=2415 thr=2500 ex=247 ey=-54 az=1780 el=1410
+[prod] mode=OVERCAST light=2141 thr=2500 ex=174 ey=-3 az=1780 el=1410
+[prod] mode=OVERCAST light=2148 thr=2500 ex=260 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2191 thr=2500 ex=243 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2335 thr=2500 ex=295 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2430 thr=2500 ex=251 ey=-69 az=1780 el=1410
+[prod] mode=OVERCAST light=2160 thr=2500 ex=238 ey=-87 az=1780 el=1410
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2329 thr=2500 ex=216 ey=-24 az=1780 el=1410
+[prod] mode=OVERCAST light=2383 thr=2500 ex=235 ey=-33 az=1780 el=1410
+[prod] mode=OVERCAST light=2283 thr=2500 ex=276 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2423 thr=2500 ex=266 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2115 thr=2500 ex=291 ey=-2 az=1780 el=1410
+[prod] mode=OVERCAST light=2122 thr=2500 ex=280 ey=10 az=1780 el=1410
+[prod] mode=OVERCAST light=2328 thr=2500 ex=272 ey=-128 az=1780 el=1410
+tick 452712 (uptime 452 s, TL=380 TR=681 BL=488 BR=997, ex=318 ey=-166) mode=OVERCAST sky=OVERCAST load=63%
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2377 thr=2500 ex=274 ey=-135 az=1780 el=1410
+[prod] mode=OVERCAST light=2420 thr=2500 ex=241 ey=-52 az=1780 el=1410
+[prod] mode=OVERCAST light=2087 thr=2500 ex=127 ey=-7 az=1780 el=1410
+[prod] mode=OVERCAST light=2147 thr=2500 ex=115 ey=-3 az=1780 el=1410
+[prod] mode=OVERCAST light=2147 thr=2500 ex=115 ey=-3 az=1780 el=1410
+[prod] mode=OVERCAST light=2392 thr=2500 ex=266 ey=-144 az=1780 el=1410
+[prod] mode=OVERCAST light=2232 thr=2500 ex=211 ey=-77 az=1780 el=1410
+[prod] mode=OVERCAST light=2393 thr=2500 ex=290 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2393 thr=2500 ex=290 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2393 thr=2500 ex=290 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2275 thr=2500 ex=164 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2275 thr=2500 ex=164 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2202 thr=2500 ex=202 ey=17 az=1780 el=1410
+[prod] mode=OVERCAST light=2056 thr=2500 ex=318 ey=-107 az=1780 el=1410
+[prod] mode=OVERCAST light=2167 thr=2500 ex=194 ey=11 az=1780 el=1410
+[prod] mode=OVERCAST light=2279 thr=2500 ex=252 ey=-82 az=1780 el=1410
+[prod] mode=OVERCAST light=2339 thr=2500 ex=235 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2250 thr=2500 ex=211 ey=-35 az=1780 el=1410
+tick 453712 (uptime 453 s, TL=337 TR=655 BL=435 BR=705, ex=275 ey=-69) mode=OVERCAST sky=OVERCAST load=69%
+[prod] mode=OVERCAST light=2206 thr=2500 ex=185 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2358 thr=2500 ex=288 ey=-131 az=1780 el=1410
+[prod] mode=OVERCAST light=2127 thr=2500 ex=247 ey=-92 az=1780 el=1410
+[prod] mode=OVERCAST light=2140 thr=2500 ex=249 ey=-88 az=1780 el=1410
+[prod] mode=OVERCAST light=2504 thr=2500 ex=303 ey=-57 az=1780 el=1410
+[prod] mode=OVERCAST light=2178 thr=2500 ex=168 ey=24 az=1780 el=1410
+[prod] mode=OVERCAST light=2272 thr=2500 ex=220 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2250 thr=2500 ex=194 ey=-4 az=1780 el=1410
+[prod] mode=OVERCAST light=2199 thr=2500 ex=180 ey=-32 az=1780 el=1410
+[prod] mode=OVERCAST light=2339 thr=2500 ex=260 ey=-76 az=1780 el=1410
+[prod] mode=OVERCAST light=2321 thr=2500 ex=264 ey=-117 az=1780 el=1410
+[prod] mode=OVERCAST light=2140 thr=2500 ex=170 ey=-12 az=1780 el=1410
+[prod] mode=OVERCAST light=2256 thr=2500 ex=242 ey=4 az=1780 el=1410
+[prod] mode=OVERCAST light=2366 thr=2500 ex=230 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2321 thr=2500 ex=242 ey=5 az=1780 el=1410
+[prod] mode=OVERCAST light=2227 thr=2500 ex=187 ey=-44 az=1780 el=1410
+[prod] mode=OVERCAST light=2226 thr=2500 ex=260 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2258 thr=2500 ex=270 ey=-72 az=1780 el=1410
+tick 454712 (uptime 454 s, TL=416 TR=736 BL=390 BR=749, ex=296 ey=5) mode=OVERCAST sky=OVERCAST load=28%
+[prod] mode=OVERCAST light=2490 thr=2500 ex=188 ey=-146 az=1780 el=1410
+[prod] mode=OVERCAST light=2111 thr=2500 ex=250 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2317 thr=2500 ex=231 ey=-47 az=1780 el=1410
+[prod] mode=OVERCAST light=2555 thr=2500 ex=182 ey=-150 az=1780 el=1410
+[prod] mode=OVERCAST light=2289 thr=2500 ex=253 ey=-40 az=1780 el=1410
+[prod] mode=OVERCAST light=2147 thr=2500 ex=207 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2319 thr=2500 ex=322 ey=-48 az=1780 el=1410
+[prod] mode=OVERCAST light=2079 thr=2500 ex=230 ey=-36 az=1780 el=1410
+[prod] mode=OVERCAST light=2384 thr=2500 ex=256 ey=-26 az=1780 el=1410
+[prod] mode=OVERCAST light=2279 thr=2500 ex=241 ey=-72 az=1780 el=1410
+[prod] mode=OVERCAST light=2292 thr=2500 ex=251 ey=-33 az=1780 el=1410
+[prod] mode=OVERCAST light=2245 thr=2500 ex=233 ey=-52 az=1780 el=1410
+[prod] mode=OVERCAST light=2203 thr=2500 ex=259 ey=-53 az=1780 el=1410
+[prod] mode=OVERCAST light=2294 thr=2500 ex=162 ey=2 az=1780 el=1410
+[prod] mode=OVERCAST light=2218 thr=2500 ex=202 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2171 thr=2500 ex=244 ey=-80 az=1780 el=1410
+[prod] mode=OVERCAST light=2414 thr=2500 ex=243 ey=-66 az=1780 el=1410
+tick 455714 (uptime 455 s, TL=482 TR=726 BL=372 BR=717, ex=256 ey=51) mode=OVERCAST sky=OVERCAST load=38%
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2415 thr=2500 ex=242 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2279 thr=2500 ex=285 ey=-119 az=1780 el=1410
+[prod] mode=OVERCAST light=2207 thr=2500 ex=258 ey=-6 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2287 thr=2500 ex=214 ey=5 az=1780 el=1410
+[prod] mode=OVERCAST light=2356 thr=2500 ex=275 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2250 thr=2500 ex=298 ey=-41 az=1780 el=1410
+[prod] mode=OVERCAST light=2283 thr=2500 ex=258 ey=-108 az=1780 el=1410
+[prod] mode=OVERCAST light=2245 thr=2500 ex=262 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2334 thr=2500 ex=254 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2097 thr=2500 ex=355 ey=29 az=1780 el=1410
+[prod] mode=OVERCAST light=2297 thr=2500 ex=203 ey=10 az=1780 el=1410
+[prod] mode=OVERCAST light=2552 thr=2500 ex=319 ey=-109 az=1780 el=1410
+[prod] mode=OVERCAST light=2305 thr=2500 ex=206 ey=-73 az=1780 el=1410
+[prod] mode=OVERCAST light=2284 thr=2500 ex=260 ey=-31 az=1780 el=1410
+[prod] mode=OVERCAST light=2284 thr=2500 ex=260 ey=-31 az=1780 el=1410
+[prod] mode=OVERCAST light=2143 thr=2500 ex=260 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2143 thr=2500 ex=260 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2244 thr=2500 ex=205 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2244 thr=2500 ex=205 ey=-85 az=1780 el=1410
+tick 456943 (uptime 456 s, TL=460 TR=664 BL=435 BR=641, ex=186 ey=21) mode=OVERCAST sky=OVERCAST load=84%
+[prod] mode=OVERCAST light=2368 thr=2500 ex=265 ey=-28 az=1780 el=1410
+[prod] mode=OVERCAST light=2257 thr=2500 ex=218 ey=-34 az=1780 el=1410
+[prod] mode=OVERCAST light=2178 thr=2500 ex=269 ey=-91 az=1780 el=1410
+[prod] mode=OVERCAST light=2254 thr=2500 ex=226 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2197 thr=2500 ex=211 ey=-30 az=1780 el=1410
+[prod] mode=OVERCAST light=2128 thr=2500 ex=170 ey=-35 az=1780 el=1410
+[prod] mode=OVERCAST light=2149 thr=2500 ex=190 ey=-80 az=1780 el=1410
+[prod] mode=OVERCAST light=2158 thr=2500 ex=170 ey=-16 az=1780 el=1410
+[prod] mode=OVERCAST light=2237 thr=2500 ex=213 ey=-6 az=1780 el=1410
+[prod] mode=OVERCAST light=2401 thr=2500 ex=253 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2332 thr=2500 ex=245 ey=-38 az=1780 el=1410
+[prod] mode=OVERCAST light=2267 thr=2500 ex=259 ey=-128 az=1780 el=1410
+[prod] mode=OVERCAST light=2323 thr=2500 ex=235 ey=-28 az=1780 el=1410
+[prod] mode=OVERCAST light=2221 thr=2500 ex=270 ey=-99 az=1780 el=1410
+tick 457712 (uptime 457 s, TL=353 TR=670 BL=377 BR=753, ex=321 ey=-49) mode=OVERCAST sky=OVERCAST load=29%
+[prod] mode=OVERCAST light=2327 thr=2500 ex=230 ey=-32 az=1780 el=1410
+[prod] mode=OVERCAST light=2320 thr=2500 ex=240 ey=-36 az=1780 el=1410
+[prod] mode=OVERCAST light=2259 thr=2500 ex=260 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2178 thr=2500 ex=194 ey=-3 az=1780 el=1410
+[prod] mode=OVERCAST light=2124 thr=2500 ex=247 ey=-76 az=1780 el=1410
+[prod] mode=OVERCAST light=2329 thr=2500 ex=229 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2277 thr=2500 ex=245 ey=-68 az=1780 el=1410
+[prod] mode=OVERCAST light=2356 thr=2500 ex=236 ey=-92 az=1780 el=1410
+[prod] mode=OVERCAST light=2251 thr=2500 ex=222 ey=43 az=1780 el=1410
+[prod] mode=OVERCAST light=2153 thr=2500 ex=252 ey=-44 az=1780 el=1410
+[prod] mode=OVERCAST light=2159 thr=2500 ex=254 ey=-19 az=1780 el=1410
+[prod] mode=OVERCAST light=2340 thr=2500 ex=259 ey=-31 az=1780 el=1410
+[prod] mode=OVERCAST light=2359 thr=2500 ex=241 ey=-45 az=1780 el=1410
+[prod] mode=OVERCAST light=2223 thr=2500 ex=233 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2231 thr=2500 ex=295 ey=-80 az=1780 el=1410
+[prod] mode=OVERCAST light=2314 thr=2500 ex=247 ey=8 az=1780 el=1410
+[prod] mode=OVERCAST light=2267 thr=2500 ex=268 ey=-134 az=1780 el=1410
+tick 458712 (uptime 458 s, TL=460 TR=660 BL=450 BR=780, ex=225 ey=-46) mode=OVERCAST sky=OVERCAST load=27%
+[prod] mode=OVERCAST light=2119 thr=2500 ex=302 ey=64 az=1780 el=1410
+[prod] mode=OVERCAST light=2098 thr=2500 ex=192 ey=-16 az=1780 el=1410
+[prod] mode=OVERCAST light=2141 thr=2500 ex=213 ey=0 az=1780 el=1410
+[prod] mode=OVERCAST light=2220 thr=2500 ex=253 ey=-88 az=1780 el=1410
+[prod] mode=OVERCAST light=2270 thr=2500 ex=254 ey=-146 az=1780 el=1410
+[prod] mode=OVERCAST light=2309 thr=2500 ex=214 ey=-71 az=1780 el=1410
+[prod] mode=OVERCAST light=2143 thr=2500 ex=239 ey=-19 az=1780 el=1410
+[prod] mode=OVERCAST light=2186 thr=2500 ex=213 ey=3 az=1780 el=1410
+[prod] mode=OVERCAST light=2229 thr=2500 ex=290 ey=-22 az=1780 el=1410
+[prod] mode=OVERCAST light=2238 thr=2500 ex=217 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2262 thr=2500 ex=308 ey=-14 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2263 thr=2500 ex=248 ey=-49 az=1780 el=1410
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2221 thr=2500 ex=188 ey=-41 az=1780 el=1410
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2279 thr=2500 ex=263 ey=37 az=1780 el=1410
+tick 459712 (uptime 459 s, TL=436 TR=643 BL=414 BR=694, ex=222 ey=-13) mode=OVERCAST sky=OVERCAST load=76%
+[prod] mode=OVERCAST light=2225 thr=2500 ex=305 ey=-108 az=1780 el=1410
+[prod] mode=OVERCAST light=2208 thr=2500 ex=324 ey=-45 az=1780 el=1410
+[prod] mode=OVERCAST light=2136 thr=2500 ex=317 ey=16 az=1780 el=1410
+[prod] mode=OVERCAST light=2231 thr=2500 ex=270 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2189 thr=2500 ex=311 ey=-4 az=1780 el=1410
+[prod] mode=OVERCAST light=2178 thr=2500 ex=264 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2225 thr=2500 ex=149 ey=-37 az=1780 el=1410
+[prod] mode=OVERCAST light=2347 thr=2500 ex=274 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2461 thr=2500 ex=264 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2281 thr=2500 ex=218 ey=-1 az=1780 el=1410
+[prod] mode=OVERCAST light=2281 thr=2500 ex=218 ey=-1 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=205 ey=6 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=205 ey=6 az=1780 el=1410
+[prod] mode=OVERCAST light=2325 thr=2500 ex=245 ey=-23 az=1780 el=1410
+[prod] mode=OVERCAST light=2325 thr=2500 ex=245 ey=-23 az=1780 el=1410
+[prod] mode=OVERCAST light=2355 thr=2500 ex=321 ey=-104 az=1780 el=1410
+[prod] mode=OVERCAST light=2312 thr=2500 ex=256 ey=-17 az=1780 el=1410
+[prod] mode=OVERCAST light=2287 thr=2500 ex=212 ey=-73 az=1780 el=1410
+tick 460712 (uptime 460 s, TL=345 TR=656 BL=425 BR=689, ex=271 ey=-53) mode=OVERCAST sky=OVERCAST load=70%
+[prod] mode=OVERCAST light=2272 thr=2500 ex=217 ey=-27 az=1780 el=1410
+[prod] mode=OVERCAST light=2471 thr=2500 ex=360 ey=-121 az=1780 el=1410
+[prod] mode=OVERCAST light=2261 thr=2500 ex=214 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2328 thr=2500 ex=246 ey=-30 az=1780 el=1410
+[prod] mode=OVERCAST light=2298 thr=2500 ex=220 ey=-82 az=1780 el=1410
+[prod] mode=OVERCAST light=2091 thr=2500 ex=242 ey=5 az=1780 el=1410
+[prod] mode=OVERCAST light=2156 thr=2500 ex=204 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2313 thr=2500 ex=235 ey=-97 az=1780 el=1410
+[prod] mode=OVERCAST light=2109 thr=2500 ex=206 ey=-23 az=1780 el=1410
+[prod] mode=OVERCAST light=2124 thr=2500 ex=225 ey=-63 az=1780 el=1410
+[prod] mode=OVERCAST light=2230 thr=2500 ex=221 ey=18 az=1780 el=1410
+[prod] mode=OVERCAST light=2223 thr=2500 ex=240 ey=-82 az=1780 el=1410
+[prod] mode=OVERCAST light=2224 thr=2500 ex=206 ey=0 az=1780 el=1410
+[prod] mode=OVERCAST light=2248 thr=2500 ex=250 ey=-111 az=1780 el=1410
+[prod] mode=OVERCAST light=2288 thr=2500 ex=196 ey=-53 az=1780 el=1410
+[prod] mode=OVERCAST light=2416 thr=2500 ex=277 ey=-74 az=1780 el=1410
+[prod] mode=OVERCAST light=2250 thr=2500 ex=188 ey=-9 az=1780 el=1410
+[prod] mode=OVERCAST light=2132 thr=2500 ex=172 ey=-10 az=1780 el=1410
+tick 461712 (uptime 461 s, TL=356 TR=643 BL=460 BR=794, ex=275 ey=-113) mode=OVERCAST sky=OVERCAST load=28%
+[prod] mode=OVERCAST light=2239 thr=2500 ex=327 ey=-13 az=1780 el=1410
+[prod] mode=OVERCAST light=2177 thr=2500 ex=184 ey=-22 az=1780 el=1410
+[prod] mode=OVERCAST light=2234 thr=2500 ex=218 ey=3 az=1780 el=1410
+[prod] mode=OVERCAST light=2329 thr=2500 ex=229 ey=-89 az=1780 el=1410
+[prod] mode=OVERCAST light=2502 thr=2500 ex=271 ey=-135 az=1780 el=1410
+[prod] mode=OVERCAST light=2376 thr=2500 ex=367 ey=-140 az=1780 el=1410
+[prod] mode=OVERCAST light=2349 thr=2500 ex=231 ey=-130 az=1780 el=1410
+[prod] mode=OVERCAST light=2127 thr=2500 ex=296 ey=-6 az=1780 el=1410
+[prod] mode=OVERCAST light=2335 thr=2500 ex=254 ey=-24 az=1780 el=1410
+[prod] mode=OVERCAST light=2356 thr=2500 ex=260 ey=15 az=1780 el=1410
+[prod] mode=OVERCAST light=2410 thr=2500 ex=259 ey=-6 az=1780 el=1410
+[prod] mode=OVERCAST light=2422 thr=2500 ex=275 ey=-47 az=1780 el=1410
+[prod] mode=OVERCAST light=2469 thr=2500 ex=266 ey=-25 az=1780 el=1410
+[prod] mode=OVERCAST light=2234 thr=2500 ex=195 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2390 thr=2500 ex=307 ey=-34 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2317 thr=2500 ex=215 ey=-20 az=1780 el=1410
+[prod] mode=OVERCAST light=2296 thr=2500 ex=205 ey=-64 az=1780 el=1410
+tick 462712 (uptime 462 s, TL=451 TR=640 BL=379 BR=607, ex=200 ey=50) mode=OVERCAST sky=OVERCAST load=72%
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2260 thr=2500 ex=208 ey=-27 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2393 thr=2500 ex=244 ey=-36 az=1780 el=1410
+[prod] mode=OVERCAST light=2360 thr=2500 ex=225 ey=-28 az=1780 el=1410
+[prod] mode=OVERCAST light=2182 thr=2500 ex=260 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2346 thr=2500 ex=243 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2287 thr=2500 ex=250 ey=-94 az=1780 el=1410
+[prod] mode=OVERCAST light=2254 thr=2500 ex=193 ey=-76 az=1780 el=1410
+[prod] mode=OVERCAST light=2259 thr=2500 ex=230 ey=5 az=1780 el=1410
+[prod] mode=OVERCAST light=2208 thr=2500 ex=198 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2094 thr=2500 ex=258 ey=-67 az=1780 el=1410
+[prod] mode=OVERCAST light=2280 thr=2500 ex=318 ey=-54 az=1780 el=1410
+[prod] mode=OVERCAST light=2157 thr=2500 ex=190 ey=17 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2303 thr=2500 ex=252 ey=-41 az=1780 el=1410
+[prod] mode=OVERCAST light=2202 thr=2500 ex=194 ey=-63 az=1780 el=1410
+[prod] mode=OVERCAST light=2209 thr=2500 ex=292 ey=-38 az=1780 el=1410
+[prod] mode=OVERCAST light=2194 thr=2500 ex=240 ey=-116 az=1780 el=1410
+tick 463724 (uptime 463 s, TL=424 TR=730 BL=341 BR=757, ex=320 ey=24) mode=OVERCAST sky=OVERCAST load=100%
+[prod] mode=OVERCAST light=2178 thr=2500 ex=287 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2229 thr=2500 ex=330 ey=-46 az=1780 el=1410
+[prod] mode=OVERCAST light=2315 thr=2500 ex=305 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2390 thr=2500 ex=208 ey=-52 az=1780 el=1410
+[prod] mode=OVERCAST light=2184 thr=2500 ex=243 ey=-63 az=1780 el=1410
+[prod] mode=OVERCAST light=2452 thr=2500 ex=226 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2109 thr=2500 ex=253 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2237 thr=2500 ex=240 ey=64 az=1780 el=1410
+[prod] mode=OVERCAST light=2308 thr=2500 ex=174 ey=-68 az=1780 el=1410
+[prod] mode=OVERCAST light=2302 thr=2500 ex=221 ey=-29 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=158 ey=-64 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=158 ey=-64 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=158 ey=-64 az=1780 el=1410
+[prod] mode=OVERCAST light=2265 thr=2500 ex=236 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2265 thr=2500 ex=236 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2273 thr=2500 ex=231 ey=-2 az=1780 el=1410
+[prod] mode=OVERCAST light=2151 thr=2500 ex=190 ey=37 az=1780 el=1410
+[prod] mode=OVERCAST light=2154 thr=2500 ex=192 ey=-39 az=1780 el=1410
+tick 464718 (uptime 464 s, TL=383 TR=687 BL=443 BR=790, ex=282 ey=-70) mode=OVERCAST sky=OVERCAST load=70%
+[prod] mode=OVERCAST light=2209 thr=2500 ex=298 ey=-99 az=1780 el=1410
+[prod] mode=OVERCAST light=2274 thr=2500 ex=249 ey=-128 az=1780 el=1410
+[prod] mode=OVERCAST light=2320 thr=2500 ex=222 ey=-81 az=1780 el=1410
+[prod] mode=OVERCAST light=2233 thr=2500 ex=249 ey=-109 az=1780 el=1410
+[prod] mode=OVERCAST light=2127 thr=2500 ex=224 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2253 thr=2500 ex=226 ey=-7 az=1780 el=1410
+[prod] mode=OVERCAST light=2254 thr=2500 ex=212 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2362 thr=2500 ex=234 ey=6 az=1780 el=1410
+[prod] mode=OVERCAST light=2308 thr=2500 ex=248 ey=-28 az=1780 el=1410
+[prod] mode=OVERCAST light=2300 thr=2500 ex=250 ey=42 az=1780 el=1410
+[prod] mode=OVERCAST light=2144 thr=2500 ex=152 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2246 thr=2500 ex=258 ey=24 az=1780 el=1410
+[prod] mode=OVERCAST light=2388 thr=2500 ex=255 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2311 thr=2500 ex=207 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2248 thr=2500 ex=240 ey=59 az=1780 el=1410
+[prod] mode=OVERCAST light=2196 thr=2500 ex=189 ey=-34 az=1780 el=1410
+[prod] mode=OVERCAST light=2312 thr=2500 ex=250 ey=16 az=1780 el=1410
+tick 465712 (uptime 465 s, TL=444 TR=663 BL=415 BR=674, ex=217 ey=8) mode=OVERCAST sky=OVERCAST load=72%
+[prod] mode=OVERCAST light=2294 thr=2500 ex=173 ey=-41 az=1780 el=1410
+[prod] mode=OVERCAST light=2347 thr=2500 ex=277 ey=12 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2237 thr=2500 ex=204 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=238 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2244 thr=2500 ex=247 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2413 thr=2500 ex=240 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2302 thr=2500 ex=289 ey=-102 az=1780 el=1410
+[prod] mode=OVERCAST light=2402 thr=2500 ex=246 ey=-51 az=1780 el=1410
+[prod] mode=OVERCAST light=2320 thr=2500 ex=282 ey=-116 az=1780 el=1410
+[prod] mode=OVERCAST light=2177 thr=2500 ex=256 ey=-69 az=1780 el=1410
+[prod] mode=OVERCAST light=2279 thr=2500 ex=291 ey=-131 az=1780 el=1410
+[prod] mode=OVERCAST light=2355 thr=2500 ex=261 ey=-43 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2407 thr=2500 ex=256 ey=-44 az=1780 el=1410
+[prod] mode=OVERCAST light=2232 thr=2500 ex=253 ey=-131 az=1780 el=1410
+[prod] mode=OVERCAST light=2350 thr=2500 ex=234 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2171 thr=2500 ex=252 ey=-90 az=1780 el=1410
+tick 466725 (uptime 466 s, TL=445 TR=705 BL=389 BR=718, ex=260 ey=19) mode=OVERCAST sky=OVERCAST load=100%
+[prod] mode=OVERCAST light=2272 thr=2500 ex=299 ey=-107 az=1780 el=1410
+[prod] mode=OVERCAST light=2281 thr=2500 ex=213 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2158 thr=2500 ex=242 ey=-90 az=1780 el=1410
+[prod] mode=OVERCAST light=2393 thr=2500 ex=260 ey=-92 az=1780 el=1410
+[prod] mode=OVERCAST light=2331 thr=2500 ex=264 ey=-148 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2295 thr=2500 ex=219 ey=1 az=1780 el=1410
+[prod] mode=OVERCAST light=2256 thr=2500 ex=294 ey=-120 az=1780 el=1410
+[prod] mode=OVERCAST light=2255 thr=2500 ex=297 ey=-103 az=1780 el=1410
+[prod] mode=OVERCAST light=2330 thr=2500 ex=218 ey=-16 az=1780 el=1410
+[prod] mode=OVERCAST light=2137 thr=2500 ex=292 ey=-22 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=271 ey=-96 az=1780 el=1410
+[prod] mode=OVERCAST light=2333 thr=2500 ex=221 ey=-34 az=1780 el=1410
+[prod] mode=OVERCAST light=2271 thr=2500 ex=268 ey=-67 az=1780 el=1410
+[prod] mode=OVERCAST light=2201 thr=2500 ex=160 ey=-23 az=1780 el=1410
+[prod] mode=OVERCAST light=2133 thr=2500 ex=277 ey=-7 az=1780 el=1410
+[prod] mode=OVERCAST light=2292 thr=2500 ex=211 ey=-8 az=1780 el=1410
+[prod] mode=OVERCAST light=2347 thr=2500 ex=274 ey=-64 az=1780 el=1410
+[prod] mode=OVERCAST light=2375 thr=2500 ex=261 ey=-40 az=1780 el=1410
+[prod] mode=OVERCAST light=2375 thr=2500 ex=261 ey=-40 az=1780 el=1410
+[prod] mode=OVERCAST light=2133 thr=2500 ex=145 ey=1 az=1780 el=1410
+[prod] mode=OVERCAST light=2133 thr=2500 ex=145 ey=1 az=1780 el=1410
+[prod] mode=OVERCAST light=2133 thr=2500 ex=145 ey=1 az=1780 el=1410
+[prod] mode=OVERCAST light=2258 thr=2500 ex=260 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2258 thr=2500 ex=260 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2311 thr=2500 ex=280 ey=38 az=1780 el=1410
+tick 468159 (uptime 467 s, TL=455 TR=654 BL=414 BR=782, ex=245 ey=-37) mode=OVERCAST sky=OVERCAST load=86%
+[prod] mode=OVERCAST light=2131 thr=2500 ex=310 ey=-45 az=1780 el=1410
+[prod] mode=OVERCAST light=2204 thr=2500 ex=241 ey=-74 az=1780 el=1410
+[prod] mode=OVERCAST light=2311 thr=2500 ex=226 ey=-90 az=1780 el=1410
+[prod] mode=OVERCAST light=2306 thr=2500 ex=261 ey=-133 az=1780 el=1410
+[prod] mode=OVERCAST light=2215 thr=2500 ex=209 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2346 thr=2500 ex=280 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2160 thr=2500 ex=260 ey=-54 az=1780 el=1410
+[prod] mode=OVERCAST light=2250 thr=2500 ex=287 ey=-130 az=1780 el=1410
+[prod] mode=OVERCAST light=2236 thr=2500 ex=260 ey=-118 az=1780 el=1410
+[prod] mode=OVERCAST light=2305 thr=2500 ex=230 ey=-81 az=1780 el=1410
+tick 468717 (uptime 468 s, TL=426 TR=720 BL=391 BR=679, ex=262 ey=34) mode=OVERCAST sky=OVERCAST load=29%
+[prod] mode=OVERCAST light=2304 thr=2500 ex=228 ey=5 az=1780 el=1410
+[prod] mode=OVERCAST light=2210 thr=2500 ex=279 ey=-97 az=1780 el=1410
+[prod] mode=OVERCAST light=2313 thr=2500 ex=236 ey=-27 az=1780 el=1410
+[prod] mode=OVERCAST light=2295 thr=2500 ex=247 ey=-58 az=1780 el=1410
+[prod] mode=OVERCAST light=2331 thr=2500 ex=243 ey=-25 az=1780 el=1410
+[prod] mode=OVERCAST light=2154 thr=2500 ex=314 ey=-144 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2286 thr=2500 ex=266 ey=-17 az=1780 el=1410
+[prod] mode=OVERCAST light=2287 thr=2500 ex=177 ey=-68 az=1780 el=1410
+[prod] mode=OVERCAST light=2237 thr=2500 ex=253 ey=-118 az=1780 el=1410
+[prod] mode=OVERCAST light=2079 thr=2500 ex=217 ey=-24 az=1780 el=1410
+[prod] mode=OVERCAST light=2422 thr=2500 ex=257 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2069 thr=2500 ex=274 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2136 thr=2500 ex=177 ey=-10 az=1780 el=1410
+[prod] mode=OVERCAST light=2304 thr=2500 ex=255 ey=-52 az=1780 el=1410
+[prod] mode=OVERCAST light=2351 thr=2500 ex=240 ey=-31 az=1780 el=1410
+[prod] mode=OVERCAST light=2285 thr=2500 ex=261 ey=-78 az=1780 el=1410
+[prod] mode=OVERCAST light=2210 thr=2500 ex=219 ey=-46 az=1780 el=1410
+tick 469712 (uptime 469 s, TL=463 TR=667 BL=408 BR=729, ex=231 ey=-3) mode=OVERCAST sky=OVERCAST load=71%
+[prod] mode=OVERCAST light=2339 thr=2500 ex=235 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2296 thr=2500 ex=234 ey=-106 az=1780 el=1410
+[prod] mode=OVERCAST light=2122 thr=2500 ex=288 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2332 thr=2500 ex=303 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2121 thr=2500 ex=258 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2370 thr=2500 ex=252 ey=-112 az=1780 el=1410
+[prod] mode=OVERCAST light=2146 thr=2500 ex=112 ey=-7 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2272 thr=2500 ex=294 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2453 thr=2500 ex=228 ey=-149 az=1780 el=1410
+[prod] mode=OVERCAST light=2270 thr=2500 ex=275 ey=-39 az=1780 el=1410
+[prod] mode=OVERCAST light=2224 thr=2500 ex=269 ey=-89 az=1780 el=1410
+[prod] mode=OVERCAST light=2205 thr=2500 ex=272 ey=-29 az=1780 el=1410
+[prod] mode=OVERCAST light=2325 thr=2500 ex=198 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2293 thr=2500 ex=197 ey=-72 az=1780 el=1410
+[prod] mode=OVERCAST light=2213 thr=2500 ex=230 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2225 thr=2500 ex=228 ey=21 az=1780 el=1410
+[prod] mode=OVERCAST light=2360 thr=2500 ex=228 ey=-53 az=1780 el=1410
+[prod] mode=OVERCAST light=2185 thr=2500 ex=155 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2185 thr=2500 ex=155 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2185 thr=2500 ex=155 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2305 thr=2500 ex=307 ey=-131 az=1780 el=1410
+[prod] mode=OVERCAST light=2305 thr=2500 ex=307 ey=-131 az=1780 el=1410
+tick 471060 (uptime 470 s, TL=469 TR=642 BL=419 BR=763, ex=225 ey=-30) mode=OVERCAST sky=OVERCAST load=85%
+[prod] mode=OVERCAST light=2369 thr=2500 ex=275 ey=-13 az=1780 el=1410
+[prod] mode=OVERCAST light=2367 thr=2500 ex=247 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2135 thr=2500 ex=203 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2307 thr=2500 ex=241 ey=-37 az=1780 el=1410
+[prod] mode=OVERCAST light=2330 thr=2500 ex=300 ey=-18 az=1780 el=1410
+[prod] mode=OVERCAST light=2350 thr=2500 ex=248 ey=-106 az=1780 el=1410
+[prod] mode=OVERCAST light=2519 thr=2500 ex=251 ey=-69 az=1780 el=1410
+[prod] mode=OVERCAST light=2204 thr=2500 ex=197 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2291 thr=2500 ex=221 ey=-37 az=1780 el=1410
+[prod] mode=OVERCAST light=2473 thr=2500 ex=269 ey=-45 az=1780 el=1410
+[prod] mode=OVERCAST light=2356 thr=2500 ex=280 ey=-77 az=1780 el=1410
+[prod] mode=OVERCAST light=2417 thr=2500 ex=280 ey=-14 az=1780 el=1410
+tick 471712 (uptime 471 s, TL=454 TR=650 BL=408 BR=626, ex=193 ey=32) mode=OVERCAST sky=OVERCAST load=97%
+[prod] mode=OVERCAST light=2371 thr=2500 ex=227 ey=-39 az=1780 el=1410
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2275 thr=2500 ex=228 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2372 thr=2500 ex=265 ey=6 az=1780 el=1410
+[prod] mode=OVERCAST light=2228 thr=2500 ex=191 ey=-8 az=1780 el=1410
+[prod] mode=OVERCAST light=2402 thr=2500 ex=248 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2170 thr=2500 ex=200 ey=53 az=1780 el=1410
+[prod] mode=OVERCAST light=2220 thr=2500 ex=174 ey=-36 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2447 thr=2500 ex=263 ey=-62 az=1780 el=1410
+[prod] mode=OVERCAST light=2199 thr=2500 ex=246 ey=-28 az=1780 el=1410
+[prod] mode=OVERCAST light=2314 thr=2500 ex=242 ey=-91 az=1780 el=1410
+[prod] mode=OVERCAST light=2316 thr=2500 ex=223 ey=-31 az=1780 el=1410
+[prod] mode=OVERCAST light=2219 thr=2500 ex=227 ey=-67 az=1780 el=1410
+[prod] mode=OVERCAST light=2339 thr=2500 ex=241 ey=-29 az=1780 el=1410
+tick 472712 (uptime 472 s, TL=418 TR=724 BL=350 BR=783, ex=324 ey=3) mode=OVERCAST sky=OVERCAST load=86%
+[prod] mode=OVERCAST light=2306 thr=2500 ex=246 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2358 thr=2500 ex=224 ey=-26 az=1780 el=1410
+[prod] mode=OVERCAST light=2334 thr=2500 ex=175 ey=-74 az=1780 el=1410
+[prod] mode=OVERCAST light=2175 thr=2500 ex=230 ey=-105 az=1780 el=1410
+[prod] mode=OVERCAST light=2254 thr=2500 ex=200 ey=31 az=1780 el=1410
+[prod] mode=OVERCAST light=2183 thr=2500 ex=263 ey=-56 az=1780 el=1410
+[prod] mode=OVERCAST light=2257 thr=2500 ex=203 ey=8 az=1780 el=1410
+[prod] mode=OVERCAST light=2367 thr=2500 ex=258 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2413 thr=2500 ex=247 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2233 thr=2500 ex=200 ey=-16 az=1780 el=1410
+[prod] mode=OVERCAST light=2093 thr=2500 ex=242 ey=-84 az=1780 el=1410
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2325 thr=2500 ex=228 ey=-33 az=1780 el=1410
+[prod] mode=OVERCAST light=2307 thr=2500 ex=242 ey=-17 az=1780 el=1410
+[prod] mode=OVERCAST light=2362 thr=2500 ex=218 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2173 thr=2500 ex=185 ey=-46 az=1780 el=1410
+tick 473712 (uptime 473 s, TL=465 TR=617 BL=390 BR=701, ex=213 ey=-4) mode=OVERCAST sky=OVERCAST load=99%
+[prod] mode=OVERCAST light=2174 thr=2500 ex=209 ey=3 az=1780 el=1410
+[prod] mode=OVERCAST light=2174 thr=2500 ex=209 ey=3 az=1780 el=1410
+[prod] mode=OVERCAST light=2584 thr=2500 ex=317 ey=-168 az=1780 el=1410
+[prod] mode=OVERCAST light=2299 thr=2500 ex=293 ey=-142 az=1780 el=1410
+[prod] mode=OVERCAST light=2036 thr=2500 ex=235 ey=27 az=1780 el=1410
+[prod] mode=OVERCAST light=2138 thr=2500 ex=160 ey=1 az=1780 el=1410
+[prod] mode=OVERCAST light=2143 thr=2500 ex=286 ey=-1 az=1780 el=1410
+[prod] mode=OVERCAST light=2229 thr=2500 ex=249 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2258 thr=2500 ex=232 ey=10 az=1780 el=1410
+[prod] mode=OVERCAST light=2336 thr=2500 ex=238 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2336 thr=2500 ex=238 ey=-98 az=1780 el=1410
+[prod] mode=OVERCAST light=2171 thr=2500 ex=149 ey=-19 az=1780 el=1410
+[prod] mode=OVERCAST light=2171 thr=2500 ex=149 ey=-19 az=1780 el=1410
+[prod] mode=OVERCAST light=2171 thr=2500 ex=149 ey=-19 az=1780 el=1410
+[prod] mode=OVERCAST light=2374 thr=2500 ex=286 ey=-83 az=1780 el=1410
+[prod] mode=OVERCAST light=2374 thr=2500 ex=286 ey=-83 az=1780 el=1410
+[prod] mode=OVERCAST light=2364 thr=2500 ex=233 ey=-100 az=1780 el=1410
+[prod] mode=OVERCAST light=2218 thr=2500 ex=201 ey=45 az=1780 el=1410
+[prod] mode=OVERCAST light=2166 thr=2500 ex=270 ey=-52 az=1780 el=1410
+tick 474712 (uptime 474 s, TL=448 TR=673 BL=449 BR=652, ex=192 ey=9) mode=OVERCAST sky=OVERCAST load=71%
+[prod] mode=OVERCAST light=2223 thr=2500 ex=252 ey=-117 az=1780 el=1410
+[prod] mode=OVERCAST light=2152 thr=2500 ex=280 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2355 thr=2500 ex=192 ey=-40 az=1780 el=1410
+[prod] mode=OVERCAST light=2126 thr=2500 ex=241 ey=-62 az=1780 el=1410
+[prod] mode=OVERCAST light=2305 thr=2500 ex=222 ey=-20 az=1780 el=1410
+[prod] mode=OVERCAST light=2199 thr=2500 ex=260 ey=-31 az=1780 el=1410
+[prod] mode=OVERCAST light=2258 thr=2500 ex=230 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2145 thr=2500 ex=277 ey=-90 az=1780 el=1410
+[prod] mode=OVERCAST light=2294 thr=2500 ex=264 ey=-105 az=1780 el=1410
+[prod] mode=OVERCAST light=2261 thr=2500 ex=223 ey=-12 az=1780 el=1410
+[prod] mode=OVERCAST light=2177 thr=2500 ex=183 ey=-37 az=1780 el=1410
+[prod] mode=OVERCAST light=2170 thr=2500 ex=184 ey=15 az=1780 el=1410
+[prod] mode=OVERCAST light=2364 thr=2500 ex=238 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2371 thr=2500 ex=281 ey=-49 az=1780 el=1410
+[prod] mode=OVERCAST light=2289 thr=2500 ex=266 ey=-136 az=1780 el=1410
+[prod] mode=OVERCAST light=2176 thr=2500 ex=187 ey=-51 az=1780 el=1410
+[prod] mode=OVERCAST light=2255 thr=2500 ex=226 ey=21 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2202 thr=2500 ex=188 ey=-47 az=1780 el=1410
+tick 475712 (uptime 475 s, TL=360 TR=648 BL=409 BR=803, ex=307 ey=-91) mode=OVERCAST sky=OVERCAST load=31%
+[prod] mode=OVERCAST light=2191 thr=2500 ex=166 ey=-25 az=1780 el=1410
+[prod] mode=OVERCAST light=2357 thr=2500 ex=229 ey=-34 az=1780 el=1410
+[prod] mode=OVERCAST light=2314 thr=2500 ex=223 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2338 thr=2500 ex=237 ey=-48 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2332 thr=2500 ex=255 ey=-83 az=1780 el=1410
+[prod] mode=OVERCAST light=2227 thr=2500 ex=275 ey=-133 az=1780 el=1410
+[prod] mode=OVERCAST light=2295 thr=2500 ex=248 ey=-111 az=1780 el=1410
+[prod] mode=OVERCAST light=2222 thr=2500 ex=291 ey=-49 az=1780 el=1410
+[prod] mode=OVERCAST light=2283 thr=2500 ex=298 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2072 thr=2500 ex=232 ey=13 az=1780 el=1410
+[prod] mode=OVERCAST light=2318 thr=2500 ex=255 ey=-24 az=1780 el=1410
+[prod] mode=OVERCAST light=2235 thr=2500 ex=261 ey=-71 az=1780 el=1410
+[prod] mode=OVERCAST light=2185 thr=2500 ex=336 ey=-26 az=1780 el=1410
+[prod] mode=OVERCAST light=2248 thr=2500 ex=247 ey=-18 az=1780 el=1410
+[prod] mode=OVERCAST light=2553 thr=2500 ex=280 ey=-105 az=1780 el=1410
+[prod] mode=OVERCAST light=2307 thr=2500 ex=221 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2307 thr=2500 ex=221 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2264 thr=2500 ex=276 ey=-6 az=1780 el=1410
+[prod] mode=OVERCAST light=2264 thr=2500 ex=276 ey=-6 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=310 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2263 thr=2500 ex=310 ey=-66 az=1780 el=1410
+tick 476948 (uptime 476 s, TL=464 TR=673 BL=434 BR=668, ex=197 ey=15) mode=OVERCAST sky=OVERCAST load=83%
+[prod] mode=OVERCAST light=2209 thr=2500 ex=225 ey=21 az=1780 el=1410
+[prod] mode=OVERCAST light=2203 thr=2500 ex=262 ey=-9 az=1780 el=1410
+[prod] mode=OVERCAST light=2175 thr=2500 ex=316 ey=-197 az=1780 el=1410
+[prod] mode=OVERCAST light=2182 thr=2500 ex=232 ey=-75 az=1780 el=1410
+[prod] mode=OVERCAST light=2266 thr=2500 ex=206 ey=-70 az=1780 el=1410
+[prod] mode=OVERCAST light=2125 thr=2500 ex=229 ey=16 az=1780 el=1410
+[prod] mode=OVERCAST light=2231 thr=2500 ex=272 ey=14 az=1780 el=1410
+[prod] mode=OVERCAST light=2283 thr=2500 ex=282 ey=-116 az=1780 el=1410
+[prod] mode=OVERCAST light=2196 thr=2500 ex=249 ey=-104 az=1780 el=1410
+[prod] mode=OVERCAST light=2301 thr=2500 ex=219 ey=-41 az=1780 el=1410
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=2249 thr=2500 ex=228 ey=-87 az=1780 el=1410
+[prod] mode=OVERCAST light=2306 thr=2500 ex=232 ey=-74 az=1780 el=1410
+tick 477715 (uptime 477 s, TL=500 TR=733 BL=326 BR=745, ex=282 ey=70) mode=OVERCAST sky=OVERCAST load=85%
+[prod] mode=OVERCAST light=2124 thr=2500 ex=197 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2077 thr=2500 ex=237 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2183 thr=2500 ex=249 ey=-1 az=1780 el=1410
+[prod] mode=OVERCAST light=2256 thr=2500 ex=196 ey=-78 az=1780 el=1410
+[prod] mode=OVERCAST light=2324 thr=2500 ex=228 ey=-115 az=1780 el=1410
+[prod] mode=OVERCAST light=2244 thr=2500 ex=235 ey=-26 az=1780 el=1410
+[prod] mode=OVERCAST light=2300 thr=2500 ex=241 ey=-1 az=1780 el=1410
+[prod] mode=OVERCAST light=2350 thr=2500 ex=199 ey=-92 az=1780 el=1410
+[prod] mode=OVERCAST light=2185 thr=2500 ex=226 ey=-81 az=1780 el=1410
+[prod] mode=OVERCAST light=2007 thr=2500 ex=367 ey=-30 az=1780 el=1410
+[prod] mode=OVERCAST light=2256 thr=2500 ex=230 ey=-50 az=1780 el=1410
+[prod] mode=OVERCAST light=2082 thr=2500 ex=166 ey=11 az=1780 el=1410
+[prod] mode=OVERCAST light=2184 thr=2500 ex=201 ey=-41 az=1780 el=1410
+[prod] mode=OVERCAST light=2238 thr=2500 ex=216 ey=9 az=1780 el=1410
+[prod] mode=OVERCAST light=2282 thr=2500 ex=284 ey=-123 az=1780 el=1410
+[prod] mode=OVERCAST light=2607 thr=2500 ex=276 ey=-114 az=1780 el=1410
+[prod] mode=OVERCAST light=2153 thr=2500 ex=281 ey=-103 az=1780 el=1410
+tick 478712 (uptime 478 s, TL=486 TR=680 BL=343 BR=812, ex=285 ey=4) mode=OVERCAST sky=OVERCAST load=27%
+[prod] mode=OVERCAST light=2266 thr=2500 ex=209 ey=-18 az=1780 el=1410
+[prod] mode=OVERCAST light=2206 thr=2500 ex=188 ey=-49 az=1780 el=1410
+[prod] mode=OVERCAST light=2221 thr=2500 ex=190 ey=0 az=1780 el=1410
+[prod] mode=OVERCAST light=2161 thr=2500 ex=223 ey=-29 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2087 thr=2500 ex=226 ey=-68 az=1780 el=1410
+[prod] mode=OVERCAST light=2185 thr=2500 ex=239 ey=-128 az=1780 el=1410
+[prod] mode=OVERCAST light=2198 thr=2500 ex=243 ey=-82 az=1780 el=1410
+[prod] mode=OVERCAST light=2196 thr=2500 ex=245 ey=-107 az=1780 el=1410
+[prod] mode=OVERCAST light=2098 thr=2500 ex=237 ey=-76 az=1780 el=1410
+[prod] mode=OVERCAST light=2310 thr=2500 ex=181 ey=-77 az=1780 el=1410
+[prod] mode=OVERCAST light=2305 thr=2500 ex=253 ey=-120 az=1780 el=1410
+[prod] mode=OVERCAST light=2317 thr=2500 ex=288 ey=-108 az=1780 el=1410
+[prod] mode=OVERCAST light=2106 thr=2500 ex=227 ey=-51 az=1780 el=1410
+[prod] mode=OVERCAST light=2232 thr=2500 ex=220 ey=-51 az=1780 el=1410
+[prod] mode=OVERCAST light=2336 thr=2500 ex=263 ey=-35 az=1780 el=1410
+tick 479717 (uptime 479 s, TL=469 TR=726 BL=393 BR=717, ex=252 ey=36) mode=OVERCAST sky=OVERCAST load=84%
+[prod] mode=OVERCAST light=2244 thr=2500 ex=152 ey=4 az=1780 el=1410
+[prod] mode=OVERCAST light=2169 thr=2500 ex=313 ey=-14 az=1780 el=1410
+[prod] mode=OVERCAST light=2237 thr=2500 ex=266 ey=-114 az=1780 el=1410
+[prod] mode=OVERCAST light=2203 thr=2500 ex=183 ey=-48 az=1780 el=1410
+[prod] mode=OVERCAST light=2317 thr=2500 ex=297 ey=-125 az=1780 el=1410
+[prod] mode=OVERCAST light=2284 thr=2500 ex=246 ey=-123 az=1780 el=1410
+[prod] mode=OVERCAST light=2209 thr=2500 ex=218 ey=10 az=1780 el=1410
+[prod] mode=OVERCAST light=2280 thr=2500 ex=229 ey=-76 az=1780 el=1410
+[prod] mode=OVERCAST light=2268 thr=2500 ex=277 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2268 thr=2500 ex=277 ey=-60 az=1780 el=1410
+[prod] mode=OVERCAST light=2272 thr=2500 ex=229 ey=-93 az=1780 el=1410
+[prod] mode=OVERCAST light=2272 thr=2500 ex=229 ey=-93 az=1780 el=1410
+[prod] mode=OVERCAST light=2275 thr=2500 ex=214 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2275 thr=2500 ex=214 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2265 thr=2500 ex=242 ey=-36 az=1780 el=1410
+[prod] mode=OVERCAST light=2320 thr=2500 ex=269 ey=-107 az=1780 el=1410
+[prod] mode=OVERCAST light=2300 thr=2500 ex=232 ey=-7 az=1780 el=1410
+[prod] mode=OVERCAST light=2249 thr=2500 ex=206 ey=-86 az=1780 el=1410
+tick 480712 (uptime 480 s, TL=475 TR=703 BL=404 BR=730, ex=239 ey=19) mode=OVERCAST sky=OVERCAST load=70%
+[prod] mode=OVERCAST light=2258 thr=2500 ex=164 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2316 thr=2500 ex=291 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2039 thr=2500 ex=220 ey=-24 az=1780 el=1410
+[prod] mode=OVERCAST light=2115 thr=2500 ex=193 ey=13 az=1780 el=1410
+[prod] mode=OVERCAST light=2362 thr=2500 ex=258 ey=-22 az=1780 el=1410
+[prod] mode=OVERCAST light=2436 thr=2500 ex=260 ey=-85 az=1780 el=1410
+[prod] mode=OVERCAST light=2415 thr=2500 ex=274 ey=-150 az=1780 el=1410
+[prod] mode=OVERCAST light=2234 thr=2500 ex=244 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2110 thr=2500 ex=178 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2137 thr=2500 ex=233 ey=-33 az=1780 el=1410
+[prod] mode=OVERCAST light=2083 thr=2500 ex=232 ey=-63 az=1780 el=1410
+[prod] mode=OVERCAST light=2266 thr=2500 ex=236 ey=-106 az=1780 el=1410
+[prod] mode=OVERCAST light=2436 thr=2500 ex=261 ey=-78 az=1780 el=1410
+[prod] mode=OVERCAST light=2229 thr=2500 ex=221 ey=-57 az=1780 el=1410
+[prod] mode=OVERCAST light=2321 thr=2500 ex=198 ey=-172 az=1780 el=1410
+[prod] mode=OVERCAST light=2347 thr=2500 ex=223 ey=-62 az=1780 el=1410
+[prod] mode=OVERCAST light=2134 thr=2500 ex=185 ey=-33 az=1780 el=1410
+[prod] mode=OVERCAST light=2147 thr=2500 ex=188 ey=-24 az=1780 el=1410
+tick 481724 (uptime 481 s, TL=451 TR=685 BL=440 BR=764, ex=238 ey=-29) mode=OVERCAST sky=OVERCAST load=28%
+[prod] mode=OVERCAST light=2133 thr=2500 ex=202 ey=-36 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=197 ey=-25 az=1780 el=1410
+[prod] mode=OVERCAST light=2199 thr=2500 ex=204 ey=36 az=1780 el=1410
+[prod] mode=OVERCAST light=2508 thr=2500 ex=297 ey=-171 az=1780 el=1410
+[prod] mode=OVERCAST light=2225 thr=2500 ex=225 ey=-42 az=1780 el=1410
+[prod] mode=OVERCAST light=2121 thr=2500 ex=170 ey=-11 az=1780 el=1410
+[prod] mode=OVERCAST light=2237 thr=2500 ex=204 ey=-57 az=1780 el=1410
+[prod] mode=OVERCAST light=2445 thr=2500 ex=260 ey=-86 az=1780 el=1410
+[cli] snapshot requested
+[prod] mode=OVERCAST light=2256 thr=2500 ex=309 ey=-54 az=1780 el=1410
+[prod] mode=OVERCAST light=2410 thr=2500 ex=275 ey=-119 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=204 ey=11 az=1780 el=1410
+[prod] mode=OVERCAST light=2078 thr=2500 ex=246 ey=-67 az=1780 el=1410
+[prod] mode=OVERCAST light=2178 thr=2500 ex=136 ey=-20 az=1780 el=1410
+[prod] mode=OVERCAST light=2351 thr=2500 ex=265 ey=-101 az=1780 el=1410
+[prod] mode=OVERCAST light=2353 thr=2500 ex=223 ey=-62 az=1780 el=1410
+tick 482712 (uptime 482 s, TL=474 TR=699 BL=354 BR=712, ex=260 ey=47) mode=OVERCAST sky=OVERCAST load=68%
+[prod] mode=OVERCAST light=2231 thr=2500 ex=176 ey=-18 az=1780 el=1410
+[prod] mode=OVERCAST light=2341 thr=2500 ex=283 ey=-79 az=1780 el=1410
+[prod] mode=OVERCAST light=2298 thr=2500 ex=268 ey=-84 az=1780 el=1410
+[prod] mode=OVERCAST light=2369 thr=2500 ex=251 ey=-59 az=1780 el=1410
+[prod] mode=OVERCAST light=2129 thr=2500 ex=309 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2168 thr=2500 ex=299 ey=-2 az=1780 el=1410
+[prod] mode=OVERCAST light=2245 thr=2500 ex=214 ey=-80 az=1780 el=1410
+[prod] mode=OVERCAST light=2221 thr=2500 ex=316 ey=-43 az=1780 el=1410
+[prod] mode=OVERCAST light=2128 thr=2500 ex=305 ey=24 az=1780 el=1410
+[prod] mode=OVERCAST light=2233 thr=2500 ex=204 ey=9 az=1780 el=1410
+[prod] mode=OVERCAST light=2243 thr=2500 ex=239 ey=-103 az=1780 el=1410
+[prod] mode=OVERCAST light=2265 thr=2500 ex=217 ey=-69 az=1780 el=1410
+[prod] mode=OVERCAST light=2286 thr=2500 ex=243 ey=-72 az=1780 el=1410
+[prod] mode=OVERCAST light=2286 thr=2500 ex=243 ey=-72 az=1780 el=1410
+[prod] mode=OVERCAST light=2127 thr=2500 ex=227 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2127 thr=2500 ex=227 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2127 thr=2500 ex=227 ey=-21 az=1780 el=1410
+[prod] mode=OVERCAST light=2344 thr=2500 ex=221 ey=-48 az=1780 el=1410
+[prod] mode=OVERCAST light=2344 thr=2500 ex=221 ey=-48 az=1780 el=1410
+[prod] mode=OVERCAST light=2273 thr=2500 ex=234 ey=-40 az=1780 el=1410
+tick 483759 (uptime 483 s, TL=491 TR=647 BL=387 BR=775, ex=236 ey=-10) mode=OVERCAST sky=OVERCAST load=81%
+[prod] mode=OVERCAST light=2199 thr=2500 ex=217 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2335 thr=2500 ex=233 ey=-27 az=1780 el=1410
+[prod] mode=OVERCAST light=2244 thr=2500 ex=217 ey=-18 az=1780 el=1410
+[prod] mode=OVERCAST light=2154 thr=2500 ex=290 ey=-132 az=1780 el=1410
+[prod] mode=OVERCAST light=2128 thr=2500 ex=190 ey=-15 az=1780 el=1410
+[prod] mode=OVERCAST light=2082 thr=2500 ex=244 ey=-61 az=1780 el=1410
+[prod] mode=OVERCAST light=2330 thr=2500 ex=225 ey=-96 az=1780 el=1410
+[prod] mode=OVERCAST light=2490 thr=2500 ex=317 ey=-119 az=1780 el=1410
+[prod] mode=OVERCAST light=2326 thr=2500 ex=291 ey=-102 az=1780 el=1410
+[prod] mode=OVERCAST light=2255 thr=2500 ex=232 ey=-80 az=1780 el=1410
+[prod] mode=OVERCAST light=2396 thr=2500 ex=290 ey=-130 az=1780 el=1410
+[prod] mode=OVERCAST light=2147 thr=2500 ex=173 ey=-10 az=1780 el=1410
+[prod] mode=OVERCAST light=2310 thr=2500 ex=237 ey=3 az=1780 el=1410
+[prod] mode=OVERCAST light=2282 thr=2500 ex=206 ey=-82 az=1780 el=1410
+[prod] mode=OVERCAST light=2309 thr=2500 ex=303 ey=-137 az=1780 el=1410
+[prod] mode=OVERCAST light=2327 thr=2500 ex=238 ey=-18 az=1780 el=1410
+tick 484712 (uptime 484 s, TL=354 TR=656 BL=405 BR=655, ex=266 ey=-24) mode=OVERCAST sky=OVERCAST load=26%
+[prod] mode=OVERCAST light=2147 thr=2500 ex=177 ey=-16 az=1780 el=1410
+[prod] mode=OVERCAST light=2360 thr=2500 ex=160 ey=-66 az=1780 el=1410
+[prod] mode=OVERCAST light=2233 thr=2500 ex=205 ey=-55 az=1780 el=1410
+[prod] mode=OVERCAST light=2108 thr=2500 ex=208 ey=-65 az=1780 el=1410
+[prod] mode=OVERCAST light=2241 thr=2500 ex=253 ey=-144 az=1780 el=1410
+[prod] mode=PARK light=2238 thr=2500 ex=276 ey=-99 az=1500 el=1500
+[prod] mode=PARK light=2163 thr=2500 ex=233 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2293 thr=2500 ex=235 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2353 thr=2500 ex=211 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2369 thr=2500 ex=367 ey=-158 az=1500 el=1500
+[prod] mode=PARK light=2321 thr=2500 ex=243 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2313 thr=2500 ex=233 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2158 thr=2500 ex=250 ey=-70 az=1500 el=1500
+[prod] mode=PARK light=2142 thr=2500 ex=237 ey=-52 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2401 thr=2500 ex=243 ey=-111 az=1500 el=1500
+[prod] mode=PARK light=2248 thr=2500 ex=234 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2404 thr=2500 ex=254 ey=-68 az=1500 el=1500
+[prod] mode=PARK light=2061 thr=2500 ex=235 ey=-28 az=1500 el=1500
+tick 485712 (uptime 485 s, TL=479 TR=691 BL=383 BR=851, ex=282 ey=-26) mode=PARK sky=OVERCAST load=42%
+[prod] mode=PARK light=2270 thr=2500 ex=194 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2299 thr=2500 ex=198 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2287 thr=2500 ex=251 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2293 thr=2500 ex=209 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2408 thr=2500 ex=255 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=264 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2258 thr=2500 ex=219 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=269 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2303 thr=2500 ex=245 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2273 thr=2500 ex=221 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2286 thr=2500 ex=223 ey=-44 az=1500 el=1500
+[prod] mode=PARK light=2263 thr=2500 ex=204 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2280 thr=2500 ex=227 ey=-67 az=1500 el=1500
+[prod] mode=PARK light=2352 thr=2500 ex=220 ey=-104 az=1500 el=1500
+[prod] mode=PARK light=2211 thr=2500 ex=235 ey=7 az=1500 el=1500
+[prod] mode=PARK light=2211 thr=2500 ex=235 ey=7 az=1500 el=1500
+[prod] mode=PARK light=2173 thr=2500 ex=200 ey=64 az=1500 el=1500
+[prod] mode=PARK light=2173 thr=2500 ex=200 ey=64 az=1500 el=1500
+[prod] mode=PARK light=2249 thr=2500 ex=276 ey=21 az=1500 el=1500
+[prod] mode=PARK light=2127 thr=2500 ex=292 ey=-58 az=1500 el=1500
+tick 486937 (uptime 486 s, TL=398 TR=703 BL=388 BR=787, ex=309 ey=-32) mode=PARK sky=OVERCAST load=84%
+[prod] mode=PARK light=2245 thr=2500 ex=297 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2211 thr=2500 ex=212 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2315 thr=2500 ex=245 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2339 thr=2500 ex=216 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=212 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2342 thr=2500 ex=280 ey=-83 az=1500 el=1500
+[prod] mode=PARK light=2143 thr=2500 ex=202 ey=-8 az=1500 el=1500
+[prod] mode=PARK light=2148 thr=2500 ex=227 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2380 thr=2500 ex=259 ey=-44 az=1500 el=1500
+[prod] mode=PARK light=2315 thr=2500 ex=224 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2256 thr=2500 ex=216 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2335 thr=2500 ex=227 ey=-92 az=1500 el=1500
+[prod] mode=PARK light=2283 thr=2500 ex=240 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=232 ey=-72 az=1500 el=1500
+tick 487715 (uptime 487 s, TL=462 TR=680 BL=437 BR=649, ex=192 ey=25) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2317 thr=2500 ex=236 ey=-3 az=1500 el=1500
+[prod] mode=PARK light=2163 thr=2500 ex=260 ey=-98 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=209 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=226 ey=-33 az=1500 el=1500
+[prod] mode=PARK light=2213 thr=2500 ex=301 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2324 thr=2500 ex=283 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2316 thr=2500 ex=284 ey=-112 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=286 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2297 thr=2500 ex=224 ey=-1 az=1500 el=1500
+[prod] mode=PARK light=2135 thr=2500 ex=190 ey=4 az=1500 el=1500
+[prod] mode=PARK light=2284 thr=2500 ex=236 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2182 thr=2500 ex=306 ey=-118 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=218 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2239 thr=2500 ex=225 ey=27 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=192 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2173 thr=2500 ex=207 ey=-12 az=1500 el=1500
+[prod] mode=PARK light=2170 thr=2500 ex=279 ey=-91 az=1500 el=1500
+tick 488712 (uptime 488 s, TL=424 TR=601 BL=387 BR=787, ex=262 ey=-67) mode=PARK sky=OVERCAST load=25%
+[prod] mode=PARK light=2272 thr=2500 ex=247 ey=-67 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2121 thr=2500 ex=287 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2321 thr=2500 ex=180 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=237 ey=-117 az=1500 el=1500
+[prod] mode=PARK light=2184 thr=2500 ex=226 ey=-81 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2290 thr=2500 ex=258 ey=-110 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2417 thr=2500 ex=247 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=229 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2266 thr=2500 ex=214 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2158 thr=2500 ex=249 ey=-7 az=1500 el=1500
+[prod] mode=PARK light=2205 thr=2500 ex=326 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2276 thr=2500 ex=173 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2215 thr=2500 ex=319 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2302 thr=2500 ex=288 ey=-98 az=1500 el=1500
+[prod] mode=PARK light=2329 thr=2500 ex=301 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2307 thr=2500 ex=216 ey=-92 az=1500 el=1500
+[prod] mode=PARK light=2374 thr=2500 ex=348 ey=-179 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=234 ey=1 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=234 ey=1 az=1500 el=1500
+[prod] mode=PARK light=2116 thr=2500 ex=211 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2116 thr=2500 ex=211 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2410 thr=2500 ex=256 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2410 thr=2500 ex=256 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2450 thr=2500 ex=258 ey=-58 az=1500 el=1500
+tick 490134 (uptime 489 s, TL=374 TR=717 BL=387 BR=816, ex=336 ey=-48) mode=PARK sky=OVERCAST load=84%
+[prod] mode=PARK light=2334 thr=2500 ex=272 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=261 ey=-99 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=213 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2139 thr=2500 ex=250 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=285 ey=-154 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=242 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2350 thr=2500 ex=254 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2280 thr=2500 ex=240 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=251 ey=-138 az=1500 el=1500
+[prod] mode=PARK light=2192 thr=2500 ex=209 ey=-41 az=1500 el=1500
+tick 490712 (uptime 490 s, TL=389 TR=671 BL=456 BR=831, ex=279 ey=-96) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2281 thr=2500 ex=322 ey=-138 az=1500 el=1500
+[prod] mode=PARK light=2174 thr=2500 ex=335 ey=-186 az=1500 el=1500
+[prod] mode=PARK light=2065 thr=2500 ex=189 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2299 thr=2500 ex=237 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=219 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2214 thr=2500 ex=255 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2162 thr=2500 ex=258 ey=-127 az=1500 el=1500
+[prod] mode=PARK light=2260 thr=2500 ex=233 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2398 thr=2500 ex=310 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2166 thr=2500 ex=208 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2171 thr=2500 ex=199 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2202 thr=2500 ex=191 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2138 thr=2500 ex=258 ey=-5 az=1500 el=1500
+[prod] mode=PARK light=2214 thr=2500 ex=274 ey=-137 az=1500 el=1500
+[prod] mode=PARK light=2355 thr=2500 ex=318 ey=-202 az=1500 el=1500
+[prod] mode=PARK light=2074 thr=2500 ex=199 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2350 thr=2500 ex=229 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=270 ey=-72 az=1500 el=1500
+tick 491712 (uptime 491 s, TL=355 TR=710 BL=442 BR=817, ex=314 ey=-83) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2261 thr=2500 ex=215 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2244 thr=2500 ex=232 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2153 thr=2500 ex=230 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2199 thr=2500 ex=243 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=211 ey=-86 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2367 thr=2500 ex=215 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2396 thr=2500 ex=248 ey=-107 az=1500 el=1500
+[prod] mode=PARK light=2172 thr=2500 ex=185 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2278 thr=2500 ex=241 ey=48 az=1500 el=1500
+[prod] mode=PARK light=2485 thr=2500 ex=262 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=247 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2394 thr=2500 ex=348 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=186 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2429 thr=2500 ex=304 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2286 thr=2500 ex=197 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2337 thr=2500 ex=272 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2249 thr=2500 ex=187 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2285 thr=2500 ex=241 ey=-59 az=1500 el=1500
+tick 492718 (uptime 492 s, TL=510 TR=613 BL=429 BR=656, ex=149 ey=17) mode=PARK sky=OVERCAST load=83%
+[prod] mode=PARK light=2499 thr=2500 ex=214 ey=-164 az=1500 el=1500
+[prod] mode=PARK light=2646 thr=2500 ex=182 ey=-188 az=1500 el=1500
+[prod] mode=PARK light=2199 thr=2500 ex=298 ey=97 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=217 ey=4 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=251 ey=27 az=1500 el=1500
+[prod] mode=PARK light=2279 thr=2500 ex=269 ey=35 az=1500 el=1500
+[prod] mode=PARK light=2167 thr=2500 ex=160 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2433 thr=2500 ex=274 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2362 thr=2500 ex=243 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2396 thr=2500 ex=207 ey=-127 az=1500 el=1500
+[prod] mode=PARK light=2245 thr=2500 ex=232 ey=-8 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=234 ey=16 az=1500 el=1500
+[prod] mode=PARK light=2403 thr=2500 ex=231 ey=10 az=1500 el=1500
+[prod] mode=PARK light=2496 thr=2500 ex=296 ey=-127 az=1500 el=1500
+[prod] mode=PARK light=2337 thr=2500 ex=232 ey=50 az=1500 el=1500
+[prod] mode=PARK light=2362 thr=2500 ex=235 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2338 thr=2500 ex=214 ey=-46 az=1500 el=1500
+tick 493712 (uptime 493 s, TL=448 TR=648 BL=422 BR=844, ex=263 ey=-71) mode=PARK sky=OVERCAST load=100%
+[prod] mode=PARK light=2298 thr=2500 ex=277 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2228 thr=2500 ex=181 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2349 thr=2500 ex=224 ey=25 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=182 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2310 thr=2500 ex=247 ey=-63 az=1500 el=1500
+[prod] mode=PARK light=2472 thr=2500 ex=281 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2360 thr=2500 ex=264 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2379 thr=2500 ex=243 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2396 thr=2500 ex=274 ey=1 az=1500 el=1500
+[prod] mode=PARK light=2409 thr=2500 ex=268 ey=4 az=1500 el=1500
+[prod] mode=PARK light=2400 thr=2500 ex=257 ey=-107 az=1500 el=1500
+[prod] mode=PARK light=2433 thr=2500 ex=246 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2276 thr=2500 ex=219 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=184 ey=3 az=1500 el=1500
+[prod] mode=PARK light=2405 thr=2500 ex=290 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2364 thr=2500 ex=228 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2456 thr=2500 ex=267 ey=-30 az=1500 el=1500
+[cli] unknown command (HELP)
+tick 494712 (uptime 494 s, TL=470 TR=674 BL=423 BR=794, ex=243 ey=-30) mode=PARK sky=OVERCAST load=100%
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2368 thr=2500 ex=226 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2227 thr=2500 ex=156 ey=-44 az=1500 el=1500
+[prod] mode=PARK light=2287 thr=2500 ex=247 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2331 thr=2500 ex=205 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2397 thr=2500 ex=246 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2379 thr=2500 ex=264 ey=-86 az=1500 el=1500
+[prod] mode=PARK light=2456 thr=2500 ex=275 ey=23 az=1500 el=1500
+[prod] mode=PARK light=2393 thr=2500 ex=268 ey=-1 az=1500 el=1500
+[prod] mode=PARK light=2448 thr=2500 ex=245 ey=-93 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2359 thr=2500 ex=235 ey=2 az=1500 el=1500
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2307 thr=2500 ex=200 ey=-3 az=1500 el=1500
+[prod] mode=PARK light=2439 thr=2500 ex=282 ey=-68 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2218 thr=2500 ex=240 ey=-85 az=1500 el=1500
+tick 495713 (uptime 495 s, TL=477 TR=743 BL=341 BR=721, ex=283 ey=69) mode=PARK sky=OVERCAST load=92%
+[prod] mode=PARK light=2344 thr=2500 ex=271 ey=-117 az=1500 el=1500
+[prod] mode=PARK light=2317 thr=2500 ex=286 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2269 thr=2500 ex=230 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=248 ey=-116 az=1500 el=1500
+[prod] mode=PARK light=2394 thr=2500 ex=229 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2240 thr=2500 ex=155 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2153 thr=2500 ex=238 ey=-77 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2245 thr=2500 ex=281 ey=-119 az=1500 el=1500
+[prod] mode=PARK light=2475 thr=2500 ex=247 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2243 thr=2500 ex=242 ey=-2 az=1500 el=1500
+[prod] mode=PARK light=2439 thr=2500 ex=249 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2451 thr=2500 ex=273 ey=-24 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=254 ey=-123 az=1500 el=1500
+[prod] mode=PARK light=2323 thr=2500 ex=230 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2331 thr=2500 ex=304 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=271 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2241 thr=2500 ex=162 ey=-32 az=1500 el=1500
+tick 496719 (uptime 496 s, TL=414 TR=720 BL=407 BR=787, ex=294 ey=-25) mode=PARK sky=OVERCAST load=92%
+[prod] mode=PARK light=2245 thr=2500 ex=287 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2264 thr=2500 ex=273 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2265 thr=2500 ex=241 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2392 thr=2500 ex=285 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2331 thr=2500 ex=213 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2458 thr=2500 ex=291 ey=-146 az=1500 el=1500
+[prod] mode=PARK light=2247 thr=2500 ex=261 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2247 thr=2500 ex=261 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=203 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=203 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2245 thr=2500 ex=267 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2245 thr=2500 ex=267 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2339 thr=2500 ex=282 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2193 thr=2500 ex=219 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=223 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2330 thr=2500 ex=190 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=244 ey=-2 az=1500 el=1500
+[prod] mode=PARK light=2160 thr=2500 ex=187 ey=-27 az=1500 el=1500
+tick 497717 (uptime 497 s, TL=374 TR=664 BL=378 BR=733, ex=300 ey=-33) mode=PARK sky=OVERCAST load=68%
+[prod] mode=PARK light=2300 thr=2500 ex=280 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2304 thr=2500 ex=268 ey=-133 az=1500 el=1500
+[prod] mode=PARK light=2344 thr=2500 ex=302 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2341 thr=2500 ex=238 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2340 thr=2500 ex=207 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2475 thr=2500 ex=339 ey=-125 az=1500 el=1500
+[prod] mode=PARK light=2239 thr=2500 ex=170 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2427 thr=2500 ex=266 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2387 thr=2500 ex=230 ey=-109 az=1500 el=1500
+[prod] mode=PARK light=2452 thr=2500 ex=329 ey=-68 az=1500 el=1500
+[prod] mode=PARK light=2213 thr=2500 ex=170 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2351 thr=2500 ex=252 ey=19 az=1500 el=1500
+[prod] mode=PARK light=2287 thr=2500 ex=193 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2175 thr=2500 ex=260 ey=-61 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2234 thr=2500 ex=189 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2303 thr=2500 ex=287 ey=-84 az=1500 el=1500
+tick 498712 (uptime 498 s, TL=476 TR=726 BL=417 BR=757, ex=248 ey=11) mode=PARK sky=OVERCAST load=71%
+[prod] mode=PARK light=2470 thr=2500 ex=228 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2378 thr=2500 ex=326 ey=-51 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2348 thr=2500 ex=207 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2264 thr=2500 ex=203 ey=-3 az=1500 el=1500
+[prod] mode=PARK light=2288 thr=2500 ex=187 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2298 thr=2500 ex=278 ey=-85 az=1500 el=1500
+[prod] mode=PARK light=2326 thr=2500 ex=231 ey=-18 az=1500 el=1500
+[prod] mode=PARK light=2313 thr=2500 ex=204 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=210 ey=-108 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2331 thr=2500 ex=228 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2345 thr=2500 ex=251 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2239 thr=2500 ex=265 ey=37 az=1500 el=1500
+[prod] mode=PARK light=2125 thr=2500 ex=185 ey=-12 az=1500 el=1500
+[prod] mode=PARK light=2425 thr=2500 ex=267 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2285 thr=2500 ex=233 ey=-83 az=1500 el=1500
+tick 499712 (uptime 499 s, TL=470 TR=716 BL=412 BR=833, ex=274 ey=-24) mode=PARK sky=OVERCAST load=94%
+[prod] mode=PARK light=2208 thr=2500 ex=270 ey=0 az=1500 el=1500
+[prod] mode=PARK light=2221 thr=2500 ex=318 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2380 thr=2500 ex=211 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2283 thr=2500 ex=272 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2404 thr=2500 ex=311 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2367 thr=2500 ex=244 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=192 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2220 thr=2500 ex=161 ey=-21 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=235 ey=28 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=235 ey=28 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=268 ey=-32 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=268 ey=-32 az=1500 el=1500
+[prod] mode=PARK light=2322 thr=2500 ex=248 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2322 thr=2500 ex=248 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2322 thr=2500 ex=248 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2340 thr=2500 ex=243 ey=-118 az=1500 el=1500
+[prod] mode=PARK light=2240 thr=2500 ex=175 ey=-39 az=1500 el=1500
+[prod] mode=PARK light=2172 thr=2500 ex=267 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2336 thr=2500 ex=229 ey=-91 az=1500 el=1500
+tick 500717 (uptime 500 s, TL=437 TR=689 BL=380 BR=690, ex=255 ey=25) mode=PARK sky=OVERCAST load=69%
+[prod] mode=PARK light=2300 thr=2500 ex=216 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2446 thr=2500 ex=223 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2471 thr=2500 ex=248 ey=-126 az=1500 el=1500
+[prod] mode=PARK light=2176 thr=2500 ex=182 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2229 thr=2500 ex=190 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2131 thr=2500 ex=215 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2278 thr=2500 ex=274 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2481 thr=2500 ex=281 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2285 thr=2500 ex=270 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2331 thr=2500 ex=222 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2435 thr=2500 ex=273 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=218 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2243 thr=2500 ex=238 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2353 thr=2500 ex=241 ey=24 az=1500 el=1500
+[prod] mode=PARK light=2333 thr=2500 ex=272 ey=-5 az=1500 el=1500
+tick 501712 (uptime 501 s, TL=420 TR=694 BL=345 BR=807, ex=324 ey=-16) mode=PARK sky=OVERCAST load=69%
+tick 502712 (uptime 502 s, TL=477 TR=724 BL=397 BR=811, ex=274 ey=-2) mode=PARK sky=OVERCAST load=30%
+STAT name=button n=89 min_us=8 avg_us=9 max_us=9 late_max_us=0 late_p99_us=0 missed=0 max_cyc=996
+STAT name=adc n=7008 min_us=165 avg_us=166 max_us=178 late_max_us=1011 late_p99_us=700 missed=0 max_cyc=17834
+STAT name=control n=7008 min_us=18 avg_us=23 max_us=91 late_max_us=1200 late_p99_us=900 missed=0 max_cyc=9131
+STAT name=servo n=3504 min_us=6 avg_us=6 max_us=102 late_max_us=1119 late_p99_us=900 missed=0 max_cyc=10278
+STAT name=log n=7634 min_us=50 avg_us=1074 max_us=17175 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1717514
+STAT name=cli n=2102 min_us=115 avg_us=10031 max_us=309801 late_max_us=0 late_p99_us=0 missed=0 max_cyc=30980115
+STAT name=imu n=628 min_us=848 avg_us=1379 max_us=33227 late_max_us=74139 late_p99_us=1600 missed=73 max_cyc=3322765
+STAT name=tick n=70 min_us=18295 avg_us=23321 max_us=44642 late_max_us=446998 late_p99_us=1600 missed=0 max_cyc=4464278
+STAT name=loss n=628 min_us=7 avg_us=8 max_us=131 late_max_us=75358 late_p99_us=1600 missed=73 max_cyc=13165
+STAT name=led n=628 min_us=6 avg_us=10 max_us=1021 late_max_us=80781 late_p99_us=1600 missed=73 max_cyc=102190
+STAT name=camera n=32 min_us=408672 avg_us=793081 max_us=1543239 late_max_us=1350998 late_p99_us=1600 missed=10 max_cyc=154323927
+STAT name=snapshot n=18 min_us=1300600 avg_us=1721070 max_us=2422525 late_max_us=0 late_p99_us=0 missed=0 max_cyc=242252562
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=90 min_us=17 avg_us=18 max_us=25 presses=90
+STAT name=evt_latency n=90 min_us=18 avg_us=52 max_us=889
+STAT name=cam_frame n=31 min_us=405962 avg_us=766081 max_us=1539177
+STAT name=cmd_latency n=1044 min_us=23 avg_us=8092 max_us=151602
+STAT name=flash_wait n=23 min_us=1103 avg_us=1892 max_us=2246
+LOAD pct=30 run_pct=63 btn_lost=0 uart_rx_overflow=63 pend_lost=0 flash_err=0 imu_err=0 cam_err=1 flash_last_rc=0
+tick 504027 (uptime 503 s, TL=462 TR=682 BL=403 BR=699, ex=229 ey=18) mode=PARK sky=OVERCAST load=74%
+tick 504712 (uptime 504 s, TL=440 TR=656 BL=430 BR=848, ex=267 ey=-76) mode=PARK sky=OVERCAST load=91%
+tick 505712 (uptime 505 s, TL=391 TR=670 BL=454 BR=695, ex=235 ey=-39) mode=PARK sky=OVERCAST load=19%
+[cli] btnsim 0 ms
+tick 506712 (uptime 506 s, TL=421 TR=684 BL=418 BR=803, ex=278 ey=-49) mode=PARK sky=OVERCAST load=59%
+tick 507712 (uptime 507 s, TL=431 TR=686 BL=446 BR=756, ex=243 ey=-36) mode=PARK sky=OVERCAST load=47%
+# S3 commands sent=1045 answered_in_50ms=941
+# S3 uart_rx_overflow_delta=62
+# --- STATS final ---
+STAT name=button n=93 min_us=8 avg_us=9 max_us=9 late_max_us=0 late_p99_us=0 missed=0 max_cyc=996
+STAT name=adc n=7474 min_us=165 avg_us=166 max_us=178 late_max_us=1011 late_p99_us=700 missed=0 max_cyc=17834
+STAT name=control n=7474 min_us=18 avg_us=23 max_us=91 late_max_us=1200 late_p99_us=900 missed=0 max_cyc=9131
+STAT name=servo n=3737 min_us=6 avg_us=6 max_us=102 late_max_us=1119 late_p99_us=900 missed=0 max_cyc=10278
+STAT name=log n=8068 min_us=50 avg_us=1076 max_us=17175 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1717514
+STAT name=cli n=2109 min_us=115 avg_us=10209 max_us=350898 late_max_us=0 late_p99_us=0 missed=0 max_cyc=35089869
+STAT name=imu n=672 min_us=848 avg_us=1346 max_us=33227 late_max_us=74139 late_p99_us=1600 missed=76 max_cyc=3322765
+STAT name=tick n=75 min_us=18295 avg_us=23038 max_us=44642 late_max_us=446998 late_p99_us=1600 missed=0 max_cyc=4464278
+STAT name=loss n=672 min_us=7 avg_us=8 max_us=436 late_max_us=75358 late_p99_us=1600 missed=76 max_cyc=43648
+STAT name=led n=672 min_us=6 avg_us=9 max_us=1021 late_max_us=80781 late_p99_us=1600 missed=76 max_cyc=102190
+STAT name=camera n=34 min_us=408672 avg_us=784292 max_us=1543239 late_max_us=1350998 late_p99_us=1600 missed=11 max_cyc=154323927
+STAT name=snapshot n=20 min_us=1300600 avg_us=1695207 max_us=2422525 late_max_us=0 late_p99_us=0 missed=0 max_cyc=242252562
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=93 min_us=17 avg_us=18 max_us=25 presses=93
+STAT name=evt_latency n=93 min_us=18 avg_us=51 max_us=889
+STAT name=cam_frame n=33 min_us=405962 avg_us=758495 max_us=1539177
+STAT name=cmd_latency n=1046 min_us=23 avg_us=8076 max_us=151602
+STAT name=flash_wait n=24 min_us=1103 avg_us=1908 max_us=2280
+LOAD pct=47 run_pct=62 btn_lost=0 uart_rx_overflow=63 pend_lost=0 flash_err=0 imu_err=0 cam_err=1 flash_last_rc=0
+tick 508712 (uptime 508 s, TL=501 TR=618 BL=377 BR=625, ex=172 ey=55) mode=PARK sky=OVERCAST load=37%
+tick 509712 (uptime 509 s, TL=386 TR=717 BL=406 BR=735, ex=294 ey=-16) mode=PARK sky=OVERCAST load=5%
+tick 510712 (uptime 510 s, TL=456 TR=662 BL=415 BR=708, ex=222 ey=-2) mode=PARK sky=OVERCAST load=63%
+MEM stack_used=672 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 511712 (uptime 511 s, TL=366 TR=691 BL=417 BR=753, ex=296 ey=-50) mode=PARK sky=OVERCAST load=20%
+# MEM {'stack_used': 672, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+TASK name=cli state=Running prio=3 cpu_us=14567194 cpu_pct=18.4 stack_free_words=157
+TASK name=IDLE state=Ready prio=0 cpu_us=31323134 cpu_pct=39.6 stack_free_words=116
+TASK name=button state=Blocked prio=6 cpu_us=3203 cpu_pct=0.0 stack_free_words=80
+TASK name=camera state=Blocked prio=1 cpu_us=21367931 cpu_pct=27.0 stack_free_words=229
+TASK name=log state=Blocked prio=4 cpu_us=8654741 cpu_pct=10.9 stack_free_words=160
+TASK name=loss state=Blocked prio=2 cpu_us=29079 cpu_pct=0.0 stack_free_words=133
+TASK name=tick state=Blocked prio=2 cpu_us=29838 cpu_pct=0.0 stack_free_words=161
+TASK name=imu state=Blocked prio=2 cpu_us=580657 cpu_pct=0.7 stack_free_words=163
+TASK name=led state=Blocked prio=1 cpu_us=28801 cpu_pct=0.0 stack_free_words=71
+TASK name=snapshot state=Blocked prio=1 cpu_us=23786 cpu_pct=0.0 stack_free_words=125
+TASK name=adc state=Blocked prio=5 cpu_us=1498015 cpu_pct=1.8 stack_free_words=76
+TASK name=control state=Blocked prio=4 cpu_us=518792 cpu_pct=0.6 stack_free_words=165
+TASK name=servo state=Blocked prio=4 cpu_us=307367 cpu_pct=0.3 stack_free_words=71
+TASKS total_us=78928136 switches=60110
+tick 512712 (uptime 512 s, TL=440 TR=657 BL=359 BR=766, ex=280 ey=-12) mode=PARK sky=OVERCAST load=25%
+tick 513712 (uptime 513 s, TL=450 TR=645 BL=411 BR=717, ex=225 ey=-14) mode=PARK sky=OVERCAST load=59%
+STACK task=cli size_words=384 free_min_words=157 used_max_bytes=908
+STACK task=IDLE size_words=128 free_min_words=116 used_max_bytes=48
+STACK task=button size_words=128 free_min_words=80 used_max_bytes=192
+STACK task=log size_words=320 free_min_words=160 used_max_bytes=640
+STACK task=camera size_words=320 free_min_words=229 used_max_bytes=364
+STACK task=loss size_words=192 free_min_words=133 used_max_bytes=236
+STACK task=tick size_words=320 free_min_words=161 used_max_bytes=636
+STACK task=imu size_words=256 free_min_words=163 used_max_bytes=372
+STACK task=led size_words=128 free_min_words=71 used_max_bytes=228
+STACK task=snapshot size_words=192 free_min_words=125 used_max_bytes=268
+STACK task=adc size_words=128 free_min_words=76 used_max_bytes=208
+STACK task=control size_words=320 free_min_words=165 used_max_bytes=620
+STACK task=servo size_words=128 free_min_words=71 used_max_bytes=228
+MEM stack_used=672 stack_reserved=2048 (MSP: обробники переривань)
+tick 514747 (uptime 514 s, TL=415 TR=645 BL=428 BR=977, ex=316 ey=-139) mode=PARK sky=OVERCAST load=22%
+tick 515712 (uptime 515 s, TL=355 TR=662 BL=433 BR=666, ex=255 ey=-38) mode=PARK sky=OVERCAST load=5%
+HEAP total=1024 free=0 min_ever_free=0 used_max=1024 malloc_failed=0
+tick 516712 (uptime 516 s, TL=444 TR=649 BL=433 BR=806, ex=247 ey=-62) mode=PARK sky=OVERCAST load=63%
+tick 517712 (uptime 517 s, TL=363 TR=720 BL=454 BR=648, ex=252 ey=-8) mode=PARK sky=OVERCAST load=19%
+tick 518712 (uptime 518 s, TL=365 TR=703 BL=459 BR=729, ex=269 ey=-53) mode=PARK sky=OVERCAST load=5%
+OSCOST tick_hz=1000 tick_isr_n=85134 tick_isr_avg_cyc=657 tick_isr_max_cyc=3922 tick_isr_avg_us_x100=657 tick_isr_max_us_x100=3922
+OSCOST longest_run_us=12190 longest_run_task=camera
+OSCOST switches=63226 window_ms=85176 tick_gap_max_us=2183 tick_gaps_over_1500us=1411 cam_irq_off_max_us=1235 cam_short_frames=27 cam_lines_lost=495
+tick 519712 (uptime 519 s, TL=446 TR=649 BL=420 BR=843, ex=265 ey=-71) mode=PARK sky=OVERCAST load=65%
+tick 520712 (uptime 520 s, TL=365 TR=675 BL=453 BR=665, ex=241 ey=-36) mode=PARK sky=OVERCAST load=5%
+QUEUE button max_used=1/8
+QUEUE adc max_used=1/4
+QUEUE control max_used=3/16
+QUEUE servo max_used=1/8
+QUEUE log max_used=1/16
+QUEUE cli max_used=4/32
+QUEUE imu max_used=1/8
+QUEUE tick max_used=7/32
+QUEUE loss max_used=7/32
+QUEUE led max_used=7/32
+QUEUE camera max_used=2/8
+QUEUE snapshot max_used=8/32
+DEFER log max_used=0/0
+POOL 1 min_free=60/64
+POOL 2 min_free=15/24
+POOL 3 min_free=28/32
+LOST lines=0 logs=0 events=0 texts=0
+tick 521712 (uptime 521 s, TL=380 TR=691 BL=354 BR=783, ex=335 ey=-29) mode=PARK sky=OVERCAST load=13%
+tick 522712 (uptime 522 s, TL=469 TR=629 BL=372 BR=753, ex=243 ey=-12) mode=PARK sky=OVERCAST load=63%
+[cli] servo OFF
+tick 523712 (uptime 523 s, TL=388 TR=664 BL=408 BR=746, ex=278 ey=-46) mode=PARK sky=OVERCAST load=19%
+tick 524712 (uptime 524 s, TL=466 TR=714 BL=401 BR=792, ex=269 ey=-5) mode=PARK sky=OVERCAST load=5%

@@ -1,0 +1,144 @@
+# scenario=s1 duration=60 servo=0 btnsim_ms=0
+VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+tick 6712 (uptime 6 s, TL=577 TR=825 BL=426 BR=861, ex=253 ey=42) mode=OVERCAST sky=OVERCAST load=7%
+# VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[cli] servo OFF
+tick 7712 (uptime 7 s, TL=524 TR=710 BL=418 BR=730, ex=209 ey=36) mode=OVERCAST sky=OVERCAST load=79%
+tick 8712 (uptime 8 s, TL=573 TR=777 BL=425 BR=804, ex=226 ey=46) mode=OVERCAST sky=OVERCAST load=5%
+[cli] period set
+tick 9712 (uptime 9 s, TL=558 TR=760 BL=402 BR=747, ex=221 ey=68) mode=OVERCAST sky=OVERCAST load=5%
+tick 10712 (uptime 10 s, TL=577 TR=785 BL=410 BR=733, ex=211 ey=87) mode=OVERCAST sky=OVERCAST load=5%
+[prod] stats reset
+tick 11712 (uptime 11 s, TL=558 TR=804 BL=437 BR=837, ex=245 ey=33) mode=OVERCAST sky=OVERCAST load=51%
+tick 12712 (uptime 12 s, TL=556 TR=793 BL=413 BR=662, ex=200 ey=113) mode=OVERCAST sky=OVERCAST load=5%
+tick 13712 (uptime 13 s, TL=553 TR=813 BL=422 BR=821, ex=252 ey=47) mode=OVERCAST sky=OVERCAST load=5%
+tick 14712 (uptime 14 s, TL=566 TR=798 BL=424 BR=774, ex=227 ey=64) mode=OVERCAST sky=OVERCAST load=5%
+tick 15712 (uptime 15 s, TL=510 TR=803 BL=409 BR=757, ex=258 ey=59) mode=OVERCAST sky=OVERCAST load=5%
+tick 16712 (uptime 16 s, TL=551 TR=777 BL=413 BR=844, ex=254 ey=27) mode=OVERCAST sky=OVERCAST load=5%
+tick 17712 (uptime 17 s, TL=570 TR=799 BL=416 BR=627, ex=182 ey=135) mode=OVERCAST sky=OVERCAST load=5%
+tick 18712 (uptime 18 s, TL=519 TR=800 BL=410 BR=719, ex=241 ey=77) mode=OVERCAST sky=OVERCAST load=5%
+tick 19712 (uptime 19 s, TL=570 TR=769 BL=416 BR=740, ex=209 ey=73) mode=OVERCAST sky=OVERCAST load=5%
+tick 20712 (uptime 20 s, TL=564 TR=756 BL=420 BR=760, ex=212 ey=56) mode=OVERCAST sky=OVERCAST load=5%
+tick 21712 (uptime 21 s, TL=544 TR=785 BL=414 BR=849, ex=260 ey=25) mode=OVERCAST sky=OVERCAST load=5%
+tick 22712 (uptime 22 s, TL=560 TR=788 BL=418 BR=694, ex=204 ey=95) mode=OVERCAST sky=OVERCAST load=5%
+tick 23712 (uptime 23 s, TL=561 TR=784 BL=353 BR=1010, ex=324 ey=-6) mode=OVERCAST sky=OVERCAST load=5%
+tick 24712 (uptime 24 s, TL=566 TR=793 BL=421 BR=776, ex=227 ey=63) mode=OVERCAST sky=OVERCAST load=5%
+tick 25712 (uptime 25 s, TL=560 TR=779 BL=417 BR=675, ex=196 ey=101) mode=OVERCAST sky=OVERCAST load=5%
+tick 26712 (uptime 26 s, TL=532 TR=753 BL=425 BR=823, ex=244 ey=14) mode=OVERCAST sky=OVERCAST load=5%
+tick 27712 (uptime 27 s, TL=558 TR=728 BL=418 BR=707, ex=190 ey=66) mode=OVERCAST sky=OVERCAST load=5%
+tick 28712 (uptime 28 s, TL=553 TR=795 BL=417 BR=814, ex=247 ey=45) mode=OVERCAST sky=OVERCAST load=5%
+tick 29712 (uptime 29 s, TL=552 TR=811 BL=496 BR=701, ex=181 ey=64) mode=OVERCAST sky=OVERCAST load=5%
+tick 30712 (uptime 30 s, TL=524 TR=805 BL=421 BR=802, ex=259 ey=41) mode=OVERCAST sky=OVERCAST load=5%
+tick 31712 (uptime 31 s, TL=472 TR=752 BL=418 BR=729, ex=249 ey=32) mode=OVERCAST sky=OVERCAST load=5%
+tick 32712 (uptime 32 s, TL=536 TR=765 BL=398 BR=726, ex=229 ey=72) mode=OVERCAST sky=OVERCAST load=5%
+tick 33712 (uptime 33 s, TL=464 TR=812 BL=397 BR=759, ex=291 ey=49) mode=OVERCAST sky=OVERCAST load=5%
+tick 34712 (uptime 34 s, TL=470 TR=757 BL=374 BR=696, ex=265 ey=68) mode=OVERCAST sky=OVERCAST load=5%
+tick 35712 (uptime 35 s, TL=528 TR=820 BL=407 BR=837, ex=278 ey=40) mode=OVERCAST sky=OVERCAST load=5%
+tick 36712 (uptime 36 s, TL=474 TR=801 BL=397 BR=741, ex=278 ey=56) mode=OVERCAST sky=OVERCAST load=5%
+tick 37712 (uptime 37 s, TL=463 TR=818 BL=388 BR=757, ex=298 ey=56) mode=OVERCAST sky=OVERCAST load=5%
+tick 38712 (uptime 38 s, TL=464 TR=810 BL=392 BR=837, ex=316 ey=17) mode=OVERCAST sky=OVERCAST load=5%
+tick 39712 (uptime 39 s, TL=459 TR=807 BL=400 BR=706, ex=275 ey=67) mode=OVERCAST sky=OVERCAST load=5%
+tick 40712 (uptime 40 s, TL=523 TR=821 BL=333 BR=856, ex=324 ey=61) mode=OVERCAST sky=OVERCAST load=5%
+tick 41712 (uptime 41 s, TL=499 TR=759 BL=397 BR=721, ex=245 ey=58) mode=OVERCAST sky=OVERCAST load=5%
+tick 42712 (uptime 42 s, TL=461 TR=748 BL=390 BR=777, ex=283 ey=17) mode=OVERCAST sky=OVERCAST load=5%
+tick 43712 (uptime 43 s, TL=522 TR=757 BL=385 BR=802, ex=264 ey=37) mode=OVERCAST sky=OVERCAST load=5%
+tick 44712 (uptime 44 s, TL=536 TR=761 BL=419 BR=704, ex=210 ey=71) mode=OVERCAST sky=OVERCAST load=5%
+tick 45712 (uptime 45 s, TL=518 TR=762 BL=404 BR=849, ex=272 ey=10) mode=OVERCAST sky=OVERCAST load=5%
+tick 46712 (uptime 46 s, TL=516 TR=826 BL=406 BR=712, ex=250 ey=91) mode=OVERCAST sky=OVERCAST load=5%
+tick 47712 (uptime 47 s, TL=455 TR=789 BL=384 BR=883, ex=331 ey=-9) mode=OVERCAST sky=OVERCAST load=5%
+tick 48712 (uptime 48 s, TL=552 TR=817 BL=422 BR=755, ex=234 ey=75) mode=OVERCAST sky=OVERCAST load=5%
+tick 49712 (uptime 49 s, TL=488 TR=761 BL=399 BR=751, ex=260 ey=41) mode=OVERCAST sky=OVERCAST load=5%
+tick 50712 (uptime 50 s, TL=482 TR=785 BL=396 BR=823, ex=293 ey=19) mode=OVERCAST sky=OVERCAST load=5%
+tick 51712 (uptime 51 s, TL=476 TR=804 BL=397 BR=685, ex=260 ey=83) mode=OVERCAST sky=OVERCAST load=5%
+tick 52712 (uptime 52 s, TL=479 TR=752 BL=398 BR=833, ex=287 ey=0) mode=OVERCAST sky=OVERCAST load=5%
+tick 53712 (uptime 53 s, TL=512 TR=803 BL=401 BR=724, ex=251 ey=77) mode=OVERCAST sky=OVERCAST load=5%
+tick 54712 (uptime 54 s, TL=479 TR=812 BL=389 BR=803, ex=300 ey=39) mode=OVERCAST sky=OVERCAST load=5%
+tick 55712 (uptime 55 s, TL=471 TR=790 BL=382 BR=898, ex=328 ey=-7) mode=OVERCAST sky=OVERCAST load=5%
+tick 56712 (uptime 56 s, TL=549 TR=793 BL=410 BR=749, ex=233 ey=73) mode=OVERCAST sky=OVERCAST load=5%
+tick 57712 (uptime 57 s, TL=458 TR=779 BL=412 BR=833, ex=298 ey=-3) mode=OVERCAST sky=OVERCAST load=5%
+tick 58712 (uptime 58 s, TL=461 TR=781 BL=413 BR=634, ex=236 ey=85) mode=OVERCAST sky=OVERCAST load=5%
+tick 59712 (uptime 59 s, TL=523 TR=751 BL=387 BR=817, ex=265 ey=28) mode=OVERCAST sky=OVERCAST load=5%
+tick 60712 (uptime 60 s, TL=459 TR=787 BL=392 BR=742, ex=284 ey=47) mode=OVERCAST sky=OVERCAST load=5%
+tick 61712 (uptime 61 s, TL=470 TR=774 BL=416 BR=762, ex=268 ey=27) mode=OVERCAST sky=OVERCAST load=5%
+tick 62712 (uptime 62 s, TL=468 TR=735 BL=402 BR=821, ex=282 ey=-8) mode=OVERCAST sky=OVERCAST load=5%
+tick 63712 (uptime 63 s, TL=448 TR=748 BL=378 BR=598, ex=239 ey=101) mode=OVERCAST sky=OVERCAST load=5%
+tick 64712 (uptime 64 s, TL=442 TR=772 BL=363 BR=805, ex=324 ey=19) mode=OVERCAST sky=OVERCAST load=5%
+tick 65712 (uptime 65 s, TL=453 TR=792 BL=400 BR=709, ex=275 ey=57) mode=OVERCAST sky=OVERCAST load=5%
+tick 66712 (uptime 66 s, TL=457 TR=753 BL=385 BR=747, ex=280 ey=33) mode=OVERCAST sky=OVERCAST load=5%
+tick 67712 (uptime 67 s, TL=445 TR=812 BL=409 BR=784, ex=302 ey=26) mode=OVERCAST sky=OVERCAST load=5%
+tick 68712 (uptime 68 s, TL=504 TR=784 BL=364 BR=704, ex=263 ey=93) mode=OVERCAST sky=OVERCAST load=5%
+tick 69712 (uptime 69 s, TL=448 TR=789 BL=383 BR=830, ex=321 ey=9) mode=OVERCAST sky=OVERCAST load=5%
+tick 70712 (uptime 70 s, TL=505 TR=767 BL=391 BR=681, ex=235 ey=85) mode=OVERCAST sky=OVERCAST load=5%
+tick 71712 (uptime 71 s, TL=528 TR=749 BL=387 BR=795, ex=255 ey=38) mode=OVERCAST sky=OVERCAST load=5%
+tick 72712 (uptime 72 s, TL=473 TR=843 BL=384 BR=916, ex=344 ey=6) mode=OVERCAST sky=OVERCAST load=5%
+tick 73712 (uptime 73 s, TL=497 TR=779 BL=380 BR=711, ex=258 ey=78) mode=OVERCAST sky=OVERCAST load=5%
+# --- STATS final ---
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=adc n=6283 min_us=165 avg_us=165 max_us=165 late_max_us=47 late_p99_us=100 missed=0 max_cyc=16594
+STAT name=control n=6283 min_us=19 avg_us=23 max_us=54 late_max_us=265 late_p99_us=300 missed=0 max_cyc=5427
+STAT name=servo n=3142 min_us=6 avg_us=6 max_us=6 late_max_us=236 late_p99_us=300 missed=0 max_cyc=653
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=cli n=64 min_us=3538 avg_us=18071 max_us=18470 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1847012
+STAT name=imu n=629 min_us=848 avg_us=854 max_us=932 late_max_us=19085 late_p99_us=1600 missed=0 max_cyc=93208
+STAT name=tick n=63 min_us=18681 avg_us=18681 max_us=18681 late_max_us=374 late_p99_us=400 missed=0 max_cyc=1868193
+STAT name=loss n=629 min_us=7 avg_us=7 max_us=7 late_max_us=19019 late_p99_us=1600 missed=0 max_cyc=754
+STAT name=led n=629 min_us=6 avg_us=6 max_us=7 late_max_us=19959 late_p99_us=1600 missed=0 max_cyc=712
+STAT name=camera n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cam_frame n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cmd_latency n=1 min_us=25 avg_us=25 max_us=25
+STAT name=flash_wait n=0 min_us=0 avg_us=0 max_us=0
+LOAD pct=5 run_pct=6 btn_lost=0 uart_rx_overflow=0 pend_lost=0 flash_err=0 imu_err=0 cam_err=0 flash_last_rc=0
+tick 74837 (uptime 74 s, TL=475 TR=724 BL=466 BR=842, ex=249 ey=-43) mode=OVERCAST sky=OVERCAST load=31%
+tick 75712 (uptime 75 s, TL=440 TR=779 BL=481 BR=687, ex=228 ey=21) mode=OVERCAST sky=OVERCAST load=5%
+tick 76712 (uptime 76 s, TL=512 TR=784 BL=451 BR=797, ex=242 ey=18) mode=OVERCAST sky=OVERCAST load=5%
+MEM stack_used=672 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 77712 (uptime 77 s, TL=491 TR=749 BL=487 BR=770, ex=216 ey=-6) mode=OVERCAST sky=OVERCAST load=6%
+# MEM {'stack_used': 672, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+tick 78712 (uptime 78 s, TL=417 TR=749 BL=473 BR=718, ex=244 ey=-10) mode=OVERCAST sky=OVERCAST load=5%
+TASK name=cli state=Running prio=3 cpu_us=1540170 cpu_pct=2.2 stack_free_words=157
+TASK name=IDLE state=Ready prio=0 cpu_us=62962978 cpu_pct=93.9 stack_free_words=116
+TASK name=button state=Blocked prio=6 cpu_us=0 cpu_pct=0.0 stack_free_words=91
+TASK name=log state=Blocked prio=4 cpu_us=0 cpu_pct=0.0 stack_free_words=211
+TASK name=camera state=Blocked prio=1 cpu_us=0 cpu_pct=0.0 stack_free_words=229
+TASK name=loss state=Blocked prio=2 cpu_us=26658 cpu_pct=0.0 stack_free_words=150
+TASK name=tick state=Blocked prio=2 cpu_us=26167 cpu_pct=0.0 stack_free_words=170
+TASK name=imu state=Blocked prio=2 cpu_us=545061 cpu_pct=0.8 stack_free_words=167
+TASK name=led state=Blocked prio=1 cpu_us=26382 cpu_pct=0.0 stack_free_words=88
+TASK name=snapshot state=Blocked prio=1 cpu_us=18075 cpu_pct=0.0 stack_free_words=153
+TASK name=adc state=Blocked prio=5 cpu_us=1274760 cpu_pct=1.9 stack_free_words=82
+TASK name=control state=Blocked prio=4 cpu_us=363278 cpu_pct=0.5 stack_free_words=242
+TASK name=servo state=Blocked prio=4 cpu_us=261337 cpu_pct=0.3 stack_free_words=88
+TASKS total_us=67040492 switches=34410
+tick 79712 (uptime 79 s, TL=434 TR=776 BL=445 BR=762, ex=272 ey=1) mode=OVERCAST sky=OVERCAST load=24%
+tick 80712 (uptime 80 s, TL=454 TR=727 BL=485 BR=858, ex=255 ey=-64) mode=OVERCAST sky=OVERCAST load=5%
+STACK task=cli size_words=384 free_min_words=157 used_max_bytes=908
+STACK task=IDLE size_words=128 free_min_words=116 used_max_bytes=48
+STACK task=button size_words=128 free_min_words=91 used_max_bytes=148
+STACK task=log size_words=320 free_min_words=211 used_max_bytes=436
+STACK task=camera size_words=320 free_min_words=229 used_max_bytes=364
+STACK task=loss size_words=192 free_min_words=150 used_max_bytes=168
+STACK task=tick size_words=320 free_min_words=170 used_max_bytes=600
+STACK task=led size_words=128 free_min_words=88 used_max_bytes=160
+STACK task=snapshot size_words=192 free_min_words=147 used_max_bytes=180
+STACK task=imu size_words=256 free_min_words=163 used_max_bytes=372
+STACK task=adc size_words=128 free_min_words=82 used_max_bytes=184
+STACK task=control size_words=320 free_min_words=242 used_max_bytes=312
+STACK task=servo size_words=128 free_min_words=88 used_max_bytes=160
+MEM stack_used=672 stack_reserved=2048 (MSP: обробники переривань)
+tick 81712 (uptime 81 s, TL=425 TR=785 BL=476 BR=760, ex=263 ey=-10) mode=OVERCAST sky=OVERCAST load=22%
+tick 82712 (uptime 82 s, TL=420 TR=751 BL=449 BR=721, ex=257 ey=0) mode=OVERCAST sky=OVERCAST load=5%
+HEAP total=1024 free=0 min_ever_free=0 used_max=1024 malloc_failed=0
+tick 83712 (uptime 83 s, TL=442 TR=770 BL=400 BR=709, ex=274 ey=44) mode=OVERCAST sky=OVERCAST load=6%
+tick 84712 (uptime 84 s, TL=420 TR=761 BL=490 BR=793, ex=261 ey=-41) mode=OVERCAST sky=OVERCAST load=5%
+OSCOST tick_hz=1000 tick_isr_n=73291 tick_isr_avg_cyc=597 tick_isr_max_cyc=3386 tick_isr_avg_us_x100=597 tick_isr_max_us_x100=3386
+OSCOST longest_run_us=9752 longest_run_task=cli
+OSCOST switches=37532 window_ms=73313 tick_gap_max_us=1029 tick_gaps_over_1500us=0 cam_irq_off_max_us=0 cam_short_frames=0 cam_lines_lost=0
+tick 85712 (uptime 85 s, TL=418 TR=749 BL=494 BR=680, ex=220 ey=-2) mode=OVERCAST sky=OVERCAST load=11%
+tick 86712 (uptime 86 s, TL=426 TR=771 BL=455 BR=837, ex=292 ey=-38) mode=OVERCAST sky=OVERCAST load=5%
+[cli] period set
+tick 87712 (uptime 87 s, TL=441 TR=726 BL=475 BR=717, ex=223 ey=-10) mode=OVERCAST sky=OVERCAST load=5%
+tick 88712 (uptime 88 s, TL=458 TR=747 BL=501 BR=969, ex=282 ey=-99) mode=OVERCAST sky=OVERCAST load=5%
