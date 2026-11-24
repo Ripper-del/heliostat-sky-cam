@@ -1,0 +1,61 @@
+@startuml interaction
+!pragma layout smetana
+title Активні об'єкти і події між ними (ЛР5)
+skinparam rectangle {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+skinparam ArrowColor #586E75
+rectangle "EXTI (кнопка B1, BTNSIM)" as exti #EEE8D5
+rectangle "USART2 RX" as rx #EEE8D5
+rectangle "SysTick → vApplicationTickHook\n(часові події QP)" as tickhook #EEE8D5
+rectangle "button\nQP 12 / FreeRTOS 6" as button
+rectangle "adc\n11 / 5, власник АЦП" as adc
+rectangle "control\n10 / 4, трекер і калібровка" as control
+rectangle "servo\n9 / 4, власник ШІМ" as servo
+rectangle "log\n8 / 4, ВЛАСНИК FLASH" as log #F2DEDE
+rectangle "cli\n7 / 3, ВЛАСНИК UART" as cli #F2DEDE
+rectangle "imu\n6 / 2, власник I2C1" as imu
+rectangle "tick\n5 / 2" as tick
+rectangle "loss\n4 / 2" as loss
+rectangle "led\n3 / 1" as led
+rectangle "camera\n2 / 1, ВЛАСНИК КАМЕРИ І БУФЕРА" as camera #F2DEDE
+rectangle "snapshot\n1 / 1" as snapshot
+exti --> button : BUTTON (FromISR)
+rx --> cli : LINE (FromISR)
+tickhook ..> adc : PERIOD
+adc --> control : SAMPLE
+control --> servo : TARGET, SERVO_PWR
+control ..> tick : TRACK (публікація)
+control ..> loss : TRACK
+control ..> led : TRACK
+control ..> snapshot : TRACK
+camera ..> control : SKY (публікація)
+camera ..> tick : SKY
+button --> snapshot : SNAP_REQ
+control --> snapshot : SNAP_REQ (PARK)
+loss --> snapshot : SNAP_REQ
+snapshot --> camera : CAPTURE_REQ, BUF_RELEASE
+camera --> snapshot : CAPTURE_DONE
+snapshot --> log : SAVE_FRAME
+log --> snapshot : SAVE_DONE
+camera --> log : FRAME_LOAD
+log --> camera : FRAME_LOADED
+control --> log : LOG_REQ, CAL_SAVE, CAL_LOAD
+log --> control : CAL_DONE
+loss --> log : LOG_REQ
+cli --> control : CMD
+cli --> camera : CMD
+cli --> log : CMD
+tick --> cli : TEXT
+log --> cli : TEXT
+control --> cli : TEXT
+camera --> cli : TEXT
+imu --> cli : TEXT
+legend right
+  суцільна стрілка — пряме надсилання (QACTIVE_POST_X)
+  пунктир — публікація через QF (QACTIVE_PUBLISH)
+  червоним — AO-власники спільних ресурсів
+  пріоритет: QP / задачі FreeRTOS (той самий порядок, що в ЛР4)
+endlegend
+@enduml

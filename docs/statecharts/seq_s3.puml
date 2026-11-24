@@ -1,0 +1,42 @@
+@startuml seq_s3
+title S3: знімок у flash, тік, подія кнопки і запис журналу (ЛР5)
+skinparam ParticipantPadding 6
+participant "ISR" as isr
+participant "button (6)" as button
+participant "adc (5)" as adc
+participant "control (4)" as control
+participant "log (4)" as log
+participant "cli (3)" as cli
+participant "camera (1)" as camera
+participant "snapshot (1)" as snapshot
+== знімок: кадр уже в буфері, log пише його у flash ==
+snapshot -> log : SAVE_FRAME(buf)
+activate log
+log -> log : fjob: erase сектора (flash зайнята ~45 мс)
+deactivate log
+isr -> adc : PERIOD (хук тіку, кожні 10 мс)
+activate adc
+adc -> control : SAMPLE
+deactivate adc
+activate control
+control -> control : tracker_update
+deactivate control
+isr -> button : BUTTON (EXTI)
+activate button
+note right of button : t1: пін D1 — початок реакції;\nзатримка = t1 − t0 (фронт D0)
+button -> snapshot : SNAP_REQ
+deactivate button
+snapshot -> snapshot : busy: SNAP_REQ ігнорується
+control -> log : LOG_REQ (зміна режиму)
+activate log
+log -> log : serving: копія в ring
+deactivate log
+isr -> log : POLL (1 мс)
+activate log
+log -> log : flash вільна: спершу запис журналу (16 Б),\nпотім наступна сторінка кадру
+deactivate log
+note over log : очікування запису журналу = одна операція flash,\nа не весь кадр (у ЛР4 — до кінця знімка під м'ютексом)
+isr -> log : POLL ... (до кінця кадру)
+log -> snapshot : SAVE_DONE(no)
+snapshot -> camera : BUF_RELEASE(no)
+@enduml

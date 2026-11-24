@@ -1,0 +1,23 @@
+@startuml imu
+!pragma layout smetana
+title AO imu — власник I2C1 і MPU-6050 (App/Src/ao_imu.c)
+skinparam state {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+[*] --> ok
+state polling {
+  polling : CMD(PERIOD) / ao_period_arm
+  state ok {
+    ok : entry / fails = 0
+    ok : PERIOD (100 мс) [читання ok] / fails = 0
+    ok : PERIOD [помилка, fails < 3] / imu_err++
+  }
+  state fault {
+    fault : entry / TEXT "[imu] fault" → cli
+    fault : PERIOD [помилка] / wake; imu_err++
+  }
+}
+ok --> fault : PERIOD [3 помилки поспіль]
+fault --> ok : PERIOD [wake і читання ok] / TEXT "recovered after N ms"
+@enduml
