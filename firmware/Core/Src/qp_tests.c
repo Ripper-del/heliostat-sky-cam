@@ -90,8 +90,8 @@ uint32_t meas_test_step(void)
         uint32_t late = g_test.late_events;
         memset((void *)&g_test, 0, sizeof g_test); g_test.late_events = a->keep_stats ? late : 0;
         g_test.snap_every_ms = 3200; platform_btnsim(700);
+        if (!a->keep_stats) meas_reset_stats();       /* до set(): a_starve будить button, і та витісняє cli на весь сценарій */
         a->set();
-        if (!a->keep_stats) meas_reset_stats();
         printf("[auto] begin %s %u s\r\n", a->name, (unsigned)a->sec);
         a_phase = 1;
         return a->sec * 1000U;
