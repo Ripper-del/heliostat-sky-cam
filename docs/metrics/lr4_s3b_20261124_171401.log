@@ -1,0 +1,1191 @@
+# scenario=s3 duration=60 servo=0 btnsim_ms=700
+VER git=83f936c build="Nov 23 2026 23:38:53" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+tick 521718 (uptime 521 s, TL=3261 TR=3261 BL=3023 BR=2604, ex=-34 ey=73) mode=TRACK sky=CLEAR load=51%
+# VER git=83f936c build="Nov 23 2026 23:38:53" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] servo OFF
+tick 522718 (uptime 522 s, TL=3259 TR=3268 BL=3049 BR=2389, ex=-54 ey=91) mode=TRACK sky=CLEAR load=5%
+tick 523718 (uptime 523 s, TL=3242 TR=3278 BL=3027 BR=2321, ex=-56 ey=98) mode=TRACK sky=CLEAR load=4%
+tick 524718 (uptime 524 s, TL=3253 TR=3279 BL=3037 BR=2412, ex=-49 ey=90) mode=TRACK sky=CLEAR load=53%
+[cli] unknown command (HELP)
+tick 525718 (uptime 525 s, TL=3251 TR=3276 BL=3033 BR=2403, ex=-50 ey=91) mode=TRACK sky=CLEAR load=17%
+tick 526718 (uptime 526 s, TL=3265 TR=3279 BL=3027 BR=2477, ex=-44 ey=86) mode=TRACK sky=CLEAR load=4%
+[prod] stats reset
+tick 527718 (uptime 527 s, TL=3256 TR=3278 BL=3033 BR=2423, ex=-49 ey=89) mode=TRACK sky=CLEAR load=52%
+tick 528718 (uptime 528 s, TL=3219 TR=3279 BL=3025 BR=2315, ex=-54 ey=97) mode=TRACK sky=CLEAR load=4%
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=cli n=7 min_us=1 avg_us=506 max_us=3537 late_max_us=0 late_p99_us=0 missed=0 max_cyc=353716
+STAT name=adc n=210 min_us=155 avg_us=155 max_us=159 late_max_us=846 late_p99_us=700 missed=0 max_cyc=15959
+STAT name=control n=210 min_us=8 avg_us=8 max_us=8 late_max_us=1018 late_p99_us=900 missed=0 max_cyc=820
+STAT name=servo n=105 min_us=3 avg_us=3 max_us=3 late_max_us=839 late_p99_us=800 missed=0 max_cyc=322
+STAT name=loss n=21 min_us=4 avg_us=4 max_us=4 late_max_us=219 late_p99_us=300 missed=0 max_cyc=413
+STAT name=imu n=21 min_us=845 avg_us=934 max_us=1776 late_max_us=237 late_p99_us=300 missed=0 max_cyc=177665
+STAT name=led n=21 min_us=3 avg_us=3 max_us=3 late_max_us=18431 late_p99_us=1600 missed=0 max_cyc=374
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=camera n=1 min_us=446262 avg_us=446262 max_us=446262 late_max_us=13 late_p99_us=100 missed=0 max_cyc=44626292
+STAT name=tick n=2 min_us=18322 avg_us=18362 max_us=18403 late_max_us=13 late_p99_us=100 missed=0 max_cyc=1840361
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cmd_latency n=1 min_us=20 avg_us=20 max_us=20
+STAT name=cam_frame n=1 min_us=443378 avg_us=443378 max_us=443378
+LOAD pct=4 run_pct=33 btn_lost=0 uart_rx_overflow=95 pend_lost=0 flash_err=0 imu_err=0 cam_err=1 flash_last_rc=0
+tick 529718 (uptime 529 s, TL=3256 TR=3271 BL=3029 BR=2464, ex=-45 ey=86) mode=TRACK sky=CLEAR load=33%
+tick 530718 (uptime 530 s, TL=3264 TR=3280 BL=3019 BR=2467, ex=-44 ey=87) mode=TRACK sky=CLEAR load=53%
+[cli] btnsim 700 ms
+tick 531718 (uptime 531 s, TL=3241 TR=3287 BL=3028 BR=2427, ex=-46 ey=89) mode=TRACK sky=CLEAR load=18%
+tick 532718 (uptime 532 s, TL=3152 TR=3277 BL=2987 BR=2360, ex=-42 ey=91) mode=TRACK sky=CLEAR load=53%
+[cli] snapshot requested
+[prod] mode=TRACK light=11795 thr=2500 ex=-68 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11957 thr=2500 ex=-69 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11983 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+tick 533723 (uptime 533 s, TL=3234 TR=3309 BL=3019 BR=2383, ex=-46 ey=95) mode=TRACK sky=CLEAR load=69%
+[prod] mode=TRACK light=11948 thr=2500 ex=-81 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11886 thr=2500 ex=-85 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11983 thr=2500 ex=-79 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11967 thr=2500 ex=-72 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12234 thr=2500 ex=-53 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11783 thr=2500 ex=-68 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12113 thr=2500 ex=-68 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12080 thr=2500 ex=-57 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-74 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12065 thr=2500 ex=-76 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-73 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11845 thr=2500 ex=-69 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11869 thr=2500 ex=-66 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12077 thr=2500 ex=-72 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11718 thr=2500 ex=-72 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12018 thr=2500 ex=-69 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11984 thr=2500 ex=-78 ey=48 az=500 el=2400 servos=OFF
+tick 534718 (uptime 534 s, TL=3241 TR=3370 BL=3057 BR=2371, ex=-46 ey=98) mode=TRACK sky=CLEAR load=100%
+[prod] mode=TRACK light=12088 thr=2500 ex=-61 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11870 thr=2500 ex=-86 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11959 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12020 thr=2500 ex=-79 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11992 thr=2500 ex=-74 ey=46 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12139 thr=2500 ex=-68 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-77 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11933 thr=2500 ex=-71 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11966 thr=2500 ex=-70 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11973 thr=2500 ex=-76 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11952 thr=2500 ex=-65 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11956 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11989 thr=2500 ex=-72 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12047 thr=2500 ex=-71 ey=42 az=500 el=2400 servos=OFF
+tick 535718 (uptime 535 s, TL=3265 TR=3293 BL=3001 BR=2488, ex=-40 ey=88) mode=TRACK sky=CLEAR load=67%
+[prod] mode=TRACK light=11998 thr=2500 ex=-64 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11840 thr=2500 ex=-85 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11937 thr=2500 ex=-73 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12252 thr=2500 ex=-47 ey=31 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11929 thr=2500 ex=-81 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12214 thr=2500 ex=-59 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12106 thr=2500 ex=-65 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12076 thr=2500 ex=-66 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12040 thr=2500 ex=-73 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12003 thr=2500 ex=-65 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11999 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12064 thr=2500 ex=-65 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11926 thr=2500 ex=-74 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11983 thr=2500 ex=-69 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12226 thr=2500 ex=-55 ey=29 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11921 thr=2500 ex=-72 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11818 thr=2500 ex=-79 ey=67 az=500 el=2400 servos=OFF
+tick 536718 (uptime 536 s, TL=3282 TR=3271 BL=2973 BR=2315, ex=-56 ey=106) mode=TRACK sky=CLEAR load=100%
+[prod] mode=TRACK light=11982 thr=2500 ex=-69 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11845 thr=2500 ex=-67 ey=43 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=12043 thr=2500 ex=-64 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12008 thr=2500 ex=-74 ey=50 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12028 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11821 thr=2500 ex=-64 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11810 thr=2500 ex=-64 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12086 thr=2500 ex=-67 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11811 thr=2500 ex=-85 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11929 thr=2500 ex=-74 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11824 thr=2500 ex=-83 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11870 thr=2500 ex=-77 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12035 thr=2500 ex=-73 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12024 thr=2500 ex=-79 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11939 thr=2500 ex=-55 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11996 thr=2500 ex=-75 ey=44 az=500 el=2400 servos=OFF
+tick 537719 (uptime 537 s, TL=3232 TR=3281 BL=3038 BR=2626, ex=-29 ey=69) mode=OVERCAST sky=CLEAR load=78%
+[prod] mode=OVERCAST light=12177 thr=2500 ex=-57 ey=27 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11831 thr=2500 ex=-64 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12013 thr=2500 ex=-74 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11720 thr=2500 ex=-81 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11919 thr=2500 ex=-83 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12034 thr=2500 ex=-69 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11879 thr=2500 ex=-85 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11808 thr=2500 ex=-68 ey=67 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11972 thr=2500 ex=-72 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12001 thr=2500 ex=-74 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11743 thr=2500 ex=-67 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11770 thr=2500 ex=-64 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12044 thr=2500 ex=-66 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11942 thr=2500 ex=-81 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11792 thr=2500 ex=-82 ey=59 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+tick 538718 (uptime 538 s, TL=3227 TR=3288 BL=3039 BR=2422, ex=-46 ey=88) mode=TRACK sky=CLEAR load=97%
+[prod] mode=TRACK light=11904 thr=2500 ex=-72 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12045 thr=2500 ex=-63 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12016 thr=2500 ex=-64 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11783 thr=2500 ex=-80 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12066 thr=2500 ex=-74 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11907 thr=2500 ex=-87 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11925 thr=2500 ex=-83 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-74 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12004 thr=2500 ex=-70 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-65 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11962 thr=2500 ex=-64 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11946 thr=2500 ex=-69 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11835 thr=2500 ex=-76 ey=59 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12086 thr=2500 ex=-62 ey=50 az=500 el=2400 servos=OFF
+tick 539718 (uptime 539 s, TL=3268 TR=3243 BL=3010 BR=2296, ex=-62 ey=101) mode=TRACK sky=CLEAR load=74%
+[prod] mode=TRACK light=11817 thr=2500 ex=-90 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11894 thr=2500 ex=-83 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11955 thr=2500 ex=-76 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12023 thr=2500 ex=-71 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12060 thr=2500 ex=-69 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12103 thr=2500 ex=-70 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12061 thr=2500 ex=-61 ey=52 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12078 thr=2500 ex=-62 ey=47 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12041 thr=2500 ex=-69 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11709 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11909 thr=2500 ex=-82 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12042 thr=2500 ex=-64 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11982 thr=2500 ex=-71 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11933 thr=2500 ex=-75 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11820 thr=2500 ex=-85 ey=59 az=500 el=2400 servos=OFF
+tick 540718 (uptime 540 s, TL=3179 TR=3303 BL=3062 BR=2445, ex=-41 ey=81) mode=TRACK sky=CLEAR load=88%
+[prod] mode=TRACK light=11998 thr=2500 ex=-69 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11892 thr=2500 ex=-78 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11942 thr=2500 ex=-71 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-82 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11824 thr=2500 ex=-77 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11857 thr=2500 ex=-86 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11984 thr=2500 ex=-66 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12043 thr=2500 ex=-68 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11960 thr=2500 ex=-73 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11922 thr=2500 ex=-61 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-83 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11885 thr=2500 ex=-79 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11945 thr=2500 ex=-72 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11871 thr=2500 ex=-75 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11955 thr=2500 ex=-66 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11903 thr=2500 ex=-79 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11816 thr=2500 ex=-82 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11868 thr=2500 ex=-75 ey=57 az=500 el=2400 servos=OFF
+tick 541729 (uptime 541 s, TL=3220 TR=3316 BL=2967 BR=2424, ex=-37 ey=96) mode=TRACK sky=CLEAR load=72%
+[prod] mode=TRACK light=11933 thr=2500 ex=-76 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11912 thr=2500 ex=-84 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11874 thr=2500 ex=-72 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11836 thr=2500 ex=-81 ey=68 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11960 thr=2500 ex=-73 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11966 thr=2500 ex=-69 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11943 thr=2500 ex=-63 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12005 thr=2500 ex=-82 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12022 thr=2500 ex=-72 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12023 thr=2500 ex=-79 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11985 thr=2500 ex=-72 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12021 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11915 thr=2500 ex=-79 ey=51 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11977 thr=2500 ex=-63 ey=41 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+tick 542718 (uptime 542 s, TL=3245 TR=3285 BL=3029 BR=2443, ex=-45 ey=88) mode=TRACK sky=CLEAR load=65%
+[prod] mode=TRACK light=12002 thr=2500 ex=-73 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12037 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11969 thr=2500 ex=-73 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11942 thr=2500 ex=-74 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-77 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12007 thr=2500 ex=-69 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12014 thr=2500 ex=-65 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11947 thr=2500 ex=-80 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12020 thr=2500 ex=-70 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12082 thr=2500 ex=-63 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-84 ey=43 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11878 thr=2500 ex=-84 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11771 thr=2500 ex=-67 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12010 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11967 thr=2500 ex=-76 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11673 thr=2500 ex=-96 ey=71 az=500 el=2400 servos=OFF
+tick 543718 (uptime 543 s, TL=3251 TR=3285 BL=3059 BR=2459, ex=-46 ey=84) mode=TRACK sky=CLEAR load=96%
+[prod] mode=TRACK light=11954 thr=2500 ex=-74 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11922 thr=2500 ex=-74 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11914 thr=2500 ex=-76 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11879 thr=2500 ex=-83 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11837 thr=2500 ex=-87 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11913 thr=2500 ex=-75 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11805 thr=2500 ex=-71 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12000 thr=2500 ex=-72 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11879 thr=2500 ex=-65 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12072 thr=2500 ex=-60 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12112 thr=2500 ex=-65 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12059 thr=2500 ex=-74 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11691 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11973 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11953 thr=2500 ex=-76 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11883 thr=2500 ex=-88 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11999 thr=2500 ex=-73 ey=47 az=500 el=2400 servos=OFF
+tick 544718 (uptime 544 s, TL=3257 TR=3272 BL=3019 BR=2333, ex=-56 ey=99) mode=TRACK sky=CLEAR load=72%
+[prod] mode=TRACK light=11881 thr=2500 ex=-84 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11891 thr=2500 ex=-80 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11841 thr=2500 ex=-72 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12001 thr=2500 ex=-74 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11781 thr=2500 ex=-80 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11787 thr=2500 ex=-81 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12029 thr=2500 ex=-69 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-70 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11844 thr=2500 ex=-74 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12008 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11885 thr=2500 ex=-65 ey=63 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=11990 thr=2500 ex=-80 ey=50 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=12009 thr=2500 ex=-73 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11989 thr=2500 ex=-63 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11975 thr=2500 ex=-76 ey=60 az=500 el=2400 servos=OFF
+tick 545718 (uptime 545 s, TL=3252 TR=3272 BL=3027 BR=2589, ex=-34 ey=74) mode=OVERCAST sky=CLEAR load=62%
+[prod] mode=OVERCAST light=11907 thr=2500 ex=-79 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12095 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12035 thr=2500 ex=-76 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11850 thr=2500 ex=-83 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12071 thr=2500 ex=-58 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12100 thr=2500 ex=-69 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11965 thr=2500 ex=-75 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11970 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12040 thr=2500 ex=-65 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12075 thr=2500 ex=-70 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12112 thr=2500 ex=-65 ey=39 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12213 thr=2500 ex=-51 ey=37 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11927 thr=2500 ex=-73 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11699 thr=2500 ex=-75 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11937 thr=2500 ex=-81 ey=64 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11870 thr=2500 ex=-88 ey=54 az=500 el=2400 servos=OFF
+tick 546718 (uptime 546 s, TL=3279 TR=3238 BL=2979 BR=2431, ex=-49 ey=92) mode=TRACK sky=CLEAR load=64%
+[prod] mode=TRACK light=12151 thr=2500 ex=-60 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12122 thr=2500 ex=-63 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11900 thr=2500 ex=-78 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11818 thr=2500 ex=-84 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11882 thr=2500 ex=-79 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11802 thr=2500 ex=-86 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11884 thr=2500 ex=-76 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11931 thr=2500 ex=-50 ey=37 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11980 thr=2500 ex=-77 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11904 thr=2500 ex=-77 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12063 thr=2500 ex=-64 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12207 thr=2500 ex=-62 ey=26 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12112 thr=2500 ex=-65 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11829 thr=2500 ex=-85 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12026 thr=2500 ex=-70 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12041 thr=2500 ex=-63 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11709 thr=2500 ex=-77 ey=53 az=500 el=2400 servos=OFF
+tick 547718 (uptime 547 s, TL=3264 TR=3335 BL=3056 BR=2270, ex=-59 ey=106) mode=TRACK sky=CLEAR load=75%
+[prod] mode=TRACK light=12267 thr=2500 ex=-49 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11893 thr=2500 ex=-77 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12288 thr=2500 ex=-55 ey=27 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12022 thr=2500 ex=-79 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11707 thr=2500 ex=-80 ey=69 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11887 thr=2500 ex=-77 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11842 thr=2500 ex=-77 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11888 thr=2500 ex=-70 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11952 thr=2500 ex=-64 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12022 thr=2500 ex=-75 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11925 thr=2500 ex=-74 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11768 thr=2500 ex=-79 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11865 thr=2500 ex=-68 ey=49 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12077 thr=2500 ex=-65 ey=41 az=500 el=2400 servos=OFF
+tick 548718 (uptime 548 s, TL=3250 TR=3333 BL=2978 BR=2481, ex=-34 ey=93) mode=TRACK sky=CLEAR load=71%
+[prod] mode=TRACK light=12042 thr=2500 ex=-62 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12059 thr=2500 ex=-78 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12019 thr=2500 ex=-64 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12075 thr=2500 ex=-65 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11994 thr=2500 ex=-72 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12064 thr=2500 ex=-64 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12173 thr=2500 ex=-52 ey=37 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11905 thr=2500 ex=-84 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11924 thr=2500 ex=-89 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11984 thr=2500 ex=-75 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12062 thr=2500 ex=-72 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11985 thr=2500 ex=-76 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12062 thr=2500 ex=-69 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12035 thr=2500 ex=-72 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11946 thr=2500 ex=-63 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12058 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11953 thr=2500 ex=-73 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12130 thr=2500 ex=-51 ey=32 az=500 el=2400 servos=OFF
+tick 549718 (uptime 549 s, TL=3247 TR=3264 BL=3017 BR=2303, ex=-58 ey=100) mode=TRACK sky=CLEAR load=37%
+[prod] mode=TRACK light=12024 thr=2500 ex=-67 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11956 thr=2500 ex=-80 ey=59 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11773 thr=2500 ex=-80 ey=73 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12111 thr=2500 ex=-66 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11875 thr=2500 ex=-74 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12123 thr=2500 ex=-64 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11793 thr=2500 ex=-69 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11928 thr=2500 ex=-76 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12000 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11926 thr=2500 ex=-63 ey=52 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11837 thr=2500 ex=-68 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-74 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11894 thr=2500 ex=-86 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11864 thr=2500 ex=-79 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11958 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+tick 550718 (uptime 550 s, TL=3156 TR=3325 BL=2973 BR=2399, ex=-34 ey=93) mode=TRACK sky=CLEAR load=81%
+[prod] mode=TRACK light=11956 thr=2500 ex=-69 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11912 thr=2500 ex=-78 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12014 thr=2500 ex=-72 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12009 thr=2500 ex=-63 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11912 thr=2500 ex=-81 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12087 thr=2500 ex=-66 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11943 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11935 thr=2500 ex=-79 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-53 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12124 thr=2500 ex=-59 ey=32 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11872 thr=2500 ex=-82 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11993 thr=2500 ex=-65 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12031 thr=2500 ex=-73 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11659 thr=2500 ex=-78 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11812 thr=2500 ex=-73 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11853 thr=2500 ex=-80 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12115 thr=2500 ex=-66 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11802 thr=2500 ex=-76 ey=49 az=500 el=2400 servos=OFF
+tick 551719 (uptime 551 s, TL=3284 TR=3240 BL=2981 BR=2394, ex=-53 ey=96) mode=TRACK sky=CLEAR load=95%
+[prod] mode=TRACK light=11674 thr=2500 ex=-80 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12036 thr=2500 ex=-70 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11955 thr=2500 ex=-60 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-81 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11792 thr=2500 ex=-62 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12026 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11951 thr=2500 ex=-65 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11931 thr=2500 ex=-77 ey=54 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11864 thr=2500 ex=-66 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12019 thr=2500 ex=-58 ey=48 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12012 thr=2500 ex=-70 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12028 thr=2500 ex=-79 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11782 thr=2500 ex=-80 ey=68 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11845 thr=2500 ex=-79 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11974 thr=2500 ex=-69 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11920 thr=2500 ex=-76 ey=62 az=500 el=2400 servos=OFF
+tick 552730 (uptime 552 s, TL=3264 TR=3316 BL=3011 BR=2324, ex=-53 ey=104) mode=TRACK sky=CLEAR load=81%
+[prod] mode=TRACK light=11926 thr=2500 ex=-84 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12025 thr=2500 ex=-75 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11908 thr=2500 ex=-83 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11977 thr=2500 ex=-80 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11867 thr=2500 ex=-81 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12068 thr=2500 ex=-76 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11962 thr=2500 ex=-74 ey=48 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11844 thr=2500 ex=-78 ey=68 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12044 thr=2500 ex=-70 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12055 thr=2500 ex=-68 ey=46 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11963 thr=2500 ex=-82 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12052 thr=2500 ex=-64 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11968 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+tick 553731 (uptime 553 s, TL=3250 TR=3319 BL=2993 BR=2392, ex=-44 ey=99) mode=TRACK sky=CLEAR load=65%
+[prod] mode=TRACK light=11878 thr=2500 ex=-83 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11788 thr=2500 ex=-86 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11751 thr=2500 ex=-90 ey=69 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11848 thr=2500 ex=-80 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-73 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11898 thr=2500 ex=-77 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12106 thr=2500 ex=-63 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11948 thr=2500 ex=-64 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11848 thr=2500 ex=-82 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11942 thr=2500 ex=-58 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-73 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11849 thr=2500 ex=-81 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-63 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11922 thr=2500 ex=-80 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11988 thr=2500 ex=-70 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11910 thr=2500 ex=-79 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11775 thr=2500 ex=-73 ey=52 az=500 el=2400 servos=OFF
+tick 554718 (uptime 554 s, TL=3216 TR=3369 BL=3061 BR=2439, ex=-38 ey=89) mode=TRACK sky=CLEAR load=79%
+[prod] mode=TRACK light=11841 thr=2500 ex=-91 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11858 thr=2500 ex=-87 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11967 thr=2500 ex=-79 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12012 thr=2500 ex=-71 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11931 thr=2500 ex=-78 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12270 thr=2500 ex=-57 ey=31 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11717 thr=2500 ex=-73 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11732 thr=2500 ex=-71 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11699 thr=2500 ex=-75 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11791 thr=2500 ex=-74 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12023 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11897 thr=2500 ex=-72 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12047 thr=2500 ex=-72 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12056 thr=2500 ex=-61 ey=52 az=500 el=2400 servos=OFF
+tick 555718 (uptime 555 s, TL=3219 TR=3302 BL=3048 BR=2399, ex=-47 ey=89) mode=TRACK sky=CLEAR load=95%
+[prod] mode=TRACK light=11968 thr=2500 ex=-75 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11910 thr=2500 ex=-77 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11919 thr=2500 ex=-66 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11864 thr=2500 ex=-83 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12094 thr=2500 ex=-57 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12015 thr=2500 ex=-62 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11870 thr=2500 ex=-84 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-72 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12036 thr=2500 ex=-63 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12129 thr=2500 ex=-51 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12032 thr=2500 ex=-68 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12097 thr=2500 ex=-53 ey=30 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11888 thr=2500 ex=-73 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11991 thr=2500 ex=-76 ey=55 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11730 thr=2500 ex=-81 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12020 thr=2500 ex=-74 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11765 thr=2500 ex=-67 ey=48 az=500 el=2400 servos=OFF
+tick 556718 (uptime 556 s, TL=3256 TR=3374 BL=3061 BR=2448, ex=-40 ey=92) mode=TRACK sky=CLEAR load=50%
+[prod] mode=TRACK light=12124 thr=2500 ex=-64 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11941 thr=2500 ex=-81 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12009 thr=2500 ex=-71 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12008 thr=2500 ex=-69 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11893 thr=2500 ex=-70 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11839 thr=2500 ex=-83 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-77 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11891 thr=2500 ex=-83 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11919 thr=2500 ex=-76 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11943 thr=2500 ex=-77 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12035 thr=2500 ex=-70 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12191 thr=2500 ex=-54 ey=37 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12010 thr=2500 ex=-73 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12005 thr=2500 ex=-68 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11921 thr=2500 ex=-70 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11799 thr=2500 ex=-69 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12024 thr=2500 ex=-61 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12267 thr=2500 ex=-52 ey=34 az=500 el=2400 servos=OFF
+tick 557729 (uptime 557 s, TL=3218 TR=3324 BL=3007 BR=2440, ex=-38 ey=91) mode=TRACK sky=CLEAR load=76%
+[prod] mode=TRACK light=11975 thr=2500 ex=-72 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12237 thr=2500 ex=-52 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11943 thr=2500 ex=-76 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11857 thr=2500 ex=-81 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11755 thr=2500 ex=-88 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11714 thr=2500 ex=-83 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11781 thr=2500 ex=-66 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12043 thr=2500 ex=-56 ey=30 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11943 thr=2500 ex=-77 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12200 thr=2500 ex=-61 ey=28 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11966 thr=2500 ex=-73 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11903 thr=2500 ex=-80 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11691 thr=2500 ex=-71 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12009 thr=2500 ex=-64 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11920 thr=2500 ex=-67 ey=52 az=500 el=2400 servos=OFF
+tick 558718 (uptime 558 s, TL=3223 TR=3346 BL=3063 BR=2431, ex=-42 ey=89) mode=TRACK sky=CLEAR load=98%
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12107 thr=2500 ex=-65 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11934 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12072 thr=2500 ex=-60 ey=33 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12090 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12005 thr=2500 ex=-73 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12216 thr=2500 ex=-63 ey=36 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12158 thr=2500 ex=-49 ey=28 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12131 thr=2500 ex=-48 ey=36 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11801 thr=2500 ex=-80 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11862 thr=2500 ex=-75 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11957 thr=2500 ex=-74 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11923 thr=2500 ex=-87 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12128 thr=2500 ex=-55 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11867 thr=2500 ex=-72 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11867 thr=2500 ex=-80 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12042 thr=2500 ex=-71 ey=53 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+tick 559718 (uptime 559 s, TL=3220 TR=3345 BL=3061 BR=2331, ex=-50 ey=98) mode=TRACK sky=CLEAR load=51%
+[prod] mode=TRACK light=11954 thr=2500 ex=-71 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-67 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12014 thr=2500 ex=-68 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11686 thr=2500 ex=-81 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12019 thr=2500 ex=-73 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12017 thr=2500 ex=-67 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11913 thr=2500 ex=-71 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11963 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11928 thr=2500 ex=-74 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11884 thr=2500 ex=-74 ey=73 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12039 thr=2500 ex=-65 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11667 thr=2500 ex=-73 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11910 thr=2500 ex=-66 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12066 thr=2500 ex=-64 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-81 ey=53 az=500 el=2400 servos=OFF
+tick 560718 (uptime 560 s, TL=3216 TR=3373 BL=3043 BR=2471, ex=-34 ey=88) mode=TRACK sky=CLEAR load=76%
+[prod] mode=TRACK light=12103 thr=2500 ex=-62 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12016 thr=2500 ex=-72 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12017 thr=2500 ex=-70 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11725 thr=2500 ex=-71 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12263 thr=2500 ex=-42 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-77 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-74 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11773 thr=2500 ex=-70 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12152 thr=2500 ex=-58 ey=29 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12089 thr=2500 ex=-61 ey=32 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11912 thr=2500 ex=-67 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12011 thr=2500 ex=-76 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11971 thr=2500 ex=-71 ey=57 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11877 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11959 thr=2500 ex=-65 ey=47 az=500 el=2400 servos=OFF
+tick 561718 (uptime 561 s, TL=3264 TR=3279 BL=3022 BR=2338, ex=-56 ey=99) mode=TRACK sky=CLEAR load=93%
+[prod] mode=TRACK light=11903 thr=2500 ex=-84 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11953 thr=2500 ex=-70 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11838 thr=2500 ex=-72 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12143 thr=2500 ex=-50 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12144 thr=2500 ex=-51 ey=36 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11987 thr=2500 ex=-75 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12131 thr=2500 ex=-73 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11816 thr=2500 ex=-81 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12010 thr=2500 ex=-79 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11873 thr=2500 ex=-86 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11986 thr=2500 ex=-62 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12004 thr=2500 ex=-73 ey=39 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11884 thr=2500 ex=-80 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11956 thr=2500 ex=-76 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11925 thr=2500 ex=-86 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11912 thr=2500 ex=-82 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12033 thr=2500 ex=-80 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11784 thr=2500 ex=-83 ey=68 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12061 thr=2500 ex=-80 ey=50 az=500 el=2400 servos=OFF
+tick 562719 (uptime 562 s, TL=3274 TR=3296 BL=2998 BR=2458, ex=-43 ey=92) mode=TRACK sky=CLEAR load=30%
+[prod] mode=TRACK light=11916 thr=2500 ex=-85 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11914 thr=2500 ex=-82 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11927 thr=2500 ex=-82 ey=57 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11864 thr=2500 ex=-70 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11958 thr=2500 ex=-77 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12094 thr=2500 ex=-69 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-76 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11870 thr=2500 ex=-67 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11947 thr=2500 ex=-80 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11944 thr=2500 ex=-85 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12010 thr=2500 ex=-70 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12010 thr=2500 ex=-73 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-60 ey=59 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11987 thr=2500 ex=-72 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11900 thr=2500 ex=-83 ey=63 az=500 el=2400 servos=OFF
+tick 563718 (uptime 563 s, TL=3150 TR=3323 BL=3017 BR=2569, ex=-22 ey=73) mode=TRACK sky=CLEAR load=80%
+[prod] mode=TRACK light=12059 thr=2500 ex=-50 ey=31 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12144 thr=2500 ex=-61 ey=33 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11998 thr=2500 ex=-76 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11911 thr=2500 ex=-75 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12012 thr=2500 ex=-72 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11952 thr=2500 ex=-79 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11963 thr=2500 ex=-78 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12016 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12117 thr=2500 ex=-67 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11999 thr=2500 ex=-59 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11796 thr=2500 ex=-63 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11789 thr=2500 ex=-75 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12007 thr=2500 ex=-62 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12002 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11974 thr=2500 ex=-73 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11888 thr=2500 ex=-91 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11954 thr=2500 ex=-77 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12008 thr=2500 ex=-74 ey=47 az=500 el=2400 servos=OFF
+tick 564725 (uptime 564 s, TL=3244 TR=3281 BL=3029 BR=2275, ex=-60 ey=103) mode=TRACK sky=CLEAR load=81%
+[prod] mode=TRACK light=11955 thr=2500 ex=-75 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12056 thr=2500 ex=-67 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11962 thr=2500 ex=-66 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11934 thr=2500 ex=-73 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11902 thr=2500 ex=-82 ey=57 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11865 thr=2500 ex=-83 ey=58 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11976 thr=2500 ex=-61 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11915 thr=2500 ex=-67 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11895 thr=2500 ex=-68 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12075 thr=2500 ex=-70 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11940 thr=2500 ex=-73 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12024 thr=2500 ex=-62 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12093 thr=2500 ex=-57 ey=26 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11946 thr=2500 ex=-75 ey=58 az=500 el=2400 servos=OFF
+tick 565718 (uptime 565 s, TL=3230 TR=3277 BL=3031 BR=2389, ex=-49 ey=91) mode=TRACK sky=CLEAR load=65%
+[prod] mode=TRACK light=11808 thr=2500 ex=-79 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12030 thr=2500 ex=-71 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11893 thr=2500 ex=-77 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11957 thr=2500 ex=-67 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12069 thr=2500 ex=-52 ey=31 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12031 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11893 thr=2500 ex=-71 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11981 thr=2500 ex=-70 ey=46 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=12036 thr=2500 ex=-69 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12072 thr=2500 ex=-63 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12075 thr=2500 ex=-65 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12059 thr=2500 ex=-64 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11776 thr=2500 ex=-96 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11964 thr=2500 ex=-76 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11867 thr=2500 ex=-66 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11846 thr=2500 ex=-72 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11661 thr=2500 ex=-76 ey=59 az=500 el=2400 servos=OFF
+tick 566718 (uptime 566 s, TL=3212 TR=3371 BL=3053 BR=2255, ex=-53 ey=107) mode=TRACK sky=CLEAR load=67%
+[prod] mode=TRACK light=12115 thr=2500 ex=-63 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11803 thr=2500 ex=-86 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11868 thr=2500 ex=-80 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12199 thr=2500 ex=-55 ey=33 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12051 thr=2500 ex=-63 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12111 thr=2500 ex=-57 ey=30 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12047 thr=2500 ex=-74 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12041 thr=2500 ex=-70 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12068 thr=2500 ex=-64 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12145 thr=2500 ex=-62 ey=31 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11954 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11763 thr=2500 ex=-77 ey=75 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11879 thr=2500 ex=-75 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11812 thr=2500 ex=-86 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11936 thr=2500 ex=-79 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12228 thr=2500 ex=-43 ey=31 az=500 el=2400 servos=OFF
+tick 567718 (uptime 567 s, TL=3270 TR=3362 BL=2921 BR=2446, ex=-31 ey=105) mode=TRACK sky=CLEAR load=76%
+[prod] mode=TRACK light=11948 thr=2500 ex=-54 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12058 thr=2500 ex=-65 ey=67 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11933 thr=2500 ex=-79 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11800 thr=2500 ex=-79 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11771 thr=2500 ex=-65 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11858 thr=2500 ex=-87 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12010 thr=2500 ex=-68 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11854 thr=2500 ex=-83 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12072 thr=2500 ex=-66 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11919 thr=2500 ex=-83 ey=63 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12012 thr=2500 ex=-83 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12015 thr=2500 ex=-74 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12073 thr=2500 ex=-71 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11913 thr=2500 ex=-81 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11811 thr=2500 ex=-96 ey=71 az=500 el=2400 servos=OFF
+tick 568718 (uptime 568 s, TL=3255 TR=3280 BL=3032 BR=2301, ex=-59 ey=101) mode=TRACK sky=CLEAR load=80%
+[prod] mode=TRACK light=11971 thr=2500 ex=-80 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12018 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11906 thr=2500 ex=-72 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11887 thr=2500 ex=-73 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12004 thr=2500 ex=-73 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11868 thr=2500 ex=-89 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12030 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11716 thr=2500 ex=-86 ey=69 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11927 thr=2500 ex=-69 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11867 thr=2500 ex=-89 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12001 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11891 thr=2500 ex=-79 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12016 thr=2500 ex=-62 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12055 thr=2500 ex=-68 ey=58 az=500 el=2400 servos=OFF
+tick 569718 (uptime 569 s, TL=3272 TR=3240 BL=2960 BR=2634, ex=-29 ey=75) mode=TRACK sky=CLEAR load=65%
+[prod] mode=TRACK light=12106 thr=2500 ex=-57 ey=33 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11968 thr=2500 ex=-70 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11948 thr=2500 ex=-84 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-68 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12036 thr=2500 ex=-62 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11998 thr=2500 ex=-74 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11958 thr=2500 ex=-82 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12049 thr=2500 ex=-72 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11935 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11850 thr=2500 ex=-61 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11905 thr=2500 ex=-80 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12001 thr=2500 ex=-70 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12014 thr=2500 ex=-67 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11755 thr=2500 ex=-90 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11865 thr=2500 ex=-80 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11971 thr=2500 ex=-81 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11888 thr=2500 ex=-81 ey=61 az=500 el=2400 servos=OFF
+tick 570718 (uptime 570 s, TL=3240 TR=3317 BL=3036 BR=2521, ex=-36 ey=82) mode=TRACK sky=CLEAR load=82%
+[prod] mode=TRACK light=11869 thr=2500 ex=-78 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11985 thr=2500 ex=-77 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11909 thr=2500 ex=-63 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12215 thr=2500 ex=-53 ey=27 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11954 thr=2500 ex=-66 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11869 thr=2500 ex=-82 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11888 thr=2500 ex=-84 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11951 thr=2500 ex=-72 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11903 thr=2500 ex=-75 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11698 thr=2500 ex=-71 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12121 thr=2500 ex=-66 ey=32 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11900 thr=2500 ex=-79 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11929 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11930 thr=2500 ex=-69 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11921 thr=2500 ex=-64 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11991 thr=2500 ex=-76 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11831 thr=2500 ex=-81 ey=61 az=500 el=2400 servos=OFF
+tick 571718 (uptime 571 s, TL=3227 TR=3273 BL=3019 BR=2431, ex=-45 ey=87) mode=TRACK sky=CLEAR load=71%
+[prod] mode=TRACK light=11950 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11929 thr=2500 ex=-67 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12029 thr=2500 ex=-61 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12030 thr=2500 ex=-76 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12082 thr=2500 ex=-74 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12012 thr=2500 ex=-80 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11903 thr=2500 ex=-77 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11897 thr=2500 ex=-84 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12038 thr=2500 ex=-75 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11830 thr=2500 ex=-66 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11800 thr=2500 ex=-71 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11944 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11680 thr=2500 ex=-73 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11911 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12019 thr=2500 ex=-71 ey=44 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12120 thr=2500 ex=-60 ey=44 az=500 el=2400 servos=OFF
+tick 572718 (uptime 572 s, TL=3242 TR=3343 BL=2979 BR=2472, ex=-33 ey=94) mode=TRACK sky=CLEAR load=65%
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12062 thr=2500 ex=-67 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12034 thr=2500 ex=-69 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11959 thr=2500 ex=-71 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12105 thr=2500 ex=-64 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12061 thr=2500 ex=-63 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12079 thr=2500 ex=-60 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12080 thr=2500 ex=-68 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12069 thr=2500 ex=-69 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11970 thr=2500 ex=-68 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12083 thr=2500 ex=-62 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11891 thr=2500 ex=-85 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12027 thr=2500 ex=-72 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11894 thr=2500 ex=-65 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11841 thr=2500 ex=-65 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11997 thr=2500 ex=-69 ey=48 az=500 el=2400 servos=OFF
+tick 573718 (uptime 573 s, TL=3229 TR=3327 BL=3039 BR=2299, ex=-53 ey=102) mode=TRACK sky=CLEAR load=94%
+[prod] mode=TRACK light=11894 thr=2500 ex=-81 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12000 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11841 thr=2500 ex=-84 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11882 thr=2500 ex=-80 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11966 thr=2500 ex=-73 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11920 thr=2500 ex=-76 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11880 thr=2500 ex=-81 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12122 thr=2500 ex=-67 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11933 thr=2500 ex=-77 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12014 thr=2500 ex=-74 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12104 thr=2500 ex=-65 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11995 thr=2500 ex=-68 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11869 thr=2500 ex=-60 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12048 thr=2500 ex=-58 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12013 thr=2500 ex=-77 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11895 thr=2500 ex=-82 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11977 thr=2500 ex=-71 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11919 thr=2500 ex=-76 ey=58 az=500 el=2400 servos=OFF
+tick 574718 (uptime 574 s, TL=3264 TR=3276 BL=3032 BR=2499, ex=-43 ey=83) mode=TRACK sky=CLEAR load=73%
+[prod] mode=TRACK light=11943 thr=2500 ex=-73 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12015 thr=2500 ex=-73 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11909 thr=2500 ex=-85 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-78 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12039 thr=2500 ex=-77 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12119 thr=2500 ex=-52 ey=33 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11853 thr=2500 ex=-77 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11875 thr=2500 ex=-89 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11878 thr=2500 ex=-72 ey=58 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12026 thr=2500 ex=-83 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12078 thr=2500 ex=-60 ey=47 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11877 thr=2500 ex=-80 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12004 thr=2500 ex=-74 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12190 thr=2500 ex=-68 ey=38 az=500 el=2400 servos=OFF
+tick 575718 (uptime 575 s, TL=3259 TR=3283 BL=3033 BR=2305, ex=-59 ey=101) mode=TRACK sky=CLEAR load=59%
+[prod] mode=TRACK light=12095 thr=2500 ex=-45 ey=39 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11894 thr=2500 ex=-72 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11778 thr=2500 ex=-86 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-81 ey=54 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11850 thr=2500 ex=-87 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12060 thr=2500 ex=-69 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12072 thr=2500 ex=-65 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11716 thr=2500 ex=-74 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11836 thr=2500 ex=-66 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11744 thr=2500 ex=-82 ey=53 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11914 thr=2500 ex=-70 ey=37 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11995 thr=2500 ex=-61 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11831 thr=2500 ex=-82 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11923 thr=2500 ex=-75 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12015 thr=2500 ex=-70 ey=36 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11904 thr=2500 ex=-77 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12040 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+tick 576720 (uptime 576 s, TL=3288 TR=3231 BL=2957 BR=2490, ex=-43 ey=89) mode=TRACK sky=CLEAR load=65%
+[prod] mode=TRACK light=12033 thr=2500 ex=-64 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12135 thr=2500 ex=-62 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11917 thr=2500 ex=-58 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11897 thr=2500 ex=-81 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11798 thr=2500 ex=-66 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11919 thr=2500 ex=-76 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11824 thr=2500 ex=-85 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11964 thr=2500 ex=-75 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11916 thr=2500 ex=-65 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11976 thr=2500 ex=-59 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11957 thr=2500 ex=-77 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11952 thr=2500 ex=-70 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11951 thr=2500 ex=-72 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11865 thr=2500 ex=-71 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12048 thr=2500 ex=-74 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12042 thr=2500 ex=-75 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11949 thr=2500 ex=-85 ey=61 az=500 el=2400 servos=OFF
+tick 577718 (uptime 577 s, TL=3183 TR=3365 BL=3010 BR=2304, ex=-44 ey=104) mode=OVERCAST sky=CLEAR load=71%
+[prod] mode=OVERCAST light=11862 thr=2500 ex=-72 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11909 thr=2500 ex=-76 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11782 thr=2500 ex=-78 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11889 thr=2500 ex=-76 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11985 thr=2500 ex=-82 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11717 thr=2500 ex=-81 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12040 thr=2500 ex=-77 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11773 thr=2500 ex=-77 ey=70 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11858 thr=2500 ex=-75 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11904 thr=2500 ex=-73 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11956 thr=2500 ex=-72 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11771 thr=2500 ex=-69 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11886 thr=2500 ex=-81 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11832 thr=2500 ex=-81 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12026 thr=2500 ex=-72 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11866 thr=2500 ex=-80 ey=66 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11964 thr=2500 ex=-78 ey=48 az=500 el=2400 servos=OFF
+tick 578718 (uptime 578 s, TL=3251 TR=3275 BL=3021 BR=2462, ex=-44 ey=86) mode=TRACK sky=CLEAR load=66%
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11997 thr=2500 ex=-70 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11918 thr=2500 ex=-82 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11857 thr=2500 ex=-80 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12064 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11950 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12061 thr=2500 ex=-81 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11992 thr=2500 ex=-76 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-75 ey=43 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11828 thr=2500 ex=-80 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12012 thr=2500 ex=-73 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11993 thr=2500 ex=-79 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11904 thr=2500 ex=-67 ey=37 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11881 thr=2500 ex=-84 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11921 thr=2500 ex=-78 ey=55 az=500 el=2400 servos=OFF
+tick 579718 (uptime 579 s, TL=3220 TR=3375 BL=3057 BR=2357, ex=-45 ey=98) mode=TRACK sky=CLEAR load=80%
+[prod] mode=TRACK light=11967 thr=2500 ex=-77 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11814 thr=2500 ex=-85 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11903 thr=2500 ex=-80 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11850 thr=2500 ex=-78 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11839 thr=2500 ex=-82 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11939 thr=2500 ex=-72 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11913 thr=2500 ex=-78 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12030 thr=2500 ex=-72 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11977 thr=2500 ex=-76 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11810 thr=2500 ex=-85 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11942 thr=2500 ex=-69 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11938 thr=2500 ex=-84 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11924 thr=2500 ex=-85 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11991 thr=2500 ex=-73 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11821 thr=2500 ex=-84 ey=88 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11693 thr=2500 ex=-76 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11930 thr=2500 ex=-68 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11913 thr=2500 ex=-80 ey=58 az=500 el=2400 servos=OFF
+tick 580728 (uptime 580 s, TL=3271 TR=3353 BL=2973 BR=2371, ex=-43 ey=106) mode=OVERCAST sky=CLEAR load=75%
+[prod] mode=OVERCAST light=11859 thr=2500 ex=-73 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11963 thr=2500 ex=-68 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11995 thr=2500 ex=-65 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12286 thr=2500 ex=-67 ey=25 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12195 thr=2500 ex=-54 ey=24 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12090 thr=2500 ex=-60 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11765 thr=2500 ex=-84 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11943 thr=2500 ex=-67 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11910 thr=2500 ex=-80 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11853 thr=2500 ex=-84 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11931 thr=2500 ex=-69 ey=49 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12327 thr=2500 ex=-64 ey=31 az=500 el=2400 servos=OFF
+tick 581718 (uptime 581 s, TL=3241 TR=3280 BL=3024 BR=2345, ex=-53 ey=96) mode=TRACK sky=CLEAR load=60%
+[prod] mode=TRACK light=11890 thr=2500 ex=-81 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11949 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12005 thr=2500 ex=-90 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12037 thr=2500 ex=-70 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12100 thr=2500 ex=-71 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11900 thr=2500 ex=-83 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12052 thr=2500 ex=-71 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11871 thr=2500 ex=-77 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11972 thr=2500 ex=-68 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12020 thr=2500 ex=-68 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11967 thr=2500 ex=-81 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12080 thr=2500 ex=-62 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12104 thr=2500 ex=-69 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11884 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11929 thr=2500 ex=-71 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12014 thr=2500 ex=-73 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12025 thr=2500 ex=-71 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12006 thr=2500 ex=-78 ey=60 az=500 el=2400 servos=OFF
+tick 582718 (uptime 582 s, TL=3282 TR=3243 BL=2980 BR=2454, ex=-47 ey=91) mode=TRACK sky=CLEAR load=45%
+[prod] mode=TRACK light=11959 thr=2500 ex=-75 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12073 thr=2500 ex=-65 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12133 thr=2500 ex=-60 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12050 thr=2500 ex=-72 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12032 thr=2500 ex=-61 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12031 thr=2500 ex=-64 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11941 thr=2500 ex=-71 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11861 thr=2500 ex=-80 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12019 thr=2500 ex=-70 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12023 thr=2500 ex=-71 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11825 thr=2500 ex=-64 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11755 thr=2500 ex=-73 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11731 thr=2500 ex=-80 ey=53 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11950 thr=2500 ex=-64 ey=42 az=500 el=2400 servos=OFF
+tick 583718 (uptime 583 s, TL=3211 TR=3315 BL=3074 BR=2361, ex=-50 ey=91) mode=TRACK sky=CLEAR load=99%
+[prod] mode=TRACK light=11893 thr=2500 ex=-75 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12032 thr=2500 ex=-53 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11988 thr=2500 ex=-67 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11929 thr=2500 ex=-76 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12094 thr=2500 ex=-62 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12114 thr=2500 ex=-58 ey=39 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12112 thr=2500 ex=-58 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11924 thr=2500 ex=-84 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11938 thr=2500 ex=-58 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11924 thr=2500 ex=-76 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11968 thr=2500 ex=-76 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11923 thr=2500 ex=-67 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11987 thr=2500 ex=-50 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12058 thr=2500 ex=-59 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12036 thr=2500 ex=-73 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11805 thr=2500 ex=-87 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11904 thr=2500 ex=-59 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11999 thr=2500 ex=-77 ey=58 az=500 el=2400 servos=OFF
+tick 584718 (uptime 584 s, TL=3186 TR=3296 BL=3029 BR=2584, ex=-27 ey=71) mode=TRACK sky=CLEAR load=79%
+[prod] mode=TRACK light=12095 thr=2500 ex=-55 ey=29 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12133 thr=2500 ex=-62 ey=32 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-80 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12035 thr=2500 ex=-73 ey=49 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11978 thr=2500 ex=-74 ey=43 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11935 thr=2500 ex=-71 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11847 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11948 thr=2500 ex=-69 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12059 thr=2500 ex=-62 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11947 thr=2500 ex=-70 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12073 thr=2500 ex=-64 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12114 thr=2500 ex=-52 ey=39 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11962 thr=2500 ex=-75 ey=45 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12004 thr=2500 ex=-78 ey=40 az=500 el=2400 servos=OFF
+tick 585718 (uptime 585 s, TL=3240 TR=3279 BL=3020 BR=2347, ex=-53 ey=96) mode=TRACK sky=CLEAR load=65%
+[cli] snapshot requested
+[prod] mode=TRACK light=11929 thr=2500 ex=-73 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12281 thr=2500 ex=-47 ey=33 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12122 thr=2500 ex=-61 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12133 thr=2500 ex=-58 ey=43 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12068 thr=2500 ex=-72 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11964 thr=2500 ex=-80 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12026 thr=2500 ex=-61 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11981 thr=2500 ex=-74 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12082 thr=2500 ex=-64 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12166 thr=2500 ex=-59 ey=41 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11987 thr=2500 ex=-70 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12090 thr=2500 ex=-53 ey=39 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12178 thr=2500 ex=-57 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11958 thr=2500 ex=-75 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12055 thr=2500 ex=-75 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11975 thr=2500 ex=-76 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11884 thr=2500 ex=-68 ey=40 az=500 el=2400 servos=OFF
+tick 586718 (uptime 586 s, TL=3190 TR=3336 BL=2946 BR=2373, ex=-36 ey=101) mode=TRACK sky=CLEAR load=99%
+[prod] mode=TRACK light=11640 thr=2500 ex=-78 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11874 thr=2500 ex=-82 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11953 thr=2500 ex=-71 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11886 thr=2500 ex=-79 ey=68 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11944 thr=2500 ex=-82 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11851 thr=2500 ex=-83 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11964 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11890 thr=2500 ex=-60 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11815 thr=2500 ex=-88 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11963 thr=2500 ex=-73 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11937 thr=2500 ex=-70 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11925 thr=2500 ex=-80 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11989 thr=2500 ex=-59 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11825 thr=2500 ex=-63 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12047 thr=2500 ex=-64 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11881 thr=2500 ex=-82 ey=52 az=500 el=2400 servos=OFF
+tick 587718 (uptime 587 s, TL=3239 TR=3365 BL=3059 BR=2318, ex=-51 ey=102) mode=TRACK sky=CLEAR load=76%
+[prod] mode=TRACK light=11981 thr=2500 ex=-79 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12036 thr=2500 ex=-69 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11904 thr=2500 ex=-85 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11800 thr=2500 ex=-65 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11767 thr=2500 ex=-72 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11741 thr=2500 ex=-83 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11898 thr=2500 ex=-70 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11990 thr=2500 ex=-69 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11991 thr=2500 ex=-73 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11905 thr=2500 ex=-87 ey=57 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12129 thr=2500 ex=-57 ey=40 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11873 thr=2500 ex=-75 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11922 thr=2500 ex=-66 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11922 thr=2500 ex=-84 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11948 thr=2500 ex=-76 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12098 thr=2500 ex=-71 ey=45 az=500 el=2400 servos=OFF
+tick 588718 (uptime 588 s, TL=3257 TR=3286 BL=3023 BR=2477, ex=-42 ey=86) mode=TRACK sky=CLEAR load=79%
+[prod] mode=TRACK light=12192 thr=2500 ex=-53 ey=35 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12023 thr=2500 ex=-66 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12168 thr=2500 ex=-70 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11986 thr=2500 ex=-75 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12067 thr=2500 ex=-60 ey=48 az=500 el=2400 servos=OFF
+[cli] snapshot requested
+[prod] mode=TRACK light=11939 thr=2500 ex=-56 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11944 thr=2500 ex=-66 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12049 thr=2500 ex=-71 ey=38 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12178 thr=2500 ex=-59 ey=28 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11808 thr=2500 ex=-65 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11777 thr=2500 ex=-66 ey=50 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=12030 thr=2500 ex=-72 ey=41 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11878 thr=2500 ex=-86 ey=57 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=TRACK light=11788 thr=2500 ex=-68 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11943 thr=2500 ex=-71 ey=52 az=500 el=2400 servos=OFF
+tick 589718 (uptime 589 s, TL=3223 TR=3317 BL=3043 BR=2461, ex=-40 ey=86) mode=TRACK sky=CLEAR load=83%
+[prod] mode=TRACK light=11952 thr=2500 ex=-75 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11886 thr=2500 ex=-82 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11875 thr=2500 ex=-78 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11983 thr=2500 ex=-78 ey=59 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11967 thr=2500 ex=-51 ey=55 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12007 thr=2500 ex=-72 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12003 thr=2500 ex=-72 ey=42 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11827 thr=2500 ex=-88 ey=63 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11940 thr=2500 ex=-76 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11848 thr=2500 ex=-83 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11706 thr=2500 ex=-79 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11885 thr=2500 ex=-61 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11988 thr=2500 ex=-75 ey=60 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11949 thr=2500 ex=-83 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12102 thr=2500 ex=-62 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11998 thr=2500 ex=-66 ey=46 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11912 thr=2500 ex=-81 ey=53 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11798 thr=2500 ex=-67 ey=48 az=500 el=2400 servos=OFF
+tick 590718 (uptime 590 s, TL=3282 TR=3226 BL=2969 BR=2452, ex=-48 ey=91) mode=OVERCAST sky=CLEAR load=82%
+[prod] mode=OVERCAST light=11809 thr=2500 ex=-66 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11989 thr=2500 ex=-74 ey=56 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11838 thr=2500 ex=-84 ey=67 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12013 thr=2500 ex=-80 ey=46 az=500 el=2400 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=OVERCAST light=11945 thr=2500 ex=-74 ey=61 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12022 thr=2500 ex=-68 ey=50 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11969 thr=2500 ex=-81 ey=57 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11928 thr=2500 ex=-70 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11771 thr=2500 ex=-86 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11891 thr=2500 ex=-72 ey=54 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11993 thr=2500 ex=-63 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11991 thr=2500 ex=-68 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=11886 thr=2500 ex=-74 ey=49 az=500 el=2400 servos=OFF
+[prod] mode=OVERCAST light=12036 thr=2500 ex=-72 ey=47 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11952 thr=2500 ex=-71 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11932 thr=2500 ex=-70 ey=52 az=500 el=2400 servos=OFF
+tick 591718 (uptime 591 s, TL=3186 TR=3361 BL=3018 BR=2287, ex=-46 ey=104) mode=TRACK sky=CLEAR load=65%
+[prod] mode=TRACK light=11852 thr=2500 ex=-74 ey=62 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11988 thr=2500 ex=-77 ey=48 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11809 thr=2500 ex=-77 ey=64 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11805 thr=2500 ex=-65 ey=52 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11872 thr=2500 ex=-77 ey=65 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11882 thr=2500 ex=-91 ey=58 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11825 thr=2500 ex=-75 ey=51 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=11986 thr=2500 ex=-63 ey=44 az=500 el=2400 servos=OFF
+[prod] mode=TRACK light=12076 thr=2500 ex=-72 ey=43 az=500 el=2400 servos=OFF
+tick 592718 (uptime 592 s, TL=3317 TR=3222 BL=3016 BR=2431, ex=-56 ey=91) mode=TRACK sky=CLEAR load=46%
+tick 593718 (uptime 593 s, TL=3236 TR=3277 BL=3033 BR=2370, ex=-52 ey=93) mode=TRACK sky=CLEAR load=68%
+STAT name=button n=89 min_us=4 avg_us=4 max_us=5 late_max_us=0 late_p99_us=0 missed=0 max_cyc=521
+STAT name=cli n=5933 min_us=1 avg_us=2369 max_us=294697 late_max_us=0 late_p99_us=0 missed=0 max_cyc=29469760
+STAT name=adc n=6751 min_us=155 avg_us=155 max_us=191 late_max_us=950 late_p99_us=800 missed=0 max_cyc=19101
+STAT name=control n=6751 min_us=7 avg_us=8 max_us=13 late_max_us=1138 late_p99_us=1000 missed=0 max_cyc=1324
+STAT name=servo n=3376 min_us=3 avg_us=3 max_us=33 late_max_us=1123 late_p99_us=1000 missed=0 max_cyc=3339
+STAT name=loss n=673 min_us=4 avg_us=4 max_us=5 late_max_us=18917 late_p99_us=1600 missed=2 max_cyc=546
+STAT name=imu n=673 min_us=845 avg_us=1189 max_us=33396 late_max_us=18934 late_p99_us=1600 missed=2 max_cyc=3339678
+STAT name=led n=673 min_us=3 avg_us=3 max_us=5 late_max_us=40119 late_p99_us=1600 missed=2 max_cyc=500
+STAT name=log n=10 min_us=1215 avg_us=120757 max_us=656857 late_max_us=0 late_p99_us=0 missed=0 max_cyc=65685767
+STAT name=snapshot n=72 min_us=1 avg_us=460375 max_us=2505534 late_max_us=0 late_p99_us=0 missed=0 max_cyc=250553472
+STAT name=camera n=23 min_us=427130 avg_us=1075472 max_us=2652553 late_max_us=13958 late_p99_us=1600 missed=0 max_cyc=265255347
+STAT name=tick n=67 min_us=18322 avg_us=23944 max_us=37899 late_max_us=13010 late_p99_us=1600 missed=0 max_cyc=3789938
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=90 min_us=12 avg_us=13 max_us=22 presses=90
+STAT name=evt_latency n=90 min_us=13 avg_us=23 max_us=772
+STAT name=cmd_latency n=999 min_us=14 avg_us=206 max_us=22099
+STAT name=cam_frame n=23 min_us=408475 avg_us=660072 max_us=1584009
+LOAD pct=68 run_pct=71 btn_lost=0 uart_rx_overflow=193 pend_lost=0 flash_err=0 imu_err=0 cam_err=1 flash_last_rc=0
+tick 594718 (uptime 594 s, TL=3216 TR=3267 BL=3033 BR=2393, ex=-49 ey=88) mode=TRACK sky=CLEAR load=64%
+tick 595718 (uptime 595 s, TL=3261 TR=3281 BL=3019 BR=2463, ex=-44 ey=88) mode=TRACK sky=CLEAR load=4%
+tick 596718 (uptime 596 s, TL=3197 TR=3315 BL=3005 BR=2351, ex=-45 ey=97) mode=TRACK sky=CLEAR load=55%
+[cli] btnsim 0 ms
+tick 597718 (uptime 597 s, TL=3252 TR=3270 BL=3040 BR=2595, ex=-35 ey=72) mode=TRACK sky=CLEAR load=87%
+tick 598718 (uptime 598 s, TL=3249 TR=3272 BL=3033 BR=2341, ex=-56 ey=96) mode=TRACK sky=CLEAR load=4%
+# S3 commands sent=1032 answered_in_50ms=935
+# S3 uart_rx_overflow_delta=98
+# --- STATS final ---
+STAT name=button n=93 min_us=4 avg_us=4 max_us=5 late_max_us=0 late_p99_us=0 missed=0 max_cyc=521
+STAT name=cli n=5950 min_us=1 avg_us=2415 max_us=313198 late_max_us=0 late_p99_us=0 missed=0 max_cyc=31319858
+STAT name=adc n=7219 min_us=155 avg_us=155 max_us=191 late_max_us=950 late_p99_us=800 missed=0 max_cyc=19101
+STAT name=control n=7219 min_us=7 avg_us=8 max_us=13 late_max_us=1138 late_p99_us=1000 missed=0 max_cyc=1324
+STAT name=servo n=3610 min_us=3 avg_us=3 max_us=33 late_max_us=1123 late_p99_us=1000 missed=0 max_cyc=3339
+STAT name=loss n=718 min_us=4 avg_us=4 max_us=5 late_max_us=34999 late_p99_us=1600 missed=4 max_cyc=547
+STAT name=imu n=718 min_us=845 avg_us=1174 max_us=33396 late_max_us=34999 late_p99_us=1600 missed=4 max_cyc=3339678
+STAT name=led n=718 min_us=3 avg_us=3 max_us=5 late_max_us=40119 late_p99_us=1600 missed=4 max_cyc=501
+STAT name=log n=10 min_us=1215 avg_us=120757 max_us=656857 late_max_us=0 late_p99_us=0 missed=0 max_cyc=65685767
+STAT name=snapshot n=76 min_us=1 avg_us=453297 max_us=2505534 late_max_us=0 late_p99_us=0 missed=0 max_cyc=250553472
+STAT name=camera n=24 min_us=427130 avg_us=1089588 max_us=2652553 late_max_us=13958 late_p99_us=1600 missed=0 max_cyc=265255347
+STAT name=tick n=72 min_us=18314 avg_us=23557 max_us=37899 late_max_us=13010 late_p99_us=1600 missed=0 max_cyc=3789938
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=93 min_us=12 avg_us=13 max_us=22 presses=93
+STAT name=evt_latency n=93 min_us=13 avg_us=23 max_us=772
+STAT name=cmd_latency n=1001 min_us=14 avg_us=206 max_us=22099
+STAT name=cam_frame n=24 min_us=405089 avg_us=649448 max_us=1584009
+LOAD pct=4 run_pct=69 btn_lost=0 uart_rx_overflow=193 pend_lost=0 flash_err=0 imu_err=0 cam_err=1 flash_last_rc=0
+tick 599718 (uptime 599 s, TL=3230 TR=3274 BL=3063 BR=2503, ex=-42 ey=77) mode=OVERCAST sky=CLEAR load=71%
+tick 600718 (uptime 600 s, TL=3254 TR=3264 BL=3045 BR=2569, ex=-38 ey=74) mode=TRACK sky=CLEAR load=34%
+MEM stack_used=632 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 601718 (uptime 601 s, TL=3233 TR=3282 BL=3029 BR=2408, ex=-47 ey=90) mode=TRACK sky=CLEAR load=5%
+tick 602718 (uptime 602 s, TL=3240 TR=3267 BL=3019 BR=2368, ex=-52 ey=94) mode=TRACK sky=CLEAR load=53%
+# MEM {'stack_used': 632, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+TASK name=cli state=Running prio=3 cpu_us=14217171 cpu_pct=18.6 stack_free_words=83
+TASK name=IDLE state=Ready prio=0 cpu_us=24870795 cpu_pct=32.5 stack_free_words=115
+TASK name=loss state=Blocked prio=2 cpu_us=12883 cpu_pct=0.0 stack_free_words=55
+TASK name=imu state=Blocked prio=2 cpu_us=643668 cpu_pct=0.8 stack_free_words=139
+TASK name=servo state=Blocked prio=4 cpu_us=58804 cpu_pct=0.0 stack_free_words=53
+TASK name=adc state=Blocked prio=5 cpu_us=1288989 cpu_pct=1.6 stack_free_words=67
+TASK name=control state=Blocked prio=4 cpu_us=157442 cpu_pct=0.2 stack_free_words=68
+TASK name=led state=Blocked prio=1 cpu_us=13433 cpu_pct=0.0 stack_free_words=59
+TASK name=tick state=Blocked prio=2 cpu_us=1385404 cpu_pct=1.8 stack_free_words=177
+TASK name=camera state=Blocked prio=1 cpu_us=13439436 cpu_pct=17.5 stack_free_words=145
+TASK name=button state=Blocked prio=6 cpu_us=2262 cpu_pct=0.0 stack_free_words=77
+TASK name=snapshot state=Blocked prio=1 cpu_us=20284265 cpu_pct=26.5 stack_free_words=187
+TASK name=log state=Blocked prio=2 cpu_us=12721 cpu_pct=0.0 stack_free_words=162
+TASKS total_us=76385706 switches=53421
+tick 603718 (uptime 603 s, TL=3255 TR=3265 BL=3026 BR=2427, ex=-49 ey=89) mode=TRACK sky=CLEAR load=34%
+tick 604718 (uptime 604 s, TL=3257 TR=3267 BL=3023 BR=2385, ex=-52 ey=93) mode=TRACK sky=CLEAR load=4%
+[cli] unknown command (HELP)
+tick 605718 (uptime 605 s, TL=3252 TR=3272 BL=3032 BR=2475, ex=-44 ey=84) mode=TRACK sky=CLEAR load=45%
+tick 606718 (uptime 606 s, TL=3246 TR=3277 BL=3027 BR=2355, ex=-53 ey=95) mode=TRACK sky=CLEAR load=4%
+STACK task=cli size_words=320 free_min_words=83 used_max_bytes=948
+STACK task=IDLE size_words=128 free_min_words=115 used_max_bytes=52
+STACK task=servo size_words=96 free_min_words=53 used_max_bytes=172
+STACK task=adc size_words=112 free_min_words=67 used_max_bytes=180
+STACK task=control size_words=112 free_min_words=68 used_max_bytes=176
+STACK task=loss size_words=96 free_min_words=55 used_max_bytes=164
+STACK task=imu size_words=224 free_min_words=139 used_max_bytes=340
+STACK task=led size_words=96 free_min_words=59 used_max_bytes=148
+STACK task=tick size_words=320 free_min_words=177 used_max_bytes=572
+STACK task=camera size_words=224 free_min_words=145 used_max_bytes=316
+STACK task=button size_words=112 free_min_words=77 used_max_bytes=140
+STACK task=snapshot size_words=288 free_min_words=187 used_max_bytes=404
+STACK task=log size_words=256 free_min_words=162 used_max_bytes=376
+MEM stack_used=632 stack_reserved=2048 (MSP: обробники переривань)
+tick 607718 (uptime 607 s, TL=3224 TR=3304 BL=3020 BR=2395, ex=-45 ey=93) mode=TRACK sky=CLEAR load=21%
+tick 608718 (uptime 608 s, TL=3163 TR=3280 BL=2946 BR=2368, ex=-39 ey=96) mode=TRACK sky=CLEAR load=53%
+HEAP total=24576 free=12432 min_ever_free=12432 used_max=12144 malloc_failed=0
+tick 609718 (uptime 609 s, TL=3255 TR=3272 BL=3037 BR=2389, ex=-52 ey=92) mode=TRACK sky=CLEAR load=15%
+tick 610718 (uptime 610 s, TL=3230 TR=3268 BL=3028 BR=2487, ex=-41 ey=81) mode=TRACK sky=CLEAR load=4%
+OSCOST tick_hz=1000 tick_isr_n=84714 tick_isr_avg_cyc=196 tick_isr_max_cyc=1470 tick_isr_avg_us_x100=196 tick_isr_max_us_x100=1470
+OSCOST longest_run_us=11203 longest_run_task=camera
+OSCOST switches=56763 window_ms=84741 tick_gap_max_us=2057 tick_gaps_over_1500us=1865 cam_irq_off_max_us=1212 cam_short_frames=41 cam_lines_lost=787
+tick 611718 (uptime 611 s, TL=3229 TR=3279 BL=3026 BR=2357, ex=-52 ey=94) mode=TRACK sky=CLEAR load=45%
+tick 612718 (uptime 612 s, TL=3257 TR=3276 BL=3022 BR=2443, ex=-46 ey=89) mode=TRACK sky=CLEAR load=4%
+[cli] servo OFF
+tick 613718 (uptime 613 s, TL=3267 TR=3265 BL=3027 BR=2491, ex=-44 ey=84) mode=OVERCAST sky=CLEAR load=5%
+tick 614718 (uptime 614 s, TL=3259 TR=3272 BL=3024 BR=2433, ex=-48 ey=89) mode=TRACK sky=CLEAR load=53%
