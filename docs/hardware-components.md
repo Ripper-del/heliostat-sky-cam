@@ -25,8 +25,10 @@
 | Сигнал | Пін MCU | Роз'єм Nucleo | Куди підключається |
 |--------|---------|----------------|--------------------|
 | USART2 TX / RX | PA2 / PA3 | ST-Link VCP | ПК (через USB ST-Link) |
-| I2C1 SCL | PB8 | D15 | SCL MPU-6050, SCL (SIOC) OV7670 |
-| I2C1 SDA | PB9 | D14 | SDA MPU-6050, SDA (SIOD) OV7670 |
+| I2C1 SCL | PB8 | D15 | SCL MPU-6050 |
+| I2C1 SDA | PB9 | D14 | SDA MPU-6050 |
+| SCCB SIOC (bit-bang GPIO) | PB10 | D6 | SIOC OV7670 |
+| SCCB SIOD (bit-bang GPIO) | PB4 | D5 | SIOD OV7670 |
 | SPI2 SCK | PB13 | Morpho CN10, pin 30 (ряд 15) | CLK W25Q64 |
 | SPI2 MISO | PB14 | Morpho CN10, pin 28 (ряд 14) | DO W25Q64 |
 | SPI2 MOSI | PB15 | Morpho CN10, pin 26 (ряд 13) | DI W25Q64 |
@@ -78,6 +80,7 @@ SG90 живляться від виходу 5V плати (не від 3V3 — �
 * Документи: *OV7670/OV7171 CMOS VGA (640×480) CameraChip Datasheet* та *OV7670 Implementation Guide* (OmniVision). URL: ⟦вставити⟧.
 * Без тактового сигналу XCLK камера не відповідає по SCCB — у ЛР1 подаємо 16 МГц з MCO1 (PA8).
 * SCCB не підтримує repeated start: читання регістра = запис адреси + STOP, потім читання.
+* 9-й біт (ACK) у SCCB — «don't care»; камера на PB4/PB10 (не піни I2C1), тому драйвер програмний (bit-bang), ACK ігнорується.
 * Ключові регістри: `PID` 0x0A, `VER` 0x0B, `MIDH` 0x1C, `MIDL` 0x1D, `COM7` 0x12 (формат/скидання) — ⟦стор.⟧.
 * Паралельна шина D0–D7, PCLK, HREF, VSYNC. На F411 немає апаратного DCMI → захоплення
   програмне, малий кадр (160×120, grayscale) — ⟦стор.⟧.

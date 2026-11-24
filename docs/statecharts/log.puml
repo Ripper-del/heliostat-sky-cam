@@ -1,0 +1,46 @@
+@startuml log
+!pragma layout smetana
+title AO log — власник SPI-flash (App/Src/ao_log.c)
+skinparam state {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+[*] --> idle : [flash_ok]
+[*] --> fault : [!flash_ok]
+state serving {
+  serving : LOG_REQ / push(ring)
+  state idle {
+    idle : entry / recall(deferQ); kick() → POLL собі
+    idle : CAL_LOAD / calib_load(); CAL_DONE → control
+    idle : CMD(LOG n, FRAMES) / читання, TEXT → cli
+  }
+  state working {
+    working : entry / armX(poll, 1 тік)
+    working : exit / disarm(poll)
+    working : SAVE_FRAME, CAL_SAVE, CAL_LOAD,\nFRAME_LOAD, CMD / defer(deferQ)
+    state busy {
+      busy : POLL [flash BUSY] / armX(poll, 1 тік)
+      busy : POLL [вільна, kick() = 1] / armX(poll, 1 тік)
+    }
+    state reading {
+      reading : POLL [ще шматки] / w25q_read 1 КБ; armX(poll)
+    }
+  }
+}
+state fault {
+  fault : entry / recall усіх відкладених; armX(poll, 1 с)
+  fault : LOG_REQ / втрачено (pend_lost)
+  fault : SAVE_FRAME / SAVE_DONE(rc=-1)
+  fault : FRAME_LOAD / FRAME_LOADED(rc=-1)
+  fault : CAL_SAVE, CAL_LOAD / CAL_DONE(rc=-1)
+  fault : POLL [немає відповіді] / armX(poll, 1 с)
+}
+idle --> busy : LOG_REQ, SAVE_FRAME,\nCAL_SAVE, CMD(LOG ERASE)\n[kick() = 1]
+idle --> busy : POLL (з entry)
+idle --> reading : FRAME_LOAD [заголовок ok]
+busy --> idle : POLL [kick() = 0]\n/ SAVE_DONE, CAL_DONE
+reading --> idle : POLL [останній шматок]\n/ CRC; FRAME_LOADED → camera
+busy --> fault : POLL [3 помилки flash поспіль]
+idle --> fault : LOG_REQ, SAVE_FRAME\n[3 помилки поспіль]
+fault --> idle : POLL [JEDEC відповів]
+@enduml

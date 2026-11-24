@@ -1,0 +1,82 @@
+# FR-03/06/13: колонки t_с режим сума_світла ex ey az_us el_us servos sky; лампа збоку t=13-17 с (TRACK, цілі йдуть), далі зміщення < deadband або sky=OVERCAST — цілі не змінюються; щільний папір дає PARK (сума ~1600)
+  0.1 OVERCAST light=12877 ex=   0 ey=  -2 az=1500 el=1500 servos=ON sky=?
+  0.9 OVERCAST light=13051 ex=   4 ey= -16 az=1500 el=1500 servos=ON sky=OVERCAST
+  1.7 OVERCAST light=13001 ex=  -3 ey=  -6 az=1500 el=1500 servos=ON sky=OVERCAST
+  3.4 OVERCAST light=12999 ex= -20 ey=  -9 az=1500 el=1500 servos=ON sky=CLEAR
+  4.2 OVERCAST light=12991 ex=   8 ey=  -3 az=1500 el=1500 servos=ON sky=CLEAR
+  5.9 OVERCAST light=12894 ex=   5 ey= -13 az=1500 el=1500 servos=ON sky=CLEAR
+  6.7 OVERCAST light=12979 ex=  -5 ey=  -5 az=1500 el=1500 servos=ON sky=CLEAR
+  7.6 OVERCAST light=13076 ex=   1 ey= -10 az=1500 el=1500 servos=ON sky=CLEAR
+  9.2 OVERCAST light=13012 ex=   3 ey= -13 az=1500 el=1500 servos=ON sky=CLEAR
+ 10.1 OVERCAST light=12968 ex=  -8 ey= -15 az=1500 el=1500 servos=ON sky=CLEAR
+ 10.9 OVERCAST light=12721 ex=  20 ey=   8 az=1500 el=1500 servos=ON sky=CLEAR
+ 13.1 TRACK    light= 4126 ex= 313 ey=-166 az=1510 el=1490 servos=ON sky=CLEAR
+ 13.4 TRACK    light= 3448 ex= 279 ey=-248 az=1830 el=1170 servos=ON sky=CLEAR
+ 15.1 OVERCAST light= 3217 ex= 312 ey= -82 az=2350 el=650 servos=ON sky=OVERCAST
+ 15.9 OVERCAST light= 3337 ex= 221 ey=-183 az=2350 el=650 servos=ON sky=OVERCAST
+ 16.7 OVERCAST light=11020 ex=  70 ey= -11 az=2350 el=650 servos=ON sky=OVERCAST
+ 17.6 TRACK    light=10413 ex=  40 ey= -20 az=2470 el=650 servos=ON sky=CLEAR
+ 18.4 TRACK    light=10774 ex=  71 ey= -26 az=2470 el=650 servos=ON sky=CLEAR
+ 19.2 OVERCAST light=10637 ex=  39 ey=  23 az=2470 el=650 servos=ON sky=CLEAR
+ 20.9 TRACK    light=10710 ex=  51 ey=   4 az=2470 el=650 servos=ON sky=CLEAR
+ 21.8 OVERCAST light=10983 ex=  24 ey=  16 az=2480 el=650 servos=ON sky=CLEAR
+ 22.6 TRACK    light=11259 ex=  86 ey= -31 az=2500 el=650 servos=ON sky=CLEAR
+ 23.4 TRACK    light= 9748 ex=  60 ey=   1 az=2500 el=650 servos=ON sky=CLEAR
+ 24.3 TRACK    light= 9163 ex=  58 ey=  -6 az=2500 el=650 servos=ON sky=CLEAR
+ 25.1 OVERCAST light=11448 ex=  35 ey=  12 az=2500 el=650 servos=ON sky=CLEAR
+ 28.0 TRACK    light= 4602 ex= 156 ey= -41 az=2500 el=660 servos=ON sky=OVERCAST
+ 28.5 OVERCAST light= 1662 ex= 376 ey=-271 az=2500 el=660 servos=ON sky=OVERCAST
+ 29.3 TRACK    light= 1555 ex= 445 ey=-108 az=2500 el=570 servos=ON sky=DARK
+ 30.2 TRACK    light= 1554 ex= 353 ey=-250 az=2500 el=500 servos=ON sky=DARK
+ 31.0 TRACK    light= 1418 ex= 380 ey=-356 az=2500 el=500 servos=ON sky=DARK
+ 33.2 PARK     light= 1575 ex= 518 ey=-407 az=1500 el=1500 servos=ON sky=OVERCAST
+ 33.5 OVERCAST light= 9031 ex=  52 ey=  11 az=1500 el=1500 servos=ON sky=OVERCAST
+ 34.4 OVERCAST light= 9205 ex=  49 ey=  36 az=1500 el=1500 servos=ON sky=OVERCAST
+ 35.2 OVERCAST light= 8520 ex=  63 ey=  43 az=1500 el=1500 servos=ON sky=OVERCAST
+ 36.0 OVERCAST light= 8134 ex=  67 ey=  13 az=1500 el=1500 servos=ON sky=OVERCAST
+ 36.9 OVERCAST light= 5773 ex=  93 ey=   3 az=1500 el=1500 servos=ON sky=OVERCAST
+ 39.9 OVERCAST light= 4108 ex= 144 ey= -24 az=1500 el=1500 servos=ON sky=CLEAR
+ 40.2 OVERCAST light=12778 ex=   7 ey=  28 az=1500 el=1500 servos=ON sky=CLEAR
+ 41.8 OVERCAST light= 7738 ex=  43 ey= 158 az=1500 el=1500 servos=ON sky=OVERCAST
+ 44.6 OVERCAST light= 6247 ex=  50 ey= 196 az=1500 el=1500 servos=ON sky=CLEAR
+ 45.2 TRACK    light= 4611 ex= 187 ey=   5 az=2000 el=1500 servos=ON sky=CLEAR
+ 46.0 OVERCAST light=12904 ex=  20 ey=  11 az=2400 el=1550 servos=ON sky=CLEAR
+ 47.6 OVERCAST light=10929 ex=  54 ey=  29 az=2400 el=1550 servos=ON sky=OVERCAST
+ 48.5 OVERCAST light=13553 ex=  -1 ey=  19 az=2400 el=1550 servos=ON sky=OVERCAST
+ 49.3 OVERCAST light=12551 ex=   4 ey=  -3 az=2400 el=1550 servos=ON sky=OVERCAST
+ 51.4 TRACK    light= 3447 ex= 314 ey=-217 az=2410 el=1540 servos=ON sky=CLEAR
+ 51.9 TRACK    light= 2669 ex= 319 ey=-149 az=2500 el=1500 servos=ON sky=CLEAR
+ 53.6 TRACK    light= 4203 ex= 192 ey= -93 az=2500 el=780 servos=ON sky=CLEAR
+ 54.4 TRACK    light=12293 ex=  29 ey=  42 az=2500 el=500 servos=ON sky=CLEAR
+ 55.2 OVERCAST light=11814 ex=  25 ey=  24 az=2500 el=500 servos=ON sky=CLEAR
+ 57.7 TRACK    light= 1886 ex= 456 ey=-292 az=2500 el=500 servos=ON sky=CLEAR
+ 57.7 TRACK    light= 1886 ex= 456 ey=-292 az=2500 el=500 servos=ON sky=CLEAR
+ 59.3 OVERCAST light=10279 ex=  44 ey=  14 az=2500 el=500 servos=ON sky=OVERCAST
+ 60.2 OVERCAST light=13268 ex=  13 ey= -51 az=2500 el=500 servos=ON sky=OVERCAST
+ 61.0 OVERCAST light=13055 ex=  16 ey= -25 az=2500 el=500 servos=ON sky=OVERCAST
+ 62.7 OVERCAST light=13115 ex=  -2 ey=   2 az=2500 el=500 servos=ON sky=CLEAR
+ 63.5 OVERCAST light=13230 ex=  -2 ey= -10 az=2500 el=500 servos=ON sky=CLEAR
+ 65.2 OVERCAST light=12901 ex= -13 ey= -17 az=2500 el=500 servos=ON sky=CLEAR
+ 66.0 OVERCAST light=13054 ex=  -9 ey= -13 az=2500 el=500 servos=ON sky=CLEAR
+ 66.8 OVERCAST light=13098 ex=   3 ey= -11 az=2500 el=500 servos=ON sky=CLEAR
+ 68.5 OVERCAST light=13368 ex=   6 ey= -25 az=2500 el=500 servos=ON sky=CLEAR
+ 69.3 OVERCAST light=12892 ex=  -3 ey= -15 az=2500 el=500 servos=ON sky=CLEAR
+ 70.1 OVERCAST light=13040 ex=  -4 ey=   2 az=2500 el=500 servos=ON sky=CLEAR
+ 70.9 OVERCAST light=13129 ex=   0 ey= -20 az=2500 el=500 servos=ON sky=CLEAR
+ 71.8 OVERCAST light=13058 ex=  -5 ey= -11 az=2500 el=500 servos=ON sky=CLEAR
+ 72.6 OVERCAST light=13177 ex=  -6 ey= -15 az=2500 el=500 servos=ON sky=CLEAR
+ 74.3 OVERCAST light=13062 ex=   1 ey= -21 az=2500 el=500 servos=ON sky=CLEAR
+ 75.1 OVERCAST light=13202 ex=   5 ey= -16 az=2500 el=500 servos=ON sky=CLEAR
+ 75.9 OVERCAST light=13082 ex= -17 ey= -23 az=2500 el=500 servos=ON sky=CLEAR
+ 76.8 OVERCAST light=13052 ex=  -7 ey= -20 az=2500 el=500 servos=ON sky=CLEAR
+ 77.6 TRACK    light=11932 ex=  58 ey= -29 az=2500 el=500 servos=ON sky=CLEAR
+ 80.2 TRACK    light= 4834 ex= 238 ey= -46 az=2500 el=500 servos=ON sky=DARK
+ 80.9 TRACK    light= 1646 ex= 386 ey=-354 az=2500 el=500 servos=ON sky=DARK
+ 81.8 TRACK    light= 1382 ex= 533 ey=-385 az=2500 el=500 servos=ON sky=DARK
+ 82.6 TRACK    light= 1455 ex= 514 ey=-316 az=2500 el=500 servos=ON sky=DARK
+ 84.6 PARK     light= 1418 ex= 442 ey=-360 az=1500 el=1500 servos=ON sky=DARK
+ 86.0 PARK     light= 1577 ex= 421 ey=-266 az=1500 el=1500 servos=ON sky=DARK
+ 86.8 PARK     light= 1470 ex= 425 ey=-228 az=1500 el=1500 servos=ON sky=DARK
+ 87.6 PARK     light= 1253 ex= 549 ey=-446 az=1500 el=1500 servos=ON sky=DARK
+ 88.5 PARK     light= 1579 ex= 534 ey=-287 az=1500 el=1500 servos=ON sky=DARK
+ 89.3 PARK     light= 1349 ex= 428 ey=-386 az=1500 el=1500 servos=ON sky=DARK

@@ -1,0 +1,27 @@
+# FR-05: PARK. Колонки: t_с режим сума_світла ex ey az_us el_us servos sky. Поріг темряви 2500 (CAL DARK); накриття близько t=22 с, PARK у t=27,8 с (через 3 с темряви), цілі серво 1500/1500.
+  0.9 TRACK    light=12966 ex= -94 ey=-105 az=500 el=500 servos=OFF sky=CLEAR
+  1.7 TRACK    light=12830 ex=-105 ey=-126 az=500 el=500 servos=OFF sky=CLEAR
+  2.5 TRACK    light=12835 ex=-107 ey=-125 az=500 el=500 servos=OFF sky=CLEAR
+  3.4 TRACK    light=12847 ex= -98 ey=-110 az=500 el=500 servos=OFF sky=CLEAR
+  4.2 TRACK    light=13130 ex= -89 ey=-120 az=500 el=500 servos=OFF sky=CLEAR
+  5.1 TRACK    light=12895 ex= -85 ey=-128 az=500 el=500 servos=OFF sky=CLEAR
+  6.7 TRACK    light=12810 ex= -91 ey=-103 az=500 el=500 servos=OFF sky=CLEAR
+  7.6 TRACK    light=12915 ex= -87 ey= -94 az=500 el=500 servos=OFF sky=CLEAR
+  8.4 TRACK    light=13143 ex= -87 ey=-125 az=500 el=500 servos=OFF sky=CLEAR
+  9.3 TRACK    light=12867 ex= -87 ey=-105 az=500 el=500 servos=OFF sky=CLEAR
+ 10.1 TRACK    light=12775 ex=-107 ey=-112 az=500 el=500 servos=OFF sky=CLEAR
+ 11.0 TRACK    light=13131 ex= -75 ey=-120 az=500 el=500 servos=OFF sky=CLEAR
+ 12.6 TRACK    light=12792 ex=-102 ey= -95 az=500 el=500 servos=OFF sky=CLEAR
+ 13.4 TRACK    light=13031 ex= -94 ey=-116 az=500 el=500 servos=OFF sky=CLEAR
+ 14.3 TRACK    light=12793 ex= -95 ey=-107 az=500 el=500 servos=OFF sky=CLEAR
+ 15.9 TRACK    light=12981 ex= -89 ey=-123 az=500 el=500 servos=OFF sky=CLEAR
+ 16.8 TRACK    light=13014 ex= -99 ey=-113 az=500 el=500 servos=OFF sky=CLEAR
+ 18.4 TRACK    light=12962 ex=-103 ey=-116 az=500 el=500 servos=OFF sky=CLEAR
+ 19.2 TRACK    light=12864 ex=-101 ey=-118 az=500 el=500 servos=OFF sky=CLEAR
+ 20.1 TRACK    light=13027 ex=-100 ey=-113 az=500 el=500 servos=OFF sky=CLEAR
+ 22.7 TRACK    light= 5713 ex=  27 ey=-203 az=520 el=500 servos=OFF sky=CLEAR
+ 24.2 TRACK    light= 1477 ex= 373 ey=-500 az=1550 el=500 servos=OFF sky=DARK
+ 25.1 TRACK    light= 1426 ex= 393 ey=-356 az=2400 el=500 servos=OFF sky=DARK
+ 27.8 PARK     light= 1526 ex= 297 ey=-441 az=1500 el=1500 servos=OFF sky=DARK
+ 28.5 TRACK    light= 1966 ex= 287 ey=-352 az=1960 el=840 servos=OFF sky=DARK
+ 29.3 TRACK    light= 1478 ex= 270 ey=-438 az=2500 el=500 servos=OFF sky=DARK

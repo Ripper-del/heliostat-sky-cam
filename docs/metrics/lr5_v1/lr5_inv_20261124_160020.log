@@ -1,0 +1,10 @@
+# scenario=inv duration=30 servo=0 btnsim_ms=0
+tick 32716 (uptime 32 s, TL=373 TR=659 BL=286 BR=779, ex=371 ey=-15) mode=PARK sky=OVERCAST load=7%
+tick 33716 (uptime 33 s, TL=342 TR=682 BL=400 BR=703, ex=302 ey=-37) mode=PARK sky=OVERCAST load=7%
+tick 34716 (uptime 34 s, TL=373 TR=629 BL=401 BR=816, ex=302 ey=-96) mode=PARK sky=OVERCAST load=59%
+tick 35716 (uptime 35 s, TL=336 TR=682 BL=394 BR=791, ex=337 ey=-75) mode=PARK sky=OVERCAST load=8%
+tick 36716 (uptime 36 s, TL=346 TR=630 BL=377 BR=701, ex=296 ey=-49) mode=PARK sky=OVERCAST load=7%
+tick 37717 (uptime 37 s, TL=323 TR=603 BL=388 BR=986, ex=381 ey=-194) mode=PARK sky=OVERCAST load=77%
+tick 38717 (uptime 38 s, TL=315 TR=647 BL=385 BR=711, ex=319 ey=-65) mode=PARK sky=OVERCAST load=7%
+# VER unknown
+# ST-Link VCP stall: host->target bytes not accepted

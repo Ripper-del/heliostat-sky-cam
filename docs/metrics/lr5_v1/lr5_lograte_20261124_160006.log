@@ -1,0 +1,17 @@
+# scenario=lograte duration=30 servo=0 btnsim_ms=0
+VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+tick 18716 (uptime 18 s, TL=385 TR=669 BL=331 BR=680, ex=306 ey=20) mode=PARK sky=OVERCAST load=7%
+tick 19716 (uptime 19 s, TL=393 TR=693 BL=312 BR=733, ex=338 ey=19) mode=PARK sky=OVERCAST load=78%
+# VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[test] hog=0 lograte=50 block=0 owner=0 ctrl=0 onestep=0 snapto=0 flashfail=0 late_events=0
+tick 20716 (uptime 20 s, TL=388 TR=692 BL=365 BR=763, ex=317 ey=-21) mode=PARK sky=OVERCAST load=8%
+tick 21716 (uptime 21 s, TL=369 TR=700 BL=308 BR=721, ex=354 ey=19) mode=PARK sky=OVERCAST load=7%
+tick 22716 (uptime 22 s, TL=406 TR=663 BL=401 BR=999, ex=346 ey=-134) mode=PARK sky=OVERCAST load=60%
+tick 23716 (uptime 23 s, TL=393 TR=690 BL=358 BR=671, ex=288 ey=25) mode=PARK sky=OVERCAST load=7%
+tick 24716 (uptime 24 s, TL=386 TR=630 BL=386 BR=829, ex=307 ey=-89) mode=PARK sky=OVERCAST load=7%
+tick 25716 (uptime 25 s, TL=374 TR=655 BL=281 BR=733, ex=358 ey=7) mode=PARK sky=OVERCAST load=78%
+tick 26716 (uptime 26 s, TL=379 TR=667 BL=307 BR=693, ex=329 ey=22) mode=PARK sky=OVERCAST load=7%
+tick 27716 (uptime 27 s, TL=377 TR=653 BL=302 BR=790, ex=360 ey=-29) mode=PARK sky=OVERCAST load=7%
+tick 28716 (uptime 28 s, TL=360 TR=657 BL=275 BR=678, ex=355 ey=32) mode=PARK sky=OVERCAST load=59%
+tick 29716 (uptime 29 s, TL=375 TR=661 BL=307 BR=820, ex=369 ey=-42) mode=PARK sky=OVERCAST load=7%
+# ST-Link VCP stall: host->target bytes not accepted

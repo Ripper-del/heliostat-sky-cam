@@ -15,6 +15,8 @@ int _write(int fd, char *ptr, int len)
 {
     (void)fd;
     HAL_UART_Transmit(&huart2, (uint8_t *)ptr, (uint16_t)len, HAL_MAX_DELAY);
+    if (huart1.gState == HAL_UART_STATE_READY)   /* дзеркало на PA9 (D8) */
+        HAL_UART_Transmit(&huart1, (uint8_t *)ptr, (uint16_t)len, HAL_MAX_DELAY);
     return len;
 }
 

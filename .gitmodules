@@ -1,0 +1,5 @@
+[submodule "firmware/Middlewares/qpc"]
+	path = firmware/Middlewares/qpc
+	url = https://github.com/QuantumLeaps/qpc
+	shallow = true
+	branch = v8.1.6

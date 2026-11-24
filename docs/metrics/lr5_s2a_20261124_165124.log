@@ -1,0 +1,176 @@
+# scenario=s2 duration=60 servo=0 btnsim_ms=0
+VER git=415eb87 build="Nov 24 2026 14:10:06" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+tick 174710 (uptime 174 s, TL=3264 TR=3309 BL=2927 BR=2477, ex=-33 ey=97) mode=TRACK sky=CLEAR load=7%
+tick 175710 (uptime 175 s, TL=3301 TR=3251 BL=2985 BR=2376, ex=-55 ey=99) mode=TRACK sky=CLEAR load=67%
+# VER git=415eb87 build="Nov 24 2026 14:10:06" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[cli] servo OFF
+tick 176710 (uptime 176 s, TL=3301 TR=3296 BL=2983 BR=2431, ex=-46 ey=98) mode=TRACK sky=CLEAR load=14%
+tick 177710 (uptime 177 s, TL=3234 TR=3294 BL=2909 BR=2474, ex=-31 ey=96) mode=TRACK sky=CLEAR load=5%
+[prod] stats reset
+tick 178710 (uptime 178 s, TL=3269 TR=3351 BL=2990 BR=2375, ex=-44 ey=104) mode=TRACK sky=CLEAR load=85%
+tick 179710 (uptime 179 s, TL=3328 TR=3300 BL=2939 BR=2460, ex=-42 ey=102) mode=TRACK sky=CLEAR load=5%
+tick 180710 (uptime 180 s, TL=3334 TR=3317 BL=2965 BR=2503, ex=-39 ey=97) mode=TRACK sky=CLEAR load=5%
+tick 181710 (uptime 181 s, TL=3254 TR=3297 BL=3034 BR=2375, ex=-51 ey=95) mode=TRACK sky=CLEAR load=67%
+tick 182710 (uptime 182 s, TL=3334 TR=3334 BL=2934 BR=2499, ex=-35 ey=102) mode=TRACK sky=CLEAR load=13%
+tick 183710 (uptime 183 s, TL=3296 TR=3334 BL=2949 BR=2302, ex=-51 ey=116) mode=TRACK sky=CLEAR load=5%
+tick 184710 (uptime 184 s, TL=3251 TR=3315 BL=3072 BR=2422, ex=-48 ey=88) mode=TRACK sky=CLEAR load=57%
+tick 185710 (uptime 185 s, TL=3305 TR=3296 BL=2929 BR=2429, ex=-42 ey=103) mode=TRACK sky=CLEAR load=5%
+tick 186710 (uptime 186 s, TL=3290 TR=3309 BL=2939 BR=2352, ex=-47 ey=110) mode=TRACK sky=CLEAR load=5%
+tick 187710 (uptime 187 s, TL=3267 TR=3311 BL=3043 BR=2457, ex=-44 ey=89) mode=TRACK sky=CLEAR load=67%
+tick 188710 (uptime 188 s, TL=3331 TR=3323 BL=2933 BR=2431, ex=-42 ey=107) mode=TRACK sky=CLEAR load=13%
+tick 189710 (uptime 189 s, TL=3317 TR=3317 BL=2920 BR=2532, ex=-32 ey=97) mode=TRACK sky=CLEAR load=5%
+[log] 988 records in flash (capacity 1024)
+[log] #22492 t=72820 ms type=2 frame=255 a=1 b=0 c=2952
+[log] #22491 t=71820 ms type=2 frame=255 a=0 b=1 c=3040
+[log] #22490 t=52580 ms type=2 frame=255 a=1 b=0 c=3023
+tick 190710 (uptime 190 s, TL=3254 TR=3315 BL=3049 BR=2436, ex=-45 ey=89) mode=TRACK sky=CLEAR load=58%
+tick 191710 (uptime 191 s, TL=3284 TR=3337 BL=2927 BR=2342, ex=-44 ey=113) mode=TRACK sky=CLEAR load=5%
+tick 192710 (uptime 192 s, TL=3272 TR=3306 BL=3028 BR=2329, ex=-55 ey=102) mode=TRACK sky=CLEAR load=5%
+tick 193710 (uptime 193 s, TL=3264 TR=3337 BL=3000 BR=2464, ex=-38 ey=94) mode=TRACK sky=CLEAR load=67%
+tick 194710 (uptime 194 s, TL=3330 TR=3334 BL=2937 BR=2357, ex=-48 ey=114) mode=TRACK sky=CLEAR load=13%
+tick 195710 (uptime 195 s, TL=3330 TR=3296 BL=2945 BR=2497, ex=-39 ey=98) mode=TRACK sky=CLEAR load=5%
+tick 196710 (uptime 196 s, TL=3178 TR=3280 BL=3029 BR=2372, ex=-46 ey=89) mode=TRACK sky=CLEAR load=57%
+tick 197710 (uptime 197 s, TL=3255 TR=3322 BL=2939 BR=2507, ex=-30 ey=94) mode=TRACK sky=CLEAR load=5%
+tick 198710 (uptime 198 s, TL=3336 TR=3304 BL=2937 BR=2473, ex=-41 ey=102) mode=TRACK sky=CLEAR load=5%
+tick 199710 (uptime 199 s, TL=3260 TR=3371 BL=3021 BR=2403, ex=-42 ey=100) mode=TRACK sky=CLEAR load=67%
+tick 200710 (uptime 200 s, TL=3249 TR=3288 BL=2935 BR=2442, ex=-38 ey=97) mode=TRACK sky=CLEAR load=13%
+[prod] mode=TRACK light=11959 thr=2500 ex=-87 ey=60 az=500 el=2400
+tick 201710 (uptime 201 s, TL=3336 TR=3289 BL=2931 BR=2384, ex=-49 ey=109) mode=TRACK sky=CLEAR load=6%
+tick 202710 (uptime 202 s, TL=3271 TR=3261 BL=3029 BR=2371, ex=-55 ey=94) mode=TRACK sky=CLEAR load=57%
+tick 203710 (uptime 203 s, TL=3334 TR=3326 BL=2931 BR=2482, ex=-37 ey=103) mode=TRACK sky=CLEAR load=5%
+tick 204710 (uptime 204 s, TL=3313 TR=3296 BL=2947 BR=2367, ex=-50 ey=108) mode=TRACK sky=CLEAR load=5%
+tick 205710 (uptime 205 s, TL=3274 TR=3337 BL=3035 BR=2468, ex=-41 ey=91) mode=TRACK sky=CLEAR load=67%
+tick 206710 (uptime 206 s, TL=3306 TR=3285 BL=2929 BR=2401, ex=-46 ey=105) mode=TRACK sky=CLEAR load=12%
+tick 207710 (uptime 207 s, TL=3233 TR=3304 BL=2929 BR=2387, ex=-39 ey=103) mode=TRACK sky=CLEAR load=5%
+tick 208710 (uptime 208 s, TL=3330 TR=3331 BL=2919 BR=2511, ex=-33 ey=101) mode=TRACK sky=CLEAR load=56%
+tick 209710 (uptime 209 s, TL=3334 TR=3321 BL=2935 BR=2351, ex=-49 ey=114) mode=TRACK sky=CLEAR load=5%
+tick 210710 (uptime 210 s, TL=3302 TR=3330 BL=2921 BR=2471, ex=-35 ey=103) mode=TRACK sky=CLEAR load=5%
+tick 211710 (uptime 211 s, TL=3242 TR=3311 BL=3035 BR=2376, ex=-49 ey=95) mode=TRACK sky=CLEAR load=67%
+tick 212710 (uptime 212 s, TL=3308 TR=3291 BL=2921 BR=2392, ex=-45 ey=107) mode=TRACK sky=CLEAR load=12%
+[prod] mode=TRACK light=12001 thr=2500 ex=-73 ey=54 az=500 el=2400
+tick 213710 (uptime 213 s, TL=3337 TR=3312 BL=2952 BR=2487, ex=-40 ey=100) mode=OVERCAST sky=CLEAR load=6%
+tick 214710 (uptime 214 s, TL=3337 TR=3331 BL=3008 BR=2399, ex=-50 ey=104) mode=TRACK sky=CLEAR load=56%
+tick 215710 (uptime 215 s, TL=3309 TR=3305 BL=2939 BR=2481, ex=-38 ey=99) mode=TRACK sky=CLEAR load=5%
+tick 216710 (uptime 216 s, TL=3286 TR=3297 BL=2975 BR=2480, ex=-40 ey=93) mode=TRACK sky=CLEAR load=5%
+tick 217710 (uptime 217 s, TL=3264 TR=3224 BL=3053 BR=2304, ex=-66 ey=95) mode=TRACK sky=CLEAR load=67%
+tick 218710 (uptime 218 s, TL=3334 TR=3301 BL=2930 BR=2489, ex=-39 ey=100) mode=TRACK sky=CLEAR load=12%
+tick 219710 (uptime 219 s, TL=3330 TR=3299 BL=2933 BR=2373, ex=-49 ey=110) mode=TRACK sky=CLEAR load=5%
+tick 220710 (uptime 220 s, TL=3334 TR=3305 BL=2939 BR=2455, ex=-42 ey=103) mode=TRACK sky=CLEAR load=56%
+tick 221710 (uptime 221 s, TL=3312 TR=3315 BL=2955 BR=2628, ex=-26 ey=85) mode=TRACK sky=CLEAR load=5%
+tick 222710 (uptime 222 s, TL=3249 TR=3334 BL=2954 BR=2386, ex=-40 ey=104) mode=TRACK sky=CLEAR load=5%
+tick 223710 (uptime 223 s, TL=3272 TR=3377 BL=2981 BR=2453, ex=-35 ey=100) mode=TRACK sky=CLEAR load=67%
+[log] 990 records in flash (capacity 1024)
+[log] #22494 t=213920 ms type=2 frame=255 a=1 b=0 c=3002
+[log] #22493 t=212920 ms type=2 frame=255 a=0 b=1 c=3036
+[log] #22492 t=72820 ms type=2 frame=255 a=1 b=0 c=2952
+tick 224710 (uptime 224 s, TL=3322 TR=3313 BL=2967 BR=2415, ex=-46 ey=104) mode=TRACK sky=CLEAR load=16%
+tick 225710 (uptime 225 s, TL=3249 TR=3312 BL=2947 BR=2442, ex=-36 ey=98) mode=TRACK sky=CLEAR load=5%
+tick 226710 (uptime 226 s, TL=3332 TR=3283 BL=2955 BR=2503, ex=-41 ey=95) mode=TRACK sky=CLEAR load=56%
+tick 227710 (uptime 227 s, TL=3320 TR=3292 BL=2960 BR=2357, ex=-52 ey=108) mode=TRACK sky=CLEAR load=5%
+tick 228710 (uptime 228 s, TL=3273 TR=3307 BL=2933 BR=2499, ex=-33 ey=95) mode=TRACK sky=CLEAR load=5%
+tick 229710 (uptime 229 s, TL=3179 TR=3329 BL=2963 BR=2344, ex=-39 ey=101) mode=TRACK sky=CLEAR load=67%
+tick 230710 (uptime 230 s, TL=3271 TR=3304 BL=2957 BR=2465, ex=-38 ey=96) mode=TRACK sky=CLEAR load=12%
+tick 231710 (uptime 231 s, TL=3292 TR=3301 BL=2931 BR=2457, ex=-38 ey=100) mode=TRACK sky=CLEAR load=5%
+tick 232710 (uptime 232 s, TL=3238 TR=3307 BL=3025 BR=2279, ex=-57 ey=104) mode=TRACK sky=CLEAR load=56%
+tick 233710 (uptime 233 s, TL=3310 TR=3282 BL=2928 BR=2481, ex=-39 ey=98) mode=TRACK sky=CLEAR load=5%
+tick 234710 (uptime 234 s, TL=3259 TR=3305 BL=3025 BR=2319, ex=-55 ey=102) mode=TRACK sky=CLEAR load=5%
+[prod] mode=TRACK light=11918 thr=2500 ex=-85 ey=58 az=500 el=2400
+tick 235711 (uptime 235 s, TL=3274 TR=3278 BL=3045 BR=2369, ex=-56 ey=95) mode=TRACK sky=CLEAR load=67%
+tick 236710 (uptime 236 s, TL=3293 TR=3338 BL=2931 BR=2489, ex=-32 ey=100) mode=TRACK sky=CLEAR load=11%
+tick 237710 (uptime 237 s, TL=3241 TR=3283 BL=2925 BR=2360, ex=-44 ey=104) mode=TRACK sky=CLEAR load=5%
+tick 238710 (uptime 238 s, TL=3310 TR=3330 BL=2955 BR=2474, ex=-38 ey=100) mode=TRACK sky=CLEAR load=55%
+tick 239710 (uptime 239 s, TL=3241 TR=3334 BL=2949 BR=2451, ex=-33 ey=98) mode=TRACK sky=CLEAR load=5%
+tick 240710 (uptime 240 s, TL=3328 TR=3297 BL=2942 BR=2392, ex=-48 ey=107) mode=TRACK sky=CLEAR load=5%
+tick 241710 (uptime 241 s, TL=3258 TR=3248 BL=3032 BR=2393, ex=-54 ey=90) mode=TRACK sky=CLEAR load=67%
+tick 242710 (uptime 242 s, TL=3257 TR=3265 BL=2931 BR=2435, ex=-41 ey=97) mode=TRACK sky=CLEAR load=11%
+tick 243710 (uptime 243 s, TL=3318 TR=3331 BL=2928 BR=2387, ex=-44 ey=111) mode=TRACK sky=CLEAR load=5%
+tick 244710 (uptime 244 s, TL=3231 TR=3293 BL=2928 BR=2543, ex=-26 ey=87) mode=TRACK sky=CLEAR load=55%
+tick 245710 (uptime 245 s, TL=3332 TR=3313 BL=2930 BR=2363, ex=-49 ey=113) mode=TRACK sky=CLEAR load=5%
+[prod] mode=TRACK light=11890 thr=2500 ex=-78 ey=70 az=500 el=2400
+tick 246710 (uptime 246 s, TL=3318 TR=3301 BL=2942 BR=2459, ex=-41 ey=101) mode=TRACK sky=CLEAR load=6%
+# --- STATS final ---
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=adc n=6934 min_us=166 avg_us=166 max_us=174 late_max_us=910 late_p99_us=700 missed=0 max_cyc=17440
+STAT name=control n=6934 min_us=18 avg_us=23 max_us=66 late_max_us=1137 late_p99_us=900 missed=0 max_cyc=6680
+STAT name=servo n=3467 min_us=6 avg_us=6 max_us=6 late_max_us=1107 late_p99_us=900 missed=0 max_cyc=673
+STAT name=log n=6 min_us=52 avg_us=13759 max_us=40380 late_max_us=0 late_p99_us=0 missed=0 max_cyc=4038038
+STAT name=cli n=88 min_us=19 avg_us=15967 max_us=18987 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1898721
+STAT name=imu n=694 min_us=849 avg_us=890 max_us=19263 late_max_us=31536 late_p99_us=1600 missed=0 max_cyc=1926321
+STAT name=tick n=69 min_us=18681 avg_us=19228 max_us=31681 late_max_us=1132 late_p99_us=1200 missed=0 max_cyc=3168186
+STAT name=loss n=694 min_us=7 avg_us=7 max_us=7 late_max_us=32019 late_p99_us=1600 missed=0 max_cyc=780
+STAT name=led n=694 min_us=6 avg_us=7 max_us=7 late_max_us=41336 late_p99_us=1600 missed=0 max_cyc=730
+STAT name=camera n=23 min_us=515185 avg_us=631866 max_us=751258 late_max_us=25 late_p99_us=100 missed=0 max_cyc=75125817
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cam_frame n=23 min_us=512199 avg_us=628650 max_us=748261
+STAT name=cmd_latency n=7 min_us=24 avg_us=545 max_us=3599
+STAT name=flash_wait n=2 min_us=1845 avg_us=1846 max_us=1846
+LOAD pct=6 run_pct=26 btn_lost=0 uart_rx_overflow=0 pend_lost=0 flash_err=0 imu_err=0 cam_err=0 flash_last_rc=0
+tick 247745 (uptime 247 s, TL=3253 TR=3310 BL=3002 BR=2469, ex=-39 ey=90) mode=TRACK sky=CLEAR load=68%
+tick 248710 (uptime 248 s, TL=3302 TR=3336 BL=2929 BR=2392, ex=-42 ey=110) mode=TRACK sky=CLEAR load=8%
+tick 249710 (uptime 249 s, TL=3308 TR=3297 BL=2936 BR=2457, ex=-40 ey=101) mode=TRACK sky=CLEAR load=5%
+MEM stack_used=672 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 250710 (uptime 250 s, TL=3330 TR=3271 BL=2958 BR=2606, ex=-33 ey=85) mode=TRACK sky=CLEAR load=57%
+# MEM {'stack_used': 672, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+TASK name=cli state=Running prio=3 cpu_us=1778591 cpu_pct=2.4 stack_free_words=157
+TASK name=IDLE state=Ready prio=0 cpu_us=54351979 cpu_pct=73.9 stack_free_words=116
+TASK name=button state=Blocked prio=6 cpu_us=0 cpu_pct=0.0 stack_free_words=91
+TASK name=log state=Blocked prio=2 cpu_us=5286 cpu_pct=0.0 stack_free_words=160
+TASK name=camera state=Blocked prio=1 cpu_us=14589113 cpu_pct=19.8 stack_free_words=229
+TASK name=loss state=Blocked prio=2 cpu_us=29348 cpu_pct=0.0 stack_free_words=135
+TASK name=tick state=Blocked prio=2 cpu_us=29124 cpu_pct=0.0 stack_free_words=170
+TASK name=imu state=Blocked prio=2 cpu_us=600525 cpu_pct=0.8 stack_free_words=163
+TASK name=led state=Blocked prio=1 cpu_us=29155 cpu_pct=0.0 stack_free_words=88
+TASK name=snapshot state=Blocked prio=1 cpu_us=20619 cpu_pct=0.0 stack_free_words=147
+TASK name=adc state=Blocked prio=5 cpu_us=1398823 cpu_pct=1.9 stack_free_words=76
+TASK name=control state=Blocked prio=4 cpu_us=403544 cpu_pct=0.5 stack_free_words=174
+TASK name=servo state=Blocked prio=4 cpu_us=284678 cpu_pct=0.3 stack_free_words=88
+TASKS total_us=73516327 switches=37869
+tick 251802 (uptime 251 s, TL=3260 TR=3283 BL=3027 BR=2336, ex=-56 ey=99) mode=TRACK sky=CLEAR load=23%
+tick 252710 (uptime 252 s, TL=3257 TR=3300 BL=2931 BR=2511, ex=-31 ey=92) mode=TRACK sky=CLEAR load=5%
+STACK task=cli size_words=384 free_min_words=157 used_max_bytes=908
+STACK task=camera size_words=320 free_min_words=229 used_max_bytes=364
+STACK task=IDLE size_words=128 free_min_words=116 used_max_bytes=48
+STACK task=button size_words=128 free_min_words=91 used_max_bytes=148
+STACK task=log size_words=320 free_min_words=160 used_max_bytes=640
+STACK task=loss size_words=192 free_min_words=135 used_max_bytes=228
+STACK task=tick size_words=320 free_min_words=170 used_max_bytes=600
+STACK task=imu size_words=256 free_min_words=163 used_max_bytes=372
+STACK task=led size_words=128 free_min_words=88 used_max_bytes=160
+STACK task=snapshot size_words=192 free_min_words=147 used_max_bytes=180
+STACK task=adc size_words=128 free_min_words=76 used_max_bytes=208
+STACK task=control size_words=320 free_min_words=174 used_max_bytes=584
+STACK task=servo size_words=128 free_min_words=88 used_max_bytes=160
+MEM stack_used=672 stack_reserved=2048 (MSP: обробники переривань)
+tick 253874 (uptime 253 s, TL=3242 TR=3305 BL=3005 BR=2393, ex=-45 ey=96) mode=TRACK sky=CLEAR load=72%
+tick 254710 (uptime 254 s, TL=3319 TR=3319 BL=2928 BR=2463, ex=-38 ey=103) mode=TRACK sky=CLEAR load=15%
+tick 255710 (uptime 255 s, TL=3334 TR=3294 BL=2960 BR=2463, ex=-44 ey=99) mode=TRACK sky=CLEAR load=5%
+HEAP total=1024 free=0 min_ever_free=0 used_max=1024 malloc_failed=0
+tick 256710 (uptime 256 s, TL=3334 TR=3323 BL=2929 BR=2390, ex=-45 ey=111) mode=TRACK sky=CLEAR load=57%
+tick 257710 (uptime 257 s, TL=3330 TR=3331 BL=2943 BR=2497, ex=-36 ey=100) mode=TRACK sky=CLEAR load=5%
+OSCOST tick_hz=1000 tick_isr_n=79762 tick_isr_avg_cyc=598 tick_isr_max_cyc=3436 tick_isr_avg_us_x100=598 tick_isr_max_us_x100=3436
+OSCOST longest_run_us=10619 longest_run_task=camera
+OSCOST switches=40995 window_ms=79786 tick_gap_max_us=1892 tick_gaps_over_1500us=1145 cam_irq_off_max_us=942 cam_short_frames=19 cam_lines_lost=200
+tick 258710 (uptime 258 s, TL=3316 TR=3283 BL=2923 BR=2575, ex=-31 ey=91) mode=TRACK sky=CLEAR load=11%
+tick 259710 (uptime 259 s, TL=3286 TR=3291 BL=3005 BR=2408, ex=-49 ey=97) mode=TRACK sky=CLEAR load=67%
+QUEUE button max_used=0/8
+QUEUE adc max_used=1/4
+QUEUE control max_used=2/16
+QUEUE servo max_used=1/8
+QUEUE log max_used=1/16
+QUEUE cli max_used=1/32
+QUEUE imu max_used=1/8
+QUEUE tick max_used=4/32
+QUEUE loss max_used=4/32
+QUEUE led max_used=4/32
+QUEUE camera max_used=1/8
+QUEUE snapshot max_used=3/32
+DEFER log max_used=0/0
+POOL 1 min_free=61/64
+POOL 2 min_free=19/24
+POOL 3 min_free=31/32
+LOST lines=0 logs=0 events=0 texts=0
+tick 260710 (uptime 260 s, TL=3330 TR=3317 BL=2944 BR=2520, ex=-36 ey=97) mode=TRACK sky=CLEAR load=18%
+tick 261710 (uptime 261 s, TL=3330 TR=3338 BL=2925 BR=2379, ex=-44 ey=113) mode=TRACK sky=CLEAR load=5%

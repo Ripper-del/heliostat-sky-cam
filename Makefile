@@ -4,6 +4,11 @@
 #   make build     скомпілювати прошивку всередині Docker -> firmware/build/firmware.{elf,hex,bin}
 #   make flash     прошити плату через ST-Link (stlink-tools: st-flash)
 #   make monitor   відкрити UART-термінал (picocom, 115200 8N1)
+#   make test      хостові тести (gcc у Docker), без плати
+#   make coverage  тести + перевірка порогу покриття (gcov)
+#   make check-deps перевірка правила залежностей між шарами
+#   make decode    декодувати docs/captures/*.sr у .txt (sigrok-cli в Docker)
+#   make check-captures  decode + перевірка, що на записах видно очікувані транзакції
 #   make clean     видалити артефакти збірки
 #
 # Змінні:
@@ -11,11 +16,14 @@
 #   PORT=/dev/ttyACM0                     — послідовний порт для monitor
 
 IMAGE ?= stm32-build
+# Хеш коміту потрапляє в банер і в логи вимірювань (ЛР3: результат має бути пов'язаний зі збіркою)
+GIT_HASH := $(shell git rev-parse --short HEAD 2>/dev/null || echo nogit)$(shell git diff --quiet 2>/dev/null || echo -dirty)
 BOARD ?= F411
+RTOS_FLAGS ?=          # ЛР4, п. 7.2: make build RTOS_FLAGS="-DRTOS_TICK_HZ=100" (зміна FreeRTOSConfig.h потребує rm -rf firmware/build)
 PORT  ?= $(firstword $(wildcard /dev/ttyACM* /dev/tty.usbmodem*))
 BIN    = firmware/build/firmware.bin
 
-.PHONY: image build flash monitor clean shell
+.PHONY: image build flash monitor clean shell test coverage check-deps decode check-captures check-pipeline
 
 image:
 	docker build -t $(IMAGE) docker/
@@ -23,9 +31,10 @@ image:
 # Якщо образу ще немає — збираємо його автоматично.
 build:
 	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	@rm -f firmware/build/product.o firmware/build/product_rtos.o   # хеш коміту вшивається флагом -D: без цього об'єкт не перекомпілюється
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace \
 	  --user $$(id -u):$$(id -g) $(IMAGE) \
-	  make -C firmware all BOARD=$(BOARD)
+	  make -C firmware all BOARD=$(BOARD) GIT_HASH=$(GIT_HASH) RTOS_FLAGS='$(RTOS_FLAGS)'
 
 flash: build
 	st-flash --reset write $(BIN) 0x08000000
@@ -34,8 +43,57 @@ monitor:
 	@test -n "$(PORT)" || (echo "Порт не знайдено. Вкажіть: make monitor PORT=/dev/ttyACM0"; exit 1)
 	picocom -b 115200 --imap lfcrlf $(PORT)
 
+DOCKER_RUN = docker run --rm -v "$(CURDIR)":/workspace -w /workspace --user $$(id -u):$$(id -g) $(IMAGE)
+
+test:
+	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	$(DOCKER_RUN) make -C tests test
+
+coverage:
+	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	$(DOCKER_RUN) make -C tests coverage
+
+check-deps:
+	python3 scripts/check_deps.py
+
+# Текстове декодування записів docs/captures/*.sr (sigrok-cli у Docker) і перевірка очікуваного вмісту
+decode:
+	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	$(DOCKER_RUN) scripts/decode_captures.sh
+
+# Самоперевірка конвеєра розбору на синтетичних сигналах (без заліза): генератор -> sigrok-cli -> перевірка
+check-pipeline:
+	@docker image inspect $(IMAGE) >/dev/null 2>&1 || docker build -t $(IMAGE) docker/
+	python3 scripts/synth_vcd.py
+	$(DOCKER_RUN) env CAPDIR=/workspace/scripts/fixtures EXT=vcd scripts/decode_captures.sh
+	python3 scripts/check_captures.py --dir scripts/fixtures
+
+check-captures: decode
+	python3 scripts/check_captures.py
+
 clean:
-	rm -rf firmware/build
+	rm -rf firmware/build tests/build
 
 shell:
 	docker run --rm -it -v "$(CURDIR)":/workspace -w /workspace --user $$(id -u):$$(id -g) $(IMAGE) bash
+
+# ЛР3, п. 5.4: використання пам'яті — підсумок лінкера, розмір за секціями/модулями, найбільші символи, кадри стека.
+# Результат у docs/metrics/memory.txt (виконується в Docker, потрібна попередня збірка: make build).
+MEM_OUT ?= docs/metrics/memory.txt
+memory:
+	@test -f firmware/build/firmware.elf || $(MAKE) build
+	$(DOCKER_RUN) sh -c '\
+	  cd firmware && { \
+	  echo "# git: $(GIT_HASH)"; \
+	  echo; echo "## arm-none-eabi-size (text/data/bss)"; arm-none-eabi-size build/firmware.elf; \
+	  echo; echo "## секції"; arm-none-eabi-size -A build/firmware.elf; \
+	  echo; echo "## об'"'"'єктні файли за bss (RAM), 15 найбільших"; arm-none-eabi-size build/*.o | grep -v filename | sort -n -k3 | tail -15; \
+	  echo; echo "## об'"'"'єктні файли за text (flash), 15 найбільших"; arm-none-eabi-size build/*.o | grep -v filename | sort -n -k1 | tail -15; \
+	  echo; echo "## найбільші символи (десяткові розміри)"; arm-none-eabi-nm --size-sort -S --radix=d build/firmware.elf | tail -12; \
+	  echo; echo "## лише змінні в RAM (b/B = bss, d/D = data)"; arm-none-eabi-nm --size-sort -S --radix=d build/firmware.elf | grep -E " [bBdD] " | tail -10; \
+	  echo; echo "## статична оцінка стека (-fstack-usage), 15 найбільших кадрів"; cat build/*.su | sort -t"	" -k2 -n | tail -15; \
+	  echo; echo "## ЛР4: внесок ядра FreeRTOS і службового коду (text = flash, bss = RAM)"; arm-none-eabi-size build/tasks.o build/queue.o build/list.o build/stream_buffer.o build/port.o build/heap_4.o build/rtos_port.o build/product_rtos.o build/rtos_tests.o build/rtstats.o 2>/dev/null; \
+	  } > ../$(MEM_OUT) 2>&1'
+	@echo "$(MEM_OUT)"
+
+.PHONY: memory

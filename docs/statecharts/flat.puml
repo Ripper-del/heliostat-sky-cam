@@ -1,0 +1,46 @@
+@startuml flat
+!pragma layout smetana
+title Плоскі AO з одним станом (App/Src/ao_*.c)
+skinparam state {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+state "button : ready" as button {
+  button : BUTTON / виміри; SNAP_REQ → snapshot
+  button : CMD(TEST STARVE) / 1 мс роботи; CMD собі
+}
+state "adc : sampling" as adc {
+  adc : PERIOD (10 мс) / АЦП; SAMPLE → control
+}
+state "control : running" as control {
+  control : SAMPLE / q
+  control : SKY / sky; [датчик бреше] LOG_REQ
+  control : PERIOD (10 мс) / tracker_update; TARGET → servo;\n[зміна режиму] LOG_REQ; [PARK] SNAP_REQ; кожен 10-й: TRACK
+  control : CMD(MODE, CAL, SERVO) / TEXT → cli; CAL_SAVE/CAL_LOAD → log; SERVO_PWR → servo
+  control : CAL_DONE / TEXT → cli
+}
+state "cli : ready" as cli {
+  cli : LINE / розбір cli.c; CMD → власник даних
+  cli : TEXT / друк у UART (єдиний власник UART)
+  cli : TEST_STEP / крок TEST AUTO (тестовий код)
+}
+state "tick : reporting" as tick {
+  tick : TRACK, SKY / копія стану
+  tick : PERIOD (1 с) / TEXT "tick ..." → cli
+}
+state "loss : watching" as loss {
+  loss : TRACK / light
+  loss : PERIOD (100 мс) [падіння > 50 % за 2 с] / LOG_REQ; SNAP_REQ
+}
+state "led : blinking" as led {
+  led : TRACK / mode
+  led : PERIOD (100 мс) / світлодіод за режимом
+}
+[*] --> button
+[*] --> adc
+[*] --> control
+[*] --> cli
+[*] --> tick
+[*] --> loss
+[*] --> led
+@enduml

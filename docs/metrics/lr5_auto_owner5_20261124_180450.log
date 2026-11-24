@@ -1,0 +1,76 @@
+# scenario=auto_owner5 (TEST AUTO, навантаження BTNSIM 700 + SNAP кожні 3,2 с)
+# VER git=9768842 build="Nov 24 2026 16:02:54" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[auto] begin owner5 30 s
+tick 151716 (uptime 151 s, TL=3268 TR=3273 BL=3003 BR=2497, ex=-41 ey=86) mode=TRACK sky=CLEAR load=22%
+tick 152716 (uptime 152 s, TL=3224 TR=3230 BL=3005 BR=2353, ex=-54 ey=92) mode=TRACK sky=CLEAR load=17%
+tick 153716 (uptime 153 s, TL=3266 TR=3265 BL=2925 BR=2377, ex=-46 ey=103) mode=TRACK sky=CLEAR load=73%
+tick 154716 (uptime 154 s, TL=3248 TR=3237 BL=3007 BR=2357, ex=-55 ey=94) mode=TRACK sky=CLEAR load=93%
+tick 155716 (uptime 155 s, TL=3211 TR=3243 BL=2981 BR=2325, ex=-53 ey=97) mode=TRACK sky=CLEAR load=95%
+tick 156716 (uptime 156 s, TL=3257 TR=3335 BL=3001 BR=2379, ex=-45 ey=101) mode=TRACK sky=CLEAR load=86%
+tick 157716 (uptime 157 s, TL=3254 TR=3280 BL=3035 BR=2387, ex=-52 ey=93) mode=TRACK sky=CLEAR load=100%
+tick 158716 (uptime 158 s, TL=3249 TR=3275 BL=3023 BR=2449, ex=-45 ey=87) mode=TRACK sky=CLEAR load=100%
+tick 159716 (uptime 159 s, TL=3176 TR=3226 BL=2971 BR=2583, ex=-28 ey=70) mode=TRACK sky=CLEAR load=82%
+tick 160716 (uptime 160 s, TL=3254 TR=3349 BL=2984 BR=2424, ex=-38 ey=99) mode=TRACK sky=CLEAR load=100%
+tick 161716 (uptime 161 s, TL=3259 TR=3349 BL=2982 BR=2437, ex=-37 ey=98) mode=TRACK sky=CLEAR load=100%
+tick 162716 (uptime 162 s, TL=3280 TR=3315 BL=2969 BR=2466, ex=-38 ey=96) mode=TRACK sky=CLEAR load=98%
+tick 163716 (uptime 163 s, TL=3180 TR=3243 BL=2989 BR=2431, ex=-41 ey=84) mode=TRACK sky=CLEAR load=92%
+tick 164716 (uptime 164 s, TL=3193 TR=3232 BL=2995 BR=2411, ex=-46 ey=86) mode=TRACK sky=CLEAR load=95%
+tick 165716 (uptime 165 s, TL=3270 TR=3237 BL=3000 BR=2493, ex=-45 ey=84) mode=TRACK sky=CLEAR load=86%
+tick 166716 (uptime 166 s, TL=3158 TR=3321 BL=3053 BR=2395, ex=-41 ey=86) mode=TRACK sky=CLEAR load=94%
+tick 167716 (uptime 167 s, TL=3184 TR=3294 BL=2978 BR=2649, ex=-18 ey=70) mode=TRACK sky=CLEAR load=94%
+tick 168716 (uptime 168 s, TL=3263 TR=3235 BL=3001 BR=2381, ex=-54 ey=93) mode=TRACK sky=CLEAR load=95%
+tick 169716 (uptime 169 s, TL=3297 TR=3221 BL=2983 BR=2335, ex=-61 ey=101) mode=TRACK sky=CLEAR load=54%
+tick 170716 (uptime 170 s, TL=3203 TR=3274 BL=2975 BR=2369, ex=-45 ey=95) mode=TRACK sky=CLEAR load=88%
+tick 171716 (uptime 171 s, TL=3309 TR=3232 BL=3009 BR=2451, ex=-52 ey=90) mode=TRACK sky=CLEAR load=95%
+tick 172716 (uptime 172 s, TL=3178 TR=3291 BL=3049 BR=2388, ex=-46 ey=86) mode=TRACK sky=CLEAR load=95%
+tick 173716 (uptime 173 s, TL=3264 TR=3345 BL=2980 BR=2400, ex=-41 ey=102) mode=TRACK sky=CLEAR load=81%
+tick 174716 (uptime 174 s, TL=3178 TR=3250 BL=3006 BR=2409, ex=-44 ey=85) mode=TRACK sky=CLEAR load=92%
+tick 175716 (uptime 175 s, TL=3252 TR=3236 BL=2975 BR=2591, ex=-33 ey=76) mode=TRACK sky=CLEAR load=95%
+tick 176716 (uptime 176 s, TL=3247 TR=3224 BL=2997 BR=2451, ex=-47 ey=85) mode=OVERCAST sky=CLEAR load=93%
+tick 177716 (uptime 177 s, TL=3280 TR=3231 BL=2997 BR=2441, ex=-50 ey=89) mode=TRACK sky=CLEAR load=90%
+tick 178716 (uptime 178 s, TL=3176 TR=3299 BL=2968 BR=2605, ex=-19 ey=74) mode=TRACK sky=CLEAR load=94%
+tick 179716 (uptime 179 s, TL=3220 TR=3291 BL=2967 BR=2451, ex=-37 ey=91) mode=TRACK sky=CLEAR load=94%
+tick 180716 (uptime 180 s, TL=3250 TR=3231 BL=2983 BR=2420, ex=-48 ey=90) mode=TRACK sky=CLEAR load=68%
+# --- STATS final ---
+[auto] end owner5
+STAT name=button n=42 min_us=9 avg_us=9 max_us=9 late_max_us=0 late_p99_us=0 missed=0 max_cyc=984
+STAT name=adc n=3001 min_us=166 avg_us=166 max_us=175 late_max_us=966 late_p99_us=600 missed=0 max_cyc=17503
+STAT name=control n=3001 min_us=20 avg_us=26 max_us=102 late_max_us=1193 late_p99_us=800 missed=0 max_cyc=10250
+STAT name=servo n=1501 min_us=6 avg_us=6 max_us=6 late_max_us=1163 late_p99_us=800 missed=0 max_cyc=681
+STAT name=log n=3046 min_us=923 avg_us=5824 max_us=26738 late_max_us=0 late_p99_us=0 missed=0 max_cyc=2673831
+STAT name=cli n=30 min_us=18447 avg_us=18528 max_us=18995 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1899583
+STAT name=imu n=300 min_us=849 avg_us=1380 max_us=3104 late_max_us=20367 late_p99_us=1600 missed=0 max_cyc=310441
+STAT name=tick n=30 min_us=18678 avg_us=19788 max_us=20641 late_max_us=392 late_p99_us=400 missed=0 max_cyc=2064169
+STAT name=loss n=300 min_us=7 avg_us=7 max_us=7 late_max_us=20326 late_p99_us=1600 missed=0 max_cyc=787
+STAT name=led n=300 min_us=6 avg_us=7 max_us=7 late_max_us=27020 late_p99_us=1600 missed=0 max_cyc=735
+STAT name=camera n=10 min_us=400690 avg_us=903389 max_us=1500010 late_max_us=1290998 late_p99_us=1600 missed=7 max_cyc=150001019
+STAT name=snapshot n=7 min_us=1505829 avg_us=3457081 max_us=5479042 late_max_us=0 late_p99_us=0 missed=0 max_cyc=547904294
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=43 min_us=17 avg_us=17 max_us=18 presses=43
+STAT name=evt_latency n=43 min_us=18 avg_us=18 max_us=19
+STAT name=cam_frame n=7 min_us=397522 avg_us=643721 max_us=1371750
+STAT name=cmd_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=flash_wait n=607 min_us=6134 avg_us=15616 max_us=88836
+LOAD pct=68 run_pct=88 btn_lost=0 uart_rx_overflow=0 pend_lost=0 flash_err=0 imu_err=0 cam_err=23 flash_last_rc=0
+QUEUE button max_used=1/8
+QUEUE adc max_used=1/4
+QUEUE control max_used=2/16
+QUEUE servo max_used=1/8
+QUEUE log max_used=2/16
+QUEUE cli max_used=1/32
+QUEUE imu max_used=1/8
+QUEUE tick max_used=2/32
+QUEUE loss max_used=2/32
+QUEUE led max_used=2/32
+QUEUE camera max_used=1/8
+QUEUE snapshot max_used=2/32
+DEFER log max_used=0/0
+POOL 1 min_free=53/64
+POOL 2 min_free=18/24
+POOL 3 min_free=31/32
+LOST lines=0 logs=0 events=0 texts=0
+[test] hog=0 lograte=50 block=0 owner=5 ctrl=0 onestep=0 snapto=0 flashfail=0 late_events=0
+tick 182041 (uptime 181 s, TL=3259 TR=3343 BL=2959 BR=2331, ex=-45 ey=110) mode=TRACK sky=CLEAR load=100%
+tick 182716 (uptime 182 s, TL=3177 TR=3287 BL=2979 BR=2345, ex=-44 ey=96) mode=TRACK sky=CLEAR load=97%
+tick 183716 (uptime 183 s, TL=3178 TR=3307 BL=2979 BR=2302, ex=-46 ey=102) mode=TRACK sky=CLEAR load=93%
+[prod] stats reset

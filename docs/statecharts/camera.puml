@@ -1,0 +1,25 @@
+@startuml camera
+!pragma layout smetana
+title AO camera — власник камери і буфера кадру (App/Src/ao_camera.c)
+skinparam state {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+[*] --> free
+state ready {
+  ready : CMD(SKY) / TEXT → cli
+  ready : CMD(SKY FORCE) / sky; SKY (публікація)
+  ready : CMD(CAM EXP) / SCCB; TEXT → cli
+  ready : CAPTURE_REQ / CAPTURE_DONE(rc=-2) → snapshot
+  state free {
+    free : PERIOD (3 с) / кадр, клас неба; SKY (публікація)
+  }
+  state lent {
+    lent : PERIOD / кадр пропущено (missed)
+  }
+}
+free --> lent : CAPTURE_REQ [кадр ok] / CAPTURE_DONE(buf) → snapshot
+free --> lent : CMD(FRAMES n) / FRAME_LOAD(buf) → log
+lent --> free : BUF_RELEASE / frame_next
+lent --> free : FRAME_LOADED / TEXT → cli
+@enduml

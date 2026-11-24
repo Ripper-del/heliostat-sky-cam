@@ -1,0 +1,45 @@
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+STAT name=button n=200608 min_us=0 avg_us=0 max_us=0 late_max_us=999 late_p99_us=200 missed=70651 max_cyc=56
+STAT name=cli n=200651 min_us=0 avg_us=1 max_us=3530 late_max_us=985 late_p99_us=200 missed=70608 max_cyc=353063
+STAT name=adc n=20324 min_us=151 avg_us=151 max_us=152 late_max_us=9961 late_p99_us=1600 missed=6778 max_cyc=15249
+STAT name=control n=20336 min_us=3 avg_us=3 max_us=5 late_max_us=9702 late_p99_us=1600 missed=6766 max_cyc=582
+STAT name=servo n=10307 min_us=0 avg_us=0 max_us=0 late_max_us=19708 late_p99_us=1600 missed=3244 max_cyc=41
+STAT name=loss n=2165 min_us=1 avg_us=1 max_us=1 late_max_us=99711 late_p99_us=1600 missed=545 max_cyc=121
+STAT name=imu n=2165 min_us=842 avg_us=6684 max_us=234815 late_max_us=99714 late_p99_us=1600 missed=545 max_cyc=23481581
+STAT name=led n=2160 min_us=0 avg_us=0 max_us=0 late_max_us=99505 late_p99_us=1600 missed=552 max_cyc=95
+STAT name=log n=40430 min_us=0 avg_us=1 max_us=2932 late_max_us=4965 late_p99_us=1100 missed=13822 max_cyc=293225
+STAT name=snapshot n=2215 min_us=0 avg_us=0 max_us=0 late_max_us=99511 late_p99_us=1600 missed=497 max_cyc=70
+STAT name=camera n=91 min_us=392817 avg_us=579505 max_us=734062 late_max_us=192520 late_p99_us=1600 missed=0 max_cyc=73406271
+STAT name=tick n=271 min_us=17830 avg_us=18994 max_us=19408 late_max_us=831974 late_p99_us=1600 missed=0 max_cyc=1940882
+STAT name=loop n=20551193 min_us=9 avg_us=12 max_us=892641 p99_us=100
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=cmd_latency n=1 min_us=220406 avg_us=220406 max_us=220406
+STAT name=cam_frame n=91 min_us=390119 avg_us=576808 max_us=731365
+LOAD pct=82 run_pct=27 btn_lost=0 uart_rx_overflow=2 pend_lost=0 flash_err=0 imu_err=729 cam_err=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0
+[i2c1] bus: idle SDA=0 SCL=1, recovery clocks=9, after SDA=0

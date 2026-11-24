@@ -1,0 +1,1237 @@
+# scenario=s3 duration=60 servo=0 btnsim_ms=700
+VER git=8c9399a build="Nov 23 2026 18:46:59" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+tick 613718 (uptime 613 s, TL=201 TR=378 BL=189 BR=690, ex=465 ey=-205) mode=PARK sky=DARK load=14%
+# VER git=8c9399a build="Nov 23 2026 18:46:59" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] servo OFF
+tick 614718 (uptime 614 s, TL=205 TR=376 BL=187 BR=637, ex=441 ey=-172) mode=PARK sky=DARK load=4%
+tick 615718 (uptime 615 s, TL=202 TR=382 BL=188 BR=650, ex=451 ey=-178) mode=PARK sky=DARK load=54%
+tick 616718 (uptime 616 s, TL=199 TR=390 BL=190 BR=686, ex=468 ey=-195) mode=PARK sky=DARK load=4%
+[prod] stats reset
+tick 617718 (uptime 617 s, TL=251 TR=264 BL=183 BR=650, ex=356 ey=-235) mode=PARK sky=DARK load=3%
+tick 618718 (uptime 618 s, TL=256 TR=379 BL=220 BR=660, ex=371 ey=-161) mode=PARK sky=DARK load=64%
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=cli n=7 min_us=1 avg_us=506 max_us=3538 late_max_us=0 late_p99_us=0 missed=0 max_cyc=353890
+STAT name=adc n=207 min_us=155 avg_us=155 max_us=155 late_max_us=802 late_p99_us=700 missed=0 max_cyc=15554
+STAT name=control n=207 min_us=7 avg_us=7 max_us=7 late_max_us=970 late_p99_us=900 missed=0 max_cyc=734
+STAT name=servo n=104 min_us=3 avg_us=3 max_us=3 late_max_us=730 late_p99_us=700 missed=0 max_cyc=316
+STAT name=loss n=21 min_us=4 avg_us=4 max_us=4 late_max_us=701 late_p99_us=800 missed=0 max_cyc=403
+STAT name=imu n=21 min_us=845 avg_us=937 max_us=1831 late_max_us=718 late_p99_us=800 missed=0 max_cyc=183182
+STAT name=led n=21 min_us=3 avg_us=3 max_us=3 late_max_us=18259 late_p99_us=1600 missed=0 max_cyc=396
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=camera n=1 min_us=709663 avg_us=709663 max_us=709663 late_max_us=12 late_p99_us=100 missed=0 max_cyc=70966357
+STAT name=tick n=2 min_us=17532 avg_us=17882 max_us=18232 late_max_us=13 late_p99_us=100 missed=0 max_cyc=1823229
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cmd_latency n=1 min_us=20 avg_us=20 max_us=20
+STAT name=cam_frame n=1 min_us=706950 avg_us=706950 max_us=706950
+LOAD pct=64 run_pct=44 btn_lost=0 uart_rx_overflow=194 pend_lost=0 flash_err=0 imu_err=0 cam_err=0
+tick 619718 (uptime 619 s, TL=197 TR=398 BL=228 BR=665, ex=428 ey=-200) mode=PARK sky=DARK load=40%
+tick 620718 (uptime 620 s, TL=198 TR=390 BL=197 BR=634, ex=443 ey=-171) mode=PARK sky=DARK load=4%
+[cli] btnsim 700 ms
+tick 621718 (uptime 621 s, TL=200 TR=378 BL=205 BR=665, ex=440 ey=-201) mode=PARK sky=DARK load=54%
+tick 622718 (uptime 622 s, TL=149 TR=317 BL=252 BR=608, ex=395 ey=-297) mode=PARK sky=DARK load=61%
+[cli] snapshot requested
+[prod] mode=PARK light=1368 thr=2500 ex=318 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1258 thr=2500 ex=399 ey=-402 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1325 thr=2500 ex=298 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=316 ey=-424 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1299 thr=2500 ex=483 ey=-239 az=1500 el=1500 servos=OFF
+tick 623719 (uptime 623 s, TL=251 TR=299 BL=186 BR=709, ex=395 ey=-238) mode=PARK sky=DARK load=64%
+[prod] mode=PARK light=1418 thr=2500 ex=407 ey=-280 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1468 thr=2500 ex=417 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1603 thr=2500 ex=426 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1527 thr=2500 ex=492 ey=-351 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1316 thr=2500 ex=435 ey=-273 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1303 thr=2500 ex=419 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1323 thr=2500 ex=461 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1385 thr=2500 ex=362 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1404 thr=2500 ex=332 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1298 thr=2500 ex=318 ey=-273 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1203 thr=2500 ex=385 ey=-332 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1284 thr=2500 ex=364 ey=-359 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=318 ey=-321 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1322 thr=2500 ex=404 ey=-394 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1536 thr=2500 ex=380 ey=-347 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1406 thr=2500 ex=417 ey=-255 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1495 thr=2500 ex=486 ey=-486 az=1500 el=1500 servos=OFF
+tick 624718 (uptime 624 s, TL=171 TR=394 BL=201 BR=664, ex=479 ey=-209) mode=PARK sky=DARK load=72%
+[prod] mode=PARK light=1426 thr=2500 ex=426 ey=-250 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=475 ey=-458 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1302 thr=2500 ex=442 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=459 ey=-232 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1487 thr=2500 ex=346 ey=-210 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1366 thr=2500 ex=484 ey=-324 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1310 thr=2500 ex=283 ey=-521 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1446 thr=2500 ex=352 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1345 thr=2500 ex=435 ey=-289 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=344 ey=-278 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1385 thr=2500 ex=362 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1635 thr=2500 ex=395 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1510 thr=2500 ex=312 ey=-240 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1439 thr=2500 ex=318 ey=-242 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1311 thr=2500 ex=398 ey=-402 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1501 thr=2500 ex=360 ey=-238 az=1500 el=1500 servos=OFF
+tick 625718 (uptime 625 s, TL=227 TR=336 BL=149 BR=614, ex=432 ey=-150) mode=PARK sky=DARK load=69%
+[prod] mode=PARK light=1269 thr=2500 ex=382 ey=-335 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=463 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1536 thr=2500 ex=543 ey=-370 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=441 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1504 thr=2500 ex=426 ey=-246 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1421 thr=2500 ex=396 ey=-203 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1360 thr=2500 ex=395 ey=-381 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=412 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1396 thr=2500 ex=308 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1358 thr=2500 ex=326 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=249 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1403 thr=2500 ex=329 ey=-431 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1238 thr=2500 ex=351 ey=-378 az=1500 el=1500 servos=OFF
+tick 626718 (uptime 626 s, TL=132 TR=331 BL=199 BR=883, ex=571 ey=-400) mode=PARK sky=DARK load=79%
+[cli] snapshot requested
+[prod] mode=PARK light=1320 thr=2500 ex=423 ey=-413 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1321 thr=2500 ex=317 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1403 thr=2500 ex=313 ey=-323 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1403 thr=2500 ex=347 ey=-372 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=411 ey=-274 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1484 thr=2500 ex=480 ey=-430 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1297 thr=2500 ex=492 ey=-266 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=576 ey=-363 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1617 thr=2500 ex=431 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1413 thr=2500 ex=332 ey=-331 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=316 ey=-372 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1429 thr=2500 ex=297 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1553 thr=2500 ex=404 ey=-385 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1369 thr=2500 ex=323 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1318 thr=2500 ex=556 ey=-218 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1510 thr=2500 ex=428 ey=-422 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1508 thr=2500 ex=376 ey=-280 az=1500 el=1500 servos=OFF
+tick 627718 (uptime 627 s, TL=180 TR=396 BL=198 BR=592, ex=446 ey=-156) mode=PARK sky=DARK load=95%
+[prod] mode=PARK light=1377 thr=2500 ex=438 ey=-209 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1276 thr=2500 ex=382 ey=-371 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1334 thr=2500 ex=418 ey=-290 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=361 ey=-345 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1622 thr=2500 ex=435 ey=-365 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1483 thr=2500 ex=491 ey=-416 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1406 thr=2500 ex=478 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1347 thr=2500 ex=424 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1363 thr=2500 ex=401 ey=-220 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1344 thr=2500 ex=430 ey=-268 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1584 thr=2500 ex=456 ey=-387 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1645 thr=2500 ex=416 ey=-317 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1713 thr=2500 ex=361 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=294 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1487 thr=2500 ex=421 ey=-291 az=1500 el=1500 servos=OFF
+tick 628718 (uptime 628 s, TL=201 TR=366 BL=177 BR=636, ex=452 ey=-178) mode=PARK sky=DARK load=48%
+[prod] mode=PARK light=1380 thr=2500 ex=424 ey=-220 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1398 thr=2500 ex=362 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=420 ey=-322 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1448 thr=2500 ex=362 ey=-199 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1458 thr=2500 ex=312 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1456 thr=2500 ex=370 ey=-242 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1348 thr=2500 ex=414 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1325 thr=2500 ex=431 ey=-362 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1419 thr=2500 ex=406 ey=-245 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=339 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1277 thr=2500 ex=477 ey=-323 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1398 thr=2500 ex=409 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1339 thr=2500 ex=365 ey=-347 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1352 thr=2500 ex=350 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1333 thr=2500 ex=473 ey=-278 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1567 thr=2500 ex=404 ey=-385 az=1500 el=1500 servos=OFF
+tick 629718 (uptime 629 s, TL=138 TR=347 BL=163 BR=637, ex=531 ey=-245) mode=PARK sky=DARK load=65%
+[prod] mode=PARK light=1616 thr=2500 ex=431 ey=-419 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1353 thr=2500 ex=297 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1373 thr=2500 ex=374 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1355 thr=2500 ex=247 ey=-330 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1373 thr=2500 ex=306 ey=-399 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1671 thr=2500 ex=392 ey=-341 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1328 thr=2500 ex=273 ey=-364 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1368 thr=2500 ex=343 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1320 thr=2500 ex=449 ey=-257 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1341 thr=2500 ex=406 ey=-372 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=408 ey=-225 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=301 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1305 thr=2500 ex=358 ey=-401 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1299 thr=2500 ex=305 ey=-272 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1424 thr=2500 ex=337 ey=-292 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1393 thr=2500 ex=356 ey=-345 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1238 thr=2500 ex=395 ey=-361 az=1500 el=1500 servos=OFF
+tick 630718 (uptime 630 s, TL=170 TR=330 BL=153 BR=610, ex=488 ey=-208) mode=PARK sky=DARK load=83%
+[prod] mode=PARK light=1263 thr=2500 ex=460 ey=-250 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1457 thr=2500 ex=365 ey=-252 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=428 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=375 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=447 ey=-216 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1484 thr=2500 ex=361 ey=-350 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1511 thr=2500 ex=351 ey=-213 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1410 thr=2500 ex=458 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1304 thr=2500 ex=381 ey=-206 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1266 thr=2500 ex=403 ey=-244 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1337 thr=2500 ex=423 ey=-259 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1442 thr=2500 ex=311 ey=-243 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1481 thr=2500 ex=352 ey=-315 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1414 thr=2500 ex=440 ey=-337 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1437 thr=2500 ex=448 ey=-237 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1496 thr=2500 ex=465 ey=-459 az=1500 el=1500 servos=OFF
+tick 631718 (uptime 631 s, TL=204 TR=330 BL=183 BR=704, ex=455 ey=-248) mode=PARK sky=DARK load=63%
+[prod] mode=PARK light=1421 thr=2500 ex=427 ey=-290 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=467 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1675 thr=2500 ex=463 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=346 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1458 thr=2500 ex=356 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1232 thr=2500 ex=424 ey=-217 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1541 thr=2500 ex=363 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1390 thr=2500 ex=403 ey=-378 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1582 thr=2500 ex=194 ey=-232 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1604 thr=2500 ex=422 ey=-333 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1315 thr=2500 ex=462 ey=-316 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1292 thr=2500 ex=441 ey=-184 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1357 thr=2500 ex=436 ey=-268 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1426 thr=2500 ex=345 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1365 thr=2500 ex=409 ey=-372 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1302 thr=2500 ex=460 ey=-284 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1365 thr=2500 ex=384 ey=-200 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1739 thr=2500 ex=498 ey=-253 az=1500 el=1500 servos=OFF
+tick 632718 (uptime 632 s, TL=228 TR=341 BL=136 BR=647, ex=461 ey=-158) mode=PARK sky=DARK load=36%
+[prod] mode=PARK light=1430 thr=2500 ex=408 ey=-264 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1272 thr=2500 ex=536 ey=-185 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1405 thr=2500 ex=332 ey=-324 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=389 ey=-295 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1480 thr=2500 ex=357 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1448 thr=2500 ex=423 ey=-338 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[cli] snapshot requested
+[prod] mode=PARK light=1400 thr=2500 ex=363 ey=-343 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1364 thr=2500 ex=291 ey=-385 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1450 thr=2500 ex=269 ey=-381 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1400 thr=2500 ex=327 ey=-289 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1306 thr=2500 ex=370 ey=-311 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1475 thr=2500 ex=360 ey=-350 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1393 thr=2500 ex=310 ey=-324 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1363 thr=2500 ex=327 ey=-325 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=342 ey=-316 az=1500 el=1500 servos=OFF
+tick 633718 (uptime 633 s, TL=140 TR=339 BL=196 BR=601, ex=473 ey=-249) mode=PARK sky=DARK load=78%
+[prod] mode=PARK light=1309 thr=2500 ex=435 ey=-258 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1314 thr=2500 ex=319 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1409 thr=2500 ex=316 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1308 thr=2500 ex=338 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1302 thr=2500 ex=379 ey=-366 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1362 thr=2500 ex=286 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1224 thr=2500 ex=403 ey=-399 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1289 thr=2500 ex=404 ey=-382 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=413 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1406 thr=2500 ex=324 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1434 thr=2500 ex=337 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1215 thr=2500 ex=395 ey=-378 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1323 thr=2500 ex=406 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1446 thr=2500 ex=431 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=368 ey=-318 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1283 thr=2500 ex=374 ey=-374 az=1500 el=1500 servos=OFF
+tick 634730 (uptime 634 s, TL=141 TR=349 BL=186 BR=602, ex=488 ey=-233) mode=PARK sky=DARK load=96%
+[prod] mode=PARK light=1400 thr=2500 ex=336 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1442 thr=2500 ex=315 ey=-280 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1323 thr=2500 ex=396 ey=-346 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=416 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1289 thr=2500 ex=464 ey=-247 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1420 thr=2500 ex=522 ey=-311 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1362 thr=2500 ex=394 ey=-215 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1290 thr=2500 ex=469 ey=-245 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1394 thr=2500 ex=413 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1603 thr=2500 ex=502 ey=-384 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1250 thr=2500 ex=397 ey=-438 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1635 thr=2500 ex=194 ey=-141 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1604 thr=2500 ex=435 ey=-352 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1438 thr=2500 ex=415 ey=-252 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1357 thr=2500 ex=429 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=365 ey=-286 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1447 thr=2500 ex=381 ey=-334 az=1500 el=1500 servos=OFF
+tick 635718 (uptime 635 s, TL=202 TR=400 BL=188 BR=646, ex=456 ey=-161) mode=PARK sky=DARK load=33%
+[prod] mode=PARK light=1629 thr=2500 ex=369 ey=-401 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1503 thr=2500 ex=349 ey=-258 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1512 thr=2500 ex=362 ey=-269 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1449 thr=2500 ex=316 ey=-304 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1393 thr=2500 ex=320 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1539 thr=2500 ex=508 ey=-379 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1344 thr=2500 ex=442 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1361 thr=2500 ex=294 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1303 thr=2500 ex=339 ey=-375 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1328 thr=2500 ex=398 ey=-346 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=372 ey=-372 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1351 thr=2500 ex=338 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1400 thr=2500 ex=323 ey=-310 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1390 thr=2500 ex=323 ey=-316 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=323 ey=-331 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1431 thr=2500 ex=341 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=368 ey=-284 az=1500 el=1500 servos=OFF
+tick 636718 (uptime 636 s, TL=141 TR=352 BL=187 BR=596, ex=485 ey=-227) mode=PARK sky=DARK load=72%
+[prod] mode=PARK light=1249 thr=2500 ex=417 ey=-366 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1278 thr=2500 ex=430 ey=-420 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1395 thr=2500 ex=358 ey=-317 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=330 ey=-300 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=295 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1417 thr=2500 ex=329 ey=-312 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=326 ey=-285 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1542 thr=2500 ex=424 ey=-405 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=483 ey=-329 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1474 thr=2500 ex=323 ey=-301 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1330 thr=2500 ex=394 ey=-324 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1633 thr=2500 ex=408 ey=-357 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1463 thr=2500 ex=318 ey=-343 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1487 thr=2500 ex=444 ey=-247 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1390 thr=2500 ex=331 ey=-345 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1499 thr=2500 ex=410 ey=-252 az=1500 el=1500 servos=OFF
+tick 637718 (uptime 637 s, TL=231 TR=327 BL=202 BR=710, ex=410 ey=-240) mode=PARK sky=DARK load=100%
+[prod] mode=PARK light=1470 thr=2500 ex=382 ey=-282 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1512 thr=2500 ex=411 ey=-273 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1350 thr=2500 ex=431 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1509 thr=2500 ex=406 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1509 thr=2500 ex=428 ey=-275 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1517 thr=2500 ex=399 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1517 thr=2500 ex=399 ey=-260 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1380 thr=2500 ex=438 ey=-217 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1458 thr=2500 ex=398 ey=-249 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1311 thr=2500 ex=406 ey=-282 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1433 thr=2500 ex=498 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1434 thr=2500 ex=326 ey=-235 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1303 thr=2500 ex=385 ey=-357 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1319 thr=2500 ex=368 ey=-342 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1392 thr=2500 ex=477 ey=-244 az=1500 el=1500 servos=OFF
+tick 638718 (uptime 638 s, TL=195 TR=333 BL=263 BR=665, ex=370 ey=-274) mode=PARK sky=DARK load=100%
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1433 thr=2500 ex=537 ey=-379 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1421 thr=2500 ex=334 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1280 thr=2500 ex=259 ey=-240 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1397 thr=2500 ex=314 ey=-304 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1373 thr=2500 ex=323 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1408 thr=2500 ex=317 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1430 thr=2500 ex=328 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1298 thr=2500 ex=314 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1206 thr=2500 ex=313 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=328 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1293 thr=2500 ex=353 ey=-369 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=341 ey=-338 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1415 thr=2500 ex=280 ey=-316 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1324 thr=2500 ex=407 ey=-434 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1470 thr=2500 ex=352 ey=-303 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1361 thr=2500 ex=328 ey=-296 az=1500 el=1500 servos=OFF
+tick 639718 (uptime 639 s, TL=138 TR=357 BL=150 BR=782, ex=596 ey=-306) mode=PARK sky=DARK load=75%
+[cli] snapshot requested
+[prod] mode=PARK light=1379 thr=2500 ex=284 ey=-361 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1531 thr=2500 ex=367 ey=-251 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=462 ey=-255 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1320 thr=2500 ex=447 ey=-245 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1446 thr=2500 ex=389 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1302 thr=2500 ex=395 ey=-412 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1291 thr=2500 ex=476 ey=-253 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1307 thr=2500 ex=387 ey=-321 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1426 thr=2500 ex=378 ey=-294 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1493 thr=2500 ex=395 ey=-311 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1350 thr=2500 ex=309 ey=-399 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1248 thr=2500 ex=300 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1340 thr=2500 ex=310 ey=-340 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=373 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1406 thr=2500 ex=340 ey=-340 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=303 ey=-292 az=1500 el=1500 servos=OFF
+tick 640718 (uptime 640 s, TL=228 TR=247 BL=271 BR=663, ex=291 ey=-325) mode=PARK sky=DARK load=79%
+[prod] mode=PARK light=1448 thr=2500 ex=332 ey=-381 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=321 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1338 thr=2500 ex=293 ey=-288 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1316 thr=2500 ex=415 ey=-224 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1180 thr=2500 ex=355 ey=-340 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=301 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1443 thr=2500 ex=450 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1294 thr=2500 ex=400 ey=-429 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1344 thr=2500 ex=413 ey=-369 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=323 ey=-294 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=278 ey=-335 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=339 ey=-323 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1267 thr=2500 ex=354 ey=-375 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1327 thr=2500 ex=421 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1291 thr=2500 ex=377 ey=-416 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=451 ey=-351 az=1500 el=1500 servos=OFF
+tick 641718 (uptime 641 s, TL=128 TR=301 BL=268 BR=579, ex=379 ey=-327) mode=PARK sky=DARK load=95%
+[prod] mode=PARK light=1276 thr=2500 ex=351 ey=-369 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1429 thr=2500 ex=284 ey=-375 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1311 thr=2500 ex=407 ey=-225 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1176 thr=2500 ex=458 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1271 thr=2500 ex=320 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=369 ey=-329 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=327 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1385 thr=2500 ex=332 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1540 thr=2500 ex=365 ey=-232 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1460 thr=2500 ex=363 ey=-194 az=1500 el=1500 servos=OFF
+tick 642718 (uptime 642 s, TL=184 TR=325 BL=194 BR=684, ex=454 ey=-266) mode=PARK sky=DARK load=93%
+[prod] mode=PARK light=1387 thr=2500 ex=426 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=331 ey=-366 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1357 thr=2500 ex=392 ey=-241 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1322 thr=2500 ex=453 ey=-261 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1438 thr=2500 ex=348 ey=-246 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1370 thr=2500 ex=354 ey=-342 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1353 thr=2500 ex=490 ey=-208 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1361 thr=2500 ex=478 ey=-295 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1541 thr=2500 ex=308 ey=-242 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1318 thr=2500 ex=487 ey=-347 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1348 thr=2500 ex=482 ey=-242 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1322 thr=2500 ex=503 ey=-285 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=317 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=325 ey=-321 az=1500 el=1500 servos=OFF
+tick 643718 (uptime 643 s, TL=141 TR=360 BL=142 BR=642, ex=559 ey=-220) mode=PARK sky=DARK load=74%
+[prod] mode=PARK light=1440 thr=2500 ex=347 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1296 thr=2500 ex=485 ey=-259 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1347 thr=2500 ex=339 ey=-393 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1394 thr=2500 ex=326 ey=-417 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1387 thr=2500 ex=314 ey=-309 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1339 thr=2500 ex=305 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1387 thr=2500 ex=347 ey=-329 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=384 ey=-312 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=447 ey=-247 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1310 thr=2500 ex=399 ey=-416 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1354 thr=2500 ex=494 ey=-290 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=531 ey=-329 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1391 thr=2500 ex=333 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1385 thr=2500 ex=312 ey=-357 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1511 thr=2500 ex=335 ey=-249 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1547 thr=2500 ex=343 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1358 thr=2500 ex=447 ey=-442 az=1500 el=1500 servos=OFF
+tick 644718 (uptime 644 s, TL=201 TR=368 BL=184 BR=630, ex=443 ey=-177) mode=PARK sky=DARK load=72%
+[prod] mode=PARK light=1383 thr=2500 ex=415 ey=-219 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1511 thr=2500 ex=376 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1299 thr=2500 ex=388 ey=-187 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1316 thr=2500 ex=440 ey=-292 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1398 thr=2500 ex=422 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1433 thr=2500 ex=367 ey=-257 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1456 thr=2500 ex=342 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1329 thr=2500 ex=348 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1294 thr=2500 ex=378 ey=-409 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1506 thr=2500 ex=375 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1490 thr=2500 ex=361 ey=-263 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1296 thr=2500 ex=393 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=458 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1265 thr=2500 ex=451 ey=-230 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1536 thr=2500 ex=501 ey=-363 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1620 thr=2500 ex=436 ey=-359 az=1500 el=1500 servos=OFF
+tick 645731 (uptime 645 s, TL=174 TR=392 BL=241 BR=673, ex=439 ey=-235) mode=PARK sky=DARK load=64%
+[prod] mode=PARK light=1647 thr=2500 ex=366 ey=-361 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1405 thr=2500 ex=342 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1331 thr=2500 ex=420 ey=-295 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1338 thr=2500 ex=454 ey=-282 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1475 thr=2500 ex=519 ey=-435 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=301 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1280 thr=2500 ex=409 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1390 thr=2500 ex=416 ey=-342 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1512 thr=2500 ex=516 ey=-370 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1489 thr=2500 ex=328 ey=-269 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1491 thr=2500 ex=399 ey=-246 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1317 thr=2500 ex=426 ey=-416 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1356 thr=2500 ex=389 ey=-375 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1429 thr=2500 ex=347 ey=-345 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=439 ey=-315 az=1500 el=1500 servos=OFF
+tick 646718 (uptime 646 s, TL=207 TR=312 BL=242 BR=668, ex=371 ey=-273) mode=PARK sky=DARK load=59%
+[prod] mode=PARK light=1429 thr=2500 ex=343 ey=-315 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1450 thr=2500 ex=363 ey=-309 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=321 ey=-425 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1363 thr=2500 ex=285 ey=-396 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1354 thr=2500 ex=283 ey=-369 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1427 thr=2500 ex=331 ey=-349 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1466 thr=2500 ex=308 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=324 ey=-319 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1319 thr=2500 ex=467 ey=-233 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1298 thr=2500 ex=372 ey=-373 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1369 thr=2500 ex=321 ey=-371 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1321 thr=2500 ex=395 ey=-350 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1372 thr=2500 ex=418 ey=-200 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=345 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1530 thr=2500 ex=381 ey=-402 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1265 thr=2500 ex=431 ey=-414 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1455 thr=2500 ex=310 ey=-405 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=307 ey=-296 az=1500 el=1500 servos=OFF
+tick 647718 (uptime 647 s, TL=140 TR=356 BL=211 BR=672, ex=490 ey=-280) mode=PARK sky=DARK load=75%
+[prod] mode=PARK light=1379 thr=2500 ex=462 ey=-322 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=470 ey=-282 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1388 thr=2500 ex=405 ey=-304 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=350 ey=-196 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1333 thr=2500 ex=437 ey=-285 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1429 thr=2500 ex=377 ey=-332 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1456 thr=2500 ex=371 ey=-327 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1423 thr=2500 ex=324 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1377 thr=2500 ex=346 ey=-340 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1292 thr=2500 ex=379 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1349 thr=2500 ex=438 ey=-408 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=312 ey=-300 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1413 thr=2500 ex=414 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1355 thr=2500 ex=443 ey=-261 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1352 thr=2500 ex=495 ey=-269 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1458 thr=2500 ex=475 ey=-216 az=1500 el=1500 servos=OFF
+tick 648718 (uptime 648 s, TL=169 TR=392 BL=208 BR=666, ex=474 ey=-218) mode=PARK sky=DARK load=76%
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1316 thr=2500 ex=400 ey=-376 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1496 thr=2500 ex=353 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1313 thr=2500 ex=431 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=418 ey=-217 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1297 thr=2500 ex=436 ey=-257 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1484 thr=2500 ex=331 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1429 thr=2500 ex=354 ey=-342 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1536 thr=2500 ex=371 ey=-288 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1353 thr=2500 ex=448 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1482 thr=2500 ex=360 ey=-249 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1467 thr=2500 ex=339 ey=-247 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1368 thr=2500 ex=352 ey=-327 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1423 thr=2500 ex=460 ey=-290 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1296 thr=2500 ex=438 ey=-230 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1317 thr=2500 ex=545 ey=-209 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1508 thr=2500 ex=373 ey=-280 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1293 thr=2500 ex=481 ey=-260 az=1500 el=1500 servos=OFF
+tick 649718 (uptime 649 s, TL=206 TR=308 BL=257 BR=615, ex=331 ey=-258) mode=PARK sky=DARK load=54%
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1464 thr=2500 ex=422 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=396 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1367 thr=2500 ex=335 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1417 thr=2500 ex=445 ey=-264 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=427 ey=-215 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1480 thr=2500 ex=307 ey=-321 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1394 thr=2500 ex=350 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1406 thr=2500 ex=336 ey=-330 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1417 thr=2500 ex=339 ey=-333 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1625 thr=2500 ex=418 ey=-256 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1357 thr=2500 ex=422 ey=-282 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1407 thr=2500 ex=309 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1611 thr=2500 ex=399 ey=-391 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1276 thr=2500 ex=359 ey=-397 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1254 thr=2500 ex=499 ey=-228 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1242 thr=2500 ex=566 ey=-298 az=1500 el=1500 servos=OFF
+tick 650718 (uptime 650 s, TL=227 TR=261 BL=240 BR=672, ex=332 ey=-302) mode=PARK sky=DARK load=77%
+[prod] mode=PARK light=1437 thr=2500 ex=426 ey=-255 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=328 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1350 thr=2500 ex=349 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1373 thr=2500 ex=482 ey=-259 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1522 thr=2500 ex=468 ey=-461 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1440 thr=2500 ex=595 ey=-394 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1327 thr=2500 ex=447 ey=-271 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=285 ey=-261 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1308 thr=2500 ex=397 ey=-295 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=330 ey=-317 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1500 thr=2500 ex=394 ey=-263 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1311 thr=2500 ex=459 ey=-291 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1449 thr=2500 ex=433 ey=-335 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1381 thr=2500 ex=510 ey=-275 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=522 ey=-327 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1280 thr=2500 ex=472 ey=-277 az=1500 el=1500 servos=OFF
+tick 651718 (uptime 651 s, TL=197 TR=369 BL=228 BR=679, ex=422 ey=-231) mode=PARK sky=DARK load=84%
+[prod] mode=PARK light=1473 thr=2500 ex=394 ey=-273 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1317 thr=2500 ex=435 ey=-264 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=435 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1392 thr=2500 ex=408 ey=-280 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1359 thr=2500 ex=445 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1399 thr=2500 ex=418 ey=-229 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=458 ey=-285 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=406 ey=-331 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1513 thr=2500 ex=406 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1511 thr=2500 ex=377 ey=-319 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1592 thr=2500 ex=435 ey=-402 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1300 thr=2500 ex=448 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=341 ey=-323 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1403 thr=2500 ex=369 ey=-364 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=359 ey=-278 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1405 thr=2500 ex=411 ey=-243 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1452 thr=2500 ex=363 ey=-229 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1388 thr=2500 ex=372 ey=-314 az=1500 el=1500 servos=OFF
+tick 652718 (uptime 652 s, TL=217 TR=368 BL=222 BR=632, ex=389 ey=-186) mode=PARK sky=DARK load=29%
+[prod] mode=PARK light=1349 thr=2500 ex=467 ey=-306 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1377 thr=2500 ex=421 ey=-302 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1519 thr=2500 ex=390 ey=-262 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1301 thr=2500 ex=480 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=443 ey=-229 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1368 thr=2500 ex=397 ey=-255 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1469 thr=2500 ex=368 ey=-230 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1459 thr=2500 ex=419 ey=-225 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1338 thr=2500 ex=454 ey=-270 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=382 ey=-284 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1323 thr=2500 ex=409 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1488 thr=2500 ex=423 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=350 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=434 ey=-216 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=475 ey=-244 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1399 thr=2500 ex=278 ey=-367 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1398 thr=2500 ex=316 ey=-306 az=1500 el=1500 servos=OFF
+tick 653718 (uptime 653 s, TL=145 TR=372 BL=156 BR=621, ex=534 ey=-200) mode=PARK sky=DARK load=85%
+[prod] mode=PARK light=1294 thr=2500 ex=506 ey=-242 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1320 thr=2500 ex=326 ey=-404 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1263 thr=2500 ex=449 ey=-261 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1276 thr=2500 ex=371 ey=-385 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1472 thr=2500 ex=280 ey=-355 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1428 thr=2500 ex=331 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1345 thr=2500 ex=295 ey=-282 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=331 ey=-325 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1281 thr=2500 ex=406 ey=-392 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=333 ey=-362 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1330 thr=2500 ex=421 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1317 thr=2500 ex=446 ey=-354 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=492 ey=-263 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1255 thr=2500 ex=398 ey=-380 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1408 thr=2500 ex=335 ey=-303 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=359 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1330 thr=2500 ex=451 ey=-257 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1334 thr=2500 ex=399 ey=-319 az=1500 el=1500 servos=OFF
+tick 654718 (uptime 654 s, TL=169 TR=368 BL=196 BR=627, ex=463 ey=-210) mode=PARK sky=DARK load=87%
+[prod] mode=PARK light=1294 thr=2500 ex=395 ey=-378 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1450 thr=2500 ex=414 ey=-242 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1434 thr=2500 ex=349 ey=-241 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1455 thr=2500 ex=347 ey=-226 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=396 ey=-321 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1527 thr=2500 ex=343 ey=-241 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1533 thr=2500 ex=366 ey=-210 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1408 thr=2500 ex=273 ey=-348 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1254 thr=2500 ex=357 ey=-254 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1303 thr=2500 ex=425 ey=-260 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1324 thr=2500 ex=435 ey=-251 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1364 thr=2500 ex=401 ey=-259 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1404 thr=2500 ex=368 ey=-373 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1495 thr=2500 ex=392 ey=-270 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1407 thr=2500 ex=434 ey=-309 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1458 thr=2500 ex=284 ey=-243 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1361 thr=2500 ex=344 ey=-179 az=1500 el=1500 servos=OFF
+tick 655718 (uptime 655 s, TL=203 TR=393 BL=225 BR=675, ex=427 ey=-203) mode=PARK sky=DARK load=61%
+[prod] mode=PARK light=1375 thr=2500 ex=452 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1283 thr=2500 ex=331 ey=-175 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1430 thr=2500 ex=373 ey=-339 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1266 thr=2500 ex=401 ey=-237 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1351 thr=2500 ex=366 ey=-205 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1645 thr=2500 ex=337 ey=-274 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1430 thr=2500 ex=520 ey=-404 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1497 thr=2500 ex=479 ey=-219 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1604 thr=2500 ex=341 ey=-301 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1479 thr=2500 ex=312 ey=-183 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1462 thr=2500 ex=379 ey=-240 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1408 thr=2500 ex=371 ey=-269 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1329 thr=2500 ex=409 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1430 thr=2500 ex=402 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1428 thr=2500 ex=394 ey=-208 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1307 thr=2500 ex=344 ey=-339 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1459 thr=2500 ex=361 ey=-172 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=484 ey=-261 az=1500 el=1500 servos=OFF
+tick 656718 (uptime 656 s, TL=184 TR=321 BL=259 BR=608, ex=354 ey=-263) mode=PARK sky=DARK load=75%
+[prod] mode=PARK light=1370 thr=2500 ex=501 ey=-275 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1418 thr=2500 ex=326 ey=-301 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1400 thr=2500 ex=320 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1403 thr=2500 ex=357 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1353 thr=2500 ex=281 ey=-367 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1331 thr=2500 ex=297 ey=-359 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1363 thr=2500 ex=308 ey=-400 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1501 thr=2500 ex=461 ey=-381 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1392 thr=2500 ex=332 ey=-317 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1419 thr=2500 ex=253 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=318 ey=-309 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=354 ey=-350 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1295 thr=2500 ex=355 ey=-394 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=318 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=447 ey=-254 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=436 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=321 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1379 thr=2500 ex=313 ey=-287 az=1500 el=1500 servos=OFF
+tick 657718 (uptime 657 s, TL=225 TR=245 BL=269 BR=868, ex=385 ey=-415) mode=PARK sky=DARK load=75%
+[prod] mode=PARK light=1431 thr=2500 ex=331 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1313 thr=2500 ex=419 ey=-414 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1319 thr=2500 ex=404 ey=-352 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1322 thr=2500 ex=506 ey=-250 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1313 thr=2500 ex=315 ey=-405 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1372 thr=2500 ex=416 ey=-171 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1566 thr=2500 ex=360 ey=-245 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1566 thr=2500 ex=365 ey=-224 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1612 thr=2500 ex=293 ey=-491 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1396 thr=2500 ex=436 ey=-315 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1402 thr=2500 ex=472 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1361 thr=2500 ex=434 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1340 thr=2500 ex=430 ey=-286 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1368 thr=2500 ex=439 ey=-280 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1463 thr=2500 ex=401 ey=-261 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1452 thr=2500 ex=343 ey=-347 az=1500 el=1500 servos=OFF
+tick 658726 (uptime 658 s, TL=154 TR=351 BL=201 BR=741, ex=509 ey=-302) mode=PARK sky=DARK load=75%
+[prod] mode=PARK light=1326 thr=2500 ex=400 ey=-262 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1434 thr=2500 ex=404 ey=-230 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=387 ey=-236 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1321 thr=2500 ex=416 ey=-239 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1496 thr=2500 ex=359 ey=-274 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1514 thr=2500 ex=376 ey=-271 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=336 ey=-351 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1434 thr=2500 ex=342 ey=-249 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1405 thr=2500 ex=475 ey=-249 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1538 thr=2500 ex=408 ey=-269 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1305 thr=2500 ex=421 ey=-419 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1397 thr=2500 ex=363 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1294 thr=2500 ex=463 ey=-304 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1320 thr=2500 ex=556 ey=-216 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=401 ey=-303 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1332 thr=2500 ex=523 ey=-255 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1325 thr=2500 ex=464 ey=-273 az=1500 el=1500 servos=OFF
+tick 659718 (uptime 659 s, TL=224 TR=407 BL=204 BR=662, ex=428 ey=-156) mode=PARK sky=DARK load=65%
+[prod] mode=PARK light=1475 thr=2500 ex=395 ey=-242 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1497 thr=2500 ex=386 ey=-237 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1578 thr=2500 ex=463 ey=-336 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=465 ey=-231 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1390 thr=2500 ex=451 ey=-266 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=352 ey=-319 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1396 thr=2500 ex=423 ey=-370 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=372 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1416 thr=2500 ex=327 ey=-300 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1488 thr=2500 ex=359 ey=-173 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1342 thr=2500 ex=468 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1380 thr=2500 ex=296 ey=-284 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1245 thr=2500 ex=507 ey=-222 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=289 ey=-360 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1437 thr=2500 ex=290 ey=-373 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=420 ey=-232 az=1500 el=1500 servos=OFF
+tick 660718 (uptime 660 s, TL=145 TR=349 BL=178 BR=570, ex=479 ey=-204) mode=PARK sky=DARK load=78%
+[prod] mode=PARK light=1383 thr=2500 ex=332 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1385 thr=2500 ex=300 ey=-292 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1329 thr=2500 ex=311 ey=-354 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=316 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1427 thr=2500 ex=309 ey=-285 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1531 thr=2500 ex=378 ey=-362 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1547 thr=2500 ex=397 ey=-381 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1366 thr=2500 ex=320 ey=-359 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1291 thr=2500 ex=451 ey=-272 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1297 thr=2500 ex=486 ey=-233 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1403 thr=2500 ex=428 ey=-250 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=311 ey=-321 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1528 thr=2500 ex=392 ey=-374 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1436 thr=2500 ex=442 ey=-438 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1397 thr=2500 ex=453 ey=-513 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1369 thr=2500 ex=538 ey=-201 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=329 ey=-287 az=1500 el=1500 servos=OFF
+tick 661718 (uptime 661 s, TL=145 TR=409 BL=172 BR=658, ex=541 ey=-199) mode=PARK sky=DARK load=95%
+[prod] mode=PARK light=1415 thr=2500 ex=276 ey=-249 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1391 thr=2500 ex=336 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1298 thr=2500 ex=415 ey=-384 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=446 ey=-236 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1381 thr=2500 ex=353 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=457 ey=-202 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1501 thr=2500 ex=420 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1339 thr=2500 ex=383 ey=-278 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1407 thr=2500 ex=463 ey=-203 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1369 thr=2500 ex=447 ey=-305 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1404 thr=2500 ex=407 ey=-292 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1454 thr=2500 ex=402 ey=-273 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1434 thr=2500 ex=323 ey=-336 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=501 ey=-251 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=448 ey=-307 az=1500 el=1500 servos=OFF
+tick 662718 (uptime 662 s, TL=225 TR=279 BL=166 BR=664, ex=413 ey=-244) mode=PARK sky=DARK load=84%
+[prod] mode=PARK light=1492 thr=2500 ex=371 ey=-259 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1360 thr=2500 ex=516 ey=-340 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1337 thr=2500 ex=393 ey=-428 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1473 thr=2500 ex=430 ey=-276 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1393 thr=2500 ex=238 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1369 thr=2500 ex=282 ey=-342 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1327 thr=2500 ex=311 ey=-359 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1350 thr=2500 ex=366 ey=-403 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=337 ey=-288 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1436 thr=2500 ex=359 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=309 ey=-400 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1430 thr=2500 ex=348 ey=-332 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1322 thr=2500 ex=419 ey=-238 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1238 thr=2500 ex=404 ey=-374 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1413 thr=2500 ex=325 ey=-277 az=1500 el=1500 servos=OFF
+tick 663718 (uptime 663 s, TL=142 TR=372 BL=150 BR=627, ex=547 ey=-203) mode=PARK sky=DARK load=77%
+[prod] mode=PARK light=1242 thr=2500 ex=408 ey=-397 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1294 thr=2500 ex=514 ey=-252 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1399 thr=2500 ex=320 ey=-325 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=298 ey=-345 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1348 thr=2500 ex=305 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1308 thr=2500 ex=517 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1366 thr=2500 ex=383 ey=-355 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1453 thr=2500 ex=395 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1319 thr=2500 ex=474 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1260 thr=2500 ex=362 ey=-364 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=385 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1420 thr=2500 ex=426 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1547 thr=2500 ex=377 ey=-286 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1318 thr=2500 ex=409 ey=-277 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1525 thr=2500 ex=341 ey=-223 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1497 thr=2500 ex=369 ey=-244 az=1500 el=1500 servos=OFF
+tick 664718 (uptime 664 s, TL=155 TR=394 BL=204 BR=640, ex=484 ey=-211) mode=PARK sky=DARK load=97%
+[prod] mode=PARK light=1393 thr=2500 ex=456 ey=-253 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1469 thr=2500 ex=401 ey=-317 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1340 thr=2500 ex=464 ey=-276 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1412 thr=2500 ex=421 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1444 thr=2500 ex=304 ey=-303 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1278 thr=2500 ex=474 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1416 thr=2500 ex=318 ey=-262 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1469 thr=2500 ex=379 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1320 thr=2500 ex=434 ey=-235 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1441 thr=2500 ex=384 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1299 thr=2500 ex=400 ey=-238 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1306 thr=2500 ex=408 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1304 thr=2500 ex=361 ey=-371 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1301 thr=2500 ex=430 ey=-382 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=373 ey=-333 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1399 thr=2500 ex=360 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1454 thr=2500 ex=416 ey=-246 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1354 thr=2500 ex=469 ey=-234 az=1500 el=1500 servos=OFF
+tick 665718 (uptime 665 s, TL=200 TR=359 BL=181 BR=655, ex=453 ey=-198) mode=PARK sky=DARK load=32%
+[prod] mode=PARK light=1333 thr=2500 ex=373 ey=-197 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1280 thr=2500 ex=468 ey=-259 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1319 thr=2500 ex=435 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1482 thr=2500 ex=384 ey=-232 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1350 thr=2500 ex=481 ey=-276 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1395 thr=2500 ex=335 ey=-319 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1335 thr=2500 ex=497 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1462 thr=2500 ex=363 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1391 thr=2500 ex=319 ey=-347 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=300 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1352 thr=2500 ex=291 ey=-312 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1428 thr=2500 ex=322 ey=-371 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1383 thr=2500 ex=328 ey=-323 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=304 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1269 thr=2500 ex=360 ey=-373 az=1500 el=1500 servos=OFF
+tick 666718 (uptime 666 s, TL=226 TR=268 BL=156 BR=764, ex=459 ey=-301) mode=PARK sky=DARK load=71%
+[prod] mode=PARK light=1390 thr=2500 ex=308 ey=-311 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1328 thr=2500 ex=280 ey=-279 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1358 thr=2500 ex=360 ey=-335 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1395 thr=2500 ex=308 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1363 thr=2500 ex=326 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1445 thr=2500 ex=425 ey=-265 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1420 thr=2500 ex=321 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=410 ey=-379 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1342 thr=2500 ex=477 ey=-268 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1312 thr=2500 ex=487 ey=-235 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1274 thr=2500 ex=433 ey=-290 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=315 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1375 thr=2500 ex=359 ey=-336 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=328 ey=-308 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1226 thr=2500 ex=422 ey=-391 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1297 thr=2500 ex=478 ey=-247 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1283 thr=2500 ex=393 ey=-368 az=1500 el=1500 servos=OFF
+tick 667718 (uptime 667 s, TL=154 TR=361 BL=130 BR=631, ex=554 ey=-192) mode=PARK sky=DARK load=96%
+[prod] mode=PARK light=1382 thr=2500 ex=416 ey=-221 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1308 thr=2500 ex=386 ey=-340 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1347 thr=2500 ex=352 ey=-348 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1361 thr=2500 ex=362 ey=-399 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1317 thr=2500 ex=355 ey=-364 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1405 thr=2500 ex=320 ey=-323 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=327 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1430 thr=2500 ex=334 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=340 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1252 thr=2500 ex=384 ey=-342 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1280 thr=2500 ex=359 ey=-393 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1551 thr=2500 ex=318 ey=-526 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1335 thr=2500 ex=474 ey=-300 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1351 thr=2500 ex=396 ey=-368 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1338 thr=2500 ex=368 ey=-351 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1436 thr=2500 ex=473 ey=-480 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=367 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1533 thr=2500 ex=408 ey=-364 az=1500 el=1500 servos=OFF
+tick 668731 (uptime 668 s, TL=141 TR=355 BL=144 BR=613, ex=545 ey=-208) mode=PARK sky=DARK load=100%
+[prod] mode=PARK light=1361 thr=2500 ex=312 ey=-291 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1328 thr=2500 ex=447 ey=-385 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1355 thr=2500 ex=357 ey=-332 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1387 thr=2500 ex=426 ey=-295 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1464 thr=2500 ex=358 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1367 thr=2500 ex=418 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1517 thr=2500 ex=411 ey=-270 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1323 thr=2500 ex=532 ey=-227 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1339 thr=2500 ex=440 ey=-290 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1577 thr=2500 ex=492 ey=-306 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1633 thr=2500 ex=474 ey=-296 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1365 thr=2500 ex=438 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1563 thr=2500 ex=384 ey=-211 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=357 ey=-312 az=1500 el=1500 servos=OFF
+tick 669718 (uptime 669 s, TL=201 TR=318 BL=250 BR=625, ex=352 ey=-255) mode=PARK sky=DARK load=100%
+[prod] mode=PARK light=1394 thr=2500 ex=324 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1457 thr=2500 ex=417 ey=-300 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=477 ey=-255 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=314 ey=-370 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=301 ey=-343 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1436 thr=2500 ex=346 ey=-340 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1493 thr=2500 ex=279 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1498 thr=2500 ex=375 ey=-359 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1316 thr=2500 ex=333 ey=-266 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=428 ey=-194 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1277 thr=2500 ex=502 ey=-247 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=439 ey=-460 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1309 thr=2500 ex=386 ey=-354 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1265 thr=2500 ex=345 ey=-373 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1260 thr=2500 ex=395 ey=-392 az=1500 el=1500 servos=OFF
+tick 670718 (uptime 670 s, TL=220 TR=261 BL=191 BR=677, ex=390 ey=-286) mode=PARK sky=DARK load=76%
+[prod] mode=PARK light=1349 thr=2500 ex=362 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=329 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1442 thr=2500 ex=433 ey=-369 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1329 thr=2500 ex=294 ey=-274 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1339 thr=2500 ex=395 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1240 thr=2500 ex=365 ey=-330 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1314 thr=2500 ex=279 ey=-268 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1232 thr=2500 ex=340 ey=-350 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1306 thr=2500 ex=356 ey=-346 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1377 thr=2500 ex=425 ey=-240 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1538 thr=2500 ex=399 ey=-373 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1213 thr=2500 ex=383 ey=-362 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1291 thr=2500 ex=341 ey=-358 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1279 thr=2500 ex=380 ey=-333 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1275 thr=2500 ex=510 ey=-251 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1400 thr=2500 ex=307 ey=-307 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1336 thr=2500 ex=413 ey=-348 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=411 ey=-258 az=1500 el=1500 servos=OFF
+tick 671718 (uptime 671 s, TL=184 TR=391 BL=201 BR=660, ex=463 ey=-199) mode=PARK sky=DARK load=98%
+[prod] mode=PARK light=1294 thr=2500 ex=403 ey=-346 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1359 thr=2500 ex=375 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1338 thr=2500 ex=516 ey=-339 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1351 thr=2500 ex=434 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1355 thr=2500 ex=350 ey=-206 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1468 thr=2500 ex=311 ey=-304 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1413 thr=2500 ex=339 ey=-304 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1381 thr=2500 ex=360 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=339 ey=-348 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1433 thr=2500 ex=433 ey=-266 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1465 thr=2500 ex=331 ey=-303 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=346 ey=-268 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1456 thr=2500 ex=429 ey=-324 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1541 thr=2500 ex=352 ey=-278 az=1500 el=1500 servos=OFF
+tick 672718 (uptime 672 s, TL=213 TR=396 BL=195 BR=637, ex=433 ey=-154) mode=PARK sky=DARK load=90%
+[prod] mode=PARK light=1441 thr=2500 ex=405 ey=-196 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1368 thr=2500 ex=442 ey=-270 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1251 thr=2500 ex=458 ey=-295 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1366 thr=2500 ex=371 ey=-241 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1456 thr=2500 ex=364 ey=-223 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1469 thr=2500 ex=411 ey=-244 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1522 thr=2500 ex=359 ey=-273 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1356 thr=2500 ex=389 ey=-316 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1410 thr=2500 ex=461 ey=-253 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1468 thr=2500 ex=421 ey=-303 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1408 thr=2500 ex=375 ey=-360 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1365 thr=2500 ex=353 ey=-353 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1223 thr=2500 ex=419 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1427 thr=2500 ex=334 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=336 ey=-316 az=1500 el=1500 servos=OFF
+tick 673718 (uptime 673 s, TL=45 TR=350 BL=175 BR=577, ex=616 ey=-311) mode=PARK sky=DARK load=90%
+[prod] mode=PARK light=1366 thr=2500 ex=313 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1377 thr=2500 ex=327 ey=-324 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1401 thr=2500 ex=309 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1414 thr=2500 ex=324 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1290 thr=2500 ex=416 ey=-404 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1294 thr=2500 ex=401 ey=-397 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=455 ey=-246 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1285 thr=2500 ex=427 ey=-449 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=341 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1526 thr=2500 ex=391 ey=-357 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1239 thr=2500 ex=684 ey=-181 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1262 thr=2500 ex=384 ey=-382 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1382 thr=2500 ex=312 ey=-311 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1422 thr=2500 ex=330 ey=-338 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1489 thr=2500 ex=382 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1518 thr=2500 ex=369 ey=-263 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1488 thr=2500 ex=406 ey=-325 az=1500 el=1500 servos=OFF
+tick 674718 (uptime 674 s, TL=206 TR=352 BL=96 BR=797, ex=583 ey=-230) mode=PARK sky=DARK load=72%
+[prod] mode=PARK light=1451 thr=2500 ex=555 ey=-272 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1423 thr=2500 ex=302 ey=-325 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1323 thr=2500 ex=385 ey=-322 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1372 thr=2500 ex=438 ey=-221 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1373 thr=2500 ex=451 ey=-269 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1359 thr=2500 ex=462 ey=-295 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1466 thr=2500 ex=313 ey=-293 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1327 thr=2500 ex=370 ey=-333 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1389 thr=2500 ex=397 ey=-388 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1344 thr=2500 ex=479 ey=-300 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1377 thr=2500 ex=309 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1411 thr=2500 ex=335 ey=-319 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1291 thr=2500 ex=310 ey=-324 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1243 thr=2500 ex=400 ey=-383 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1417 thr=2500 ex=346 ey=-310 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1428 thr=2500 ex=327 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1542 thr=2500 ex=354 ey=-262 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1538 thr=2500 ex=341 ey=-250 az=1500 el=1500 servos=OFF
+tick 675718 (uptime 675 s, TL=178 TR=383 BL=187 BR=666, ex=483 ey=-206) mode=PARK sky=DARK load=74%
+[prod] mode=PARK light=1414 thr=2500 ex=455 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1407 thr=2500 ex=436 ey=-244 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1417 thr=2500 ex=396 ey=-333 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1466 thr=2500 ex=373 ey=-267 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1506 thr=2500 ex=385 ey=-245 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1447 thr=2500 ex=392 ey=-233 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1304 thr=2500 ex=462 ey=-285 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1341 thr=2500 ex=554 ey=-220 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1346 thr=2500 ex=552 ey=-229 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=501 ey=-234 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1366 thr=2500 ex=430 ey=-176 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1487 thr=2500 ex=421 ey=-283 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1404 thr=2500 ex=358 ey=-356 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1407 thr=2500 ex=396 ey=-216 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1420 thr=2500 ex=357 ey=-356 az=1500 el=1500 servos=OFF
+tick 676718 (uptime 676 s, TL=254 TR=364 BL=195 BR=661, ex=390 ey=-161) mode=PARK sky=DARK load=100%
+[prod] mode=PARK light=1400 thr=2500 ex=333 ey=-343 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1393 thr=2500 ex=348 ey=-416 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1265 thr=2500 ex=496 ey=-259 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1385 thr=2500 ex=356 ey=-288 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1422 thr=2500 ex=330 ey=-328 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1468 thr=2500 ex=534 ey=-347 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1461 thr=2500 ex=387 ey=-326 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1428 thr=2500 ex=348 ey=-331 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1380 thr=2500 ex=314 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1612 thr=2500 ex=458 ey=-297 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1531 thr=2500 ex=375 ey=-472 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1359 thr=2500 ex=377 ey=-325 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1487 thr=2500 ex=483 ey=-287 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1337 thr=2500 ex=283 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1251 thr=2500 ex=481 ey=-261 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1335 thr=2500 ex=452 ey=-247 az=1500 el=1500 servos=OFF
+tick 677718 (uptime 677 s, TL=155 TR=358 BL=234 BR=660, ex=447 ey=-270) mode=PARK sky=DARK load=73%
+[prod] mode=PARK light=1365 thr=2500 ex=327 ey=-338 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1249 thr=2500 ex=440 ey=-198 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1267 thr=2500 ex=503 ey=-225 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1422 thr=2500 ex=346 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1378 thr=2500 ex=320 ey=-322 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1354 thr=2500 ex=314 ey=-365 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1248 thr=2500 ex=366 ey=-80 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1652 thr=2500 ex=319 ey=-321 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1229 thr=2500 ex=319 ey=-347 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1305 thr=2500 ex=404 ey=-396 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1316 thr=2500 ex=303 ey=-294 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1225 thr=2500 ex=363 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1514 thr=2500 ex=385 ey=-170 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1366 thr=2500 ex=280 ey=-299 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1311 thr=2500 ex=479 ey=-273 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=474 ey=-334 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1376 thr=2500 ex=336 ey=-306 az=1500 el=1500 servos=OFF
+tick 678745 (uptime 678 s, TL=189 TR=331 BL=248 BR=855, ex=461 ey=-359) mode=PARK sky=DARK load=75%
+[prod] mode=PARK light=1451 thr=2500 ex=391 ey=-248 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1370 thr=2500 ex=377 ey=-186 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1171 thr=2500 ex=492 ey=-232 az=1500 el=1500 servos=OFF
+[cli] snapshot requested
+[prod] mode=PARK light=1306 thr=2500 ex=491 ey=-377 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1526 thr=2500 ex=417 ey=-258 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1542 thr=2500 ex=401 ey=-270 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1309 thr=2500 ex=426 ey=-288 az=1500 el=1500 servos=OFF
+[cli] unknown command (HELP)
+[prod] mode=PARK light=1370 thr=2500 ex=534 ey=-298 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1386 thr=2500 ex=370 ey=-313 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1487 thr=2500 ex=420 ey=-228 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1436 thr=2500 ex=402 ey=-358 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1270 thr=2500 ex=299 ey=-360 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=322 ey=-303 az=1500 el=1500 servos=OFF
+tick 679718 (uptime 679 s, TL=140 TR=348 BL=152 BR=797, ex=593 ey=-320) mode=PARK sky=DARK load=86%
+[prod] mode=PARK light=1320 thr=2500 ex=308 ey=-263 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1435 thr=2500 ex=354 ey=-331 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1365 thr=2500 ex=318 ey=-359 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1295 thr=2500 ex=369 ey=-376 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1393 thr=2500 ex=328 ey=-318 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1345 thr=2500 ex=268 ey=-325 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1620 thr=2500 ex=418 ey=-406 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1338 thr=2500 ex=323 ey=-433 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1466 thr=2500 ex=386 ey=-398 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1243 thr=2500 ex=441 ey=-190 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1295 thr=2500 ex=331 ey=-283 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1460 thr=2500 ex=319 ey=-278 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1339 thr=2500 ex=416 ey=-393 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1425 thr=2500 ex=409 ey=-230 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1346 thr=2500 ex=410 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1524 thr=2500 ex=373 ey=-257 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1546 thr=2500 ex=393 ey=-233 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1373 thr=2500 ex=303 ey=-312 az=1500 el=1500 servos=OFF
+tick 680718 (uptime 680 s, TL=203 TR=384 BL=212 BR=676, ex=437 ey=-204) mode=PARK sky=DARK load=73%
+[prod] mode=PARK light=1434 thr=2500 ex=407 ey=-320 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1719 thr=2500 ex=475 ey=-395 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1396 thr=2500 ex=434 ey=-315 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1355 thr=2500 ex=431 ey=-230 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1205 thr=2500 ex=437 ey=-213 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1345 thr=2500 ex=447 ey=-262 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=458 ey=-276 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1394 thr=2500 ex=314 ey=-316 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1435 thr=2500 ex=411 ey=-378 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1347 thr=2500 ex=291 ey=-281 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1371 thr=2500 ex=331 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1343 thr=2500 ex=389 ey=-188 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1287 thr=2500 ex=361 ey=-404 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1457 thr=2500 ex=402 ey=-277 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1220 thr=2500 ex=419 ey=-397 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1365 thr=2500 ex=328 ey=-233 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1384 thr=2500 ex=341 ey=-320 az=1500 el=1500 servos=OFF
+tick 681718 (uptime 681 s, TL=159 TR=399 BL=144 BR=538, ex=511 ey=-100) mode=PARK sky=DARK load=72%
+[prod] mode=PARK light=1240 thr=2500 ex=483 ey=-142 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1320 thr=2500 ex=373 ey=-337 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1285 thr=2500 ex=340 ey=-344 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1369 thr=2500 ex=313 ey=-314 az=1500 el=1500 servos=OFF
+[prod] mode=PARK light=1432 thr=2500 ex=314 ey=-317 az=1500 el=1500 servos=OFF
+tick 682718 (uptime 682 s, TL=201 TR=374 BL=241 BR=682, ex=409 ey=-232) mode=PARK sky=DARK load=100%
+tick 683718 (uptime 683 s, TL=141 TR=353 BL=156 BR=651, ex=543 ey=-240) mode=PARK sky=DARK load=84%
+STAT name=button n=89 min_us=4 avg_us=4 max_us=5 late_max_us=0 late_p99_us=0 missed=0 max_cyc=501
+STAT name=cli n=5943 min_us=1 avg_us=2396 max_us=291846 late_max_us=0 late_p99_us=0 missed=0 max_cyc=29184687
+STAT name=adc n=6731 min_us=155 avg_us=155 max_us=167 late_max_us=978 late_p99_us=800 missed=0 max_cyc=16720
+STAT name=control n=6731 min_us=7 avg_us=7 max_us=14 late_max_us=1165 late_p99_us=900 missed=0 max_cyc=1401
+STAT name=servo n=3366 min_us=3 avg_us=3 max_us=7 late_max_us=1150 late_p99_us=900 missed=0 max_cyc=744
+STAT name=loss n=671 min_us=4 avg_us=4 max_us=5 late_max_us=22846 late_p99_us=1600 missed=2 max_cyc=544
+STAT name=imu n=671 min_us=845 avg_us=1146 max_us=29044 late_max_us=22863 late_p99_us=1600 missed=2 max_cyc=2904442
+STAT name=led n=671 min_us=3 avg_us=4 max_us=127 late_max_us=45838 late_p99_us=1600 missed=2 max_cyc=12760
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=67 min_us=1 avg_us=486007 max_us=3657549 late_max_us=0 late_p99_us=0 missed=0 max_cyc=365754967
+STAT name=camera n=22 min_us=475484 avg_us=1309661 max_us=3068052 late_max_us=69011 late_p99_us=1600 missed=0 max_cyc=306805277
+STAT name=tick n=67 min_us=17532 avg_us=23413 max_us=36512 late_max_us=27847 late_p99_us=1600 missed=0 max_cyc=3651264
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=89 min_us=12 avg_us=13 max_us=16 presses=89
+STAT name=evt_latency n=89 min_us=13 avg_us=19 max_us=289
+STAT name=cmd_latency n=999 min_us=14 avg_us=296 max_us=15702
+STAT name=cam_frame n=22 min_us=472556 avg_us=827645 max_us=1830265
+LOAD pct=84 run_pct=73 btn_lost=0 uart_rx_overflow=286 pend_lost=0 flash_err=0 imu_err=0 cam_err=0
+tick 684718 (uptime 684 s, TL=144 TR=408 BL=192 BR=661, ex=521 ey=-214) mode=PARK sky=DARK load=87%
+tick 685718 (uptime 685 s, TL=200 TR=362 BL=206 BR=689, ex=442 ey=-228) mode=PARK sky=DARK load=44%
+[cli] btnsim 0 ms
+tick 686718 (uptime 686 s, TL=139 TR=362 BL=137 BR=622, ex=561 ey=-204) mode=PARK sky=DARK load=66%
+tick 687718 (uptime 687 s, TL=201 TR=376 BL=235 BR=650, ex=403 ey=-210) mode=PARK sky=DARK load=80%
+tick 688718 (uptime 688 s, TL=201 TR=375 BL=204 BR=700, ex=452 ey=-221) mode=PARK sky=DARK load=4%
+# S3 commands sent=1030 answered_in_50ms=938
+# S3 uart_rx_overflow_delta=92
+STAT name=button n=93 min_us=4 avg_us=4 max_us=5 late_max_us=0 late_p99_us=0 missed=0 max_cyc=501
+STAT name=cli n=5960 min_us=1 avg_us=2442 max_us=306746 late_max_us=0 late_p99_us=0 missed=0 max_cyc=30674660
+STAT name=adc n=7201 min_us=155 avg_us=155 max_us=167 late_max_us=998 late_p99_us=800 missed=0 max_cyc=16720
+STAT name=control n=7201 min_us=7 avg_us=7 max_us=14 late_max_us=1169 late_p99_us=1000 missed=0 max_cyc=1401
+STAT name=servo n=3601 min_us=3 avg_us=3 max_us=7 late_max_us=1150 late_p99_us=900 missed=0 max_cyc=744
+STAT name=loss n=716 min_us=4 avg_us=4 max_us=5 late_max_us=69999 late_p99_us=1600 missed=4 max_cyc=545
+STAT name=imu n=716 min_us=845 avg_us=1134 max_us=29044 late_max_us=69999 late_p99_us=1600 missed=4 max_cyc=2904442
+STAT name=led n=716 min_us=3 avg_us=4 max_us=127 late_max_us=69999 late_p99_us=1600 missed=4 max_cyc=12760
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=73 min_us=1 avg_us=492941 max_us=3657549 late_max_us=0 late_p99_us=0 missed=0 max_cyc=365754967
+STAT name=camera n=24 min_us=448488 avg_us=1251103 max_us=3068052 late_max_us=284999 late_p99_us=1600 missed=0 max_cyc=306805277
+STAT name=tick n=72 min_us=17532 avg_us=23019 max_us=36512 late_max_us=27847 late_p99_us=1600 missed=0 max_cyc=3651264
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=93 min_us=12 avg_us=13 max_us=16 presses=93
+STAT name=evt_latency n=93 min_us=13 avg_us=25 max_us=600
+STAT name=cmd_latency n=1001 min_us=14 avg_us=296 max_us=15702
+STAT name=cam_frame n=24 min_us=407703 avg_us=807439 max_us=1830265
+LOAD pct=4 run_pct=72 btn_lost=0 uart_rx_overflow=286 pend_lost=0 flash_err=1 imu_err=0 cam_err=0
+tick 689718 (uptime 689 s, TL=215 TR=322 BL=224 BR=832, ex=448 ey=-325) mode=PARK sky=DARK load=34%
+tick 690718 (uptime 690 s, TL=165 TR=367 BL=227 BR=643, ex=440 ey=-241) mode=PARK sky=DARK load=64%
+MEM stack_used=632 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 691718 (uptime 691 s, TL=195 TR=375 BL=218 BR=703, ex=446 ey=-235) mode=PARK sky=DARK load=7%
+tick 692718 (uptime 692 s, TL=202 TR=380 BL=190 BR=645, ex=446 ey=-178) mode=PARK sky=DARK load=4%
+# --- STATS final ---
+STAT name=button n=93 min_us=4 avg_us=4 max_us=5 late_max_us=0 late_p99_us=0 missed=0 max_cyc=501
+STAT name=cli n=5960 min_us=1 avg_us=2442 max_us=306746 late_max_us=0 late_p99_us=0 missed=0 max_cyc=30674660
+STAT name=adc n=7201 min_us=155 avg_us=155 max_us=167 late_max_us=998 late_p99_us=800 missed=0 max_cyc=16720
+STAT name=control n=7201 min_us=7 avg_us=7 max_us=14 late_max_us=1169 late_p99_us=1000 missed=0 max_cyc=1401
+STAT name=servo n=3601 min_us=3 avg_us=3 max_us=7 late_max_us=1150 late_p99_us=900 missed=0 max_cyc=744
+STAT name=loss n=716 min_us=4 avg_us=4 max_us=5 late_max_us=69999 late_p99_us=1600 missed=4 max_cyc=545
+STAT name=imu n=716 min_us=845 avg_us=1134 max_us=29044 late_max_us=69999 late_p99_us=1600 missed=4 max_cyc=2904442
+STAT name=led n=716 min_us=3 avg_us=4 max_us=127 late_max_us=69999 late_p99_us=1600 missed=4 max_cyc=12760
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=73 min_us=1 avg_us=492941 max_us=3657549 late_max_us=0 late_p99_us=0 missed=0 max_cyc=365754967
+STAT name=camera n=24 min_us=448488 avg_us=1251103 max_us=3068052 late_max_us=284999 late_p99_us=1600 missed=0 max_cyc=306805277
+STAT name=tick n=72 min_us=17532 avg_us=23019 max_us=36512 late_max_us=27847 late_p99_us=1600 missed=0 max_cyc=3651264
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=93 min_us=12 avg_us=13 max_us=16 presses=93
+STAT name=evt_latency n=93 min_us=13 avg_us=25 max_us=600
+STAT name=cmd_latency n=1001 min_us=14 avg_us=296 max_us=15702
+STAT name=cam_frame n=24 min_us=407703 avg_us=807439 max_us=1830265
+LOAD pct=4 run_pct=72 btn_lost=0 uart_rx_overflow=286 pend_lost=0 flash_err=1 imu_err=0 cam_err=0
+# MEM {'stack_used': 632, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+TASK name=cli state=Running prio=3 cpu_us=14398525 cpu_pct=18.8 stack_free_words=83
+TASK name=IDLE state=Ready prio=0 cpu_us=22953880 cpu_pct=30.1 stack_free_words=115
+TASK name=adc state=Blocked prio=5 cpu_us=1283772 cpu_pct=1.6 stack_free_words=67
+TASK name=control state=Blocked prio=4 cpu_us=149325 cpu_pct=0.1 stack_free_words=68
+TASK name=servo state=Blocked prio=4 cpu_us=57700 cpu_pct=0.0 stack_free_words=59
+TASK name=loss state=Blocked prio=2 cpu_us=12617 cpu_pct=0.0 stack_free_words=55
+TASK name=imu state=Blocked prio=2 cpu_us=642815 cpu_pct=0.8 stack_free_words=139
+TASK name=led state=Blocked prio=1 cpu_us=13442 cpu_pct=0.0 stack_free_words=53
+TASK name=camera state=Blocked prio=1 cpu_us=15620034 cpu_pct=20.4 stack_free_words=145
+TASK name=tick state=Blocked prio=2 cpu_us=1332186 cpu_pct=1.7 stack_free_words=177
+TASK name=log state=Blocked prio=2 cpu_us=0 cpu_pct=0.0 stack_free_words=165
+TASK name=button state=Blocked prio=6 cpu_us=2260 cpu_pct=0.0 stack_free_words=77
+TASK name=snapshot state=Blocked prio=1 cpu_us=19764025 cpu_pct=25.9 stack_free_words=185
+TASKS total_us=76229940 switches=53490
+tick 693718 (uptime 693 s, TL=124 TR=390 BL=192 BR=617, ex=522 ey=-222) mode=PARK sky=DARK load=77%
+tick 694718 (uptime 694 s, TL=202 TR=383 BL=190 BR=638, ex=445 ey=-171) mode=PARK sky=DARK load=25%
+TASK name=cli state=Running prio=3 cpu_us=14398525 cpu_pct=18.8 stack_free_words=83
+TASK name=IDLE state=Ready prio=0 cpu_us=22953880 cpu_pct=30.1 stack_free_words=115
+TASK name=adc state=Blocked prio=5 cpu_us=1283772 cpu_pct=1.6 stack_free_words=67
+TASK name=control state=Blocked prio=4 cpu_us=149325 cpu_pct=0.1 stack_free_words=68
+TASK name=servo state=Blocked prio=4 cpu_us=57700 cpu_pct=0.0 stack_free_words=59
+TASK name=loss state=Blocked prio=2 cpu_us=12617 cpu_pct=0.0 stack_free_words=55
+TASK name=imu state=Blocked prio=2 cpu_us=642815 cpu_pct=0.8 stack_free_words=139
+TASK name=led state=Blocked prio=1 cpu_us=13442 cpu_pct=0.0 stack_free_words=53
+TASK name=camera state=Blocked prio=1 cpu_us=15620034 cpu_pct=20.4 stack_free_words=145
+TASK name=tick state=Blocked prio=2 cpu_us=1332186 cpu_pct=1.7 stack_free_words=177
+TASK name=log state=Blocked prio=2 cpu_us=0 cpu_pct=0.0 stack_free_words=165
+TASK name=button state=Blocked prio=6 cpu_us=2260 cpu_pct=0.0 stack_free_words=77
+TASK name=snapshot state=Blocked prio=1 cpu_us=19764025 cpu_pct=25.9 stack_free_words=185
+TASKS total_us=76229940 switches=53490
+STACK task=cli size_words=320 free_min_words=83 used_max_bytes=948
+STACK task=IDLE size_words=128 free_min_words=115 used_max_bytes=52
+STACK task=servo size_words=96 free_min_words=59 used_max_bytes=148
+STACK task=adc size_words=112 free_min_words=67 used_max_bytes=180
+STACK task=control size_words=112 free_min_words=68 used_max_bytes=176
+STACK task=loss size_words=96 free_min_words=55 used_max_bytes=164
+STACK task=imu size_words=224 free_min_words=139 used_max_bytes=340
+STACK task=led size_words=96 free_min_words=53 used_max_bytes=172
+STACK task=tick size_words=320 free_min_words=177 used_max_bytes=572
+STACK task=camera size_words=224 free_min_words=145 used_max_bytes=316
+STACK task=log size_words=256 free_min_words=165 used_max_bytes=364
+STACK task=button size_words=112 free_min_words=77 used_max_bytes=140
+STACK task=snapshot size_words=288 free_min_words=185 used_max_bytes=412
+MEM stack_used=632 stack_reserved=2048 (MSP: обробники переривань)
+tick 695718 (uptime 695 s, TL=203 TR=374 BL=196 BR=698, ex=457 ey=-215) mode=PARK sky=DARK load=21%
+tick 696718 (uptime 696 s, TL=136 TR=378 BL=212 BR=666, ex=500 ey=-261) mode=PARK sky=DARK load=64%
+STACK task=cli size_words=320 free_min_words=83 used_max_bytes=948
+STACK task=IDLE size_words=128 free_min_words=115 used_max_bytes=52
+STACK task=servo size_words=96 free_min_words=59 used_max_bytes=148
+STACK task=adc size_words=112 free_min_words=67 used_max_bytes=180
+STACK task=control size_words=112 free_min_words=68 used_max_bytes=176
+STACK task=loss size_words=96 free_min_words=55 used_max_bytes=164
+STACK task=imu size_words=224 free_min_words=139 used_max_bytes=340
+STACK task=led size_words=96 free_min_words=53 used_max_bytes=172
+STACK task=tick size_words=320 free_min_words=177 used_max_bytes=572
+STACK task=camera size_words=224 free_min_words=145 used_max_bytes=316
+STACK task=log size_words=256 free_min_words=165 used_max_bytes=364
+STACK task=button size_words=112 free_min_words=77 used_max_bytes=140
+STACK task=snapshot size_words=288 free_min_words=185 used_max_bytes=412
+HEAP total=24576 free=12440 min_ever_free=12440 used_max=12136 malloc_failed=0
+tick 697718 (uptime 697 s, TL=87 TR=368 BL=181 BR=579, ex=558 ey=-251) mode=PARK sky=DARK load=7%
+tick 698718 (uptime 698 s, TL=198 TR=359 BL=184 BR=634, ex=444 ey=-189) mode=PARK sky=DARK load=4%
+HEAP total=24576 free=12440 min_ever_free=12440 used_max=12136 malloc_failed=0
+tick 699718 (uptime 699 s, TL=203 TR=368 BL=190 BR=662, ex=447 ey=-197) mode=PARK sky=DARK load=46%
+tick 700718 (uptime 700 s, TL=197 TR=372 BL=226 BR=636, ex=408 ey=-204) mode=PARK sky=DARK load=4%
+[cli] unknown command (HELP)
+OSCOST tick_hz=1000 tick_isr_n=84517 tick_isr_avg_cyc=193 tick_isr_max_cyc=1173 tick_isr_avg_us_x100=193 tick_isr_max_us_x100=1173
+OSCOST longest_run_us=11975 longest_run_task=camera
+OSCOST switches=56822 window_ms=41623 tick_gap_max_us=2193 tick_gaps_over_1500us=1840 cam_irq_off_max_us=1194 cam_short_frames=43 cam_lines_lost=892
+tick 701718 (uptime 701 s, TL=205 TR=376 BL=206 BR=663, ex=433 ey=-198) mode=PARK sky=DARK load=10%
+tick 702718 (uptime 702 s, TL=145 TR=401 BL=192 BR=622, ex=504 ey=-197) mode=PARK sky=DARK load=64%
+OSCOST tick_hz=1000 tick_isr_n=84517 tick_isr_avg_cyc=193 tick_isr_max_cyc=1173 tick_isr_avg_us_x100=193 tick_isr_max_us_x100=1173
+OSCOST longest_run_us=11975 longest_run_task=camera
+OSCOST switches=56822 window_ms=41623 tick_gap_max_us=2193 tick_gaps_over_1500us=1840 cam_irq_off_max_us=1194 cam_short_frames=43 cam_lines_lost=892
+[cli] servo OFF
+tick 703718 (uptime 703 s, TL=199 TR=376 BL=177 BR=654, ex=465 ey=-182) mode=PARK sky=DARK load=5%
+tick 704718 (uptime 704 s, TL=202 TR=372 BL=178 BR=675, ex=467 ey=-195) mode=PARK sky=DARK load=4%

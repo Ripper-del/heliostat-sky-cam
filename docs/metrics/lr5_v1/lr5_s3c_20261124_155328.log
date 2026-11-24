@@ -1,0 +1,1240 @@
+# scenario=s3 duration=60 servo=0 btnsim_ms=700
+VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+tick 622712 (uptime 622 s, TL=482 TR=721 BL=414 BR=707, ex=228 ey=35) mode=PARK sky=OVERCAST load=7%
+# VER git=351fff2 build="Nov 24 2026 13:42:47" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[cli] servo OFF
+tick 623712 (uptime 623 s, TL=473 TR=710 BL=405 BR=808, ex=267 ey=-12) mode=PARK sky=OVERCAST load=5%
+tick 624712 (uptime 624 s, TL=452 TR=633 BL=378 BR=724, ex=240 ey=-7) mode=PARK sky=OVERCAST load=63%
+[prod] stats reset
+tick 625712 (uptime 625 s, TL=485 TR=611 BL=367 BR=782, ex=240 ey=-23) mode=PARK sky=OVERCAST load=6%
+tick 626712 (uptime 626 s, TL=488 TR=684 BL=452 BR=825, ex=232 ey=-42) mode=PARK sky=OVERCAST load=5%
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=adc n=208 min_us=165 avg_us=165 max_us=170 late_max_us=882 late_p99_us=800 missed=0 max_cyc=17073
+STAT name=control n=208 min_us=19 avg_us=23 max_us=54 late_max_us=1076 late_p99_us=1000 missed=0 max_cyc=5414
+STAT name=servo n=104 min_us=6 avg_us=6 max_us=6 late_max_us=899 late_p99_us=900 missed=0 max_cyc=654
+STAT name=log n=2 min_us=52 avg_us=488 max_us=923 late_max_us=0 late_p99_us=0 missed=0 max_cyc=92364
+STAT name=cli n=3 min_us=3534 avg_us=13260 max_us=18124 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1812440
+STAT name=imu n=21 min_us=849 avg_us=849 max_us=849 late_max_us=18656 late_p99_us=1600 missed=0 max_cyc=84931
+STAT name=tick n=2 min_us=18681 avg_us=18681 max_us=18681 late_max_us=374 late_p99_us=400 missed=0 max_cyc=1868186
+STAT name=loss n=21 min_us=7 avg_us=7 max_us=7 late_max_us=19019 late_p99_us=1600 missed=0 max_cyc=756
+STAT name=led n=21 min_us=7 avg_us=7 max_us=7 late_max_us=19531 late_p99_us=1600 missed=0 max_cyc=731
+STAT name=camera n=1 min_us=490203 avg_us=490203 max_us=490203 late_max_us=25 late_p99_us=100 missed=0 max_cyc=49020396
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cam_frame n=1 min_us=486430 avg_us=486430 max_us=486430
+STAT name=cmd_latency n=1 min_us=32 avg_us=32 max_us=32
+STAT name=flash_wait n=1 min_us=1854 avg_us=1854 max_us=1854
+LOAD pct=5 run_pct=37 btn_lost=0 uart_rx_overflow=132 pend_lost=0 flash_err=0 imu_err=1 cam_err=1 flash_last_rc=0
+tick 627968 (uptime 627 s, TL=393 TR=716 BL=454 BR=666, ex=240 ey=-4) mode=PARK sky=OVERCAST load=66%
+tick 628712 (uptime 628 s, TL=454 TR=715 BL=406 BR=814, ex=280 ey=-21) mode=PARK sky=OVERCAST load=6%
+tick 629712 (uptime 629 s, TL=482 TR=728 BL=405 BR=740, ex=246 ey=27) mode=PARK sky=OVERCAST load=5%
+[cli] btnsim 700 ms
+tick 630712 (uptime 630 s, TL=472 TR=670 BL=381 BR=701, ex=232 ey=26) mode=PARK sky=OVERCAST load=63%
+tick 631712 (uptime 631 s, TL=466 TR=599 BL=426 BR=768, ex=210 ey=-57) mode=PARK sky=OVERCAST load=78%
+[cli] snapshot requested
+[prod] mode=PARK light=2225 thr=2500 ex=133 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2286 thr=2500 ex=197 ey=-86 az=1500 el=1500
+[prod] mode=PARK light=2194 thr=2500 ex=155 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=188 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2351 thr=2500 ex=257 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2247 thr=2500 ex=270 ey=-108 az=1500 el=1500
+[prod] mode=PARK light=2352 thr=2500 ex=245 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2383 thr=2500 ex=235 ey=-55 az=1500 el=1500
+tick 632712 (uptime 632 s, TL=486 TR=689 BL=420 BR=783, ex=238 ey=-11) mode=PARK sky=OVERCAST load=58%
+[prod] mode=PARK light=2259 thr=2500 ex=216 ey=-57 az=1500 el=1500
+[prod] mode=PARK light=2499 thr=2500 ex=271 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2134 thr=2500 ex=257 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2400 thr=2500 ex=247 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2343 thr=2500 ex=281 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2457 thr=2500 ex=229 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2493 thr=2500 ex=330 ey=-173 az=1500 el=1500
+[prod] mode=PARK light=2267 thr=2500 ex=198 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2364 thr=2500 ex=263 ey=-74 az=1500 el=1500
+[prod] mode=PARK light=2401 thr=2500 ex=268 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2368 thr=2500 ex=224 ey=-70 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=257 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2218 thr=2500 ex=246 ey=-105 az=1500 el=1500
+[prod] mode=PARK light=2314 thr=2500 ex=199 ey=-67 az=1500 el=1500
+[prod] mode=PARK light=2300 thr=2500 ex=218 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=198 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2261 thr=2500 ex=244 ey=-51 az=1500 el=1500
+tick 633712 (uptime 633 s, TL=456 TR=709 BL=417 BR=712, ex=238 ey=15) mode=PARK sky=OVERCAST load=70%
+[prod] mode=PARK light=2329 thr=2500 ex=224 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2282 thr=2500 ex=198 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=204 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2172 thr=2500 ex=214 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2351 thr=2500 ex=200 ey=-10 az=1500 el=1500
+[prod] mode=PARK light=2203 thr=2500 ex=223 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2416 thr=2500 ex=265 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=241 ey=-140 az=1500 el=1500
+[prod] mode=PARK light=2532 thr=2500 ex=291 ey=-142 az=1500 el=1500
+[prod] mode=PARK light=2532 thr=2500 ex=250 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2172 thr=2500 ex=264 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2369 thr=2500 ex=188 ey=5 az=1500 el=1500
+[prod] mode=PARK light=2255 thr=2500 ex=209 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2554 thr=2500 ex=274 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2370 thr=2500 ex=302 ey=-135 az=1500 el=1500
+[prod] mode=PARK light=2286 thr=2500 ex=199 ey=-2 az=1500 el=1500
+[prod] mode=PARK light=2223 thr=2500 ex=258 ey=-8 az=1500 el=1500
+[prod] mode=PARK light=2402 thr=2500 ex=233 ey=-36 az=1500 el=1500
+tick 634712 (uptime 634 s, TL=485 TR=609 BL=423 BR=949, ex=263 ey=-112) mode=PARK sky=OVERCAST load=46%
+[prod] mode=PARK light=2486 thr=2500 ex=277 ey=-21 az=1500 el=1500
+[prod] mode=PARK light=2102 thr=2500 ex=184 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2254 thr=2500 ex=175 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2351 thr=2500 ex=202 ey=-119 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2279 thr=2500 ex=302 ey=-40 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2248 thr=2500 ex=282 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2400 thr=2500 ex=220 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=274 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2180 thr=2500 ex=195 ey=7 az=1500 el=1500
+[prod] mode=PARK light=2454 thr=2500 ex=253 ey=-86 az=1500 el=1500
+[prod] mode=PARK light=2461 thr=2500 ex=230 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2293 thr=2500 ex=241 ey=-46 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2287 thr=2500 ex=181 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2269 thr=2500 ex=332 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2166 thr=2500 ex=157 ey=19 az=1500 el=1500
+[prod] mode=PARK light=2338 thr=2500 ex=238 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2250 thr=2500 ex=158 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2217 thr=2500 ex=195 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2217 thr=2500 ex=195 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2338 thr=2500 ex=275 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2338 thr=2500 ex=275 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2227 thr=2500 ex=135 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2227 thr=2500 ex=135 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=263 ey=-26 az=1500 el=1500
+tick 636147 (uptime 635 s, TL=494 TR=647 BL=373 BR=719, ex=223 ey=21) mode=PARK sky=OVERCAST load=86%
+[prod] mode=PARK light=2222 thr=2500 ex=228 ey=-5 az=1500 el=1500
+[prod] mode=PARK light=2232 thr=2500 ex=228 ey=-39 az=1500 el=1500
+[prod] mode=PARK light=2501 thr=2500 ex=252 ey=-68 az=1500 el=1500
+[prod] mode=PARK light=2424 thr=2500 ex=272 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=226 ey=-85 az=1500 el=1500
+[prod] mode=PARK light=2418 thr=2500 ex=239 ey=-57 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=280 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2200 thr=2500 ex=198 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2281 thr=2500 ex=197 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2156 thr=2500 ex=279 ey=-77 az=1500 el=1500
+tick 636712 (uptime 636 s, TL=480 TR=733 BL=423 BR=801, ex=258 ey=-4) mode=PARK sky=OVERCAST load=28%
+[prod] mode=PARK light=2280 thr=2500 ex=224 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=229 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2220 thr=2500 ex=254 ey=-124 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=256 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2232 thr=2500 ex=258 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2340 thr=2500 ex=226 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2143 thr=2500 ex=256 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2397 thr=2500 ex=239 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=190 ey=-85 az=1500 el=1500
+[prod] mode=PARK light=2260 thr=2500 ex=262 ey=-115 az=1500 el=1500
+[prod] mode=PARK light=2209 thr=2500 ex=199 ey=18 az=1500 el=1500
+[prod] mode=PARK light=2188 thr=2500 ex=258 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2320 thr=2500 ex=222 ey=-9 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=204 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2260 thr=2500 ex=164 ey=-57 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=263 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2158 thr=2500 ex=264 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=219 ey=-28 az=1500 el=1500
+tick 637714 (uptime 637 s, TL=477 TR=626 BL=353 BR=767, ex=253 ey=-7) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2415 thr=2500 ex=246 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2369 thr=2500 ex=262 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2234 thr=2500 ex=184 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2292 thr=2500 ex=232 ey=-1 az=1500 el=1500
+[prod] mode=PARK light=2374 thr=2500 ex=305 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2179 thr=2500 ex=245 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2208 thr=2500 ex=158 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=199 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=224 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2281 thr=2500 ex=307 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2300 thr=2500 ex=272 ey=-119 az=1500 el=1500
+[prod] mode=PARK light=2410 thr=2500 ex=256 ey=-144 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=230 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2248 thr=2500 ex=259 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2288 thr=2500 ex=301 ey=-53 az=1500 el=1500
+tick 638714 (uptime 638 s, TL=461 TR=706 BL=400 BR=749, ex=256 ey=7) mode=PARK sky=OVERCAST load=64%
+[prod] mode=PARK light=2241 thr=2500 ex=267 ey=-45 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2238 thr=2500 ex=264 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2238 thr=2500 ex=264 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2142 thr=2500 ex=241 ey=-13 az=1500 el=1500
+[prod] mode=PARK light=2142 thr=2500 ex=241 ey=-13 az=1500 el=1500
+[prod] mode=PARK light=2142 thr=2500 ex=241 ey=-13 az=1500 el=1500
+[prod] mode=PARK light=2218 thr=2500 ex=214 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2218 thr=2500 ex=214 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2218 thr=2500 ex=214 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=203 ey=-12 az=1500 el=1500
+[prod] mode=PARK light=2154 thr=2500 ex=149 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2206 thr=2500 ex=234 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=240 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2221 thr=2500 ex=192 ey=-4 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=247 ey=-138 az=1500 el=1500
+[prod] mode=PARK light=2201 thr=2500 ex=192 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2166 thr=2500 ex=243 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2186 thr=2500 ex=254 ey=-94 az=1500 el=1500
+tick 639714 (uptime 639 s, TL=461 TR=691 BL=417 BR=819, ex=264 ey=-35) mode=PARK sky=OVERCAST load=67%
+[prod] mode=PARK light=2247 thr=2500 ex=295 ey=-97 az=1500 el=1500
+[prod] mode=PARK light=2393 thr=2500 ex=241 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=255 ey=-83 az=1500 el=1500
+[prod] mode=PARK light=2308 thr=2500 ex=305 ey=-33 az=1500 el=1500
+[prod] mode=PARK light=2530 thr=2500 ex=342 ey=-116 az=1500 el=1500
+[prod] mode=PARK light=2140 thr=2500 ex=260 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=219 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2381 thr=2500 ex=201 ey=-107 az=1500 el=1500
+[prod] mode=PARK light=2235 thr=2500 ex=280 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2267 thr=2500 ex=202 ey=-12 az=1500 el=1500
+[prod] mode=PARK light=2122 thr=2500 ex=221 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=203 ey=-1 az=1500 el=1500
+[prod] mode=PARK light=2237 thr=2500 ex=232 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2306 thr=2500 ex=212 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2211 thr=2500 ex=223 ey=-83 az=1500 el=1500
+[prod] mode=PARK light=2292 thr=2500 ex=225 ey=-110 az=1500 el=1500
+[prod] mode=PARK light=2204 thr=2500 ex=272 ey=-110 az=1500 el=1500
+tick 640712 (uptime 640 s, TL=467 TR=708 BL=406 BR=737, ex=246 ey=13) mode=PARK sky=OVERCAST load=25%
+[prod] mode=PARK light=2266 thr=2500 ex=324 ey=35 az=1500 el=1500
+[prod] mode=PARK light=2384 thr=2500 ex=241 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=290 ey=-123 az=1500 el=1500
+[prod] mode=PARK light=2182 thr=2500 ex=234 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2406 thr=2500 ex=260 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2306 thr=2500 ex=301 ey=-127 az=1500 el=1500
+[prod] mode=PARK light=2381 thr=2500 ex=235 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2190 thr=2500 ex=210 ey=15 az=1500 el=1500
+[prod] mode=PARK light=2188 thr=2500 ex=221 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2396 thr=2500 ex=253 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=254 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2203 thr=2500 ex=216 ey=52 az=1500 el=1500
+[prod] mode=PARK light=2260 thr=2500 ex=234 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2190 thr=2500 ex=237 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2330 thr=2500 ex=235 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=228 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2387 thr=2500 ex=239 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2313 thr=2500 ex=238 ey=-127 az=1500 el=1500
+tick 641712 (uptime 641 s, TL=462 TR=616 BL=427 BR=695, ex=191 ey=-20) mode=PARK sky=OVERCAST load=47%
+[prod] mode=PARK light=2293 thr=2500 ex=314 ey=-56 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2381 thr=2500 ex=230 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2283 thr=2500 ex=192 ey=-85 az=1500 el=1500
+[prod] mode=PARK light=2363 thr=2500 ex=250 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2324 thr=2500 ex=226 ey=-33 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2228 thr=2500 ex=330 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2367 thr=2500 ex=262 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2240 thr=2500 ex=332 ey=-21 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=244 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=286 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=274 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2330 thr=2500 ex=200 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2346 thr=2500 ex=173 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=233 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=233 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=189 ey=18 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=189 ey=18 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=189 ey=18 az=1500 el=1500
+[prod] mode=PARK light=2186 thr=2500 ex=176 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2186 thr=2500 ex=176 ey=-35 az=1500 el=1500
+tick 642856 (uptime 642 s, TL=468 TR=720 BL=360 BR=812, ex=298 ey=6) mode=PARK sky=OVERCAST load=83%
+[prod] mode=PARK light=2348 thr=2500 ex=219 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2205 thr=2500 ex=193 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2279 thr=2500 ex=280 ey=-103 az=1500 el=1500
+[prod] mode=PARK light=2361 thr=2500 ex=251 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2446 thr=2500 ex=309 ey=-156 az=1500 el=1500
+[prod] mode=PARK light=2400 thr=2500 ex=313 ey=-168 az=1500 el=1500
+[prod] mode=PARK light=2290 thr=2500 ex=229 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2279 thr=2500 ex=206 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2326 thr=2500 ex=201 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=197 ey=-3 az=1500 el=1500
+[prod] mode=PARK light=2351 thr=2500 ex=243 ey=-137 az=1500 el=1500
+[prod] mode=PARK light=2236 thr=2500 ex=225 ey=5 az=1500 el=1500
+[prod] mode=PARK light=2301 thr=2500 ex=268 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2232 thr=2500 ex=202 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2330 thr=2500 ex=241 ey=-79 az=1500 el=1500
+tick 643712 (uptime 643 s, TL=468 TR=730 BL=395 BR=696, ex=245 ey=46) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2327 thr=2500 ex=243 ey=-63 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=233 ey=-32 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=232 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2225 thr=2500 ex=247 ey=-125 az=1500 el=1500
+[prod] mode=PARK light=2207 thr=2500 ex=233 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2256 thr=2500 ex=276 ey=-114 az=1500 el=1500
+[prod] mode=PARK light=2366 thr=2500 ex=246 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2148 thr=2500 ex=206 ey=-44 az=1500 el=1500
+[prod] mode=PARK light=2105 thr=2500 ex=265 ey=-23 az=1500 el=1500
+[prod] mode=PARK light=2444 thr=2500 ex=262 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2082 thr=2500 ex=246 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2400 thr=2500 ex=256 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2305 thr=2500 ex=281 ey=-130 az=1500 el=1500
+[prod] mode=PARK light=2281 thr=2500 ex=181 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2306 thr=2500 ex=256 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2384 thr=2500 ex=223 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2217 thr=2500 ex=233 ey=-67 az=1500 el=1500
+[prod] mode=PARK light=2202 thr=2500 ex=293 ey=-123 az=1500 el=1500
+tick 644712 (uptime 644 s, TL=474 TR=715 BL=407 BR=797, ex=263 ey=-6) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2268 thr=2500 ex=258 ey=-130 az=1500 el=1500
+[prod] mode=PARK light=2299 thr=2500 ex=250 ey=-98 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=269 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2171 thr=2500 ex=212 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2178 thr=2500 ex=131 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2313 thr=2500 ex=315 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2395 thr=2500 ex=254 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=222 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=173 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=215 ey=-5 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2232 thr=2500 ex=193 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2241 thr=2500 ex=232 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2212 thr=2500 ex=207 ey=-39 az=1500 el=1500
+[prod] mode=PARK light=2306 thr=2500 ex=200 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2258 thr=2500 ex=243 ey=1 az=1500 el=1500
+[prod] mode=PARK light=2369 thr=2500 ex=216 ey=-5 az=1500 el=1500
+[prod] mode=PARK light=2352 thr=2500 ex=228 ey=7 az=1500 el=1500
+tick 645719 (uptime 645 s, TL=482 TR=615 BL=429 BR=755, ex=201 ey=-38) mode=PARK sky=OVERCAST load=83%
+[prod] mode=PARK light=2363 thr=2500 ex=222 ey=-85 az=1500 el=1500
+[prod] mode=PARK light=2374 thr=2500 ex=271 ey=-48 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2234 thr=2500 ex=263 ey=-70 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=242 ey=40 az=1500 el=1500
+[prod] mode=PARK light=2233 thr=2500 ex=261 ey=-116 az=1500 el=1500
+[prod] mode=PARK light=2284 thr=2500 ex=238 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2245 thr=2500 ex=295 ey=-111 az=1500 el=1500
+[prod] mode=PARK light=2241 thr=2500 ex=273 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2342 thr=2500 ex=276 ey=-123 az=1500 el=1500
+[prod] mode=PARK light=2278 thr=2500 ex=232 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2107 thr=2500 ex=184 ey=8 az=1500 el=1500
+[prod] mode=PARK light=2200 thr=2500 ex=242 ey=-142 az=1500 el=1500
+[prod] mode=PARK light=2168 thr=2500 ex=150 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2168 thr=2500 ex=150 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2192 thr=2500 ex=225 ey=23 az=1500 el=1500
+[prod] mode=PARK light=2192 thr=2500 ex=225 ey=23 az=1500 el=1500
+[prod] mode=PARK light=2186 thr=2500 ex=191 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2186 thr=2500 ex=191 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2249 thr=2500 ex=170 ey=-50 az=1500 el=1500
+tick 646853 (uptime 646 s, TL=429 TR=721 BL=333 BR=712, ex=305 ey=47) mode=PARK sky=OVERCAST load=82%
+[prod] mode=PARK light=2242 thr=2500 ex=201 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=214 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=266 ey=-67 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=233 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=216 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=257 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2444 thr=2500 ex=247 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2123 thr=2500 ex=214 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=239 ey=31 az=1500 el=1500
+[prod] mode=PARK light=2478 thr=2500 ex=267 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2350 thr=2500 ex=310 ey=-179 az=1500 el=1500
+[prod] mode=PARK light=2403 thr=2500 ex=247 ey=-70 az=1500 el=1500
+[prod] mode=PARK light=2230 thr=2500 ex=213 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2152 thr=2500 ex=278 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2464 thr=2500 ex=287 ey=-54 az=1500 el=1500
+tick 647712 (uptime 647 s, TL=454 TR=706 BL=391 BR=803, ex=282 ey=-14) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2488 thr=2500 ex=340 ey=-105 az=1500 el=1500
+[prod] mode=PARK light=2292 thr=2500 ex=221 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2175 thr=2500 ex=177 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2250 thr=2500 ex=190 ey=16 az=1500 el=1500
+[prod] mode=PARK light=2316 thr=2500 ex=245 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2175 thr=2500 ex=236 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2257 thr=2500 ex=212 ey=3 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=266 ey=-151 az=1500 el=1500
+[prod] mode=PARK light=2314 thr=2500 ex=258 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2155 thr=2500 ex=162 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=223 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=215 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2311 thr=2500 ex=203 ey=-70 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2214 thr=2500 ex=289 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2338 thr=2500 ex=231 ey=-27 az=1500 el=1500
+[cli] unknown command (HELP)
+tick 648713 (uptime 648 s, TL=480 TR=627 BL=440 BR=741, ex=195 ey=-32) mode=PARK sky=OVERCAST load=71%
+[prod] mode=PARK light=2441 thr=2500 ex=250 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2321 thr=2500 ex=268 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2415 thr=2500 ex=261 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2354 thr=2500 ex=197 ey=-109 az=1500 el=1500
+[prod] mode=PARK light=2415 thr=2500 ex=262 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2278 thr=2500 ex=213 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2309 thr=2500 ex=221 ey=-12 az=1500 el=1500
+[prod] mode=PARK light=2337 thr=2500 ex=231 ey=-25 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2261 thr=2500 ex=307 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2411 thr=2500 ex=247 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2223 thr=2500 ex=148 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=251 ey=-143 az=1500 el=1500
+[prod] mode=PARK light=2200 thr=2500 ex=161 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=302 ey=-27 az=1500 el=1500
+tick 649712 (uptime 649 s, TL=459 TR=646 BL=433 BR=662, ex=189 ey=4) mode=PARK sky=OVERCAST load=93%
+[prod] mode=PARK light=2377 thr=2500 ex=266 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2565 thr=2500 ex=335 ey=-188 az=1500 el=1500
+[prod] mode=PARK light=2308 thr=2500 ex=211 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2119 thr=2500 ex=236 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=240 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2228 thr=2500 ex=136 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2213 thr=2500 ex=316 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2414 thr=2500 ex=118 ey=-104 az=1500 el=1500
+[prod] mode=PARK light=2314 thr=2500 ex=194 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2314 thr=2500 ex=194 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2084 thr=2500 ex=326 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2084 thr=2500 ex=326 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2256 thr=2500 ex=261 ey=-149 az=1500 el=1500
+[prod] mode=PARK light=2256 thr=2500 ex=261 ey=-149 az=1500 el=1500
+[prod] mode=PARK light=2155 thr=2500 ex=218 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2252 thr=2500 ex=211 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2395 thr=2500 ex=261 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=182 ey=-44 az=1500 el=1500
+tick 650712 (uptime 650 s, TL=460 TR=699 BL=403 BR=787, ex=265 ey=-13) mode=PARK sky=OVERCAST load=68%
+[prod] mode=PARK light=2187 thr=2500 ex=191 ey=-18 az=1500 el=1500
+[prod] mode=PARK light=2388 thr=2500 ex=229 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2269 thr=2500 ex=239 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2446 thr=2500 ex=249 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2314 thr=2500 ex=220 ey=-67 az=1500 el=1500
+[prod] mode=PARK light=2263 thr=2500 ex=252 ey=-166 az=1500 el=1500
+[prod] mode=PARK light=2147 thr=2500 ex=248 ey=-142 az=1500 el=1500
+[prod] mode=PARK light=2390 thr=2500 ex=239 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2370 thr=2500 ex=280 ey=-10 az=1500 el=1500
+[prod] mode=PARK light=2220 thr=2500 ex=277 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2294 thr=2500 ex=223 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2397 thr=2500 ex=229 ey=-49 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2179 thr=2500 ex=290 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=234 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2169 thr=2500 ex=217 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2247 thr=2500 ex=222 ey=6 az=1500 el=1500
+[prod] mode=PARK light=2396 thr=2500 ex=354 ey=-201 az=1500 el=1500
+tick 651712 (uptime 651 s, TL=465 TR=708 BL=404 BR=985, ex=321 ey=-84) mode=PARK sky=OVERCAST load=63%
+[prod] mode=PARK light=2364 thr=2500 ex=259 ey=-83 az=1500 el=1500
+[prod] mode=PARK light=2220 thr=2500 ex=181 ey=-64 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2115 thr=2500 ex=265 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2252 thr=2500 ex=199 ey=-92 az=1500 el=1500
+[prod] mode=PARK light=2378 thr=2500 ex=227 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=244 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2349 thr=2500 ex=227 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=131 ey=-33 az=1500 el=1500
+[prod] mode=PARK light=2198 thr=2500 ex=282 ey=-119 az=1500 el=1500
+[prod] mode=PARK light=2119 thr=2500 ex=311 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2445 thr=2500 ex=333 ey=-161 az=1500 el=1500
+[prod] mode=PARK light=2398 thr=2500 ex=256 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2356 thr=2500 ex=258 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2384 thr=2500 ex=269 ey=-125 az=1500 el=1500
+[prod] mode=PARK light=2237 thr=2500 ex=263 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2188 thr=2500 ex=220 ey=-27 az=1500 el=1500
+[prod] mode=PARK light=2320 thr=2500 ex=213 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2496 thr=2500 ex=303 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2355 thr=2500 ex=242 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2355 thr=2500 ex=242 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2201 thr=2500 ex=224 ey=0 az=1500 el=1500
+[prod] mode=PARK light=2201 thr=2500 ex=224 ey=0 az=1500 el=1500
+[prod] mode=PARK light=2201 thr=2500 ex=224 ey=0 az=1500 el=1500
+[prod] mode=PARK light=2312 thr=2500 ex=222 ey=-90 az=1500 el=1500
+[prod] mode=PARK light=2166 thr=2500 ex=143 ey=-38 az=1500 el=1500
+tick 653256 (uptime 652 s, TL=436 TR=689 BL=355 BR=667, ex=263 ey=47) mode=PARK sky=OVERCAST load=80%
+[prod] mode=PARK light=2161 thr=2500 ex=190 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2196 thr=2500 ex=311 ey=-121 az=1500 el=1500
+[prod] mode=PARK light=2222 thr=2500 ex=266 ey=27 az=1500 el=1500
+[prod] mode=PARK light=2476 thr=2500 ex=271 ey=-208 az=1500 el=1500
+[prod] mode=PARK light=2359 thr=2500 ex=246 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2102 thr=2500 ex=275 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2362 thr=2500 ex=318 ey=-118 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=318 ey=-131 az=1500 el=1500
+tick 653723 (uptime 653 s, TL=451 TR=686 BL=404 BR=798, ex=268 ey=-27) mode=PARK sky=OVERCAST load=28%
+[prod] mode=PARK light=2182 thr=2500 ex=382 ey=-204 az=1500 el=1500
+[prod] mode=PARK light=2239 thr=2500 ex=261 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2257 thr=2500 ex=265 ey=-116 az=1500 el=1500
+[prod] mode=PARK light=2214 thr=2500 ex=200 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2298 thr=2500 ex=298 ey=-98 az=1500 el=1500
+[prod] mode=PARK light=2142 thr=2500 ex=328 ey=-114 az=1500 el=1500
+[prod] mode=PARK light=2220 thr=2500 ex=208 ey=-13 az=1500 el=1500
+[prod] mode=PARK light=2333 thr=2500 ex=265 ey=-131 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=269 ey=-85 az=1500 el=1500
+[prod] mode=PARK light=2176 thr=2500 ex=220 ey=15 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=222 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2256 thr=2500 ex=245 ey=31 az=1500 el=1500
+[prod] mode=PARK light=2248 thr=2500 ex=267 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2198 thr=2500 ex=296 ey=-100 az=1500 el=1500
+[prod] mode=PARK light=2323 thr=2500 ex=299 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=261 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2216 thr=2500 ex=212 ey=-38 az=1500 el=1500
+tick 654712 (uptime 654 s, TL=466 TR=695 BL=368 BR=819, ex=289 ey=-11) mode=PARK sky=OVERCAST load=72%
+[prod] mode=PARK light=2259 thr=2500 ex=223 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2211 thr=2500 ex=311 ey=-124 az=1500 el=1500
+[prod] mode=PARK light=2141 thr=2500 ex=233 ey=-21 az=1500 el=1500
+[prod] mode=PARK light=2222 thr=2500 ex=241 ey=1 az=1500 el=1500
+[prod] mode=PARK light=2415 thr=2500 ex=172 ey=-184 az=1500 el=1500
+[prod] mode=PARK light=2307 thr=2500 ex=255 ey=-45 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2254 thr=2500 ex=245 ey=10 az=1500 el=1500
+[prod] mode=PARK light=2137 thr=2500 ex=144 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=244 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2408 thr=2500 ex=233 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2204 thr=2500 ex=255 ey=-111 az=1500 el=1500
+[prod] mode=PARK light=2518 thr=2500 ex=296 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2376 thr=2500 ex=221 ey=-105 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=223 ey=4 az=1500 el=1500
+[prod] mode=PARK light=2415 thr=2500 ex=282 ey=-99 az=1500 el=1500
+[prod] mode=PARK light=2135 thr=2500 ex=186 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=231 ey=-3 az=1500 el=1500
+tick 655712 (uptime 655 s, TL=426 TR=634 BL=413 BR=662, ex=214 ey=-7) mode=PARK sky=OVERCAST load=82%
+[prod] mode=PARK light=2266 thr=2500 ex=302 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2266 thr=2500 ex=278 ey=-74 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2196 thr=2500 ex=231 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2148 thr=2500 ex=322 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2132 thr=2500 ex=155 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2283 thr=2500 ex=237 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2230 thr=2500 ex=289 ey=-146 az=1500 el=1500
+[prod] mode=PARK light=2185 thr=2500 ex=273 ey=-100 az=1500 el=1500
+[prod] mode=PARK light=2135 thr=2500 ex=262 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2212 thr=2500 ex=269 ey=-112 az=1500 el=1500
+[prod] mode=PARK light=2051 thr=2500 ex=294 ey=1 az=1500 el=1500
+[prod] mode=PARK light=2210 thr=2500 ex=229 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2210 thr=2500 ex=229 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=165 ey=-74 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=165 ey=-74 az=1500 el=1500
+[prod] mode=PARK light=2166 thr=2500 ex=287 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2166 thr=2500 ex=287 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=205 ey=-59 az=1500 el=1500
+tick 656842 (uptime 656 s, TL=403 TR=672 BL=394 BR=727, ex=274 ey=-20) mode=PARK sky=OVERCAST load=82%
+[prod] mode=PARK light=2146 thr=2500 ex=267 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2262 thr=2500 ex=227 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2344 thr=2500 ex=245 ey=-57 az=1500 el=1500
+[prod] mode=PARK light=2206 thr=2500 ex=205 ey=-4 az=1500 el=1500
+[prod] mode=PARK light=2031 thr=2500 ex=258 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2194 thr=2500 ex=235 ey=-114 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=271 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2319 thr=2500 ex=244 ey=-99 az=1500 el=1500
+[prod] mode=PARK light=2279 thr=2500 ex=314 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2088 thr=2500 ex=173 ey=-57 az=1500 el=1500
+[prod] mode=PARK light=2110 thr=2500 ex=215 ey=-89 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2281 thr=2500 ex=254 ey=-4 az=1500 el=1500
+[prod] mode=PARK light=2377 thr=2500 ex=271 ey=-158 az=1500 el=1500
+tick 657712 (uptime 657 s, TL=459 TR=692 BL=393 BR=789, ex=269 ey=-13) mode=PARK sky=OVERCAST load=66%
+[prod] mode=PARK light=2161 thr=2500 ex=202 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2217 thr=2500 ex=266 ey=-124 az=1500 el=1500
+[prod] mode=PARK light=2351 thr=2500 ex=247 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2264 thr=2500 ex=255 ey=-74 az=1500 el=1500
+[prod] mode=PARK light=2327 thr=2500 ex=272 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2205 thr=2500 ex=204 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2009 thr=2500 ex=267 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2113 thr=2500 ex=198 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2129 thr=2500 ex=282 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=176 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2303 thr=2500 ex=239 ey=-51 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2271 thr=2500 ex=241 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2303 thr=2500 ex=245 ey=-100 az=1500 el=1500
+[prod] mode=PARK light=2252 thr=2500 ex=265 ey=-123 az=1500 el=1500
+[prod] mode=PARK light=2117 thr=2500 ex=150 ey=11 az=1500 el=1500
+[prod] mode=PARK light=2262 thr=2500 ex=233 ey=-124 az=1500 el=1500
+[prod] mode=PARK light=2361 thr=2500 ex=265 ey=-88 az=1500 el=1500
+tick 658720 (uptime 658 s, TL=436 TR=603 BL=410 BR=686, ex=207 ey=-26) mode=PARK sky=OVERCAST load=62%
+[prod] mode=PARK light=2374 thr=2500 ex=256 ey=-57 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=249 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2353 thr=2500 ex=303 ey=-112 az=1500 el=1500
+[prod] mode=PARK light=2124 thr=2500 ex=230 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2429 thr=2500 ex=373 ey=-139 az=1500 el=1500
+[prod] mode=PARK light=2264 thr=2500 ex=249 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2214 thr=2500 ex=246 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2158 thr=2500 ex=314 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=159 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2134 thr=2500 ex=159 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2275 thr=2500 ex=208 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2275 thr=2500 ex=208 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2276 thr=2500 ex=191 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2097 thr=2500 ex=264 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2247 thr=2500 ex=250 ey=-145 az=1500 el=1500
+[prod] mode=PARK light=2312 thr=2500 ex=321 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2286 thr=2500 ex=262 ey=-99 az=1500 el=1500
+[prod] mode=PARK light=2119 thr=2500 ex=208 ey=-70 az=1500 el=1500
+tick 659712 (uptime 659 s, TL=400 TR=711 BL=352 BR=849, ex=349 ey=-38) mode=PARK sky=OVERCAST load=74%
+[prod] mode=PARK light=2170 thr=2500 ex=222 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2249 thr=2500 ex=245 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2176 thr=2500 ex=297 ey=-97 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=235 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2194 thr=2500 ex=285 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2171 thr=2500 ex=193 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2187 thr=2500 ex=238 ey=-97 az=1500 el=1500
+[prod] mode=PARK light=2343 thr=2500 ex=288 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2240 thr=2500 ex=222 ey=-105 az=1500 el=1500
+[prod] mode=PARK light=2077 thr=2500 ex=247 ey=11 az=1500 el=1500
+[prod] mode=PARK light=2141 thr=2500 ex=186 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2132 thr=2500 ex=178 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=260 ey=-59 az=1500 el=1500
+[prod] mode=PARK light=2238 thr=2500 ex=217 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2130 thr=2500 ex=223 ey=0 az=1500 el=1500
+[prod] mode=PARK light=2164 thr=2500 ex=187 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2217 thr=2500 ex=255 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2294 thr=2500 ex=279 ey=-25 az=1500 el=1500
+tick 660724 (uptime 660 s, TL=467 TR=656 BL=343 BR=700, ex=252 ey=36) mode=PARK sky=OVERCAST load=72%
+[prod] mode=PARK light=2186 thr=2500 ex=206 ey=-59 az=1500 el=1500
+[cli] unknown command (HELP)
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2279 thr=2500 ex=287 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2288 thr=2500 ex=263 ey=-79 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2196 thr=2500 ex=180 ey=-10 az=1500 el=1500
+[prod] mode=PARK light=2267 thr=2500 ex=267 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2311 thr=2500 ex=245 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=246 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2257 thr=2500 ex=239 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2263 thr=2500 ex=214 ey=-23 az=1500 el=1500
+[prod] mode=PARK light=2153 thr=2500 ex=289 ey=-90 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2256 thr=2500 ex=239 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2266 thr=2500 ex=224 ey=-18 az=1500 el=1500
+tick 661712 (uptime 661 s, TL=433 TR=689 BL=393 BR=741, ex=267 ey=-5) mode=PARK sky=OVERCAST load=67%
+[prod] mode=PARK light=2211 thr=2500 ex=341 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2139 thr=2500 ex=129 ey=3 az=1500 el=1500
+[prod] mode=PARK light=2173 thr=2500 ex=202 ey=-3 az=1500 el=1500
+[prod] mode=PARK light=2207 thr=2500 ex=153 ey=-32 az=1500 el=1500
+[prod] mode=PARK light=2319 thr=2500 ex=244 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2366 thr=2500 ex=267 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=284 ey=-155 az=1500 el=1500
+[prod] mode=PARK light=2250 thr=2500 ex=287 ey=-153 az=1500 el=1500
+[prod] mode=PARK light=2131 thr=2500 ex=299 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2263 thr=2500 ex=221 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2360 thr=2500 ex=241 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2157 thr=2500 ex=271 ey=-105 az=1500 el=1500
+[prod] mode=PARK light=2292 thr=2500 ex=261 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2215 thr=2500 ex=283 ey=-121 az=1500 el=1500
+[prod] mode=PARK light=2127 thr=2500 ex=168 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2148 thr=2500 ex=264 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2123 thr=2500 ex=274 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2168 thr=2500 ex=253 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2188 thr=2500 ex=301 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=309 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2138 thr=2500 ex=261 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2138 thr=2500 ex=261 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2203 thr=2500 ex=217 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2203 thr=2500 ex=217 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=263 ey=38 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=263 ey=38 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=263 ey=38 az=1500 el=1500
+[prod] mode=PARK light=2168 thr=2500 ex=245 ey=-41 az=1500 el=1500
+tick 663248 (uptime 662 s, TL=426 TR=676 BL=354 BR=761, ex=296 ey=-5) mode=PARK sky=OVERCAST load=86%
+[prod] mode=PARK light=2228 thr=2500 ex=226 ey=-33 az=1500 el=1500
+[prod] mode=PARK light=2288 thr=2500 ex=256 ey=-90 az=1500 el=1500
+[prod] mode=PARK light=2433 thr=2500 ex=280 ey=-159 az=1500 el=1500
+[prod] mode=PARK light=2368 thr=2500 ex=269 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2350 thr=2500 ex=292 ey=-23 az=1500 el=1500
+[prod] mode=PARK light=2201 thr=2500 ex=247 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2575 thr=2500 ex=272 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2172 thr=2500 ex=262 ey=-129 az=1500 el=1500
+tick 663720 (uptime 663 s, TL=468 TR=589 BL=353 BR=723, ex=230 ey=-8) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2156 thr=2500 ex=317 ey=-91 az=1500 el=1500
+[prod] mode=PARK light=2232 thr=2500 ex=225 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2260 thr=2500 ex=240 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2336 thr=2500 ex=258 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2177 thr=2500 ex=277 ey=-142 az=1500 el=1500
+[prod] mode=PARK light=2064 thr=2500 ex=231 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=259 ey=-112 az=1500 el=1500
+[prod] mode=PARK light=2259 thr=2500 ex=259 ey=-130 az=1500 el=1500
+[prod] mode=PARK light=2324 thr=2500 ex=253 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2336 thr=2500 ex=269 ey=-122 az=1500 el=1500
+[prod] mode=PARK light=2376 thr=2500 ex=258 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=214 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2150 thr=2500 ex=218 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2129 thr=2500 ex=272 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2138 thr=2500 ex=274 ey=-90 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=232 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2215 thr=2500 ex=255 ey=-134 az=1500 el=1500
+tick 664712 (uptime 664 s, TL=458 TR=703 BL=410 BR=777, ex=260 ey=-11) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2233 thr=2500 ex=226 ey=-27 az=1500 el=1500
+[prod] mode=PARK light=2225 thr=2500 ex=230 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2239 thr=2500 ex=285 ey=-107 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2236 thr=2500 ex=220 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2342 thr=2500 ex=241 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2237 thr=2500 ex=170 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2267 thr=2500 ex=206 ey=-2 az=1500 el=1500
+[prod] mode=PARK light=2107 thr=2500 ex=156 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2263 thr=2500 ex=288 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2144 thr=2500 ex=165 ey=-63 az=1500 el=1500
+[prod] mode=PARK light=2353 thr=2500 ex=319 ey=-118 az=1500 el=1500
+[prod] mode=PARK light=2293 thr=2500 ex=241 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2338 thr=2500 ex=236 ey=-108 az=1500 el=1500
+[prod] mode=PARK light=2364 thr=2500 ex=274 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2333 thr=2500 ex=255 ey=-126 az=1500 el=1500
+tick 665712 (uptime 665 s, TL=403 TR=731 BL=422 BR=808, ex=302 ey=-40) mode=PARK sky=OVERCAST load=78%
+[prod] mode=PARK light=2212 thr=2500 ex=186 ey=-63 az=1500 el=1500
+[prod] mode=PARK light=2378 thr=2500 ex=263 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2431 thr=2500 ex=287 ey=-173 az=1500 el=1500
+[prod] mode=PARK light=2427 thr=2500 ex=281 ey=-125 az=1500 el=1500
+[prod] mode=PARK light=2214 thr=2500 ex=236 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2371 thr=2500 ex=200 ey=-134 az=1500 el=1500
+[prod] mode=PARK light=2212 thr=2500 ex=268 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2251 thr=2500 ex=236 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2251 thr=2500 ex=236 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=221 ey=-27 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=221 ey=-27 az=1500 el=1500
+[prod] mode=PARK light=2302 thr=2500 ex=235 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2302 thr=2500 ex=235 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2265 thr=2500 ex=140 ey=-79 az=1500 el=1500
+[prod] mode=PARK light=2352 thr=2500 ex=248 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2261 thr=2500 ex=212 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=219 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=210 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2250 thr=2500 ex=258 ey=-86 az=1500 el=1500
+tick 666723 (uptime 666 s, TL=368 TR=664 BL=346 BR=685, ex=307 ey=0) mode=PARK sky=OVERCAST load=68%
+[prod] mode=PARK light=2264 thr=2500 ex=286 ey=-125 az=1500 el=1500
+[prod] mode=PARK light=2173 thr=2500 ex=213 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2115 thr=2500 ex=220 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=221 ey=-32 az=1500 el=1500
+[prod] mode=PARK light=2216 thr=2500 ex=240 ey=-132 az=1500 el=1500
+[prod] mode=PARK light=2311 thr=2500 ex=230 ey=-44 az=1500 el=1500
+[prod] mode=PARK light=2205 thr=2500 ex=279 ey=-122 az=1500 el=1500
+[prod] mode=PARK light=2177 thr=2500 ex=261 ey=-74 az=1500 el=1500
+[prod] mode=PARK light=2161 thr=2500 ex=195 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2269 thr=2500 ex=266 ey=-148 az=1500 el=1500
+[prod] mode=PARK light=2340 thr=2500 ex=231 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2350 thr=2500 ex=238 ey=-121 az=1500 el=1500
+[prod] mode=PARK light=2149 thr=2500 ex=219 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2235 thr=2500 ex=226 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2164 thr=2500 ex=299 ey=-115 az=1500 el=1500
+[prod] mode=PARK light=2169 thr=2500 ex=215 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2267 thr=2500 ex=158 ey=-124 az=1500 el=1500
+tick 667712 (uptime 667 s, TL=463 TR=707 BL=410 BR=782, ex=260 ey=-9) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2146 thr=2500 ex=197 ey=3 az=1500 el=1500
+[prod] mode=PARK light=2454 thr=2500 ex=349 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2152 thr=2500 ex=258 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2298 thr=2500 ex=211 ey=-23 az=1500 el=1500
+[prod] mode=PARK light=2231 thr=2500 ex=223 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2199 thr=2500 ex=236 ey=9 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=218 ey=-17 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2272 thr=2500 ex=276 ey=-126 az=1500 el=1500
+[prod] mode=PARK light=2385 thr=2500 ex=255 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2244 thr=2500 ex=191 ey=10 az=1500 el=1500
+[prod] mode=PARK light=2168 thr=2500 ex=147 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2387 thr=2500 ex=257 ey=-63 az=1500 el=1500
+[prod] mode=PARK light=2593 thr=2500 ex=294 ey=-144 az=1500 el=1500
+[prod] mode=PARK light=2176 thr=2500 ex=142 ey=2 az=1500 el=1500
+[prod] mode=PARK light=2434 thr=2500 ex=271 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2157 thr=2500 ex=150 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2310 thr=2500 ex=224 ey=-23 az=1500 el=1500
+[prod] mode=PARK light=2284 thr=2500 ex=162 ey=-54 az=1500 el=1500
+tick 668714 (uptime 668 s, TL=456 TR=618 BL=422 BR=807, ex=237 ey=-67) mode=PARK sky=OVERCAST load=78%
+[prod] mode=PARK light=2329 thr=2500 ex=234 ey=-24 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=158 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2259 thr=2500 ex=213 ey=2 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2263 thr=2500 ex=232 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2187 thr=2500 ex=198 ey=-13 az=1500 el=1500
+[prod] mode=PARK light=2346 thr=2500 ex=265 ey=-128 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=221 ey=-27 az=1500 el=1500
+[prod] mode=PARK light=2210 thr=2500 ex=294 ey=-109 az=1500 el=1500
+[prod] mode=PARK light=2309 thr=2500 ex=252 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=194 ey=-83 az=1500 el=1500
+[prod] mode=PARK light=2155 thr=2500 ex=213 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2291 thr=2500 ex=304 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2174 thr=2500 ex=143 ey=-4 az=1500 el=1500
+[prod] mode=PARK light=2416 thr=2500 ex=260 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2416 thr=2500 ex=260 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2164 thr=2500 ex=224 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2164 thr=2500 ex=224 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=199 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=199 ey=-46 az=1500 el=1500
+tick 670024 (uptime 669 s, TL=477 TR=598 BL=355 BR=691, ex=215 ey=13) mode=PARK sky=OVERCAST load=84%
+[prod] mode=PARK light=2325 thr=2500 ex=224 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2262 thr=2500 ex=215 ey=-21 az=1500 el=1500
+[prod] mode=PARK light=2210 thr=2500 ex=261 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2147 thr=2500 ex=290 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2307 thr=2500 ex=331 ey=-146 az=1500 el=1500
+[prod] mode=PARK light=2323 thr=2500 ex=342 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2198 thr=2500 ex=230 ey=-92 az=1500 el=1500
+[prod] mode=PARK light=2382 thr=2500 ex=249 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2498 thr=2500 ex=294 ey=-109 az=1500 el=1500
+[prod] mode=PARK light=2492 thr=2500 ex=272 ey=-175 az=1500 el=1500
+[prod] mode=PARK light=2372 thr=2500 ex=241 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2202 thr=2500 ex=288 ey=-112 az=1500 el=1500
+tick 670712 (uptime 670 s, TL=471 TR=702 BL=395 BR=804, ex=269 ey=-10) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2076 thr=2500 ex=160 ey=25 az=1500 el=1500
+[prod] mode=PARK light=2279 thr=2500 ex=290 ey=-119 az=1500 el=1500
+[prod] mode=PARK light=2118 thr=2500 ex=264 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2346 thr=2500 ex=274 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2128 thr=2500 ex=251 ey=-23 az=1500 el=1500
+[prod] mode=PARK light=2312 thr=2500 ex=261 ey=-1 az=1500 el=1500
+[prod] mode=PARK light=2235 thr=2500 ex=239 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=228 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2170 thr=2500 ex=244 ey=-117 az=1500 el=1500
+[prod] mode=PARK light=2319 thr=2500 ex=221 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2088 thr=2500 ex=302 ey=-34 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2257 thr=2500 ex=248 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2189 thr=2500 ex=340 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2388 thr=2500 ex=257 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2368 thr=2500 ex=257 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2141 thr=2500 ex=129 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2268 thr=2500 ex=225 ey=-22 az=1500 el=1500
+tick 671724 (uptime 671 s, TL=434 TR=725 BL=301 BR=726, ex=327 ey=60) mode=PARK sky=OVERCAST load=52%
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2250 thr=2500 ex=242 ey=-38 az=1500 el=1500
+[prod] mode=PARK light=2210 thr=2500 ex=238 ey=-86 az=1500 el=1500
+[prod] mode=PARK light=2177 thr=2500 ex=263 ey=-100 az=1500 el=1500
+[prod] mode=PARK light=2331 thr=2500 ex=237 ey=-63 az=1500 el=1500
+[prod] mode=PARK light=2283 thr=2500 ex=272 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2298 thr=2500 ex=231 ey=-105 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=207 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2087 thr=2500 ex=209 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2322 thr=2500 ex=208 ey=-107 az=1500 el=1500
+[prod] mode=PARK light=2399 thr=2500 ex=169 ey=-125 az=1500 el=1500
+[prod] mode=PARK light=2140 thr=2500 ex=266 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2140 thr=2500 ex=266 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2243 thr=2500 ex=305 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2243 thr=2500 ex=305 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=249 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=249 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2183 thr=2500 ex=170 ey=-40 az=1500 el=1500
+tick 672811 (uptime 672 s, TL=462 TR=612 BL=344 BR=747, ex=255 ey=-7) mode=PARK sky=OVERCAST load=81%
+[prod] mode=PARK light=2309 thr=2500 ex=260 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=262 ey=-132 az=1500 el=1500
+[prod] mode=PARK light=2262 thr=2500 ex=284 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2012 thr=2500 ex=251 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2200 thr=2500 ex=192 ey=15 az=1500 el=1500
+[prod] mode=PARK light=2233 thr=2500 ex=208 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2238 thr=2500 ex=226 ey=-16 az=1500 el=1500
+[prod] mode=PARK light=2008 thr=2500 ex=211 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2362 thr=2500 ex=290 ey=-132 az=1500 el=1500
+[prod] mode=PARK light=2269 thr=2500 ex=213 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2221 thr=2500 ex=266 ey=-144 az=1500 el=1500
+[prod] mode=PARK light=2381 thr=2500 ex=256 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2122 thr=2500 ex=250 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2233 thr=2500 ex=256 ey=-114 az=1500 el=1500
+[prod] mode=PARK light=2469 thr=2500 ex=298 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2287 thr=2500 ex=226 ey=-9 az=1500 el=1500
+tick 673712 (uptime 673 s, TL=465 TR=720 BL=387 BR=775, ex=273 ey=9) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2190 thr=2500 ex=213 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2189 thr=2500 ex=192 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2116 thr=2500 ex=192 ey=-10 az=1500 el=1500
+[prod] mode=PARK light=2202 thr=2500 ex=261 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2245 thr=2500 ex=290 ey=-160 az=1500 el=1500
+[prod] mode=PARK light=2173 thr=2500 ex=209 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2137 thr=2500 ex=244 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2236 thr=2500 ex=301 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=241 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2383 thr=2500 ex=247 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2424 thr=2500 ex=236 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2268 thr=2500 ex=247 ey=-111 az=1500 el=1500
+[prod] mode=PARK light=2337 thr=2500 ex=239 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=243 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2208 thr=2500 ex=270 ey=-138 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2451 thr=2500 ex=249 ey=-126 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=212 ey=-21 az=1500 el=1500
+tick 674712 (uptime 674 s, TL=469 TR=720 BL=404 BR=723, ex=246 ey=26) mode=PARK sky=OVERCAST load=32%
+[prod] mode=PARK light=2267 thr=2500 ex=291 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2275 thr=2500 ex=269 ey=-150 az=1500 el=1500
+[prod] mode=PARK light=2425 thr=2500 ex=267 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2401 thr=2500 ex=257 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2397 thr=2500 ex=273 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2254 thr=2500 ex=169 ey=-8 az=1500 el=1500
+[prod] mode=PARK light=2306 thr=2500 ex=246 ey=-87 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2278 thr=2500 ex=221 ey=-92 az=1500 el=1500
+[prod] mode=PARK light=2285 thr=2500 ex=230 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2445 thr=2500 ex=259 ey=-80 az=1500 el=1500
+[prod] mode=PARK light=2222 thr=2500 ex=216 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2368 thr=2500 ex=252 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2158 thr=2500 ex=236 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2349 thr=2500 ex=231 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2132 thr=2500 ex=161 ey=23 az=1500 el=1500
+[prod] mode=PARK light=2286 thr=2500 ex=251 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=223 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=223 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2139 thr=2500 ex=212 ey=10 az=1500 el=1500
+[prod] mode=PARK light=2139 thr=2500 ex=212 ey=10 az=1500 el=1500
+[prod] mode=PARK light=2153 thr=2500 ex=258 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2153 thr=2500 ex=258 ey=-84 az=1500 el=1500
+tick 676011 (uptime 675 s, TL=460 TR=693 BL=367 BR=957, ex=332 ey=-69) mode=PARK sky=OVERCAST load=84%
+[prod] mode=PARK light=2277 thr=2500 ex=234 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2241 thr=2500 ex=207 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2352 thr=2500 ex=224 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2234 thr=2500 ex=256 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2377 thr=2500 ex=208 ey=-21 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=255 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2403 thr=2500 ex=263 ey=-116 az=1500 el=1500
+[prod] mode=PARK light=2457 thr=2500 ex=195 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2325 thr=2500 ex=200 ey=-51 az=1500 el=1500
+[prod] mode=PARK light=2382 thr=2500 ex=198 ey=-5 az=1500 el=1500
+[prod] mode=PARK light=2401 thr=2500 ex=233 ey=-96 az=1500 el=1500
+[prod] mode=PARK light=2392 thr=2500 ex=194 ey=-7 az=1500 el=1500
+tick 676712 (uptime 676 s, TL=494 TR=687 BL=373 BR=882, ex=288 ey=-30) mode=PARK sky=OVERCAST load=26%
+[prod] mode=PARK light=2576 thr=2500 ex=256 ey=-112 az=1500 el=1500
+[prod] mode=PARK light=2386 thr=2500 ex=241 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2457 thr=2500 ex=258 ey=3 az=1500 el=1500
+[prod] mode=PARK light=2357 thr=2500 ex=238 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2475 thr=2500 ex=222 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2380 thr=2500 ex=269 ey=-110 az=1500 el=1500
+[prod] mode=PARK light=2282 thr=2500 ex=221 ey=-52 az=1500 el=1500
+[prod] mode=PARK light=2521 thr=2500 ex=279 ey=-154 az=1500 el=1500
+[prod] mode=PARK light=2256 thr=2500 ex=228 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2284 thr=2500 ex=180 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2282 thr=2500 ex=235 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2310 thr=2500 ex=201 ey=-10 az=1500 el=1500
+[prod] mode=PARK light=2212 thr=2500 ex=264 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2383 thr=2500 ex=256 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2702 thr=2500 ex=290 ey=-106 az=1500 el=1500
+[prod] mode=PARK light=2488 thr=2500 ex=228 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2427 thr=2500 ex=246 ey=21 az=1500 el=1500
+[prod] mode=PARK light=2414 thr=2500 ex=213 ey=-45 az=1500 el=1500
+tick 677712 (uptime 677 s, TL=490 TR=743 BL=442 BR=814, ex=251 ey=-9) mode=PARK sky=OVERCAST load=27%
+[prod] mode=PARK light=2311 thr=2500 ex=227 ey=-82 az=1500 el=1500
+[prod] mode=PARK light=2297 thr=2500 ex=206 ey=-99 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2411 thr=2500 ex=235 ey=-109 az=1500 el=1500
+[prod] mode=PARK light=2510 thr=2500 ex=230 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2480 thr=2500 ex=241 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2503 thr=2500 ex=232 ey=-55 az=1500 el=1500
+[prod] mode=PARK light=2563 thr=2500 ex=265 ey=-58 az=1500 el=1500
+[prod] mode=PARK light=2337 thr=2500 ex=193 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2226 thr=2500 ex=153 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=226 ey=-17 az=1500 el=1500
+[prod] mode=PARK light=2398 thr=2500 ex=266 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2335 thr=2500 ex=202 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2425 thr=2500 ex=214 ey=-40 az=1500 el=1500
+[prod] mode=PARK light=2467 thr=2500 ex=268 ey=-73 az=1500 el=1500
+[prod] mode=PARK light=2614 thr=2500 ex=252 ey=-94 az=1500 el=1500
+[prod] mode=PARK light=2353 thr=2500 ex=166 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2376 thr=2500 ex=202 ey=15 az=1500 el=1500
+[prod] mode=PARK light=2273 thr=2500 ex=196 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=191 ey=23 az=1500 el=1500
+[prod] mode=PARK light=2328 thr=2500 ex=191 ey=23 az=1500 el=1500
+[prod] mode=PARK light=2407 thr=2500 ex=240 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2407 thr=2500 ex=240 ey=-34 az=1500 el=1500
+[prod] mode=PARK light=2228 thr=2500 ex=244 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2417 thr=2500 ex=268 ey=-66 az=1500 el=1500
+[prod] mode=PARK light=2284 thr=2500 ex=159 ey=-34 az=1500 el=1500
+tick 679213 (uptime 678 s, TL=525 TR=778 BL=443 BR=774, ex=231 ey=34) mode=PARK sky=OVERCAST load=82%
+[prod] mode=PARK light=2419 thr=2500 ex=329 ey=-144 az=1500 el=1500
+[prod] mode=PARK light=2386 thr=2500 ex=209 ey=-18 az=1500 el=1500
+[prod] mode=PARK light=2230 thr=2500 ex=259 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2454 thr=2500 ex=224 ey=-29 az=1500 el=1500
+[prod] mode=PARK light=2315 thr=2500 ex=222 ey=-120 az=1500 el=1500
+[prod] mode=PARK light=2454 thr=2500 ex=220 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2608 thr=2500 ex=277 ey=-117 az=1500 el=1500
+[prod] mode=PARK light=2383 thr=2500 ex=271 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2244 thr=2500 ex=288 ey=-94 az=1500 el=1500
+tick 679717 (uptime 679 s, TL=441 TR=691 BL=450 BR=743, ex=233 ey=-26) mode=PARK sky=OVERCAST load=28%
+[prod] mode=PARK light=2403 thr=2500 ex=260 ey=-135 az=1500 el=1500
+[prod] mode=PARK light=2418 thr=2500 ex=200 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2516 thr=2500 ex=261 ey=-110 az=1500 el=1500
+[prod] mode=PARK light=2422 thr=2500 ex=205 ey=-22 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=194 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2411 thr=2500 ex=200 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2436 thr=2500 ex=239 ey=11 az=1500 el=1500
+[prod] mode=PARK light=2390 thr=2500 ex=235 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2414 thr=2500 ex=284 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2212 thr=2500 ex=296 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2457 thr=2500 ex=229 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2322 thr=2500 ex=239 ey=-135 az=1500 el=1500
+[prod] mode=PARK light=2396 thr=2500 ex=237 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2280 thr=2500 ex=267 ey=-152 az=1500 el=1500
+[prod] mode=PARK light=2416 thr=2500 ex=254 ey=-68 az=1500 el=1500
+[prod] mode=PARK light=2135 thr=2500 ex=225 ey=-35 az=1500 el=1500
+[prod] mode=PARK light=2252 thr=2500 ex=199 ey=-11 az=1500 el=1500
+tick 680712 (uptime 680 s, TL=463 TR=710 BL=414 BR=830, ex=274 ey=-29) mode=PARK sky=OVERCAST load=25%
+[prod] mode=PARK light=2346 thr=2500 ex=233 ey=-132 az=1500 el=1500
+[prod] mode=PARK light=2303 thr=2500 ex=296 ey=-101 az=1500 el=1500
+[prod] mode=PARK light=2169 thr=2500 ex=202 ey=-93 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=218 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2191 thr=2500 ex=243 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2341 thr=2500 ex=264 ey=-2 az=1500 el=1500
+[prod] mode=PARK light=2238 thr=2500 ex=259 ey=-60 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2182 thr=2500 ex=222 ey=-54 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2387 thr=2500 ex=242 ey=-65 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2380 thr=2500 ex=263 ey=-77 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2261 thr=2500 ex=232 ey=-8 az=1500 el=1500
+[prod] mode=PARK light=2357 thr=2500 ex=293 ey=-123 az=1500 el=1500
+[prod] mode=PARK light=2247 thr=2500 ex=259 ey=-140 az=1500 el=1500
+[prod] mode=PARK light=2230 thr=2500 ex=224 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2145 thr=2500 ex=166 ey=-68 az=1500 el=1500
+tick 681712 (uptime 681 s, TL=392 TR=722 BL=409 BR=718, ex=285 ey=-5) mode=PARK sky=OVERCAST load=71%
+[prod] mode=PARK light=2284 thr=2500 ex=238 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2130 thr=2500 ex=191 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2308 thr=2500 ex=249 ey=-56 az=1500 el=1500
+[prod] mode=PARK light=2318 thr=2500 ex=269 ey=-81 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2286 thr=2500 ex=216 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2189 thr=2500 ex=213 ey=-48 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2243 thr=2500 ex=210 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2370 thr=2500 ex=251 ey=-68 az=1500 el=1500
+[prod] mode=PARK light=2252 thr=2500 ex=279 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2147 thr=2500 ex=215 ey=41 az=1500 el=1500
+[prod] mode=PARK light=2218 thr=2500 ex=254 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2272 thr=2500 ex=280 ey=-128 az=1500 el=1500
+[prod] mode=PARK light=2282 thr=2500 ex=268 ey=-87 az=1500 el=1500
+[prod] mode=PARK light=2227 thr=2500 ex=247 ey=-21 az=1500 el=1500
+tick 682716 (uptime 682 s, TL=451 TR=727 BL=408 BR=727, ex=257 ey=18) mode=PARK sky=OVERCAST load=79%
+[prod] mode=PARK light=2197 thr=2500 ex=231 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2197 thr=2500 ex=231 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=283 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=283 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2271 thr=2500 ex=283 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2185 thr=2500 ex=235 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2185 thr=2500 ex=235 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2185 thr=2500 ex=235 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2185 thr=2500 ex=235 ey=17 az=1500 el=1500
+[prod] mode=PARK light=2180 thr=2500 ex=193 ey=-39 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=247 ey=-72 az=1500 el=1500
+[prod] mode=PARK light=2289 thr=2500 ex=216 ey=-103 az=1500 el=1500
+[prod] mode=PARK light=2212 thr=2500 ex=261 ey=-98 az=1500 el=1500
+[prod] mode=PARK light=2327 thr=2500 ex=238 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2251 thr=2500 ex=259 ey=-114 az=1500 el=1500
+[prod] mode=PARK light=2382 thr=2500 ex=264 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2144 thr=2500 ex=224 ey=-11 az=1500 el=1500
+[prod] mode=PARK light=2269 thr=2500 ex=212 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2140 thr=2500 ex=228 ey=-89 az=1500 el=1500
+tick 683720 (uptime 683 s, TL=458 TR=647 BL=347 BR=750, ex=268 ey=3) mode=PARK sky=OVERCAST load=64%
+[prod] mode=PARK light=2207 thr=2500 ex=243 ey=-81 az=1500 el=1500
+[prod] mode=PARK light=2370 thr=2500 ex=259 ey=-71 az=1500 el=1500
+[prod] mode=PARK light=2241 thr=2500 ex=225 ey=-24 az=1500 el=1500
+[prod] mode=PARK light=2348 thr=2500 ex=219 ey=-108 az=1500 el=1500
+[prod] mode=PARK light=2385 thr=2500 ex=246 ey=-70 az=1500 el=1500
+[prod] mode=PARK light=2250 thr=2500 ex=299 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2319 thr=2500 ex=240 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2324 thr=2500 ex=270 ey=-6 az=1500 el=1500
+[prod] mode=PARK light=2243 thr=2500 ex=203 ey=-67 az=1500 el=1500
+[prod] mode=PARK light=2356 thr=2500 ex=268 ey=-14 az=1500 el=1500
+[prod] mode=PARK light=2563 thr=2500 ex=263 ey=-76 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2330 thr=2500 ex=292 ey=-27 az=1500 el=1500
+[prod] mode=PARK light=2318 thr=2500 ex=231 ey=-108 az=1500 el=1500
+[prod] mode=PARK light=2126 thr=2500 ex=199 ey=12 az=1500 el=1500
+[prod] mode=PARK light=2204 thr=2500 ex=179 ey=-54 az=1500 el=1500
+[prod] mode=PARK light=2156 thr=2500 ex=146 ey=-26 az=1500 el=1500
+[prod] mode=PARK light=2156 thr=2500 ex=250 ey=-16 az=1500 el=1500
+tick 684712 (uptime 684 s, TL=497 TR=599 BL=393 BR=667, ex=174 ey=16) mode=PARK sky=OVERCAST load=72%
+[prod] mode=PARK light=2383 thr=2500 ex=247 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2318 thr=2500 ex=223 ey=-42 az=1500 el=1500
+[prod] mode=PARK light=2300 thr=2500 ex=217 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2253 thr=2500 ex=157 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2327 thr=2500 ex=237 ey=-33 az=1500 el=1500
+[prod] mode=PARK light=2237 thr=2500 ex=182 ey=-100 az=1500 el=1500
+[prod] mode=PARK light=2244 thr=2500 ex=261 ey=-123 az=1500 el=1500
+[prod] mode=PARK light=2130 thr=2500 ex=255 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2300 thr=2500 ex=230 ey=-15 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2361 thr=2500 ex=191 ey=-94 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2152 thr=2500 ex=243 ey=-86 az=1500 el=1500
+[prod] mode=PARK light=2130 thr=2500 ex=207 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2301 thr=2500 ex=244 ey=-112 az=1500 el=1500
+tick 685712 (uptime 685 s, TL=400 TR=677 BL=444 BR=767, ex=262 ey=-58) mode=PARK sky=OVERCAST load=85%
+[prod] mode=PARK light=2182 thr=2500 ex=276 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2342 thr=2500 ex=251 ey=-75 az=1500 el=1500
+[prod] mode=PARK light=2237 thr=2500 ex=291 ey=-107 az=1500 el=1500
+[prod] mode=PARK light=2204 thr=2500 ex=215 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2246 thr=2500 ex=281 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2222 thr=2500 ex=213 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=246 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2274 thr=2500 ex=246 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2341 thr=2500 ex=259 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2341 thr=2500 ex=259 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=183 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=183 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2195 thr=2500 ex=183 ey=-46 az=1500 el=1500
+[prod] mode=PARK light=2342 thr=2500 ex=231 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2181 thr=2500 ex=282 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=212 ey=-84 az=1500 el=1500
+[prod] mode=PARK light=2252 thr=2500 ex=268 ey=-129 az=1500 el=1500
+[prod] mode=PARK light=2312 thr=2500 ex=208 ey=-4 az=1500 el=1500
+tick 686712 (uptime 686 s, TL=453 TR=717 BL=361 BR=750, ex=286 ey=25) mode=PARK sky=OVERCAST load=67%
+[prod] mode=PARK light=2355 thr=2500 ex=220 ey=-4 az=1500 el=1500
+[prod] mode=PARK light=2224 thr=2500 ex=243 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2221 thr=2500 ex=183 ey=-20 az=1500 el=1500
+[prod] mode=PARK light=2296 thr=2500 ex=264 ey=-102 az=1500 el=1500
+[prod] mode=PARK light=2413 thr=2500 ex=260 ey=-77 az=1500 el=1500
+[prod] mode=PARK light=2152 thr=2500 ex=205 ey=9 az=1500 el=1500
+[prod] mode=PARK light=2152 thr=2500 ex=254 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2358 thr=2500 ex=247 ey=-64 az=1500 el=1500
+[prod] mode=PARK light=2335 thr=2500 ex=222 ey=-107 az=1500 el=1500
+[prod] mode=PARK light=2381 thr=2500 ex=259 ey=-53 az=1500 el=1500
+[prod] mode=PARK light=2321 thr=2500 ex=232 ey=-113 az=1500 el=1500
+[prod] mode=PARK light=2309 thr=2500 ex=223 ey=-114 az=1500 el=1500
+[prod] mode=PARK light=2132 thr=2500 ex=298 ey=-78 az=1500 el=1500
+[prod] mode=PARK light=2323 thr=2500 ex=231 ey=-43 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2345 thr=2500 ex=241 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2250 thr=2500 ex=217 ey=-17 az=1500 el=1500
+[cli] snapshot requested
+[prod] mode=PARK light=2460 thr=2500 ex=309 ey=-181 az=1500 el=1500
+tick 687712 (uptime 687 s, TL=466 TR=688 BL=383 BR=713, ex=245 ey=25) mode=PARK sky=OVERCAST load=61%
+[prod] mode=PARK light=2074 thr=2500 ex=218 ey=-43 az=1500 el=1500
+[prod] mode=PARK light=2230 thr=2500 ex=270 ey=-144 az=1500 el=1500
+[prod] mode=PARK light=2455 thr=2500 ex=321 ey=-200 az=1500 el=1500
+[prod] mode=PARK light=2278 thr=2500 ex=211 ey=-30 az=1500 el=1500
+[prod] mode=PARK light=2147 thr=2500 ex=252 ey=-50 az=1500 el=1500
+[prod] mode=PARK light=2201 thr=2500 ex=315 ey=-115 az=1500 el=1500
+[prod] mode=PARK light=2227 thr=2500 ex=232 ey=-83 az=1500 el=1500
+[prod] mode=PARK light=2354 thr=2500 ex=284 ey=-37 az=1500 el=1500
+[prod] mode=PARK light=2242 thr=2500 ex=219 ey=-41 az=1500 el=1500
+[prod] mode=PARK light=2220 thr=2500 ex=218 ey=-28 az=1500 el=1500
+[prod] mode=PARK light=2187 thr=2500 ex=246 ey=-134 az=1500 el=1500
+[prod] mode=PARK light=2260 thr=2500 ex=209 ey=-65 az=1500 el=1500
+[prod] mode=PARK light=2207 thr=2500 ex=223 ey=-18 az=1500 el=1500
+[prod] mode=PARK light=2369 thr=2500 ex=205 ey=-88 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2297 thr=2500 ex=221 ey=-136 az=1500 el=1500
+[prod] mode=PARK light=2162 thr=2500 ex=261 ey=-24 az=1500 el=1500
+[prod] mode=PARK light=2307 thr=2500 ex=224 ey=-31 az=1500 el=1500
+tick 688712 (uptime 688 s, TL=425 TR=672 BL=417 BR=777, ex=264 ey=-42) mode=PARK sky=OVERCAST load=56%
+[prod] mode=PARK light=2132 thr=2500 ex=262 ey=-24 az=1500 el=1500
+[prod] mode=PARK light=2267 thr=2500 ex=210 ey=-25 az=1500 el=1500
+[prod] mode=PARK light=2098 thr=2500 ex=292 ey=-49 az=1500 el=1500
+[prod] mode=PARK light=2259 thr=2500 ex=263 ey=-117 az=1500 el=1500
+[prod] mode=PARK light=2309 thr=2500 ex=236 ey=-69 az=1500 el=1500
+[prod] mode=PARK light=2493 thr=2500 ex=338 ey=-152 az=1500 el=1500
+[prod] mode=PARK light=2243 thr=2500 ex=231 ey=-95 az=1500 el=1500
+[prod] mode=PARK light=2318 thr=2500 ex=290 ey=-127 az=1500 el=1500
+[prod] mode=PARK light=2174 thr=2500 ex=187 ey=-31 az=1500 el=1500
+[prod] mode=PARK light=2197 thr=2500 ex=269 ey=-18 az=1500 el=1500
+[prod] mode=PARK light=2295 thr=2500 ex=200 ey=-9 az=1500 el=1500
+[prod] mode=PARK light=2370 thr=2500 ex=277 ey=-89 az=1500 el=1500
+[prod] mode=PARK light=2088 thr=2500 ex=218 ey=31 az=1500 el=1500
+[prod] mode=PARK light=2088 thr=2500 ex=218 ey=31 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=207 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2219 thr=2500 ex=207 ey=-19 az=1500 el=1500
+[prod] mode=PARK light=2388 thr=2500 ex=234 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2388 thr=2500 ex=234 ey=-60 az=1500 el=1500
+tick 689732 (uptime 689 s, TL=424 TR=665 BL=367 BR=672, ex=256 ey=23) mode=PARK sky=OVERCAST load=79%
+[prod] mode=PARK light=2191 thr=2500 ex=182 ey=-88 az=1500 el=1500
+[prod] mode=PARK light=2171 thr=2500 ex=265 ey=-111 az=1500 el=1500
+[prod] mode=PARK light=2339 thr=2500 ex=223 ey=-45 az=1500 el=1500
+[prod] mode=PARK light=2130 thr=2500 ex=322 ey=-76 az=1500 el=1500
+[prod] mode=PARK light=2347 thr=2500 ex=252 ey=-61 az=1500 el=1500
+[prod] mode=PARK light=2146 thr=2500 ex=174 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2360 thr=2500 ex=261 ey=-48 az=1500 el=1500
+[prod] mode=PARK light=2277 thr=2500 ex=225 ey=-9 az=1500 el=1500
+[prod] mode=PARK light=2217 thr=2500 ex=215 ey=24 az=1500 el=1500
+[prod] mode=PARK light=2327 thr=2500 ex=289 ey=-60 az=1500 el=1500
+[prod] mode=PARK light=2303 thr=2500 ex=219 ey=-91 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2186 thr=2500 ex=171 ey=-47 az=1500 el=1500
+[prod] mode=PARK light=2239 thr=2500 ex=231 ey=-78 az=1500 el=1500
+[cli] unknown command (HELP)
+[prod] mode=PARK light=2361 thr=2500 ex=265 ey=-25 az=1500 el=1500
+tick 690712 (uptime 690 s, TL=402 TR=657 BL=397 BR=761, ex=279 ey=-44) mode=PARK sky=OVERCAST load=73%
+[prod] mode=PARK light=2258 thr=2500 ex=277 ey=-36 az=1500 el=1500
+[prod] mode=PARK light=2272 thr=2500 ex=232 ey=-15 az=1500 el=1500
+[prod] mode=PARK light=2249 thr=2500 ex=224 ey=-62 az=1500 el=1500
+[prod] mode=PARK light=2301 thr=2500 ex=284 ey=-120 az=1500 el=1500
+tick 691712 (uptime 691 s, TL=464 TR=698 BL=410 BR=801, ex=263 ey=-20) mode=PARK sky=OVERCAST load=11%
+tick 692714 (uptime 692 s, TL=441 TR=744 BL=448 BR=703, ex=238 ey=14) mode=PARK sky=OVERCAST load=64%
+STAT name=button n=89 min_us=8 avg_us=9 max_us=9 late_max_us=0 late_p99_us=0 missed=0 max_cyc=992
+STAT name=adc n=6749 min_us=165 avg_us=166 max_us=178 late_max_us=1023 late_p99_us=800 missed=0 max_cyc=17850
+STAT name=control n=6749 min_us=18 avg_us=23 max_us=92 late_max_us=1220 late_p99_us=1000 missed=0 max_cyc=9267
+STAT name=servo n=3374 min_us=6 avg_us=6 max_us=69 late_max_us=1191 late_p99_us=1000 missed=0 max_cyc=6906
+STAT name=log n=8069 min_us=50 avg_us=1068 max_us=17170 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1717073
+STAT name=cli n=2081 min_us=115 avg_us=10012 max_us=312785 late_max_us=0 late_p99_us=0 missed=0 max_cyc=31278593
+STAT name=imu n=594 min_us=848 avg_us=2163 max_us=497340 late_max_us=99964 late_p99_us=1600 missed=81 max_cyc=49734097
+STAT name=tick n=68 min_us=18441 avg_us=39785 max_us=561349 late_max_us=543998 late_p99_us=1600 missed=0 max_cyc=56134938
+STAT name=loss n=592 min_us=7 avg_us=7 max_us=126 late_max_us=99019 late_p99_us=1600 missed=83 max_cyc=12679
+STAT name=led n=590 min_us=7 avg_us=7 max_us=7 late_max_us=76225 late_p99_us=1600 missed=85 max_cyc=732
+STAT name=camera n=31 min_us=439981 avg_us=662502 max_us=1134375 late_max_us=894998 late_p99_us=1600 missed=10 max_cyc=113437535
+STAT name=snapshot n=18 min_us=1324438 avg_us=1613604 max_us=2082705 late_max_us=0 late_p99_us=0 missed=0 max_cyc=208270593
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=90 min_us=17 avg_us=18 max_us=38 presses=90
+STAT name=evt_latency n=90 min_us=18 avg_us=28 max_us=742
+STAT name=cam_frame n=31 min_us=436858 avg_us=659122 max_us=1131659
+STAT name=cmd_latency n=1030 min_us=23 avg_us=8502 max_us=192678
+STAT name=flash_wait n=23 min_us=1087 avg_us=1929 max_us=2310
+LOAD pct=64 run_pct=60 btn_lost=0 uart_rx_overflow=196 pend_lost=0 flash_err=0 imu_err=1 cam_err=1 flash_last_rc=0
+tick 693712 (uptime 693 s, TL=467 TR=691 BL=390 BR=808, ex=272 ey=-16) mode=PARK sky=OVERCAST load=73%
+tick 694712 (uptime 694 s, TL=448 TR=664 BL=381 BR=659, ex=229 ey=33) mode=PARK sky=OVERCAST load=5%
+tick 695712 (uptime 695 s, TL=440 TR=675 BL=406 BR=659, ex=223 ey=22) mode=PARK sky=OVERCAST load=43%
+tick 696717 (uptime 696 s, TL=399 TR=665 BL=379 BR=788, ex=302 ey=-46) mode=PARK sky=OVERCAST load=67%
+tick 697712 (uptime 697 s, TL=454 TR=682 BL=375 BR=720, ex=256 ey=18) mode=PARK sky=OVERCAST load=9%
+[cli] btnsim 0 ms
+tick 698712 (uptime 698 s, TL=460 TR=700 BL=395 BR=767, ex=263 ey=0) mode=PARK sky=OVERCAST load=5%
+tick 699712 (uptime 699 s, TL=450 TR=673 BL=379 BR=818, ex=285 ey=-31) mode=PARK sky=OVERCAST load=46%
+# S3 commands sent=1042 answered_in_50ms=941
+# S3 uart_rx_overflow_delta=64
+# --- STATS final ---
+STAT name=button n=96 min_us=8 avg_us=9 max_us=9 late_max_us=0 late_p99_us=0 missed=0 max_cyc=992
+STAT name=adc n=7430 min_us=165 avg_us=166 max_us=178 late_max_us=1023 late_p99_us=800 missed=0 max_cyc=17850
+STAT name=control n=7430 min_us=18 avg_us=23 max_us=92 late_max_us=1220 late_p99_us=1000 missed=0 max_cyc=9267
+STAT name=servo n=3715 min_us=6 avg_us=6 max_us=69 late_max_us=1191 late_p99_us=1000 missed=0 max_cyc=6906
+STAT name=log n=8527 min_us=50 avg_us=1073 max_us=17170 late_max_us=0 late_p99_us=0 missed=0 max_cyc=1717073
+STAT name=cli n=2090 min_us=115 avg_us=10245 max_us=405788 late_max_us=0 late_p99_us=0 missed=0 max_cyc=40578883
+STAT name=imu n=659 min_us=848 avg_us=2034 max_us=497340 late_max_us=99964 late_p99_us=1600 missed=84 max_cyc=49734097
+STAT name=tick n=75 min_us=18441 avg_us=38369 max_us=561349 late_max_us=543998 late_p99_us=1600 missed=0 max_cyc=56134938
+STAT name=loss n=657 min_us=7 avg_us=7 max_us=126 late_max_us=99019 late_p99_us=1600 missed=86 max_cyc=12679
+STAT name=led n=655 min_us=7 avg_us=7 max_us=7 late_max_us=76225 late_p99_us=1600 missed=88 max_cyc=732
+STAT name=camera n=33 min_us=428371 avg_us=654431 max_us=1134375 late_max_us=894998 late_p99_us=1600 missed=12 max_cyc=113437535
+STAT name=snapshot n=20 min_us=1324438 avg_us=1607938 max_us=2082705 late_max_us=0 late_p99_us=0 missed=0 max_cyc=208270593
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=96 min_us=17 avg_us=18 max_us=38 presses=96
+STAT name=evt_latency n=96 min_us=18 avg_us=27 max_us=742
+STAT name=cam_frame n=33 min_us=424591 avg_us=651058 max_us=1131659
+STAT name=cmd_latency n=1032 min_us=23 avg_us=8486 max_us=192678
+STAT name=flash_wait n=25 min_us=1087 avg_us=1923 max_us=2310
+LOAD pct=46 run_pct=57 btn_lost=0 uart_rx_overflow=197 pend_lost=0 flash_err=0 imu_err=1 cam_err=1 flash_last_rc=0
+tick 700712 (uptime 700 s, TL=389 TR=690 BL=402 BR=722, ex=281 ey=-20) mode=PARK sky=OVERCAST load=37%
+tick 701712 (uptime 701 s, TL=461 TR=692 BL=389 BR=836, ex=285 ey=-30) mode=PARK sky=OVERCAST load=5%
+MEM stack_used=672 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 702712 (uptime 702 s, TL=484 TR=607 BL=381 BR=732, ex=215 ey=-9) mode=PARK sky=OVERCAST load=63%
+tick 703712 (uptime 703 s, TL=451 TR=715 BL=393 BR=776, ex=277 ey=-1) mode=PARK sky=OVERCAST load=7%
+# MEM {'stack_used': 672, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+TASK name=cli state=Running prio=3 cpu_us=13948937 cpu_pct=17.7 stack_free_words=157
+TASK name=IDLE state=Ready prio=0 cpu_us=34629356 cpu_pct=44.1 stack_free_words=116
+TASK name=button state=Blocked prio=6 cpu_us=3291 cpu_pct=0.0 stack_free_words=80
+TASK name=log state=Blocked prio=4 cpu_us=9111541 cpu_pct=11.6 stack_free_words=160
+TASK name=camera state=Blocked prio=1 cpu_us=17815393 cpu_pct=22.6 stack_free_words=229
+TASK name=loss state=Blocked prio=2 cpu_us=28305 cpu_pct=0.0 stack_free_words=133
+TASK name=tick state=Blocked prio=2 cpu_us=29360 cpu_pct=0.0 stack_free_words=161
+TASK name=imu state=Blocked prio=2 cpu_us=568036 cpu_pct=0.7 stack_free_words=93
+TASK name=led state=Blocked prio=1 cpu_us=28335 cpu_pct=0.0 stack_free_words=71
+TASK name=snapshot state=Blocked prio=1 cpu_us=23599 cpu_pct=0.0 stack_free_words=125
+TASK name=adc state=Blocked prio=5 cpu_us=1489813 cpu_pct=1.8 stack_free_words=76
+TASK name=control state=Blocked prio=4 cpu_us=514993 cpu_pct=0.6 stack_free_words=157
+TASK name=servo state=Blocked prio=4 cpu_us=305603 cpu_pct=0.3 stack_free_words=71
+TASKS total_us=78491896 switches=60722
+tick 704712 (uptime 704 s, TL=452 TR=706 BL=382 BR=801, ex=287 ey=-10) mode=PARK sky=OVERCAST load=25%
+tick 705712 (uptime 705 s, TL=467 TR=697 BL=401 BR=840, ex=278 ey=-32) mode=PARK sky=OVERCAST load=47%
+STACK task=cli size_words=384 free_min_words=157 used_max_bytes=908
+STACK task=IDLE size_words=128 free_min_words=116 used_max_bytes=48
+STACK task=button size_words=128 free_min_words=80 used_max_bytes=192
+STACK task=log size_words=320 free_min_words=160 used_max_bytes=640
+STACK task=camera size_words=320 free_min_words=229 used_max_bytes=364
+STACK task=loss size_words=192 free_min_words=133 used_max_bytes=236
+STACK task=tick size_words=320 free_min_words=161 used_max_bytes=636
+STACK task=imu size_words=256 free_min_words=93 used_max_bytes=652
+STACK task=led size_words=128 free_min_words=71 used_max_bytes=228
+STACK task=snapshot size_words=192 free_min_words=125 used_max_bytes=268
+STACK task=adc size_words=128 free_min_words=76 used_max_bytes=208
+STACK task=control size_words=320 free_min_words=157 used_max_bytes=652
+STACK task=servo size_words=128 free_min_words=71 used_max_bytes=228
+MEM stack_used=672 stack_reserved=2048 (MSP: обробники переривань)
+tick 706712 (uptime 706 s, TL=434 TR=603 BL=421 BR=757, ex=227 ey=-63) mode=PARK sky=OVERCAST load=22%
+tick 707712 (uptime 707 s, TL=465 TR=707 BL=396 BR=717, ex=246 ey=25) mode=PARK sky=OVERCAST load=5%
+HEAP total=1024 free=0 min_ever_free=0 used_max=1024 malloc_failed=0
+tick 708712 (uptime 708 s, TL=358 TR=646 BL=349 BR=700, ex=311 ey=-21) mode=PARK sky=OVERCAST load=63%
+tick 709712 (uptime 709 s, TL=458 TR=696 BL=391 BR=822, ex=282 ey=-24) mode=PARK sky=OVERCAST load=6%
+OSCOST tick_hz=1000 tick_isr_n=84758 tick_isr_avg_cyc=659 tick_isr_max_cyc=3921 tick_isr_avg_us_x100=659 tick_isr_max_us_x100=3921
+OSCOST longest_run_us=11739 longest_run_task=camera
+OSCOST switches=63879 window_ms=84814 tick_gap_max_us=2172 tick_gaps_over_1500us=1488 cam_irq_off_max_us=1217 cam_short_frames=29 cam_lines_lost=514
+tick 710712 (uptime 710 s, TL=459 TR=700 BL=396 BR=698, ex=241 ey=28) mode=PARK sky=OVERCAST load=11%
+tick 711712 (uptime 711 s, TL=448 TR=680 BL=401 BR=755, ex=256 ey=-12) mode=PARK sky=OVERCAST load=47%
+QUEUE button max_used=1/8
+QUEUE adc max_used=1/4
+QUEUE control max_used=2/16
+QUEUE servo max_used=1/8
+QUEUE log max_used=1/16
+QUEUE cli max_used=4/32
+QUEUE imu max_used=1/8
+QUEUE tick max_used=7/32
+QUEUE loss max_used=7/32
+QUEUE led max_used=7/32
+QUEUE camera max_used=2/8
+QUEUE snapshot max_used=8/32
+DEFER log max_used=0/0
+POOL 1 min_free=60/64
+POOL 2 min_free=14/24
+POOL 3 min_free=28/32
+LOST lines=0 logs=0 events=0 texts=0
+tick 712712 (uptime 712 s, TL=464 TR=699 BL=382 BR=840, ex=290 ey=-24) mode=PARK sky=OVERCAST load=13%
+tick 713712 (uptime 713 s, TL=441 TR=685 BL=378 BR=852, ex=304 ey=-44) mode=PARK sky=OVERCAST load=5%
+[cli] servo OFF
+tick 714713 (uptime 714 s, TL=475 TR=661 BL=366 BR=817, ex=274 ey=-20) mode=PARK sky=OVERCAST load=63%
+tick 715712 (uptime 715 s, TL=459 TR=705 BL=380 BR=789, ex=280 ey=-2) mode=PARK sky=OVERCAST load=6%

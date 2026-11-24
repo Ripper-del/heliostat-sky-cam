@@ -1,0 +1,5 @@
+# scenario=owner5 duration=30 servo=0 btnsim_ms=0
+tick 49716 (uptime 49 s, TL=357 TR=628 BL=408 BR=797, ex=301 ey=-100) mode=PARK sky=OVERCAST load=77%
+tick 50716 (uptime 50 s, TL=347 TR=699 BL=408 BR=748, ex=314 ey=-49) mode=PARK sky=OVERCAST load=7%
+tick 51716 (uptime 51 s, TL=354 TR=678 BL=393 BR=728, ex=306 ey=-41) mode=PARK sky=OVERCAST load=7%
+tick 52716 (uptime 52 s, TL=348 TR=606 BL=386 BR=822, ex=320 ey=-117) mode=PARK sky=OVERCAST load=58%

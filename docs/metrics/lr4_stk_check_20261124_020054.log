@@ -1,0 +1,45 @@
+# VER git=83f936c build="Nov 23 2026 23:38:53" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+$ TEST STK
+[test] STK: стек 96 слів, глибина рекурсії 8 (~612 Б); очікуємо FATAL stack overflow і м'який перезапуск
+FATAL stack overflow in stkovf
+=====================================
+ STM32 heliostat | LR4 FreeRTOS | build Nov 23 2026 23:38:42
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=5916 ay=-8180 az=-12096 mag_mg=961 temp_cC=2646 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=151 mv=121
+[st] ADC_TR   PASS raw=254 mv=204
+[st] ADC_BL   PASS raw=216 mv=174
+[st] ADC_BR   PASS raw=692 mv=557
+[st] RESULT pass=8 total=8
+[prod] log: 972 records, next frame #1001, open 365 ms
+[prod] 12 tasks, tick=1000 Hz, heap=24576 B, boot_ms=717
+VER git=83f936c build="Nov 23 2026 23:38:53" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] type 'h' or HELP
+# далі ще 10 с усього, що друкує плата
+tick 10720 (uptime 10 s, TL=86 TR=339 BL=258 BR=624, ex=473 ey=-349) mode=PARK sky=DARK load=59%
+tick 11720 (uptime 11 s, TL=140 TR=334 BL=257 BR=554, ex=382 ey=-262) mode=PARK sky=DARK load=4%
+tick 12720 (uptime 12 s, TL=128 TR=347 BL=185 BR=637, ex=517 ey=-267) mode=PARK sky=DARK load=4%
+tick 13720 (uptime 13 s, TL=156 TR=310 BL=199 BR=535, ex=408 ey=-223) mode=PARK sky=DARK load=78%
+tick 14720 (uptime 14 s, TL=112 TR=343 BL=176 BR=631, ex=543 ey=-278) mode=PARK sky=DARK load=4%
+tick 15720 (uptime 15 s, TL=67 TR=339 BL=169 BR=597, ex=597 ey=-307) mode=PARK sky=DARK load=4%
+tick 16720 (uptime 16 s, TL=166 TR=348 BL=270 BR=614, ex=376 ey=-264) mode=PARK sky=DARK load=59%
+tick 17720 (uptime 17 s, TL=128 TR=310 BL=263 BR=808, ex=481 ey=-419) mode=PARK sky=DARK load=4%
+tick 18720 (uptime 18 s, TL=133 TR=327 BL=250 BR=553, ex=393 ey=-271) mode=PARK sky=DARK load=4%
+tick 19720 (uptime 19 s, TL=120 TR=298 BL=201 BR=624, ex=483 ey=-327) mode=PARK sky=DARK load=77%
+# після TEST STK: відповідь на VER
+$ VER
+VER git=83f936c build="Nov 23 2026 23:38:53" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000

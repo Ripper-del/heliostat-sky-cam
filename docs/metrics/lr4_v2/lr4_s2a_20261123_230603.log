@@ -1,0 +1,156 @@
+# scenario=s2 duration=60 servo=0 btnsim_ms=0
+VER git=4939628 build="Nov 23 2026 21:02:48" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+tick 168631 (uptime 168 s, TL=212 TR=272 BL=202 BR=707, ex=405 ey=-305) mode=PARK sky=DARK load=58%
+tick 169631 (uptime 169 s, TL=248 TR=282 BL=216 BR=683, ex=350 ey=-258) mode=PARK sky=DARK load=2%
+# VER git=4939628 build="Nov 23 2026 21:02:48" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+[cli] servo OFF
+tick 170631 (uptime 170 s, TL=216 TR=318 BL=202 BR=720, ex=425 ey=-266) mode=PARK sky=DARK load=2%
+tick 171631 (uptime 171 s, TL=146 TR=351 BL=243 BR=612, ex=424 ey=-264) mode=PARK sky=DARK load=63%
+[prod] stats reset
+tick 172631 (uptime 172 s, TL=220 TR=360 BL=205 BR=880, ex=489 ey=-303) mode=PARK sky=DARK load=2%
+tick 173631 (uptime 173 s, TL=210 TR=327 BL=223 BR=703, ex=408 ey=-265) mode=PARK sky=DARK load=2%
+tick 174631 (uptime 174 s, TL=203 TR=279 BL=208 BR=659, ex=390 ey=-285) mode=PARK sky=DARK load=57%
+tick 175631 (uptime 175 s, TL=208 TR=261 BL=200 BR=717, ex=411 ey=-323) mode=PARK sky=DARK load=2%
+tick 176631 (uptime 176 s, TL=221 TR=291 BL=201 BR=681, ex=394 ey=-265) mode=PARK sky=DARK load=2%
+tick 177631 (uptime 177 s, TL=141 TR=355 BL=239 BR=648, ex=450 ey=-282) mode=PARK sky=DARK load=63%
+tick 178631 (uptime 178 s, TL=226 TR=331 BL=201 BR=707, ex=417 ey=-239) mode=PARK sky=DARK load=16%
+tick 179631 (uptime 179 s, TL=214 TR=280 BL=209 BR=666, ex=382 ey=-278) mode=PARK sky=DARK load=2%
+tick 180631 (uptime 180 s, TL=224 TR=323 BL=136 BR=893, ex=543 ey=-305) mode=PARK sky=DARK load=57%
+tick 181631 (uptime 181 s, TL=239 TR=278 BL=200 BR=707, ex=383 ey=-273) mode=PARK sky=DARK load=2%
+tick 182631 (uptime 182 s, TL=239 TR=324 BL=206 BR=695, ex=392 ey=-230) mode=PARK sky=DARK load=2%
+tick 183631 (uptime 183 s, TL=154 TR=369 BL=215 BR=635, ex=462 ey=-238) mode=PARK sky=DARK load=63%
+[log] 941 records in flash (capacity 1024)
+[log] #13997 t=3641 ms type=3 frame=251 a=356 b=2 c=13
+[log] #13996 t=3640 ms type=2 frame=255 a=1 b=2 c=299
+[log] #13995 t=1000 ms type=2 frame=255 a=0 b=1 c=386
+tick 184631 (uptime 184 s, TL=212 TR=293 BL=261 BR=651, ex=332 ey=-287) mode=PARK sky=DARK load=16%
+tick 185631 (uptime 185 s, TL=224 TR=302 BL=228 BR=658, ex=359 ey=-254) mode=PARK sky=DARK load=2%
+tick 186631 (uptime 186 s, TL=230 TR=359 BL=208 BR=657, ex=397 ey=-189) mode=PARK sky=DARK load=57%
+tick 187631 (uptime 187 s, TL=251 TR=343 BL=191 BR=722, ex=413 ey=-211) mode=PARK sky=DARK load=2%
+tick 188631 (uptime 188 s, TL=172 TR=260 BL=232 BR=684, ex=400 ey=-359) mode=PARK sky=DARK load=2%
+tick 189631 (uptime 189 s, TL=262 TR=401 BL=162 BR=693, ex=441 ey=-126) mode=PARK sky=DARK load=63%
+tick 190631 (uptime 190 s, TL=248 TR=287 BL=206 BR=710, ex=374 ey=-262) mode=PARK sky=DARK load=15%
+tick 191631 (uptime 191 s, TL=204 TR=267 BL=220 BR=628, ex=357 ey=-285) mode=PARK sky=DARK load=2%
+tick 192631 (uptime 192 s, TL=238 TR=313 BL=200 BR=705, ex=398 ey=-243) mode=PARK sky=DARK load=57%
+tick 193631 (uptime 193 s, TL=230 TR=309 BL=200 BR=681, ex=394 ey=-240) mode=PARK sky=DARK load=2%
+tick 194631 (uptime 194 s, TL=255 TR=262 BL=209 BR=701, ex=349 ey=-275) mode=PARK sky=DARK load=2%
+[prod] mode=PARK light=1408 thr=2500 ex=250 ey=-340 az=1500 el=1500 servos=OFF
+tick 195631 (uptime 195 s, TL=160 TR=362 BL=182 BR=661, ex=498 ey=-235) mode=PARK sky=DARK load=63%
+tick 196631 (uptime 196 s, TL=217 TR=319 BL=215 BR=623, ex=371 ey=-219) mode=PARK sky=DARK load=16%
+tick 197631 (uptime 197 s, TL=212 TR=344 BL=166 BR=683, ex=461 ey=-208) mode=PARK sky=DARK load=2%
+tick 198631 (uptime 198 s, TL=247 TR=268 BL=197 BR=657, ex=351 ey=-247) mode=PARK sky=DARK load=56%
+tick 199631 (uptime 199 s, TL=218 TR=343 BL=192 BR=699, ex=435 ey=-227) mode=PARK sky=DARK load=2%
+tick 200631 (uptime 200 s, TL=243 TR=260 BL=198 BR=699, ex=370 ey=-281) mode=PARK sky=DARK load=2%
+tick 201631 (uptime 201 s, TL=149 TR=377 BL=257 BR=621, ex=421 ey=-250) mode=PARK sky=DARK load=63%
+tick 202631 (uptime 202 s, TL=171 TR=298 BL=205 BR=720, ex=460 ey=-327) mode=PARK sky=DARK load=15%
+tick 203631 (uptime 203 s, TL=216 TR=317 BL=208 BR=671, ex=399 ey=-245) mode=PARK sky=DARK load=2%
+tick 204631 (uptime 204 s, TL=217 TR=299 BL=203 BR=689, ex=403 ey=-267) mode=PARK sky=DARK load=57%
+tick 205631 (uptime 205 s, TL=253 TR=264 BL=173 BR=701, ex=387 ey=-256) mode=PARK sky=DARK load=2%
+tick 206631 (uptime 206 s, TL=214 TR=260 BL=206 BR=713, ex=396 ey=-319) mode=PARK sky=DARK load=2%
+[prod] mode=PARK light=1367 thr=2500 ex=360 ey=-373 az=1500 el=1500 servos=OFF
+tick 207631 (uptime 207 s, TL=144 TR=357 BL=217 BR=631, ex=464 ey=-257) mode=PARK sky=DARK load=63%
+tick 208631 (uptime 208 s, TL=246 TR=267 BL=202 BR=694, ex=364 ey=-271) mode=PARK sky=DARK load=15%
+tick 209631 (uptime 209 s, TL=206 TR=308 BL=190 BR=689, ex=431 ey=-262) mode=PARK sky=DARK load=2%
+tick 210631 (uptime 210 s, TL=213 TR=254 BL=198 BR=722, ex=407 ey=-326) mode=PARK sky=DARK load=57%
+tick 211631 (uptime 211 s, TL=209 TR=353 BL=211 BR=728, ex=440 ey=-251) mode=PARK sky=DARK load=2%
+tick 212631 (uptime 212 s, TL=236 TR=329 BL=217 BR=622, ex=354 ey=-195) mode=PARK sky=DARK load=2%
+tick 213631 (uptime 213 s, TL=212 TR=368 BL=203 BR=673, ex=429 ey=-203) mode=PARK sky=DARK load=63%
+tick 214631 (uptime 214 s, TL=213 TR=337 BL=208 BR=687, ex=417 ey=-238) mode=PARK sky=DARK load=14%
+tick 215631 (uptime 215 s, TL=240 TR=253 BL=192 BR=717, ex=383 ey=-296) mode=PARK sky=DARK load=2%
+tick 216631 (uptime 216 s, TL=218 TR=307 BL=200 BR=698, ex=412 ey=-262) mode=PARK sky=DARK load=56%
+tick 217631 (uptime 217 s, TL=238 TR=314 BL=191 BR=664, ex=390 ey=-215) mode=PARK sky=DARK load=2%
+[log] 941 records in flash (capacity 1024)
+[log] #13997 t=3641 ms type=3 frame=251 a=356 b=2 c=13
+[log] #13996 t=3640 ms type=2 frame=255 a=1 b=2 c=299
+[log] #13995 t=1000 ms type=2 frame=255 a=0 b=1 c=386
+tick 218631 (uptime 218 s, TL=231 TR=334 BL=198 BR=723, ex=422 ey=-239) mode=PARK sky=DARK load=3%
+tick 219631 (uptime 219 s, TL=222 TR=387 BL=134 BR=648, ex=488 ey=-124) mode=PARK sky=DARK load=63%
+tick 220631 (uptime 220 s, TL=224 TR=277 BL=200 BR=715, ex=401 ey=-292) mode=PARK sky=DARK load=14%
+tick 221631 (uptime 221 s, TL=214 TR=265 BL=192 BR=669, ex=394 ey=-285) mode=PARK sky=DARK load=2%
+tick 222631 (uptime 222 s, TL=232 TR=252 BL=193 BR=697, ex=381 ey=-295) mode=PARK sky=DARK load=55%
+tick 223631 (uptime 223 s, TL=210 TR=274 BL=202 BR=697, ex=404 ey=-300) mode=PARK sky=DARK load=2%
+tick 224631 (uptime 224 s, TL=202 TR=324 BL=223 BR=664, ex=398 ey=-255) mode=PARK sky=DARK load=2%
+tick 225631 (uptime 225 s, TL=154 TR=348 BL=214 BR=675, ex=470 ey=-278) mode=PARK sky=DARK load=63%
+tick 226631 (uptime 226 s, TL=196 TR=408 BL=229 BR=812, ex=483 ey=-265) mode=PARK sky=DARK load=15%
+tick 227631 (uptime 227 s, TL=220 TR=327 BL=194 BR=828, ex=472 ey=-302) mode=PARK sky=DARK load=2%
+tick 228631 (uptime 228 s, TL=228 TR=253 BL=191 BR=669, ex=375 ey=-282) mode=PARK sky=DARK load=55%
+[prod] mode=PARK light=1506 thr=2500 ex=407 ey=-237 az=1500 el=1500 servos=OFF
+tick 229631 (uptime 229 s, TL=233 TR=363 BL=204 BR=641, ex=393 ey=-172) mode=PARK sky=DARK load=2%
+tick 230631 (uptime 230 s, TL=211 TR=299 BL=198 BR=693, ex=416 ey=-271) mode=PARK sky=DARK load=2%
+tick 231631 (uptime 231 s, TL=143 TR=352 BL=234 BR=616, ex=439 ey=-263) mode=PARK sky=DARK load=63%
+tick 232631 (uptime 232 s, TL=214 TR=262 BL=190 BR=700, ex=408 ey=-303) mode=PARK sky=DARK load=14%
+tick 233631 (uptime 233 s, TL=206 TR=295 BL=226 BR=695, ex=392 ey=-295) mode=PARK sky=DARK load=2%
+tick 234631 (uptime 234 s, TL=202 TR=310 BL=196 BR=700, ex=434 ey=-272) mode=PARK sky=DARK load=55%
+tick 235631 (uptime 235 s, TL=209 TR=316 BL=210 BR=621, ex=382 ey=-225) mode=PARK sky=DARK load=2%
+tick 236631 (uptime 236 s, TL=234 TR=300 BL=217 BR=729, ex=390 ey=-278) mode=PARK sky=DARK load=2%
+tick 237631 (uptime 237 s, TL=163 TR=367 BL=243 BR=588, ex=403 ey=-221) mode=PARK sky=DARK load=63%
+tick 238631 (uptime 238 s, TL=203 TR=254 BL=187 BR=711, ex=424 ey=-325) mode=PARK sky=DARK load=13%
+tick 239631 (uptime 239 s, TL=209 TR=304 BL=200 BR=673, ex=409 ey=-259) mode=PARK sky=DARK load=2%
+[prod] mode=PARK light=1409 thr=2500 ex=364 ey=-269 az=1500 el=1500 servos=OFF
+tick 240631 (uptime 240 s, TL=248 TR=274 BL=229 BR=694, ex=339 ey=-277) mode=PARK sky=DARK load=54%
+# --- STATS final ---
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=cli n=45 min_us=1 avg_us=92 max_us=1819 late_max_us=0 late_p99_us=0 missed=0 max_cyc=181952
+STAT name=adc n=6943 min_us=155 avg_us=155 max_us=161 late_max_us=968 late_p99_us=700 missed=0 max_cyc=16163
+STAT name=control n=6943 min_us=7 avg_us=7 max_us=11 late_max_us=1140 late_p99_us=900 missed=0 max_cyc=1128
+STAT name=servo n=3471 min_us=3 avg_us=3 max_us=3 late_max_us=1076 late_p99_us=900 missed=0 max_cyc=327
+STAT name=loss n=694 min_us=4 avg_us=4 max_us=4 late_max_us=2010 late_p99_us=1100 missed=0 max_cyc=415
+STAT name=imu n=694 min_us=845 avg_us=855 max_us=950 late_max_us=1119 late_p99_us=1000 missed=0 max_cyc=95092
+STAT name=led n=694 min_us=3 avg_us=3 max_us=3 late_max_us=1065 late_p99_us=900 missed=0 max_cyc=394
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=camera n=23 min_us=535329 avg_us=649899 max_us=768421 late_max_us=12 late_p99_us=100 missed=0 max_cyc=76842108
+STAT name=tick n=69 min_us=146 avg_us=148 max_us=176 late_max_us=875 late_p99_us=900 missed=0 max_cyc=17608
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cmd_latency n=7 min_us=45 avg_us=48 max_us=52
+STAT name=cam_frame n=23 min_us=532417 avg_us=647102 max_us=765706
+LOAD pct=54 run_pct=23 btn_lost=0 uart_rx_overflow=0 pend_lost=0 flash_err=0 imu_err=0 cam_err=0 flash_last_rc=0
+tick 241631 (uptime 241 s, TL=262 TR=269 BL=241 BR=854, ex=381 ey=-346) mode=PARK sky=DARK load=3%
+tick 242631 (uptime 242 s, TL=210 TR=275 BL=243 BR=672, ex=352 ey=-307) mode=PARK sky=DARK load=2%
+tick 243631 (uptime 243 s, TL=141 TR=375 BL=237 BR=658, ex=464 ey=-268) mode=PARK sky=DARK load=63%
+MEM stack_used=632 stack_reserved=2048 heap_arena=1468 frame_buf=19200
+tick 244631 (uptime 244 s, TL=226 TR=337 BL=206 BR=692, ex=408 ey=-229) mode=PARK sky=DARK load=13%
+# MEM {'stack_used': 632, 'stack_reserved': 2048, 'heap_arena': 1468, 'frame_buf': 19200}
+tick 245631 (uptime 245 s, TL=216 TR=274 BL=192 BR=736, ex=424 ey=-308) mode=PARK sky=DARK load=2%
+TASK name=cli state=Running prio=3 cpu_us=19674 cpu_pct=0.0 stack_free_words=131
+TASK name=IDLE state=Ready prio=0 cpu_us=56266019 cpu_pct=76.4 stack_free_words=115
+TASK name=servo state=Blocked prio=4 cpu_us=56198 cpu_pct=0.0 stack_free_words=61
+TASK name=adc state=Blocked prio=5 cpu_us=1240128 cpu_pct=1.6 stack_free_words=74
+TASK name=control state=Blocked prio=4 cpu_us=145593 cpu_pct=0.1 stack_free_words=68
+TASK name=loss state=Blocked prio=2 cpu_us=12363 cpu_pct=0.0 stack_free_words=61
+TASK name=imu state=Blocked prio=2 cpu_us=627540 cpu_pct=0.8 stack_free_words=139
+TASK name=led state=Blocked prio=1 cpu_us=13109 cpu_pct=0.0 stack_free_words=61
+TASK name=camera state=Blocked prio=1 cpu_us=15220113 cpu_pct=20.6 stack_free_words=145
+TASK name=tick state=Blocked prio=2 cpu_us=11946 cpu_pct=0.0 stack_free_words=189
+TASK name=button state=Blocked prio=6 cpu_us=0 cpu_pct=0.0 stack_free_words=77
+TASK name=log state=Blocked prio=2 cpu_us=0 cpu_pct=0.0 stack_free_words=165
+TASK name=snapshot state=Blocked prio=1 cpu_us=0 cpu_pct=0.0 stack_free_words=196
+TASKS total_us=73612689 switches=29529
+tick 246631 (uptime 246 s, TL=221 TR=350 BL=199 BR=790, ex=461 ey=-267) mode=PARK sky=DARK load=54%
+tick 247631 (uptime 247 s, TL=229 TR=355 BL=202 BR=715, ex=425 ey=-221) mode=PARK sky=DARK load=2%
+STACK task=cli size_words=320 free_min_words=131 used_max_bytes=756
+STACK task=IDLE size_words=128 free_min_words=115 used_max_bytes=52
+STACK task=servo size_words=96 free_min_words=61 used_max_bytes=140
+STACK task=adc size_words=112 free_min_words=74 used_max_bytes=152
+STACK task=control size_words=112 free_min_words=68 used_max_bytes=176
+STACK task=loss size_words=96 free_min_words=61 used_max_bytes=140
+STACK task=imu size_words=224 free_min_words=139 used_max_bytes=340
+STACK task=led size_words=96 free_min_words=61 used_max_bytes=140
+STACK task=tick size_words=320 free_min_words=189 used_max_bytes=524
+STACK task=camera size_words=224 free_min_words=145 used_max_bytes=316
+STACK task=button size_words=112 free_min_words=77 used_max_bytes=140
+STACK task=log size_words=256 free_min_words=165 used_max_bytes=364
+STACK task=snapshot size_words=288 free_min_words=196 used_max_bytes=368
+MEM stack_used=632 stack_reserved=2048 (MSP: обробники переривань)
+tick 248631 (uptime 248 s, TL=222 TR=256 BL=200 BR=640, ex=359 ey=-274) mode=PARK sky=DARK load=3%
+tick 249631 (uptime 249 s, TL=210 TR=365 BL=233 BR=711, ex=416 ey=-242) mode=PARK sky=DARK load=63%
+HEAP total=24576 free=12440 min_ever_free=12440 used_max=12136 malloc_failed=0
+tick 250631 (uptime 250 s, TL=217 TR=298 BL=202 BR=690, ex=404 ey=-267) mode=PARK sky=DARK load=13%
+tick 251631 (uptime 251 s, TL=208 TR=282 BL=196 BR=699, ex=416 ey=-292) mode=PARK sky=DARK load=2%
+OSCOST tick_hz=1000 tick_isr_n=79913 tick_isr_avg_cyc=184 tick_isr_max_cyc=680 tick_isr_avg_us_x100=184 tick_isr_max_us_x100=680
+OSCOST longest_run_us=11216 longest_run_task=camera
+OSCOST switches=32077 window_ms=79916 tick_gap_max_us=2034 tick_gaps_over_1500us=1194 cam_irq_off_max_us=1037 cam_short_frames=4 cam_lines_lost=4
+tick 252631 (uptime 252 s, TL=247 TR=280 BL=203 BR=721, ex=379 ey=-273) mode=PARK sky=DARK load=54%
+tick 253631 (uptime 253 s, TL=242 TR=328 BL=237 BR=668, ex=350 ey=-227) mode=PARK sky=DARK load=2%

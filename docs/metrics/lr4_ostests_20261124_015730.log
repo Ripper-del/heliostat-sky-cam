@@ -1,0 +1,89 @@
+# VER git=83f936c build="Nov 23 2026 23:38:53" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000
+$ TEST INV
+[test] INV mode=mutex low_ms=200 mid_ms=300 high_wait_us=180728 done=7
+$ TEST INV
+[test] INV mode=mutex low_ms=200 mid_ms=300 high_wait_us=180518 done=7
+$ TEST INV
+[test] INV mode=mutex low_ms=200 mid_ms=300 high_wait_us=180275 done=7
+$ TEST INV SEM
+[test] INV mode=binary_sem low_ms=200 mid_ms=300 high_wait_us=310944 done=7
+$ TEST INV SEM
+[test] INV mode=binary_sem low_ms=200 mid_ms=300 high_wait_us=328802 done=7
+$ TEST INV SEM
+[test] INV mode=binary_sem low_ms=200 mid_ms=300 high_wait_us=310923 done=7
+$ STATS RESET
+$ TEST STARVE 1500
+[test] STARVE start: задача пріоритету 7 не блокується 1500 мс
+[test] STARVE 1500 ms done
+$ STATS
+STAT name=button n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=cli n=34 min_us=1 avg_us=44863 max_us=1521761 late_max_us=0 late_p99_us=0 missed=0 max_cyc=152176143
+STAT name=adc n=1034 min_us=155 avg_us=155 max_us=167 late_max_us=7999 late_p99_us=800 missed=149 max_cyc=16741
+STAT name=control n=1034 min_us=7 avg_us=7 max_us=8 late_max_us=7999 late_p99_us=900 missed=149 max_cyc=883
+STAT name=servo n=517 min_us=3 avg_us=3 max_us=4 late_max_us=7999 late_p99_us=900 missed=74 max_cyc=459
+STAT name=loss n=104 min_us=4 avg_us=4 max_us=5 late_max_us=67999 late_p99_us=1000 missed=14 max_cyc=549
+STAT name=imu n=104 min_us=845 avg_us=937 max_us=1971 late_max_us=67999 late_p99_us=1000 missed=14 max_cyc=197180
+STAT name=led n=104 min_us=3 avg_us=3 max_us=5 late_max_us=85999 late_p99_us=1600 missed=14 max_cyc=526
+STAT name=log n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=snapshot n=0 min_us=0 avg_us=0 max_us=0 late_max_us=0 late_p99_us=0 missed=0 max_cyc=0
+STAT name=camera n=4 min_us=483052 avg_us=572479 max_us=696415 late_max_us=1285999 late_p99_us=1600 missed=0 max_cyc=69641522
+STAT name=tick n=10 min_us=17532 avg_us=17739 max_us=18329 late_max_us=267999 late_p99_us=1600 missed=1 max_cyc=1832994
+STAT name=loop n=0 min_us=0 avg_us=0 max_us=0 p99_us=0
+STAT name=btn_latency n=0 min_us=0 avg_us=0 max_us=0 presses=0
+STAT name=evt_latency n=0 min_us=0 avg_us=0 max_us=0
+STAT name=cmd_latency n=2 min_us=22 avg_us=28 max_us=34
+STAT name=cam_frame n=4 min_us=479227 avg_us=569438 max_us=693700
+LOAD pct=51 run_pct=28 btn_lost=0 uart_rx_overflow=3 pend_lost=0 flash_err=0 imu_err=0 cam_err=1 flash_last_rc=0
+$ TASKS
+TASK name=cli state=Running prio=3 cpu_us=319330 cpu_pct=2.3 stack_free_words=83
+TASK name=IDLE state=Ready prio=0 cpu_us=9587594 cpu_pct=71.5 stack_free_words=93
+TASK name=adc state=Blocked prio=5 cpu_us=226735 cpu_pct=1.6 stack_free_words=74
+TASK name=control state=Blocked prio=4 cpu_us=26834 cpu_pct=0.2 stack_free_words=68
+TASK name=servo state=Blocked prio=4 cpu_us=10370 cpu_pct=0.0 stack_free_words=59
+TASK name=loss state=Blocked prio=2 cpu_us=2254 cpu_pct=0.0 stack_free_words=61
+TASK name=imu state=Blocked prio=2 cpu_us=113416 cpu_pct=0.8 stack_free_words=148
+TASK name=tick state=Blocked prio=2 cpu_us=227148 cpu_pct=1.6 stack_free_words=177
+TASK name=led state=Blocked prio=1 cpu_us=2374 cpu_pct=0.0 stack_free_words=61
+TASK name=camera state=Blocked prio=1 cpu_us=2884304 cpu_pct=21.5 stack_free_words=145
+TASK name=log state=Blocked prio=2 cpu_us=0 cpu_pct=0.0 stack_free_words=165
+TASK name=button state=Blocked prio=6 cpu_us=0 cpu_pct=0.0 stack_free_words=77
+TASK name=snapshot state=Blocked prio=1 cpu_us=0 cpu_pct=0.0 stack_free_words=187
+TASKS total_us=13399714 switches=5537
+$ TEST QFLOOD 200 0
+[test] QFLOOD n=200 timeout_ms=0 sent=8 lost=192 consumed=8 producer_time_us=516
+$ TEST QFLOOD 200 50
+[test] QFLOOD n=200 timeout_ms=50 sent=200 lost=0 consumed=200 producer_time_us=971924
+$ HEAP
+HEAP total=24576 free=12432 min_ever_free=8936 used_max=15640 malloc_failed=0
+$ TEST HEAP
+[os] malloc failed hook
+[test] HEAP free_before=12432 blocks_1k=12 (null at block 13)
+[test] HEAP free_after=12432
+$ HEAP
+HEAP total=24576 free=12432 min_ever_free=48 used_max=24528 malloc_failed=1
+$ TEST CTX 2000
+[test] CTX n=2000 notify_to_wake min_cyc=1114 avg_cyc=1123 max_cyc=1124 min_ns=11140 avg_ns=11230 max_ns=11240
+$ STATS RESET
+$ OSCOST
+OSCOST tick_hz=1000 tick_isr_n=21809 tick_isr_avg_cyc=184 tick_isr_max_cyc=850 tick_isr_avg_us_x100=184 tick_isr_max_us_x100=850
+OSCOST longest_run_us=10699 longest_run_task=camera
+OSCOST switches=8830 window_ms=21832 tick_gap_max_us=1890 tick_gaps_over_1500us=320 cam_irq_off_max_us=890 cam_short_frames=3 cam_lines_lost=3
+$ TASKS
+TASK name=cli state=Running prio=3 cpu_us=65033 cpu_pct=0.2 stack_free_words=83
+TASK name=IDLE state=Ready prio=0 cpu_us=18804174 cpu_pct=77.1 stack_free_words=93
+TASK name=adc state=Blocked prio=5 cpu_us=411831 cpu_pct=1.6 stack_free_words=74
+TASK name=control state=Blocked prio=4 cpu_us=48700 cpu_pct=0.1 stack_free_words=68
+TASK name=servo state=Blocked prio=4 cpu_us=18821 cpu_pct=0.0 stack_free_words=53
+TASK name=loss state=Blocked prio=2 cpu_us=4131 cpu_pct=0.0 stack_free_words=61
+TASK name=imu state=Blocked prio=2 cpu_us=207995 cpu_pct=0.8 stack_free_words=148
+TASK name=led state=Blocked prio=1 cpu_us=4388 cpu_pct=0.0 stack_free_words=61
+TASK name=tick state=Blocked prio=2 cpu_us=436514 cpu_pct=1.7 stack_free_words=177
+TASK name=camera state=Blocked prio=1 cpu_us=4387296 cpu_pct=17.9 stack_free_words=145
+TASK name=log state=Blocked prio=2 cpu_us=0 cpu_pct=0.0 stack_free_words=165
+TASK name=button state=Blocked prio=6 cpu_us=0 cpu_pct=0.0 stack_free_words=77
+TASK name=snapshot state=Blocked prio=1 cpu_us=0 cpu_pct=0.0 stack_free_words=187
+TASKS total_us=24388426 switches=9936
+$ TEST CAMDIAG 4000
+[test] CAMDIAG window_ms=3999 ticks=4000 irq_off_windows=239 irq_off_max_us=890 last_line_period_us=3135 lines=120 late_open=2 tick_gap_max_us=1887 tick_gaps_over_1500us=91 short_frames=1 lines_lost=1
+$ TEST CAMDIAG 4000
+[test] CAMDIAG window_ms=3999 ticks=4000 irq_off_windows=268 irq_off_max_us=1125 last_line_period_us=3135 lines=39 late_open=2 tick_gap_max_us=1988 tick_gaps_over_1500us=102 short_frames=2 lines_lost=11

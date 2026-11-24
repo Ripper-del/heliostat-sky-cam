@@ -1,0 +1,32 @@
+@startuml snapshot
+!pragma layout smetana
+title AO snapshot — операція «знімок у flash» (App/Src/ao_snapshot.c)
+skinparam state {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+[*] --> idle
+state idle {
+  idle : TRACK / light, mode
+  idle : SNAP_REQ [минуло < 3 с або немає flash] / ігнор (FR-11)
+  idle : CAPTURE_DONE (запізніле) / late_events++; BUF_RELEASE → camera
+  idle : SAVE_DONE (запізніле) / late_events++; BUF_RELEASE → camera
+}
+state busy {
+  busy : entry / пін D3 = 1; armX(timeout, 10 с)
+  busy : exit / disarm(timeout); пін D3 = 0; STAT snapshot
+  busy : SNAP_REQ / ігнор (знімок уже йде)
+  busy : TRACK / light, mode
+  state capturing {
+    capturing : entry / CAPTURE_REQ → camera
+  }
+  state saving {
+    saving : entry / SAVE_FRAME(buf, light, mode) → log
+  }
+}
+idle --> capturing : SNAP_REQ [flash_ok і минуло >= 3 с]
+capturing --> saving : CAPTURE_DONE [rc = 0]
+capturing --> idle : CAPTURE_DONE [rc != 0]
+saving --> idle : SAVE_DONE / BUF_RELEASE(no) → camera
+busy --> idle : OP_TIMEOUT / flash_err++
+@enduml

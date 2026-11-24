@@ -1,0 +1,84 @@
+# boot 1
+=====================================
+ STM32 bring-up | LR2 | build Nov 23 2026 17:58:16
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=6584 ay=-4868 az=-13408 mag_mg=958 temp_cC=2717 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=3249 mv=2618
+[st] ADC_TR   PASS raw=3256 mv=2623
+[st] ADC_BL   PASS raw=2979 mv=2400
+[st] ADC_BR   PASS raw=2236 mv=1801
+[st] RESULT pass=8 total=8
+[prod] log: 943 records, next frame #1396, open 364 ms
+[prod] 12 tasks, boot_ms=711
+VER git=62b4b88 build="Nov 23 2026 17:58:34" sysclk=100000000 task_tick_us=1
+[cli] type 'h' or HELP
+# boot 2
+=====================================
+ STM32 bring-up | LR2 | build Nov 23 2026 17:58:16
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=6596 ay=-4852 az=-13336 mag_mg=954 temp_cC=2708 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=3231 mv=2603
+[st] ADC_TR   PASS raw=3312 mv=2669
+[st] ADC_BL   PASS raw=2970 mv=2393
+[st] ADC_BR   PASS raw=2302 mv=1855
+[st] RESULT pass=8 total=8
+[prod] log: 945 records, next frame #1396, open 364 ms
+[prod] 12 tasks, boot_ms=715
+VER git=62b4b88 build="Nov 23 2026 17:58:34" sysclk=100000000 task_tick_us=1
+[cli] type 'h' or HELP
+# boot 3
+=====================================
+ STM32 bring-up | LR2 | build Nov 23 2026 17:58:16
+ SYSCLK = 100000000 Hz
+=====================================
+[init] USART2  : HAL_OK
+[i2c1] bus: idle SDA=1 SCL=1, recovery clocks=0, after SDA=1
+[init] I2C1    : HAL_OK
+[init] SPI2    : HAL_OK
+[init] ADC1    : HAL_OK
+[init] TIM3    : HAL_OK
+[init] TIM3    : servo PWM 50 Hz, outputs OFF until enabled (PA6=AZ, PA7=EL)
+[init] MCO1    : XCLK 16 MHz on PA8
+[st] BEGIN
+[st] I2C_SCAN  n=1 addrs= 0x68
+[st] MPU6050  PASS who=0x68 ax=6644 ay=-4940 az=-13404 mag_mg=961 temp_cC=2712 tries=1
+[st] OV7670   PASS rc=0 pid=0x76 ver=0x73
+[st] W25Q_ID  PASS rc=0 jedec=EF4017
+[st] W25Q_RW  PASS rc=0 addr=0x7FF000 bytes=16 first=0xA0
+[st] ADC_TL   PASS raw=3171 mv=2555
+[st] ADC_TR   PASS raw=3293 mv=2653
+[st] ADC_BL   PASS raw=2965 mv=2389
+[st] ADC_BR   PASS raw=2126 mv=1713
+[st] RESULT pass=8 total=8
+[prod] log: 947 records, next frame #1396, open 364 ms
+[prod] 12 tasks, boot_ms=711
+VER git=62b4b88 build="Nov 23 2026 17:58:34" sysclk=100000000 task_tick_us=1
+[cli] type 'h' or HELP

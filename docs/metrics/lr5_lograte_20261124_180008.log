@@ -1,0 +1,17 @@
+# scenario=lograte duration=30 servo=0 btnsim_ms=0
+VER git=415eb87 build="Nov 24 2026 14:10:06" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+tick 15716 (uptime 15 s, TL=3239 TR=3313 BL=3039 BR=2473, ex=-40 ey=86) mode=TRACK sky=CLEAR load=7%
+tick 16716 (uptime 16 s, TL=3256 TR=3331 BL=3057 BR=2427, ex=-45 ey=91) mode=TRACK sky=CLEAR load=58%
+# VER git=415eb87 build="Nov 24 2026 14:10:06" sysclk=100000000 task_tick_us=1 os=FreeRTOS-V11.1.0 tick_hz=1000 fw=QP/C-8.1.6
+[test] hog=0 lograte=50 block=0 owner=0 ctrl=0 onestep=0 snapto=0 flashfail=0 late_events=0
+tick 17716 (uptime 17 s, TL=3255 TR=3307 BL=3045 BR=2373, ex=-51 ey=95) mode=TRACK sky=CLEAR load=9%
+tick 18716 (uptime 18 s, TL=3264 TR=3313 BL=3049 BR=2605, ex=-32 ey=75) mode=TRACK sky=CLEAR load=7%
+tick 19716 (uptime 19 s, TL=3253 TR=3327 BL=3045 BR=2371, ex=-50 ey=97) mode=TRACK sky=CLEAR load=78%
+tick 20716 (uptime 20 s, TL=3249 TR=3311 BL=3041 BR=2427, ex=-45 ey=90) mode=TRACK sky=CLEAR load=7%
+tick 21716 (uptime 21 s, TL=3254 TR=3325 BL=3061 BR=2449, ex=-44 ey=88) mode=OVERCAST sky=CLEAR load=7%
+tick 22716 (uptime 22 s, TL=3275 TR=3368 BL=2970 BR=2457, ex=-34 ey=100) mode=TRACK sky=CLEAR load=60%
+tick 23716 (uptime 23 s, TL=3244 TR=3323 BL=3059 BR=2361, ex=-51 ey=95) mode=TRACK sky=CLEAR load=7%
+tick 24716 (uptime 24 s, TL=3281 TR=3363 BL=2973 BR=2389, ex=-41 ey=106) mode=TRACK sky=CLEAR load=7%
+tick 25716 (uptime 25 s, TL=3256 TR=3305 BL=3056 BR=2253, ex=-63 ey=105) mode=TRACK sky=CLEAR load=79%
+tick 26716 (uptime 26 s, TL=3255 TR=3307 BL=3041 BR=2327, ex=-55 ey=100) mode=TRACK sky=CLEAR load=7%
+# ST-Link VCP stall: host->target bytes not accepted

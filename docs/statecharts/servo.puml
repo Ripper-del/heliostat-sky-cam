@@ -1,0 +1,25 @@
+@startuml servo
+!pragma layout smetana
+title AO servo — власник ШІМ серво (App/Src/ao_servo.c)
+skinparam state {
+  BackgroundColor #FDF6E3
+  BorderColor #586E75
+}
+[*] --> off
+state powered {
+  powered : TARGET / az, el
+  powered : CMD(PERIOD) / ao_period_arm
+  state off {
+    off : PERIOD (20 мс) / лише облік
+    off : SERVO_PWR [!on] / ігнор
+  }
+  state on {
+    on : entry / ШІМ увімкнено (парк-положення)
+    on : exit / ШІМ вимкнено
+    on : PERIOD (20 мс) / крок до цілі
+    on : SERVO_PWR [on] / ігнор
+  }
+}
+off --> on : SERVO_PWR [on] / az, el = парк
+on --> off : SERVO_PWR [!on]
+@enduml

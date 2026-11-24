@@ -33,8 +33,8 @@
 /**
   * @brief This is the list of modules to be used in the HAL driver 
   */
-#define HAL_MODULE_ENABLED  
-#define HAL_ADC_MODULE_ENABLED
+#define HAL_MODULE_ENABLED   /* ядро HAL (HAL_Init, HAL_Delay) */
+#define HAL_ADC_MODULE_ENABLED   /* ADC1: 4 канали фоторезисторів-квадранта (PA0/PA1/PA4/PB0) */
 /* #define HAL_CAN_MODULE_ENABLED */
 /* #define HAL_CAN_LEGACY_MODULE_ENABLED */
 /* #define HAL_CRC_MODULE_ENABLED */
@@ -42,40 +42,40 @@
 /* #define HAL_CRYP_MODULE_ENABLED */
 /* #define HAL_DAC_MODULE_ENABLED */
 /* #define HAL_DCMI_MODULE_ENABLED */
-#define HAL_DMA_MODULE_ENABLED
+#define HAL_DMA_MODULE_ENABLED   /* потрібен як залежність HAL ADC/SPI/UART/I2C (типи DMA_HandleTypeDef); самі потоки DMA не використовуємо */
 /* #define HAL_DMA2D_MODULE_ENABLED */
 /* #define HAL_ETH_MODULE_ENABLED */
 /* #define HAL_ETH_LEGACY_MODULE_ENABLED */
-#define HAL_FLASH_MODULE_ENABLED
+#define HAL_FLASH_MODULE_ENABLED   /* потрібен HAL_RCC_ClockConfig() для затримок Flash (FLASH_LATENCY) при 100 МГц */
 /* #define HAL_NAND_MODULE_ENABLED */
 /* #define HAL_NOR_MODULE_ENABLED */
 /* #define HAL_PCCARD_MODULE_ENABLED */
 /* #define HAL_SRAM_MODULE_ENABLED */
 /* #define HAL_SDRAM_MODULE_ENABLED */
 /* #define HAL_HASH_MODULE_ENABLED */
-#define HAL_GPIO_MODULE_ENABLED
-#define HAL_EXTI_MODULE_ENABLED
-#define HAL_I2C_MODULE_ENABLED
+#define HAL_GPIO_MODULE_ENABLED   /* усі піни: LED, кнопка, CS флешу, SCCB bit-bang, MCO, alternate functions */
+/* #define HAL_EXTI_MODULE_ENABLED */   /* не використовуємо зовнішні переривання: вимкнено */
+#define HAL_I2C_MODULE_ENABLED   /* I2C1 (PB8/PB9): MPU-6050 */
 /* #define HAL_SMBUS_MODULE_ENABLED */
 /* #define HAL_I2S_MODULE_ENABLED */
 /* #define HAL_IWDG_MODULE_ENABLED */
 /* #define HAL_LTDC_MODULE_ENABLED */
 /* #define HAL_DSI_MODULE_ENABLED */
-#define HAL_PWR_MODULE_ENABLED
+#define HAL_PWR_MODULE_ENABLED   /* масштабування напруги Scale1 для 100 МГц (HAL_PWREx), RM0383 */
 /* #define HAL_QSPI_MODULE_ENABLED */
-#define HAL_RCC_MODULE_ENABLED
+#define HAL_RCC_MODULE_ENABLED   /* тактування HSI -> PLL -> 100 МГц, MCO1 (XCLK камери) */
 /* #define HAL_RNG_MODULE_ENABLED */
 /* #define HAL_RTC_MODULE_ENABLED */
 /* #define HAL_SAI_MODULE_ENABLED */
 /* #define HAL_SD_MODULE_ENABLED */
-#define HAL_SPI_MODULE_ENABLED
+#define HAL_SPI_MODULE_ENABLED   /* SPI2 (PB13/14/15): W25Q64, mode 0 */
 /* #define HAL_TIM_MODULE_ENABLED */
-#define HAL_UART_MODULE_ENABLED
+#define HAL_UART_MODULE_ENABLED   /* USART2 (PA2/PA3): лог і CLI через ST-Link VCP */
 /* #define HAL_USART_MODULE_ENABLED */
 /* #define HAL_IRDA_MODULE_ENABLED */
 /* #define HAL_SMARTCARD_MODULE_ENABLED */
 /* #define HAL_WWDG_MODULE_ENABLED */
-#define HAL_CORTEX_MODULE_ENABLED
+#define HAL_CORTEX_MODULE_ENABLED   /* SysTick (HAL_Delay/HAL_GetTick), NVIC */
 /* #define HAL_PCD_MODULE_ENABLED */
 /* #define HAL_HCD_MODULE_ENABLED */
 /* #define HAL_FMPI2C_MODULE_ENABLED */
