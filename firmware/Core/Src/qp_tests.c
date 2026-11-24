@@ -131,7 +131,7 @@ int product_test(int argc, char **argv)
         return 0;
     }
     else if (!strcmp(t, "AUTO")) {
-        a_idx = 0; a_phase = 0;
+        a_idx = argc > 1 ? v : 0; a_phase = 0;                      /* TEST AUTO n — почати з n-го сценарію */
         printf("[auto] %u scenarios\r\n", (unsigned)(sizeof autos / sizeof autos[0]));
         Cli_test_arm(meas_test_step());
         return 0;

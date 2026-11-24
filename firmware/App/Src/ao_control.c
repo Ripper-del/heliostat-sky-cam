@@ -13,7 +13,7 @@ typedef struct {
     tracker_t trk;
     uint16_t q[4];
     sky_t    sky;
-    uint8_t  flash_ok, n;
+    uint8_t  flash_ok, n, work_n;
     uint32_t last_suspect_ms, last_user_ms, last_snap_ms;
 } Control;
 static Control l_control;
@@ -114,7 +114,7 @@ static QState Control_running(Control *me, QEvt const *e)
     switch (e->sig) {
     case SAMPLE_SIG:                                   /* останній відлік; режим рахується за періодом, як у ЛР4 */
         memcpy(me->q, Q_EVT_CAST(QuadEvt)->q, sizeof me->q);
-        if (g_test.ctrl_work_ms) meas_spin_ms(g_test.ctrl_work_ms);       /* сценарій 3: довгий крок без блокування */
+        if (g_test.ctrl_work_ms && ++me->work_n >= 10U) { me->work_n = 0; meas_spin_ms(g_test.ctrl_work_ms); }   /* сценарій 3: довгий крок (кожен 10-й SAMPLE) */
         return Q_HANDLED();
     case SKY_SIG: {                                    /* клас неба від camera (FR-13) і перевірка «датчик бреше» */
         SkyEvt const *s = Q_EVT_CAST(SkyEvt);
