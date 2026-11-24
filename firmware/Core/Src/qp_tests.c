@@ -50,18 +50,18 @@ typedef struct { char const *name; uint16_t sec; uint8_t keep_stats; void (*set)
 static void a_none(void)    { }
 static void a_lograte(void) { g_test.log_every_ms = 50; }
 static void a_inv(void)     { g_test.log_every_ms = 50; g_test.hog_ms = 50; }
-static void a_block(void)   { g_test.log_every_ms = 50; g_test.block_log = 1; }
-static void a_owner(void)   { g_test.log_every_ms = 50; g_test.owner_wait_ms = 5; }
-static void a_ctrl(void)    { g_test.ctrl_work_ms = 30; }
-static void a_onestep(void) { g_test.log_every_ms = 50; g_test.one_step_save = 1; }
-static void a_starve(void)
+static __attribute__((unused)) void a_block(void)   { g_test.log_every_ms = 50; g_test.block_log = 1; }
+static __attribute__((unused)) void a_owner(void)   { g_test.log_every_ms = 50; g_test.owner_wait_ms = 5; }
+static __attribute__((unused)) void a_ctrl(void)    { g_test.ctrl_work_ms = 30; }
+static __attribute__((unused)) void a_onestep(void) { g_test.log_every_ms = 50; g_test.one_step_save = 1; }
+static __attribute__((unused)) void a_starve(void)
 {
     CmdEvt *c = Q_NEW_X(CmdEvt, 2U, CMD_SIG);
     if (c) { c->code = CMD_FAIL_STEP; c->a = 2000; if (!QACTIVE_POST_X(AO_Button, &c->super, 1U, 0)) { } }
 }
-static void a_snapto(void)  { g_test.snap_timeout_ms = 1000; }
-static void a_ffon(void)    { g_test.log_every_ms = 100; g_test.flash_fail = 1; }
-static void a_ffoff(void)   { g_test.log_every_ms = 100; g_test.flash_fail = 0; }
+static __attribute__((unused)) void a_snapto(void)  { g_test.snap_timeout_ms = 1000; }
+static __attribute__((unused)) void a_ffon(void)    { g_test.log_every_ms = 100; g_test.flash_fail = 1; }
+static __attribute__((unused)) void a_ffoff(void)   { g_test.log_every_ms = 100; g_test.flash_fail = 0; }
 static const auto_t autos[] = {
     { "base",    30, 0, a_none },
     { "lograte", 30, 0, a_lograte },
