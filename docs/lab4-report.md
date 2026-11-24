@@ -396,4 +396,4 @@ Flash +19,5 КБ: ≈ 16,9 КБ — код ядра (`tasks.c` найбільш�
 
 ## 14. Відеозвіт (2–3 хв)
 
-Посилання на відео: ПОСИЛАННЯ_НА_ВІДЕО
+Посилання на відео: https://drive.google.com/drive/folders/1hXphGatK6j-2GWOnMWaTJKAtgvG1KWl8?usp=sharing
